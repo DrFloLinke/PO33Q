@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Probit – Application | PO33Q: Determinants of Democracy -  Analysing Emergence, Survival, and Fall</title>
+  <meta name="description" content="PO33Q: Determinants of Democracy - Analysing Emergence, Survival, and Fall" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Probit – Application | PO33Q: Determinants of Democracy -  Analysing Emergence, Survival, and Fall" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Probit – Application | PO33Q: Determinants of Democracy -  Analysing Emergence, Survival, and Fall" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="probit---theory.html"/>
+<link rel="next" href="exercises.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="website-features.html"><a href="website-features.html"><i class="fa fa-check"></i>Website Features</a></li>
+<li class="chapter" data-level="" data-path="accessibility.html"><a href="accessibility.html"><i class="fa fa-check"></i>Accessibility</a></li>
+<li class="part"><span><b>Week 1</b></span></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i>Introduction to R</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#how-data-are-organised"><i class="fa fa-check"></i>How Data are organised</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-rstudio-installation"><i class="fa fa-check"></i>R &amp; RStudio – Installation</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r---getting-started"><i class="fa fa-check"></i>R - Getting Started</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rscript"><i class="fa fa-check"></i>RScript</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rscript-structure"><i class="fa fa-check"></i>RScript Structure</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#first-steps-in-r"><i class="fa fa-check"></i>First Steps in R</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-working-directory"><i class="fa fa-check"></i>The Working Directory</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-packages"><i class="fa fa-check"></i>R Packages</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#working-with-your-data-set"><i class="fa fa-check"></i>Working with Your Data Set</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#opening"><i class="fa fa-check"></i>Opening</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#viewing-the-data"><i class="fa fa-check"></i>Viewing the Data</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#variable-types-in-r"><i class="fa fa-check"></i>Variable Types in R</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#descriptive-statistics"><i class="fa fa-check"></i>Descriptive Statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#data-manipulation"><i class="fa fa-check"></i>Data Manipulation</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#recoding"><i class="fa fa-check"></i>Recoding</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#saving"><i class="fa fa-check"></i>Saving</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-real-data-set"><i class="fa fa-check"></i>The Real Data Set</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#book-recommendations"><i class="fa fa-check"></i>Book Recommendations</a></li>
+</ul></li>
+<li class="part"><span><b>Week 2</b></span></li>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html"><i class="fa fa-check"></i>Linear Regression - Theory</a>
+<ul>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#what-is-it"><i class="fa fa-check"></i>What is it?</a></li>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#ordinary-least-squares-ols"><i class="fa fa-check"></i>Ordinary Least Squares (OLS)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html"><i class="fa fa-check"></i>Linear Regression – Application</a>
+<ul>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-basic-command"><i class="fa fa-check"></i>The Basic Command</a></li>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#interpreting-the-output"><i class="fa fa-check"></i>Interpreting the Output</a>
+<ul>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-number-of-observations"><i class="fa fa-check"></i>The Number of Observations</a></li>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-intercept"><i class="fa fa-check"></i>The Intercept</a></li>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-slope-coefficient"><i class="fa fa-check"></i>The Slope Coefficient</a></li>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-all-important-p-value-in-regression"><i class="fa fa-check"></i>The all-important p-value in Regression</a></li>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-goodness-of-fit-r-squared"><i class="fa fa-check"></i>The Goodness of Fit (R-Squared)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#choosing-variables"><i class="fa fa-check"></i>Choosing Variables</a>
+<ul>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#can-i-choose-more-than-one-independent-variable"><i class="fa fa-check"></i>Can I choose more than one independent variable?</a></li>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#ceteris"><i class="fa fa-check"></i>Ceteris Paribus</a></li>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#parsimony"><i class="fa fa-check"></i>Parsimony</a></li>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#r-squared-again"><i class="fa fa-check"></i>R-Squared Again</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#literature-recommendations"><i class="fa fa-check"></i>Literature Recommendations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="important-disclaimer.html"><a href="important-disclaimer.html"><i class="fa fa-check"></i>Important Disclaimer</a></li>
+<li class="part"><span><b>Week 3</b></span></li>
+<li class="chapter" data-level="" data-path="probit---theory.html"><a href="probit---theory.html"><i class="fa fa-check"></i>Probit - Theory</a>
+<ul>
+<li class="chapter" data-level="" data-path="probit---theory.html"><a href="probit---theory.html#probit---what-is-it"><i class="fa fa-check"></i>Probit - What is it?</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html"><i class="fa fa-check"></i>Probit – Application</a>
+<ul>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#the-command"><i class="fa fa-check"></i>The Command</a></li>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#the-coefficients"><i class="fa fa-check"></i>The Coefficients</a></li>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#pedicted-probabilities"><i class="fa fa-check"></i>Pedicted Probabilities</a>
+<ul>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#setting-the-x-values"><i class="fa fa-check"></i>Setting the x-values</a></li>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#predicting-the-probability"><i class="fa fa-check"></i>Predicting the Probability</a></li>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#all-predicted-probabilities"><i class="fa fa-check"></i>All Predicted Probabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#how-to-report-results"><i class="fa fa-check"></i>How to Report Results</a>
+<ul>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#stargazer"><i class="fa fa-check"></i>Stargazer</a></li>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#multiple-independent-variables"><i class="fa fa-check"></i>Multiple Independent Variables</a></li>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#predicting-the-probability-1"><i class="fa fa-check"></i>Predicting the Probability</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#literature-recommendations-1"><i class="fa fa-check"></i>Literature Recommendations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i>Exercises</a></li>
+<li class="part"><span><b>Week 4</b></span></li>
+<li class="chapter" data-level="" data-path="missing-data.html"><a href="missing-data.html"><i class="fa fa-check"></i>Missing Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="missing-data.html"><a href="missing-data.html#options-in-r"><i class="fa fa-check"></i>Options in R</a></li>
+<li class="chapter" data-level="" data-path="missing-data.html"><a href="missing-data.html#methodological-implications"><i class="fa fa-check"></i>Methodological Implications</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="model-building.html"><a href="model-building.html"><i class="fa fa-check"></i>Model Building</a>
+<ul>
+<li class="chapter" data-level="" data-path="model-building.html"><a href="model-building.html#control-variables"><i class="fa fa-check"></i>Control Variables</a></li>
+<li class="chapter" data-level="" data-path="model-building.html"><a href="model-building.html#literature-recommendations-2"><i class="fa fa-check"></i>Literature Recommendations</a></li>
+</ul></li>
+<li class="part"><span><b>Week 5</b></span></li>
+<li class="chapter" data-level="" data-path="consolidation.html"><a href="consolidation.html"><i class="fa fa-check"></i>Consolidation</a>
+<ul>
+<li class="chapter" data-level="" data-path="consolidation.html"><a href="consolidation.html#the-world-value-survey"><i class="fa fa-check"></i>The World-Value Survey</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html"><i class="fa fa-check"></i>Exercises</a>
+<ul>
+<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html#descriptives"><i class="fa fa-check"></i>Descriptives</a></li>
+<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html#linear-regression"><i class="fa fa-check"></i>Linear Regression</a></li>
+<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html#probit"><i class="fa fa-check"></i>Probit</a></li>
+</ul></li>
+<li class="part"><span><b>Week 7</b></span></li>
+<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html"><i class="fa fa-check"></i>Markov Transition Models</a>
+<ul>
+<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#time-series-cross-sectional-data"><i class="fa fa-check"></i>Time Series, Cross-Sectional Data</a></li>
+<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#what-are-markov-transition-models"><i class="fa fa-check"></i>What are Markov Transition Models?</a>
+<ul>
+<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#conditional-probabilities"><i class="fa fa-check"></i>Conditional Probabilities</a></li>
+<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#democratic-emergence"><i class="fa fa-check"></i>Democratic Emergence</a></li>
+<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#lagging-the-independent-variables"><i class="fa fa-check"></i>Lagging the Independent Variables</a></li>
+<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#subsetting-the-data-for-conditional-probabilities"><i class="fa fa-check"></i>Subsetting the Data for Conditional Probabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#democratic-emergence-1"><i class="fa fa-check"></i>Democratic Emergence</a></li>
+<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#democratic-survival"><i class="fa fa-check"></i>Democratic Survival</a></li>
+<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#interpretation"><i class="fa fa-check"></i>Interpretation</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html"><i class="fa fa-check"></i>Model Fit in Binary Response Models</a>
+<ul>
+<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#how-to-measure-model-fit"><i class="fa fa-check"></i>How to Measure Model Fit</a>
+<ul>
+<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#what-is-it-1"><i class="fa fa-check"></i>What is it?</a></li>
+<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#r"><i class="fa fa-check"></i>R</a></li>
+<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#emergence-full-model"><i class="fa fa-check"></i>Emergence: Full Model</a></li>
+<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#survival"><i class="fa fa-check"></i>Survival</a></li>
+<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#survival-full-model"><i class="fa fa-check"></i>Survival: Full Model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html"><i class="fa fa-check"></i>Joint Estimation of Emergence and Survival</a>
+<ul>
+<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html#rationale"><i class="fa fa-check"></i>Rationale</a></li>
+<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html#example"><i class="fa fa-check"></i>Example</a></li>
+<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html#application-in-r"><i class="fa fa-check"></i>Application in R</a></li>
+<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html#literature-recommendations-3"><i class="fa fa-check"></i>Literature Recommendations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i>Exercises</a>
+<ul>
+<li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html#the-data-set"><i class="fa fa-check"></i>The Data Set</a></li>
+<li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html#basics"><i class="fa fa-check"></i>Basics</a></li>
+<li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html#advanced"><i class="fa fa-check"></i>Advanced</a></li>
+</ul></li>
+<li class="part"><span><b>Downloads</b></span></li>
+<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html"><i class="fa fa-check"></i>Downloads</a>
+<ul>
+<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html#documents"><i class="fa fa-check"></i>Documents</a></li>
+<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html#data-sets-in-alphabetical-order"><i class="fa fa-check"></i>Data Sets (in alphabetical order)</a></li>
+<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html#r-scripts"><i class="fa fa-check"></i>R Scripts</a></li>
+</ul></li>
+<li class="part"><span><b>List of References</b></span></li>
+<li class="chapter" data-level="" data-path="list-of-references.html"><a href="list-of-references.html"><i class="fa fa-check"></i>List of References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PO33Q: Determinants of Democracy - <br>Analysing Emergence, Survival, and Fall</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="probit-application" class="section level1 unnumbered hasAnchor">
+<h1>Probit – Application<a href="probit-application.html#probit-application" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="the-command" class="section level2 unnumbered hasAnchor">
+<h2>The Command<a href="probit-application.html#the-command" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The command to run a probit is as follows:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="probit-application.html#cb38-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">glm</span>(depvar <span class="sc">~</span> indepvar</span>
+<span id="cb38-2"><a href="probit-application.html#cb38-2" tabindex="-1"></a>                     <span class="at">data =</span> dataframe, </span>
+<span id="cb38-3"><a href="probit-application.html#cb38-3" tabindex="-1"></a>                     <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span></code></pre></div>
+<p><code>glm</code> stands for “General Linear Model”. We then specify a model in the same way as last week, stating the dependent variable first, followed by a tilde and then the independent variable(s). We complete the command by naming the data frame we wish to use and selecting the model type, in our case it is a probit model which is binomial (our dependent variable only has two possible outcomes).</p>
+<p>Once again, let us do a specific example with the data set “Europe” in the year 2000. First set the working directory for today’s seminar:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="probit-application.html#cb39-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Warwick/Modules/PO33Q/Week 3&quot;</span>)</span></code></pre></div>
+<p>and then load the data set into a data frame called <code>world</code> which we subset to the year 2000.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="probit-application.html#cb40-1" tabindex="-1"></a>world <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;files/Week 3/world.csv&quot;</span>)</span>
+<span id="cb40-2"><a href="probit-application.html#cb40-2" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="probit-application.html#cb40-3" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb40-4"><a href="probit-application.html#cb40-4" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="probit-application.html#cb40-5" tabindex="-1"></a>world2000 <span class="ot">&lt;-</span> <span class="fu">filter</span>(world, year<span class="sc">==</span><span class="dv">2000</span>)</span></code></pre></div>
+<p>For a probit regression, we cannot use the Polity V scale any more, because it is continuous, and not binary. We therefore switch the democracy coding to index created by Boix, Miller &amp; Rosato in 2018. We will use life expectancy as our independent variable, and examine the situation in the year 2000. To do this, we call:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="probit-application.html#cb41-1" tabindex="-1"></a>probit <span class="ot">&lt;-</span> <span class="fu">glm</span>(democracy <span class="sc">~</span> life, </span>
+<span id="cb41-2"><a href="probit-application.html#cb41-2" tabindex="-1"></a>              <span class="at">data =</span> world2000, </span>
+<span id="cb41-3"><a href="probit-application.html#cb41-3" tabindex="-1"></a>              <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span></code></pre></div>
+<p>This should lead to the following results:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="probit-application.html#cb42-1" tabindex="-1"></a><span class="fu">summary</span>(probit)</span>
+<span id="cb42-2"><a href="probit-application.html#cb42-2" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="probit-application.html#cb42-3" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb42-4"><a href="probit-application.html#cb42-4" tabindex="-1"></a><span class="fu">glm</span>(<span class="at">formula =</span> democracy <span class="sc">~</span> life, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), </span>
+<span id="cb42-5"><a href="probit-application.html#cb42-5" tabindex="-1"></a>    <span class="at">data =</span> world2000)</span>
+<span id="cb42-6"><a href="probit-application.html#cb42-6" tabindex="-1"></a></span>
+<span id="cb42-7"><a href="probit-application.html#cb42-7" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
+<span id="cb42-8"><a href="probit-application.html#cb42-8" tabindex="-1"></a>            Estimate Std. Error z value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>z<span class="sc">|</span>)    </span>
+<span id="cb42-9"><a href="probit-application.html#cb42-9" tabindex="-1"></a>(Intercept) <span class="sc">-</span><span class="fl">3.73066</span>    <span class="fl">0.72586</span>  <span class="sc">-</span><span class="fl">5.140</span> <span class="fl">2.75e-07</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb42-10"><a href="probit-application.html#cb42-10" tabindex="-1"></a>life         <span class="fl">0.05793</span>    <span class="fl">0.01078</span>   <span class="fl">5.375</span> <span class="fl">7.66e-08</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb42-11"><a href="probit-application.html#cb42-11" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb42-12"><a href="probit-application.html#cb42-12" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">&#39;***&#39;</span> <span class="fl">0.001</span> <span class="st">&#39;**&#39;</span> <span class="fl">0.01</span> <span class="st">&#39;*&#39;</span> <span class="fl">0.05</span> <span class="st">&#39;.&#39;</span> <span class="fl">0.1</span> <span class="st">&#39; &#39;</span> <span class="dv">1</span></span>
+<span id="cb42-13"><a href="probit-application.html#cb42-13" tabindex="-1"></a></span>
+<span id="cb42-14"><a href="probit-application.html#cb42-14" tabindex="-1"></a>(Dispersion parameter <span class="cf">for</span> binomial family taken to be <span class="dv">1</span>)</span>
+<span id="cb42-15"><a href="probit-application.html#cb42-15" tabindex="-1"></a></span>
+<span id="cb42-16"><a href="probit-application.html#cb42-16" tabindex="-1"></a>    Null deviance<span class="sc">:</span> <span class="fl">252.11</span>  on <span class="dv">182</span>  degrees of freedom</span>
+<span id="cb42-17"><a href="probit-application.html#cb42-17" tabindex="-1"></a>Residual deviance<span class="sc">:</span> <span class="fl">220.10</span>  on <span class="dv">181</span>  degrees of freedom</span>
+<span id="cb42-18"><a href="probit-application.html#cb42-18" tabindex="-1"></a>  (<span class="dv">8</span> observations deleted due to missingness)</span>
+<span id="cb42-19"><a href="probit-application.html#cb42-19" tabindex="-1"></a>AIC<span class="sc">:</span> <span class="fl">224.1</span></span>
+<span id="cb42-20"><a href="probit-application.html#cb42-20" tabindex="-1"></a></span>
+<span id="cb42-21"><a href="probit-application.html#cb42-21" tabindex="-1"></a>Number of Fisher Scoring iterations<span class="sc">:</span> <span class="dv">4</span></span></code></pre></div>
+<hr />
+</div>
+<div id="the-coefficients" class="section level2 unnumbered hasAnchor">
+<h2>The Coefficients<a href="probit-application.html#the-coefficients" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The coefficients are displayed in the results as follows:</p>
+<p><img src="files/Week%203/coef.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>But how do we interpret them? As you have seen in the Theory section above, the relationship between our independent variable and the probability of democracy is not linear: the curve was s-shaped, so that the increment in probability is not the same for, say moving from <span class="math inline">\(x_{1}\)</span> to <span class="math inline">\(x_{2}\)</span> and from <span class="math inline">\(x_{2}\)</span> to <span class="math inline">\(x_{3}\)</span>. For illustration see the red bars in the following Figure:</p>
+<p><img src="files/Week%203/probability.png" width="50%" style="display: block; margin: auto;" /></p>
+<p>What we therefore need to do in the world of probit, is to evaluate the probability at individual values of <span class="math inline">\(x_{i}\)</span>, or put differently, assess how much of the bell-shaped curve has slid across our cut-off point <span class="math inline">\(\tau\)</span> (tau) at a particular point <span class="math inline">\(x_{i}\)</span>. And this brings us to predicted probabilities.</p>
+<hr />
+</div>
+<div id="pedicted-probabilities" class="section level2 unnumbered hasAnchor">
+<h2>Pedicted Probabilities<a href="probit-application.html#pedicted-probabilities" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Once we have estimated the model, we have determined the shape of the s-shaped curve at the start of the chapter. What we now need to do, is to evaluate the probability on the y-axis for different values on the x-axis. In our case this is the variable <code>life</code>.</p>
+<div id="setting-the-x-values" class="section level3 unnumbered hasAnchor">
+<h3>Setting the x-values<a href="probit-application.html#setting-the-x-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let us first get a basic overview of the variable <code>life</code>. We can do this by calling</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="probit-application.html#cb43-1" tabindex="-1"></a><span class="fu">summary</span>(world2000<span class="sc">$</span>life)</span>
+<span id="cb43-2"><a href="probit-application.html#cb43-2" tabindex="-1"></a>   Min. <span class="dv">1</span>st Qu.  Median    Mean <span class="dv">3</span>rd Qu.    Max.    NA<span class="st">&#39;s </span></span>
+<span id="cb43-3"><a href="probit-application.html#cb43-3" tabindex="-1"></a><span class="st">  44.52   59.46   69.58   66.49   73.84   81.08       8 </span></span></code></pre></div>
+<p>So we know that the average life expectancy in the world in the year 2000 was 66.49 years,with a minimum of 44.52 years, and a maximum of 81 years. We also have eight missing observations (<code>NA</code>) which we need to exclude from the following by setting <code>na.rm=TRUE</code><a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>, as R is otherwise unable to calculate descriptive measures within the <code>setx</code> function, such as the mean. Let us set <code>life</code> to its mean now, by typing:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="probit-application.html#cb44-1" tabindex="-1"></a>setx <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">life=</span><span class="fl">66.49</span>)</span></code></pre></div>
+<p>If you want to change this value for calculations later on, you simply set different values in the <code>setx</code> dataframe or specify a new one).</p>
+<p>We now have the shape of the probability curve, and we have agreed on a point on the x-axis. We are finally ready to have a look at the probability to be a democracy at this point.</p>
+</div>
+<div id="predicting-the-probability" class="section level3 unnumbered hasAnchor">
+<h3>Predicting the Probability<a href="probit-application.html#predicting-the-probability" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The quantity of interest we are interested in is the probability of being a democracy. To calculate this quantity of interest, we use the function <code>predict()</code> and specify within this function for which model we want to calculate the quantity, and the data frame in which we specified the value of our x-variable. In our case this variable is <code>life</code> and we have assigned the mean value to an object called <code>setx</code> earlier.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="probit-application.html#cb45-1" tabindex="-1"></a><span class="fu">predict</span>(probit, setx, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb45-2"><a href="probit-application.html#cb45-2" tabindex="-1"></a>        <span class="dv">1</span> </span>
+<span id="cb45-3"><a href="probit-application.html#cb45-3" tabindex="-1"></a><span class="fl">0.5481741</span> </span></code></pre></div>
+<p>Remember that we have put the value of life expectancy at the mean. For this level of life expectancy R returns to us a probability of being a democracy at 54.82%. Contrarily, this means that probability to be an autocracy is 45.18% (the two probabilities always sum up to 1).</p>
+<p>Now we set life expectancy to its minimum</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="probit-application.html#cb46-1" tabindex="-1"></a>setx <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">life=</span><span class="fu">min</span>(world2000<span class="sc">$</span>life, <span class="at">na.rm =</span> T))</span></code></pre></div>
+<p>and calculate the quantity of interest again. Our probabilities have changed very drastically (ensure you get the same results before proceeding):</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="probit-application.html#cb47-1" tabindex="-1"></a><span class="fu">predict</span>(probit, setx, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb47-2"><a href="probit-application.html#cb47-2" tabindex="-1"></a>       <span class="dv">1</span> </span>
+<span id="cb47-3"><a href="probit-application.html#cb47-3" tabindex="-1"></a><span class="fl">0.124708</span> </span></code></pre></div>
+<p>If we set life expectancy to its maximum (how?), then we receive the following regime probabilities:</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="probit-application.html#cb48-1" tabindex="-1"></a><span class="fu">predict</span>(probit, setx, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb48-2"><a href="probit-application.html#cb48-2" tabindex="-1"></a>        <span class="dv">1</span> </span>
+<span id="cb48-3"><a href="probit-application.html#cb48-3" tabindex="-1"></a><span class="fl">0.8329802</span> </span></code></pre></div>
+<p>Now we can make statements such as:</p>
+<ul>
+<li>In 2000, a country’s probability to be a democracy with average life expectancy was 54.82%.</li>
+<li>At the minimum life expectancy of 44.52 years, this probability drops by 42.35%age points to 12.47%.</li>
+<li>As such, a country in 2000 at minimum life expectancy would more likely be an autocracy than a democracy (why?).</li>
+</ul>
+</div>
+<div id="all-predicted-probabilities" class="section level3 unnumbered hasAnchor">
+<h3>All Predicted Probabilities<a href="probit-application.html#all-predicted-probabilities" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If you want to create a graph which depicts the predicted probability for all value sof your independent variable, then you can download the RScript for creating such a graph <a href="files/RScripts/PO33Q_Week%203_Predicted%20Probability%20Graph.R">here</a>. It will look like this:</p>
+<p><img src="main_files/figure-html/unnamed-chunk-71-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<hr />
+</div>
+</div>
+<div id="how-to-report-results" class="section level2 unnumbered hasAnchor">
+<h2>How to Report Results<a href="probit-application.html#how-to-report-results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The question is now: how do you report all of this in an article, or closer to home, in your assessment? Let us start by calculating a model which assesses the impact of per capita GDP on the probability to be a democracy in 2000, worldwide. The R commands and output look like this:</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="probit-application.html#cb49-1" tabindex="-1"></a>probit <span class="ot">&lt;-</span> <span class="fu">glm</span>(democracy <span class="sc">~</span> gdppc,</span>
+<span id="cb49-2"><a href="probit-application.html#cb49-2" tabindex="-1"></a>                <span class="at">data =</span> world2000, </span>
+<span id="cb49-3"><a href="probit-application.html#cb49-3" tabindex="-1"></a>                <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span>
+<span id="cb49-4"><a href="probit-application.html#cb49-4" tabindex="-1"></a></span>
+<span id="cb49-5"><a href="probit-application.html#cb49-5" tabindex="-1"></a><span class="fu">summary</span>(probit)</span></code></pre></div>
+<pre><code>
+Call:
+glm(formula = democracy ~ gdppc, family = binomial(link = &quot;probit&quot;), 
+    data = world2000)
+
+Coefficients:
+              Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept) -1.621e-01  1.161e-01  -1.396    0.163    
+gdppc        5.128e-05  1.309e-05   3.918 8.93e-05 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 248.48  on 180  degrees of freedom
+Residual deviance: 225.62  on 179  degrees of freedom
+  (10 observations deleted due to missingness)
+AIC: 229.62
+
+Number of Fisher Scoring iterations: 5</code></pre>
+<p>Now, <strong>please, please</strong> never, ever copy this into an article or an assessment, as every time you do this, a little part of me dies. Make the effort of reporting the results in a nice and neat Table, that only contains all relevant information, communicates it in an accessible form, and is clearly labelled. The output above, processed properly, would look like this:</p>
+<center>
+<p> 
+ </p>
+<table style="text-align:center">
+<caption>
+<strong><span id="tab:reg1"><span id="tab:reg1">Table 2: </span></span>Influence of per capita GDP on Democracy</strong>
+</caption>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="1" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Democracy
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+per capita GDP
+</td>
+<td>
+0.058<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.011)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+-3.731<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.726)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+183
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td style="text-align:right">
+<code>*</code>p&lt;0.1; <code>**</code>p&lt;0.05; <code>***</code>p&lt;0.01
+</td>
+</tr>
+</table>
+ 
+ 
+</center>
+<p>You see, this table manages to convey clearly the relationship we are assessing, the label of the independent variable (not in the form of cryptic variable names), the value of the intercept, the value of the slope coefficient, their respective p-value, and the number of observations. It also has an informative caption underneath and is properly labelled (so that it can be cross-referenced in the text). As such, the table itself could already communicate the main take-away message without somebody looking at the text. This needs to be the goal: the table, or figure needs to be able to communicate the message without having to look at the text. In turn, the text needs to be able to communicate the message on its own without looking at the table. But both need to say the same thing.</p>
+<p>After you have reported the results of the regression output in this way, you can then proceed to interpret (in the text) the transition probabilities as discussed above. Again, you might wish to sum up the main results in tabular format.</p>
+<div id="stargazer" class="section level3 unnumbered hasAnchor">
+<h3>Stargazer<a href="probit-application.html#stargazer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Rather than setting tables manually in Excel, or even worse in Word (it basically violates all standards of professional table formatting), you can let R do this work for you. All you need is a magical package called <code>stargazer</code>. I have provided some <a href="files/RScripts/Sample%20Stargazer.R">Sample Stargazer Code</a> in the <a href="https://drfloreiche.github.io/PO33Q/downloads.html">Downloads Section</a>. Open it now, and try to understand it, I have annotated it. But here are some pointers:</p>
+<div class="bulb">
+<p>The <span style="color:black"><code>stargazer</code></span> function needs to contain, in order: the name of the R object where you stored the regression results, the option <span style="color:black"><code>header=F</code></span> to suppress the annoying immortalisation of the author, the option <span style="color:black"><code>type="html"</code></span>, and the option <span style="color:black"><code>out="documentname.doc"</code></span> which places a word document with that file name in your working directory.</p>
+</div>
+<div class="warning">
+<p>Should you use MS Word to write your essay and your essay is saved in your working directory, <strong>do not</strong> save the table document under the same name as your essay, as R will overwrite it and it will be gone forever.</p>
+</div>
+<p>Beyond these basic elements I have added some lines in the sample code to improve the table. For example, I replaced the variable names with the variable labels, and <a href="www.rdocumentation.org/packages/stargazer/versions/5.2.3/topics/stargazer_stat_code_list">suppressed unwanted statistics</a>. You could also add a name for the model, or give the table a title. There is some good documenttation available for this on <a href="www.jakeruss.com/cheatsheets/stargazer/">this cheat sheet</a>.</p>
+<p>It is worth investing some time into this. There is a learning curve at the beginning, but it will make your life so much easier further down the line.</p>
+</div>
+<div id="multiple-independent-variables" class="section level3 unnumbered hasAnchor">
+<h3>Multiple Independent Variables<a href="probit-application.html#multiple-independent-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As in multiple linear regression, you can also have multiple independent variables in a probit model. Schematically this would look as follows:</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="probit-application.html#cb51-1" tabindex="-1"></a>probit <span class="ot">&lt;-</span> <span class="fu">glm</span>(depvar <span class="sc">~</span> indepvar1 <span class="sc">+</span> indepvar2 <span class="sc">+</span> indepvar3, </span>
+<span id="cb51-2"><a href="probit-application.html#cb51-2" tabindex="-1"></a>              <span class="at">data =</span> dataframe, </span>
+<span id="cb51-3"><a href="probit-application.html#cb51-3" tabindex="-1"></a>              <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), </span></code></pre></div>
+<p>The fun starts when you begin to calculate probabilities for different values for all of these independent variables.</p>
+<div id="setting-the-x-values-1" class="section level4 unnumbered hasAnchor">
+<h4>Setting the x-values<a href="probit-application.html#setting-the-x-values-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>You can set the value for each variable individually, such as in this little example:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="probit-application.html#cb52-1" tabindex="-1"></a>setx <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">gdppc=</span><span class="fu">min</span>(world2000<span class="sc">$</span>gdppc, <span class="at">na.rm =</span> T),</span>
+<span id="cb52-2"><a href="probit-application.html#cb52-2" tabindex="-1"></a>                  <span class="at">life=</span><span class="fl">66.49</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="predicting-the-probability-1" class="section level3 unnumbered hasAnchor">
+<h3>Predicting the Probability<a href="probit-application.html#predicting-the-probability-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This is very much the same as above with one independent variable. It is crucial to remember which variables you have set at which value, so that you can interpret the probability values correctly. As in linear regression, the interpretation of individual variables is ceteris paribus. It therefore makes sense, if you wish to isolate the effect of one, single variable, only to vary the values of that variable, and to leave all the other ones the same. If you varied two variables at the same time, for example, you would no doubt see a change in probability, but you could not attribute it to a single independent variable, any more.</p>
+<hr />
+</div>
+</div>
+<div id="literature-recommendations-1" class="section level2 unnumbered hasAnchor">
+<h2>Literature Recommendations<a href="probit-application.html#literature-recommendations-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><a href="https://warwick.summon.serialssolutions.com/#!/search/document?pn=1&amp;ho=t&amp;include.ft.matches=f&amp;fvf=ContentType,Newspaper%20Article,t%7CContentType,Book%20Review,t&amp;l=en-UK&amp;q=fogarty%20social%20science&amp;id=FETCHMERGED-warwick_catalog_b396978733"><strong><span class="citation">Fogarty (2023)</span></strong></a>: Chapter 13, pp. 268-295</li>
+<li><a href="https://warwick.summon.serialssolutions.com/#!/search/document?pn=1&amp;ho=t&amp;include.ft.matches=f&amp;fvf=ContentType,Newspaper%20Article,t%7CContentType,Book%20Review,t&amp;l=en-UK&amp;q=stinerock%20r&amp;id=FETCHMERGED-warwick_catalog_b396975143"><strong><span class="citation">Stinerock (2022)</span></strong></a>: Section 13.12</li>
+<li><a href="https://warwick.summon.serialssolutions.com/#!/search/document?pn=1&amp;ho=t&amp;include.ft.matches=f&amp;fvf=ContentType,Newspaper%20Article,t%7CContentType,Book%20Review,t&amp;l=en-UK&amp;q=j%20scott%20long&amp;id=FETCHMERGED-warwick_catalog_b116888652"><strong><span class="citation">J. S. Long (1997)</span></strong></a>; More Technical and in-depth if you want some background</li>
+</ul>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="6">
+<li id="fn6"><p>This stands for “not available remove equals true”.<a href="probit-application.html#fnref6" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="probit---theory.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exercises.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  },
+  "toc_depth": 2,
+  "keep_tex": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

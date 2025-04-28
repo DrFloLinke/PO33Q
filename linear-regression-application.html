@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Linear Regression – Application | PO33Q: Determinants of Democracy -  Analysing Emergence, Survival, and Fall</title>
+  <meta name="description" content="PO33Q: Determinants of Democracy - Analysing Emergence, Survival, and Fall" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Linear Regression – Application | PO33Q: Determinants of Democracy -  Analysing Emergence, Survival, and Fall" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Linear Regression – Application | PO33Q: Determinants of Democracy -  Analysing Emergence, Survival, and Fall" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="linear-regression---theory.html"/>
+<link rel="next" href="important-disclaimer.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="website-features.html"><a href="website-features.html"><i class="fa fa-check"></i>Website Features</a></li>
+<li class="chapter" data-level="" data-path="accessibility.html"><a href="accessibility.html"><i class="fa fa-check"></i>Accessibility</a></li>
+<li class="part"><span><b>Week 1</b></span></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i>Introduction to R</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#how-data-are-organised"><i class="fa fa-check"></i>How Data are organised</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-rstudio-installation"><i class="fa fa-check"></i>R &amp; RStudio – Installation</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r---getting-started"><i class="fa fa-check"></i>R - Getting Started</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rscript"><i class="fa fa-check"></i>RScript</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rscript-structure"><i class="fa fa-check"></i>RScript Structure</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#first-steps-in-r"><i class="fa fa-check"></i>First Steps in R</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-working-directory"><i class="fa fa-check"></i>The Working Directory</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-packages"><i class="fa fa-check"></i>R Packages</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#working-with-your-data-set"><i class="fa fa-check"></i>Working with Your Data Set</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#opening"><i class="fa fa-check"></i>Opening</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#viewing-the-data"><i class="fa fa-check"></i>Viewing the Data</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#variable-types-in-r"><i class="fa fa-check"></i>Variable Types in R</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#descriptive-statistics"><i class="fa fa-check"></i>Descriptive Statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#data-manipulation"><i class="fa fa-check"></i>Data Manipulation</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#recoding"><i class="fa fa-check"></i>Recoding</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#saving"><i class="fa fa-check"></i>Saving</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-real-data-set"><i class="fa fa-check"></i>The Real Data Set</a></li>
+<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#book-recommendations"><i class="fa fa-check"></i>Book Recommendations</a></li>
+</ul></li>
+<li class="part"><span><b>Week 2</b></span></li>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html"><i class="fa fa-check"></i>Linear Regression - Theory</a>
+<ul>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#what-is-it"><i class="fa fa-check"></i>What is it?</a></li>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#ordinary-least-squares-ols"><i class="fa fa-check"></i>Ordinary Least Squares (OLS)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html"><i class="fa fa-check"></i>Linear Regression – Application</a>
+<ul>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-basic-command"><i class="fa fa-check"></i>The Basic Command</a></li>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#interpreting-the-output"><i class="fa fa-check"></i>Interpreting the Output</a>
+<ul>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-number-of-observations"><i class="fa fa-check"></i>The Number of Observations</a></li>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-intercept"><i class="fa fa-check"></i>The Intercept</a></li>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-slope-coefficient"><i class="fa fa-check"></i>The Slope Coefficient</a></li>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-all-important-p-value-in-regression"><i class="fa fa-check"></i>The all-important p-value in Regression</a></li>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-goodness-of-fit-r-squared"><i class="fa fa-check"></i>The Goodness of Fit (R-Squared)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#choosing-variables"><i class="fa fa-check"></i>Choosing Variables</a>
+<ul>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#can-i-choose-more-than-one-independent-variable"><i class="fa fa-check"></i>Can I choose more than one independent variable?</a></li>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#ceteris"><i class="fa fa-check"></i>Ceteris Paribus</a></li>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#parsimony"><i class="fa fa-check"></i>Parsimony</a></li>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#r-squared-again"><i class="fa fa-check"></i>R-Squared Again</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#literature-recommendations"><i class="fa fa-check"></i>Literature Recommendations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="important-disclaimer.html"><a href="important-disclaimer.html"><i class="fa fa-check"></i>Important Disclaimer</a></li>
+<li class="part"><span><b>Week 3</b></span></li>
+<li class="chapter" data-level="" data-path="probit---theory.html"><a href="probit---theory.html"><i class="fa fa-check"></i>Probit - Theory</a>
+<ul>
+<li class="chapter" data-level="" data-path="probit---theory.html"><a href="probit---theory.html#probit---what-is-it"><i class="fa fa-check"></i>Probit - What is it?</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html"><i class="fa fa-check"></i>Probit – Application</a>
+<ul>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#the-command"><i class="fa fa-check"></i>The Command</a></li>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#the-coefficients"><i class="fa fa-check"></i>The Coefficients</a></li>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#pedicted-probabilities"><i class="fa fa-check"></i>Pedicted Probabilities</a>
+<ul>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#setting-the-x-values"><i class="fa fa-check"></i>Setting the x-values</a></li>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#predicting-the-probability"><i class="fa fa-check"></i>Predicting the Probability</a></li>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#all-predicted-probabilities"><i class="fa fa-check"></i>All Predicted Probabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#how-to-report-results"><i class="fa fa-check"></i>How to Report Results</a>
+<ul>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#stargazer"><i class="fa fa-check"></i>Stargazer</a></li>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#multiple-independent-variables"><i class="fa fa-check"></i>Multiple Independent Variables</a></li>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#predicting-the-probability-1"><i class="fa fa-check"></i>Predicting the Probability</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#literature-recommendations-1"><i class="fa fa-check"></i>Literature Recommendations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i>Exercises</a></li>
+<li class="part"><span><b>Week 4</b></span></li>
+<li class="chapter" data-level="" data-path="missing-data.html"><a href="missing-data.html"><i class="fa fa-check"></i>Missing Data</a>
+<ul>
+<li class="chapter" data-level="" data-path="missing-data.html"><a href="missing-data.html#options-in-r"><i class="fa fa-check"></i>Options in R</a></li>
+<li class="chapter" data-level="" data-path="missing-data.html"><a href="missing-data.html#methodological-implications"><i class="fa fa-check"></i>Methodological Implications</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="model-building.html"><a href="model-building.html"><i class="fa fa-check"></i>Model Building</a>
+<ul>
+<li class="chapter" data-level="" data-path="model-building.html"><a href="model-building.html#control-variables"><i class="fa fa-check"></i>Control Variables</a></li>
+<li class="chapter" data-level="" data-path="model-building.html"><a href="model-building.html#literature-recommendations-2"><i class="fa fa-check"></i>Literature Recommendations</a></li>
+</ul></li>
+<li class="part"><span><b>Week 5</b></span></li>
+<li class="chapter" data-level="" data-path="consolidation.html"><a href="consolidation.html"><i class="fa fa-check"></i>Consolidation</a>
+<ul>
+<li class="chapter" data-level="" data-path="consolidation.html"><a href="consolidation.html#the-world-value-survey"><i class="fa fa-check"></i>The World-Value Survey</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html"><i class="fa fa-check"></i>Exercises</a>
+<ul>
+<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html#descriptives"><i class="fa fa-check"></i>Descriptives</a></li>
+<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html#linear-regression"><i class="fa fa-check"></i>Linear Regression</a></li>
+<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html#probit"><i class="fa fa-check"></i>Probit</a></li>
+</ul></li>
+<li class="part"><span><b>Week 7</b></span></li>
+<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html"><i class="fa fa-check"></i>Markov Transition Models</a>
+<ul>
+<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#time-series-cross-sectional-data"><i class="fa fa-check"></i>Time Series, Cross-Sectional Data</a></li>
+<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#what-are-markov-transition-models"><i class="fa fa-check"></i>What are Markov Transition Models?</a>
+<ul>
+<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#conditional-probabilities"><i class="fa fa-check"></i>Conditional Probabilities</a></li>
+<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#democratic-emergence"><i class="fa fa-check"></i>Democratic Emergence</a></li>
+<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#lagging-the-independent-variables"><i class="fa fa-check"></i>Lagging the Independent Variables</a></li>
+<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#subsetting-the-data-for-conditional-probabilities"><i class="fa fa-check"></i>Subsetting the Data for Conditional Probabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#democratic-emergence-1"><i class="fa fa-check"></i>Democratic Emergence</a></li>
+<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#democratic-survival"><i class="fa fa-check"></i>Democratic Survival</a></li>
+<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#interpretation"><i class="fa fa-check"></i>Interpretation</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html"><i class="fa fa-check"></i>Model Fit in Binary Response Models</a>
+<ul>
+<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#how-to-measure-model-fit"><i class="fa fa-check"></i>How to Measure Model Fit</a>
+<ul>
+<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#what-is-it-1"><i class="fa fa-check"></i>What is it?</a></li>
+<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#r"><i class="fa fa-check"></i>R</a></li>
+<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#emergence-full-model"><i class="fa fa-check"></i>Emergence: Full Model</a></li>
+<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#survival"><i class="fa fa-check"></i>Survival</a></li>
+<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#survival-full-model"><i class="fa fa-check"></i>Survival: Full Model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html"><i class="fa fa-check"></i>Joint Estimation of Emergence and Survival</a>
+<ul>
+<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html#rationale"><i class="fa fa-check"></i>Rationale</a></li>
+<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html#example"><i class="fa fa-check"></i>Example</a></li>
+<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html#application-in-r"><i class="fa fa-check"></i>Application in R</a></li>
+<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html#literature-recommendations-3"><i class="fa fa-check"></i>Literature Recommendations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i>Exercises</a>
+<ul>
+<li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html#the-data-set"><i class="fa fa-check"></i>The Data Set</a></li>
+<li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html#basics"><i class="fa fa-check"></i>Basics</a></li>
+<li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html#advanced"><i class="fa fa-check"></i>Advanced</a></li>
+</ul></li>
+<li class="part"><span><b>Downloads</b></span></li>
+<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html"><i class="fa fa-check"></i>Downloads</a>
+<ul>
+<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html#documents"><i class="fa fa-check"></i>Documents</a></li>
+<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html#data-sets-in-alphabetical-order"><i class="fa fa-check"></i>Data Sets (in alphabetical order)</a></li>
+<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html#r-scripts"><i class="fa fa-check"></i>R Scripts</a></li>
+</ul></li>
+<li class="part"><span><b>List of References</b></span></li>
+<li class="chapter" data-level="" data-path="list-of-references.html"><a href="list-of-references.html"><i class="fa fa-check"></i>List of References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PO33Q: Determinants of Democracy - <br>Analysing Emergence, Survival, and Fall</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="linear-regression-application" class="section level1 unnumbered hasAnchor">
+<h1>Linear Regression – Application<a href="linear-regression-application.html#linear-regression-application" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="the-basic-command" class="section level2 unnumbered hasAnchor">
+<h2>The Basic Command<a href="linear-regression-application.html#the-basic-command" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The command to run a regression in R is beguilingly simple:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="linear-regression-application.html#cb29-1" tabindex="-1"></a>regression <span class="ot">&lt;-</span> <span class="fu">lm</span>(devar <span class="sc">~</span> indepvar, <span class="at">data=</span>dataframe)</span></code></pre></div>
+<p>We specify an object into which we store the results of the regression, here <code>regression</code>, and assign a function to this object called <code>lm</code> which stands for “linear model”. It is then convention to state the dependent variable first in the command, which in our case will always be democracy. This is then followed by a tilde and the independent variable which you want to include.</p>
+<p>In the case of modernisation theory, you might want to test what influence per capita GDP has on democracy. This week we are using the Polity V scale to measure democracy.</p>
+<p>“The ‘Polity Score’ captures [the] regime authority spectrum on a 21-pont scale ranging from -10 (hereditary monarchy) to +10 (consolidated democracy). (…) The Polity scheme consists of six component measures that record key qualities of of executive recruitment, constraints on executive authority and political competition. It also records changes in the institutionalized qualities of governing authority.”<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
+<p>We start by setting the working directory</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="linear-regression-application.html#cb30-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Warwick/Modules/PO33Q//Week 2&quot;</span>)</span></code></pre></div>
+<p>and then load the <a href="files/Downloads/Europe.csv">Europe.csv</a> data set into the workspace. We subset this data frame to observations from the year 2000, only.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="linear-regression-application.html#cb31-1" tabindex="-1"></a>europe <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;Week 2/Europe.csv&quot;</span>)</span>
+<span id="cb31-2"><a href="linear-regression-application.html#cb31-2" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="linear-regression-application.html#cb31-3" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb31-4"><a href="linear-regression-application.html#cb31-4" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="linear-regression-application.html#cb31-5" tabindex="-1"></a>europe_2000 <span class="ot">&lt;-</span> <span class="fu">filter</span>(europe, year <span class="sc">==</span> <span class="st">&quot;2000&quot;</span>)</span></code></pre></div>
+<p>Our dependent variable is called <code>polity</code>. The independent variable is called <code>gpdpc</code>. We are now ready to run our first regression:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="linear-regression-application.html#cb32-1" tabindex="-1"></a>reg_pol <span class="ot">&lt;-</span> <span class="fu">lm</span>(polity <span class="sc">~</span> gdppc, <span class="at">data=</span>europe_2000)</span></code></pre></div>
+<p>We can then produce a summary of the results as follows:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="linear-regression-application.html#cb33-1" tabindex="-1"></a><span class="fu">summary</span>(reg_pol)</span>
+<span id="cb33-2"><a href="linear-regression-application.html#cb33-2" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="linear-regression-application.html#cb33-3" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb33-4"><a href="linear-regression-application.html#cb33-4" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">formula =</span> polity <span class="sc">~</span> gdppc, <span class="at">data =</span> europe_2000)</span>
+<span id="cb33-5"><a href="linear-regression-application.html#cb33-5" tabindex="-1"></a></span>
+<span id="cb33-6"><a href="linear-regression-application.html#cb33-6" tabindex="-1"></a>Residuals<span class="sc">:</span></span>
+<span id="cb33-7"><a href="linear-regression-application.html#cb33-7" tabindex="-1"></a>     Min       <span class="dv">1</span>Q   Median       <span class="dv">3</span>Q      Max </span>
+<span id="cb33-8"><a href="linear-regression-application.html#cb33-8" tabindex="-1"></a><span class="sc">-</span><span class="fl">14.1330</span>  <span class="sc">-</span><span class="fl">0.6741</span>   <span class="fl">0.4742</span>   <span class="fl">1.4750</span>   <span class="fl">2.6515</span> </span>
+<span id="cb33-9"><a href="linear-regression-application.html#cb33-9" tabindex="-1"></a></span>
+<span id="cb33-10"><a href="linear-regression-application.html#cb33-10" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
+<span id="cb33-11"><a href="linear-regression-application.html#cb33-11" tabindex="-1"></a>             Estimate Std. Error t value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>t<span class="sc">|</span>)    </span>
+<span id="cb33-12"><a href="linear-regression-application.html#cb33-12" tabindex="-1"></a>(Intercept) <span class="fl">6.997e+00</span>  <span class="fl">7.859e-01</span>   <span class="fl">8.902</span> <span class="fl">8.61e-10</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb33-13"><a href="linear-regression-application.html#cb33-13" tabindex="-1"></a>gdppc       <span class="fl">1.068e-04</span>  <span class="fl">4.055e-05</span>   <span class="fl">2.635</span>   <span class="fl">0.0134</span> <span class="sc">*</span>  </span>
+<span id="cb33-14"><a href="linear-regression-application.html#cb33-14" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb33-15"><a href="linear-regression-application.html#cb33-15" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">&#39;***&#39;</span> <span class="fl">0.001</span> <span class="st">&#39;**&#39;</span> <span class="fl">0.01</span> <span class="st">&#39;*&#39;</span> <span class="fl">0.05</span> <span class="st">&#39;.&#39;</span> <span class="fl">0.1</span> <span class="st">&#39; &#39;</span> <span class="dv">1</span></span>
+<span id="cb33-16"><a href="linear-regression-application.html#cb33-16" tabindex="-1"></a></span>
+<span id="cb33-17"><a href="linear-regression-application.html#cb33-17" tabindex="-1"></a>Residual standard error<span class="sc">:</span> <span class="fl">2.973</span> on <span class="dv">29</span> degrees of freedom</span>
+<span id="cb33-18"><a href="linear-regression-application.html#cb33-18" tabindex="-1"></a>  (<span class="dv">6</span> observations deleted due to missingness)</span>
+<span id="cb33-19"><a href="linear-regression-application.html#cb33-19" tabindex="-1"></a>Multiple R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.1932</span>,    Adjusted R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.1654</span> </span>
+<span id="cb33-20"><a href="linear-regression-application.html#cb33-20" tabindex="-1"></a>F<span class="sc">-</span>statistic<span class="sc">:</span> <span class="fl">6.944</span> on <span class="dv">1</span> and <span class="dv">29</span> DF,  p<span class="sc">-</span>value<span class="sc">:</span> <span class="fl">0.01336</span></span></code></pre></div>
+<p>We can extract the number of observations used for the estimation by calling:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="linear-regression-application.html#cb34-1" tabindex="-1"></a><span class="fu">nobs</span>(reg_pol)</span>
+<span id="cb34-2"><a href="linear-regression-application.html#cb34-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">31</span></span></code></pre></div>
+<p>There is a lot of information in this, and I will take you through the output step by step now.</p>
+<hr />
+</div>
+<div id="interpreting-the-output" class="section level2 unnumbered hasAnchor">
+<h2>Interpreting the Output<a href="linear-regression-application.html#interpreting-the-output" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="the-number-of-observations" class="section level3 unnumbered hasAnchor">
+<h3>The Number of Observations<a href="linear-regression-application.html#the-number-of-observations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="linear-regression-application.html#cb35-1" tabindex="-1"></a><span class="fu">nobs</span>(reg_pol)</span>
+<span id="cb35-2"><a href="linear-regression-application.html#cb35-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">31</span></span></code></pre></div>
+<p>Letl’s deal with the last step first. The number of observations is equal to the number of countries in this case. We have subset the data to the year 2000, and so we have 33 countries in the analysis. This seems trivial for now, but it will become important later on. Once observations are missing, R drops them from the analysis – especially in developing countries where data are often missing in large quantities this can lead to a rapid decimation in the number of observations. This in turn is problematic for the strength inference we can draw from the analysis.</p>
+</div>
+<div id="the-intercept" class="section level3 unnumbered hasAnchor">
+<h3>The Intercept<a href="linear-regression-application.html#the-intercept" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="files/Week%202/intercept.png" width="75%" style="display: block; margin: auto;" />
+</p>
+<p>R always shows the value for the intercept in the intuitively labelled row “(Intercept)” and the column “Estimate”. In this case the value is 7.0. What does this coefficient mean, substantively? When you remember the graph depicting the regression line, this is the point where the line intercepts the y-axis. So, it is the value of <span class="math inline">\(y\)</span>, here democracy in the form of the Polity V score, when <span class="math inline">\(x\)</span>, here economic development in the form of GDP, is zero. So in other words, a country with a GDP per capita of zero would achieve a Polity V score of 7. The substantive interpretation sometimes makes sense (like here), but sometimes cannot be interpreted in this way.</p>
+</div>
+<div id="the-slope-coefficient" class="section level3 unnumbered hasAnchor">
+<h3>The Slope Coefficient<a href="linear-regression-application.html#the-slope-coefficient" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="files/Week%202/slope.png" width="75%" style="display: block; margin: auto;" />
+</p>
+<p>The slope coefficient is shown in the row depicting the name of the independent variable, here “gdp”, and again the column “Estimate”. Our slope here, is <span class="math inline">\(1.0681e-4\)</span>. The <span class="math inline">\(e-4\)</span> means that we have to move the decimal point 4 units to the left, so written fully, this means <span class="math inline">\(0.0001068\)</span>. We interpret it as follows: for every additional unit of per capita GDP, measured in US$, the Polity V score increases by <span class="math inline">\(0.0001068\)</span>, on average. This seems very small, but when you consider the size of GDP per capita in many countries, it seems logical that this value is as small as it is. If the coefficient was negative, then this would mean that for for every additional unit of per capita GDP, measured in US$, the Polity V score would decrease by <span class="math inline">\(0.0001068\)</span>, on average.</p>
+</div>
+<div id="the-all-important-p-value-in-regression" class="section level3 unnumbered hasAnchor">
+<h3>The all-important p-value in Regression<a href="linear-regression-application.html#the-all-important-p-value-in-regression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Everybody is obsessed with the p-value in quantitative research, but what does it mean in this context and where can you find it? You will have watched the video on the p-value more generally. If you haven’t, or have forgotten what it says, watch it now before reading on.</p>
+<p>First things first: how do we interpret the p-value for regression? We do a regression in order to ascertain whether there is a relationship between the independent and the dependent variable, or not. For testing whether there is one, we start from the assumption that there is none. This is what we call the null hypothesis; in our example here it would be that per capita GDP does not influence the level of democracy in a country.</p>
+<p>Now, remind yourself of the normal distribution from the video which has the mean age in its centre. In the video we were interested whether age influences height. Assuming, that there is no relationship between age and height, a regression line would look as follows:</p>
+<p><img src="main_files/figure-html/unnamed-chunk-46-1.png" width="50%" style="display: block; margin: auto;" />
+</p>
+<p>The line is perfectly flat (the slope coefficient is zero), intercepting the y-axis at the mean. This means, that for every age we expect the same height, so on average we are always right. If we now put a zero slope coefficient, such as the one for height, just in the more general form of <span class="math inline">\(\beta_{2}\)</span> in the centre of a normal distribution, it looks like this:</p>
+<p><img src="main_files/figure-html/unnamed-chunk-47-1.png" width="50%" style="display: block; margin: auto;" />
+</p>
+<p>What we want to test now, with regression, is whether the slope coefficient R has calculated for us (let me denote the estimated value of <span class="math inline">\(\beta_{2}\)</span> as <span class="math inline">\(\hat{\beta_{2}}\)</span>), is far enough from this mean of zero, to say that we can be sure to say that there <em>is</em> a relationship.</p>
+<p>The statement that there <em>is</em> a relationship between the independent and the dependent variable, is called the alternative hypothesis. In our case the alternative hypothesis would read: “The level of per capita GDP influences the level of democracy in a country”.</p>
+<p>So how far away from the centre of zero do we have to go to say that there is indeed relationship, or put differently, that our alternative hypothesis is true? The standard in political science is that we need to have a 5% probability of finding a value more extreme than the one we have observed. Under the curve in the following graph, that is equal to the blue area on the right. And that is the p-value.</p>
+<p><img src="main_files/figure-html/unnamed-chunk-48-1.png" width="50%" style="display: block; margin: auto;" />
+</p>
+<p>If this area is 5% or less, then we have observed a value for the slope coefficient which is so far away from our assumed mean of zero, that we have sufficient evidence to reject the null hypothesis, and to accept the alternative hypothesis.</p>
+<p>But now, you might say, a slope coefficient can also be negative – here we are only looking at the right hand-side, and therefore at the scenario in which a slope coefficient is positive. And you are right. The scatter plot could give us a negative line. So, if we want to move away far enough from the assumed mean of zero in the centre, we must do so in both directions, to the left and to the right. Now, we need a value that is so far out, that to either side of the distribution, 2.5% of the area are left under the curve (2.5% on the left plus 2.5% on the right make the overall 5% we are interested in). We call this a two-sided test, whereas the scenario above is a one-sided test. The p-values reported by R for the slope coefficients are always two-sided tests (unless we tell R not to, but we are not doing that on this module). This value gives us the area under the normal distribution to the left and the right beyond our observed value, as shown in this figure:</p>
+<p><img src="main_files/figure-html/unnamed-chunk-49-1.png" width="50%" style="display: block; margin: auto;" />
+</p>
+<p>The value we are looking at in R to determine the p-value, is in the column <span class="math inline">\(Pr(&gt;|t|)\)</span>.</p>
+<p><img src="files/Week%202/pvalue.png" width="75%" style="display: block; margin: auto;" />
+</p>
+<p>In order to satisfy the requirement of the p-value being 5% or less, this value needs to be smaller than 0.05. Otherwise, more than 5% area are left, and we are not certain enough that our value is far enough away from the zero mean in the centre to say that it is “statistically different” from it. When we look at the value for the slope coefficient <code>gdppc</code> here, <span class="math inline">\(0.0134\)</span>, this means that the areas on the left and the right are jointly 1.34% – small enough for us to be sure to have found a value that is far enough away from zero to claim that there is a relationship. We therefore reject the null hypothesis, and accept the alternative hypothesis: we find evidence for a relationship between per capita GDP and Polity V in Europe in the year 2000. Again, if we want to visualise this, the actual p-value of <span class="math inline">\(0.0134\)</span> would look like this:</p>
+<p><img src="main_files/figure-html/unnamed-chunk-51-1.png" width="50%" style="display: block; margin: auto;" />
+</p>
+</div>
+<div id="the-goodness-of-fit-r-squared" class="section level3 unnumbered hasAnchor">
+<h3>The Goodness of Fit (R-Squared)<a href="linear-regression-application.html#the-goodness-of-fit-r-squared" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="files/Week%202/rsquared.png" width="75%" style="display: block; margin: auto;" />
+</p>
+<p>Recall from the video that the goodness of fit is a measure to indicate how much of the variation in the dependent variable (democracy) the independent variable (per capita GDP) is explaining. For this, we take the ratio of the explained sum of squares over the total sum of squares. The resulting percentage is R-Squared. This number can also be found on the R output, and is in our case <span class="math inline">\(0.1932\)</span>, or 19.32%. This value is not too bad for a single variable! The maximum we can explain is of course 100% with an R-Squared value of 1.0, even though this is a dream never achieved empirically. But we are stil quite some distance of this dream, and can probably do better. There surely must be factors other than per capita GDP that explain democracy in Europe in the year 2000.</p>
+<hr />
+</div>
+</div>
+<div id="choosing-variables" class="section level2 unnumbered hasAnchor">
+<h2>Choosing Variables<a href="linear-regression-application.html#choosing-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="can-i-choose-more-than-one-independent-variable" class="section level3 unnumbered hasAnchor">
+<h3>Can I choose more than one independent variable?<a href="linear-regression-application.html#can-i-choose-more-than-one-independent-variable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Yes, you can! And this is where the fun starts, because now we are getting a step closer to the real world. New modernisation posits that democracy is multi-causal, and does not rest on the influence of GDP alone. Instead, it puts forward a number of concepts that act as independent variables, one of which is health. We can measure health through Hospital beds (per 1,000 people), and include this in our model, on top of GDP. To do this we type:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="linear-regression-application.html#cb36-1" tabindex="-1"></a>reg_pol1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(polity <span class="sc">~</span> gdppc <span class="sc">+</span> hospital, <span class="at">data=</span>europe_2000)</span></code></pre></div>
+<p>You see that adding independent variables is easy, we just add them on with a plus sign. It does not matter whether the expected direction of influence is positive or negative, always add additonal variables with a “+”. The command ought to lead to the following output:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="linear-regression-application.html#cb37-1" tabindex="-1"></a><span class="fu">summary</span>(reg_pol1)</span>
+<span id="cb37-2"><a href="linear-regression-application.html#cb37-2" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="linear-regression-application.html#cb37-3" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb37-4"><a href="linear-regression-application.html#cb37-4" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">formula =</span> polity <span class="sc">~</span> gdppc <span class="sc">+</span> hospital, <span class="at">data =</span> europe_2000)</span>
+<span id="cb37-5"><a href="linear-regression-application.html#cb37-5" tabindex="-1"></a></span>
+<span id="cb37-6"><a href="linear-regression-application.html#cb37-6" tabindex="-1"></a>Residuals<span class="sc">:</span></span>
+<span id="cb37-7"><a href="linear-regression-application.html#cb37-7" tabindex="-1"></a>     Min       <span class="dv">1</span>Q   Median       <span class="dv">3</span>Q      Max </span>
+<span id="cb37-8"><a href="linear-regression-application.html#cb37-8" tabindex="-1"></a><span class="sc">-</span><span class="fl">11.0906</span>  <span class="sc">-</span><span class="fl">0.4154</span>   <span class="fl">0.2112</span>   <span class="fl">1.4259</span>   <span class="fl">3.5517</span> </span>
+<span id="cb37-9"><a href="linear-regression-application.html#cb37-9" tabindex="-1"></a></span>
+<span id="cb37-10"><a href="linear-regression-application.html#cb37-10" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
+<span id="cb37-11"><a href="linear-regression-application.html#cb37-11" tabindex="-1"></a>              Estimate Std. Error t value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>t<span class="sc">|</span>)    </span>
+<span id="cb37-12"><a href="linear-regression-application.html#cb37-12" tabindex="-1"></a>(Intercept)  <span class="fl">1.134e+01</span>  <span class="fl">1.903e+00</span>   <span class="fl">5.959</span> <span class="fl">2.05e-06</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb37-13"><a href="linear-regression-application.html#cb37-13" tabindex="-1"></a>gdppc        <span class="fl">7.668e-05</span>  <span class="fl">3.934e-05</span>   <span class="fl">1.949</span>   <span class="fl">0.0614</span> .  </span>
+<span id="cb37-14"><a href="linear-regression-application.html#cb37-14" tabindex="-1"></a>hospital    <span class="sc">-</span><span class="fl">5.828e-01</span>  <span class="fl">2.361e-01</span>  <span class="sc">-</span><span class="fl">2.469</span>   <span class="fl">0.0199</span> <span class="sc">*</span>  </span>
+<span id="cb37-15"><a href="linear-regression-application.html#cb37-15" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb37-16"><a href="linear-regression-application.html#cb37-16" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">&#39;***&#39;</span> <span class="fl">0.001</span> <span class="st">&#39;**&#39;</span> <span class="fl">0.01</span> <span class="st">&#39;*&#39;</span> <span class="fl">0.05</span> <span class="st">&#39;.&#39;</span> <span class="fl">0.1</span> <span class="st">&#39; &#39;</span> <span class="dv">1</span></span>
+<span id="cb37-17"><a href="linear-regression-application.html#cb37-17" tabindex="-1"></a></span>
+<span id="cb37-18"><a href="linear-regression-application.html#cb37-18" tabindex="-1"></a>Residual standard error<span class="sc">:</span> <span class="fl">2.742</span> on <span class="dv">28</span> degrees of freedom</span>
+<span id="cb37-19"><a href="linear-regression-application.html#cb37-19" tabindex="-1"></a>  (<span class="dv">6</span> observations deleted due to missingness)</span>
+<span id="cb37-20"><a href="linear-regression-application.html#cb37-20" tabindex="-1"></a>Multiple R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.3374</span>,    Adjusted R<span class="sc">-</span>squared<span class="sc">:</span>  <span class="fl">0.2901</span> </span>
+<span id="cb37-21"><a href="linear-regression-application.html#cb37-21" tabindex="-1"></a>F<span class="sc">-</span>statistic<span class="sc">:</span>  <span class="fl">7.13</span> on <span class="dv">2</span> and <span class="dv">28</span> DF,  p<span class="sc">-</span>value<span class="sc">:</span> <span class="fl">0.003142</span></span>
+<span id="cb37-22"><a href="linear-regression-application.html#cb37-22" tabindex="-1"></a></span>
+<span id="cb37-23"><a href="linear-regression-application.html#cb37-23" tabindex="-1"></a><span class="fu">nobs</span>(reg_pol1)</span>
+<span id="cb37-24"><a href="linear-regression-application.html#cb37-24" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">31</span></span></code></pre></div>
+</div>
+<div id="ceteris" class="section level3 unnumbered hasAnchor">
+<h3>Ceteris Paribus<a href="linear-regression-application.html#ceteris" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let us focus on the coefficient for hospital beds first. Its value is rounded <span class="math inline">\(-0.5828\)</span>, implying that for every additional hospital bed per 1,000 people, the Polity V score decreases by <span class="math inline">\(0.5828\)</span> units on average. So far, so good, but as we have included other variables in the regression model, namely per capita GDP, we need to account for this fact in our interpretation. We do this by adding “all other things being equal” (Latin: ceteris paribus) to this interpretation. What does this mean? It means, that if we take into account the level of per capita GDP, and hold this level constant, then for every additional hospita bed, the Polity V score decreases by <span class="math inline">\(0.5828\)</span> units on average.</p>
+<p>As such, we force the regression model to isolates the effect of hospital beds by including other possible explanatory factors, such as per capita GDP. You will sometimes read this in articles in the form of “controlling for”. To give you a different example: suppose we want to find out whether sex influences income. We could simply run a regression with income as the dependent variable, and sex as the independent variable. But we also know, that age influences income, as with increasing age people have more experience which is reflected in their salary. So even though we are not interested in the amount age influences income, we would include it in the regression model, so as to isolate the effect of the variable we are interested in: sex.</p>
+<p>Back to our modernisation example and life expectancy. The p-value for this coefficient is <span class="math inline">\(0.0199\)</span>, and therefore well below the required 5% threshold. We can conclude that the number of hospital beds influence the level of democracy in Europe in the year 2000. Per capita GDP is rendered insignificant, however.</p>
+</div>
+<div id="parsimony" class="section level3 unnumbered hasAnchor">
+<h3>Parsimony<a href="linear-regression-application.html#parsimony" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>But can you just add independent variables at your leisure? The short answer is no. The long answer is: parsimony. This means “as few as possible, as many as necessary”. The “necessary” component is guided by the theoretical underpinning of your investigation. For example, you subscribe to new modernisation theory, and believe that that it is not only economic development in the form of per capita GDP that determines the level of democracy, but that indicators of social change also play an important role. Now it is your job as a researcher to decide how we measure social change. Do we include education? And if so, how do we measure it, say by literacy levels? Should we choose a different measure for health that measures it more directly than hospital beds? Then we might decide on life expectancy. But are these two enough to measure social change, or do we need to look at other facets? We seek to include as few as possible to produce an empirical picture of social change, but so many that we are doing proper justice to the theory.</p>
+<p>We can then proceed to test different scenarios. For example, does economic development already explain democracy? What happens if we add social change? Or does social change explain democracy on its own, already? These questions lead to the topic of “model specification”, which we will discuss in greater detail in week 4.</p>
+</div>
+<div id="r-squared-again" class="section level3 unnumbered hasAnchor">
+<h3>R-Squared Again<a href="linear-regression-application.html#r-squared-again" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As soon as we introduce more than one independent variable to the model, we cannot use “Multiple R-Squared” any more. The reason is that this measure cannot properly take into account added variables. It will either stay the same, or increase, it cannot decrease. This of course, makes no sense, for example if we add average shoe size in 2000 to the analysis, this would not help to explain democracy, but Multiple R-Squared would still likely go up. We therefore need to new measure, calles “Adjusted R-Squared” which not only penalises us for adding more indepenent variables, but will also decrease if a variable takes explanatory power away from a model. You find it here:</p>
+<p><img src="files/Week%202/ceteris.png" width="75%" style="display: block; margin: auto;" />
+</p>
+<hr />
+</div>
+</div>
+<div id="literature-recommendations" class="section level2 unnumbered hasAnchor">
+<h2>Literature Recommendations<a href="linear-regression-application.html#literature-recommendations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><a href="https://warwick.summon.serialssolutions.com/#!/search/document?pn=1&amp;ho=t&amp;include.ft.matches=f&amp;fvf=ContentType,Newspaper%20Article,t%7CContentType,Book%20Review,t&amp;l=en-UK&amp;q=fogarty%20social%20science&amp;id=FETCHMERGED-warwick_catalog_b396978733"><strong><span class="citation">Fogarty (2023)</span></strong></a>: Chapter 11, read Chapter 12 if you want to be really good</li>
+<li><a href="https://warwick.summon.serialssolutions.com/#!/search/document?pn=1&amp;ho=t&amp;include.ft.matches=f&amp;fvf=ContentType,Newspaper%20Article,t%7CContentType,Book%20Review,t&amp;l=en-UK&amp;q=stinerock%20r&amp;id=FETCHMERGED-warwick_catalog_b396975143"><strong><span class="citation">Stinerock (2022)</span></strong></a>: Chapter 12 and Sections 13.1-13.5, 13.8 and 13.10.</li>
+</ul>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="4">
+<li id="fn4"><p>For more detail see .<a href="linear-regression-application.html#fnref4" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="linear-regression---theory.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="important-disclaimer.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  },
+  "toc_depth": 2,
+  "keep_tex": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
