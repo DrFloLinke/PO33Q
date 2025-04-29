@@ -6,7 +6,7 @@
 # WORKING DIRECTORY
 #####################
 
-setwd("~/OneDrive - University of Warwick/Warwick/Modules/QS309/R/Worksheets/WEEK 7/Worksheet")
+setwd()
 
 
 # PACKAGES
