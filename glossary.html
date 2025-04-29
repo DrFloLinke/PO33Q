@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Joint Estimation of Emergence and Survival | PO33Q: Determinants of Democracy -  Analysing Emergence, Survival, and Fall</title>
+  <title>Glossary | PO33Q: Determinants of Democracy -  Analysing Emergence, Survival, and Fall</title>
   <meta name="description" content="PO33Q: Determinants of Democracy - Analysing Emergence, Survival, and Fall" />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Joint Estimation of Emergence and Survival | PO33Q: Determinants of Democracy -  Analysing Emergence, Survival, and Fall" />
+  <meta property="og:title" content="Glossary | PO33Q: Determinants of Democracy -  Analysing Emergence, Survival, and Fall" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Joint Estimation of Emergence and Survival | PO33Q: Determinants of Democracy -  Analysing Emergence, Survival, and Fall" />
+  <meta name="twitter:title" content="Glossary | PO33Q: Determinants of Democracy -  Analysing Emergence, Survival, and Fall" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="model-fit-in-binary-response-models.html"/>
-<link rel="next" href="exercises-2.html"/>
+<link rel="prev" href="homework.html"/>
+<link rel="next" href="flashcards.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -350,135 +350,41 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="joint-estimation-of-emergence-and-survival" class="section level1 unnumbered hasAnchor">
-<h1>Joint Estimation of Emergence and Survival<a href="joint-estimation-of-emergence-and-survival.html#joint-estimation-of-emergence-and-survival" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="rationale" class="section level2 unnumbered hasAnchor">
-<h2>Rationale<a href="joint-estimation-of-emergence-and-survival.html#rationale" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>It is perfectly adequate to estimate the processes of democratic emergence and survival separately. There is a more elegant approach, however, in which emergence and survival are estimated together. This is often employed in the literature, for example in the article by <span class="citation">Boix &amp; Stokes (2003)</span>. The rationale here is that the model will, overall, use more observations and therefore this might influence standard errors and thus statistical significance.</p>
-<div class="bulb">
-<p>As you will see, the joint estimation requires a lot of manual calculation and general faff. I am mainly showing you this here, so that you can understand the output in aforementioned articles. If you want to employ this yourself, then you could:</p>
-<ul>
-<li>estimate the joint model as outlined here to check statistical significance of variables</li>
-<li>then estimate emergence and survival separately and work with those separately estimated models to calculate predicted probabilities and ROC curves</li>
-</ul>
-</div>
-<p>So, what’s the setup? Again, we are incorporating the lagged value <span class="math inline">\(y_{t-1}\)</span>, to encapsulate all the history prior to period <span class="math inline">\(t\)</span>. There is just one little trick I need to introduce before we can start on the model: I will replace <span class="math inline">\(y_{t-1}\)</span> by an indicator variable <span class="math inline">\(I_{D}\)</span> in Equation <a href="joint-estimation-of-emergence-and-survival.html#eq:interactionmodel">(1)</a> which assumes the value 1 if a country was a democracy in the previous year, and zero otherwise (notation adapted from Epstein et al., 2006, p. 553). Following on from this, we can write the model as follows<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>:</p>
-<p><span class="math display" id="eq:interactionmodel">\[\begin{equation}
-P(D_{i,t})=\Phi(\beta_{0}+\beta_{1} X_{i,t} +\beta_{2} I_{D} + \beta_{3} I_{D} X_{i,t} + \epsilon_{i,t})
-\tag{1}
-\end{equation}\]</span></p>
-<p>where <span class="math inline">\(P(D_{it})\)</span> is the probability that a country <span class="math inline">\(i\)</span> was a democracy in year <span class="math inline">\(t\)</span>, <span class="math inline">\(\Phi\)</span> is the cumulative normal distribution (the s-shaped distribution which you know from the introduction of probit in week 3), <span class="math inline">\(I_{D}\)</span> the aforementioned indicator variable, <span class="math inline">\(X_{i,t}\)</span> is an independent variable for country <span class="math inline">\(i\)</span> in year <span class="math inline">\(t\)</span>, and <span class="math inline">\(\epsilon_{i,t}\)</span> is a zero mean stochastic disturbance (I only include this for completeness’ sake here. As this is irrelevant for us here and now, I will drop this from the following discussion, not to confuse you unnecessarily). This model is a multiplicative interaction model which allow us to model the probability of a country to be a democracy, <em>conditional</em> on its regime type in the previous year. The indicator variable <span class="math inline">\(I_{D}\)</span>, equal to <span class="math inline">\(y_{t-1}\)</span> captures this information. How does this work?</p>
-<p>Let us start by assuming that in year <span class="math inline">\(t-1\)</span> country <span class="math inline">\(i\)</span> was an autocracy. In this case, the indicator variable <span class="math inline">\(I_{D}\)</span> would be equal to zero, and therefore Equation <a href="joint-estimation-of-emergence-and-survival.html#eq:interactionmodel">(1)</a> can be re-written as</p>
-<p><span class="math display">\[\begin{equation}
-P(D_{i,t})=\Phi(\beta_{0}+\beta_{1} X_{i,t})
-\end{equation}\]</span></p>
-<p>In this case, the coefficient <span class="math inline">\(\beta_{1}\)</span> would only represent the impact of variable <span class="math inline">\(X_{i,t}\)</span> on the probability of an autocracy transitioning to democracy. Expressed more formally, we are dealing with conditional probabilities here, in the case of <span class="math inline">\(\beta_{1}\)</span>, we would obtain the impact of variable <span class="math inline">\(X_{i,t}\)</span> on a country to be a democracy in year <span class="math inline">\(t\)</span>, <em>under the condition</em> that it was an autocracy in year <span class="math inline">\(t-1\)</span>. It is conditional on this, because we set the indicator variable to zero before.</p>
-<p>We can construct a similar scenario for the condition, that a country was a democracy in the previous year. In this case, the indicator variable <span class="math inline">\(I_{D}\)</span> would be equal to <span class="math inline">\(1\)</span>, and we would obtain equation <a href="joint-estimation-of-emergence-and-survival.html#eq:interactionmodel">(1)</a> again:</p>
-<p><span class="math display">\[\begin{equation*}
-P(D_{i,t})=\Phi(\beta_{0}+\beta_{1} X_{i,t} +\beta_{2} I_{D} + \beta_{3} I_{D} X_{i,t})
-\end{equation*}\]</span></p>
-<p>With <span class="math inline">\(I_{D}=1\)</span>, this can be simplified to:</p>
-<p><span class="math display">\[\begin{equation}
-P(D_{it})=\Phi((\beta_{0} +\beta_{2}) + (\beta_{1} + \beta_{3}) X_{i,t})
-\end{equation}\]</span></p>
-<p>This equation illustrates very well, that the impact of variable <span class="math inline">\(X_{i,t}\)</span> on the probability of democracy to remain a democracy is now made up out of the sum of the two coefficients <span class="math inline">\(\beta_{1}\)</span> and <span class="math inline">\(\beta_{3}\)</span>, whereas the constant is the sum of coefficients <span class="math inline">\(\beta_{0}\)</span> and <span class="math inline">\(\beta_{2}\)</span>.</p>
-<hr />
-</div>
-<div id="example" class="section level2 unnumbered hasAnchor">
-<h2>Example<a href="joint-estimation-of-emergence-and-survival.html#example" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>To make this more tangible, let’s look at an example. Assume we want to look at the effect of per capita GDP on democratic emergence (i.e. the transition of an autocracy to democracy), and democratic survival (i.e. the transition from democracy to democracy). In this case we would specify the model as follows:</p>
-<p><span class="math display" id="eq:interaction">\[\begin{equation}
-P(D_{it})=\Phi(\beta_{0}+\beta_{1} \text{per capita GDP}_{i,t} +\beta_{2} I_{D} + \beta_{3} I_{D} \text{per capita GDP}_{i,t})
-\tag{2}
-\end{equation}\]</span></p>
-<p>The coefficient indicating the impact of per capita GDP on democratic emergence is <span class="math inline">\(\beta_{1}\)</span>. As illustrated above, the indicator variable <span class="math inline">\(I_{D}\)</span> is zero in this case, and the equation would be reduced to</p>
-<p><span class="math display">\[\begin{equation}
-P(D_{it})=\Phi(\beta_{0}+\beta_{1} \text{per capita GDP}_{i,t})
-\end{equation}\]</span></p>
-<p>For democratic survival, the coefficient indicating the impact of per capita GDP would be the sum of coefficients <span class="math inline">\(\beta_{1}\)</span> and <span class="math inline">\(\beta_{3}\)</span></p>
-<p><span class="math display">\[\begin{equation}
-P(D_{it})=\Phi((\beta_{0} +\beta_{2}) + (\beta_{1} + \beta_{3}) \text{per capita GDP}_{i,t})
-\end{equation}\]</span></p>
-<hr />
-</div>
-<div id="application-in-r" class="section level2 unnumbered hasAnchor">
-<h2>Application in R<a href="joint-estimation-of-emergence-and-survival.html#application-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>How does all of this look in R, and how do you apply this to a real-world scenario? Let’s do this using the above example of per capita GDP in the global data set. You have already created the indicator variable <span class="math inline">\(I_{D}\)</span> in the form of the variable <code>l.democracy</code>. What we need next is a variable that captures <em><span class="math inline">\(I_{D} \text{per capita GDP}_{i,t}\)</span></em>, so that we can calculate <span class="math inline">\(\beta_{3}\)</span>. To create this variable, type</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="joint-estimation-of-emergence-and-survival.html#cb74-1" tabindex="-1"></a>world<span class="sc">$</span>gdppc_l.democracy <span class="ot">&lt;-</span> world<span class="sc">$</span>l.democracy <span class="sc">*</span> world<span class="sc">$</span>gdppc</span></code></pre></div>
-<p>Now, we are ready to estimate the model. Remember, formally, this is written as:</p>
-<p><span class="math display">\[\begin{equation*}
-P(D_{it})=\Phi(\beta_{0}+\beta_{1} \text{per capita GDP}_{i,t} +\beta_{2} I_{D} + \beta_{3} I_{D} \text{per capita GDP}_{i,t})
-\end{equation*}\]</span></p>
-<p>We replace this in the R command with the equivalent variables:</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="joint-estimation-of-emergence-and-survival.html#cb75-1" tabindex="-1"></a>joint <span class="ot">&lt;-</span> <span class="fu">glm</span>(democracy <span class="sc">~</span> gdppc <span class="sc">+</span> l.democracy <span class="sc">+</span> gdppc_l.democracy, </span>
-<span id="cb75-2"><a href="joint-estimation-of-emergence-and-survival.html#cb75-2" tabindex="-1"></a>                 <span class="at">data =</span> world,</span>
-<span id="cb75-3"><a href="joint-estimation-of-emergence-and-survival.html#cb75-3" tabindex="-1"></a>                 <span class="at">na.action =</span> na.exclude,</span>
-<span id="cb75-4"><a href="joint-estimation-of-emergence-and-survival.html#cb75-4" tabindex="-1"></a>                 <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span></code></pre></div>
-<div class="bulb">
-<p>If you have done regression analysis before, and you worry about (multi-)collinearity in such a model, then please note that:</p>
-<blockquote>
-<p>Analysts should include all constitutive terms when specifying multiplicative interaction
-models except in very rare circumstances. By constitutive terms, we mean each of the
-elements that constitute the interaction term. Thus, X and Z are the constitutive terms in
-[this model: <span class="math inline">\(y=\beta_0 + \beta_1 X + \beta_2 Z + \beta_4 XZ + \epsilon\)</span>]. <span class="citation">(Brambor et al., 2006, p. 66)</span></p>
-</blockquote>
-</div>
-<p>You obtain the following output:</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="joint-estimation-of-emergence-and-survival.html#cb76-1" tabindex="-1"></a><span class="fu">summary</span>(joint)</span>
-<span id="cb76-2"><a href="joint-estimation-of-emergence-and-survival.html#cb76-2" tabindex="-1"></a></span>
-<span id="cb76-3"><a href="joint-estimation-of-emergence-and-survival.html#cb76-3" tabindex="-1"></a>Call<span class="sc">:</span></span>
-<span id="cb76-4"><a href="joint-estimation-of-emergence-and-survival.html#cb76-4" tabindex="-1"></a><span class="fu">glm</span>(<span class="at">formula =</span> democracy <span class="sc">~</span> gdppc <span class="sc">+</span> l.democracy <span class="sc">+</span> gdppc_l.democracy, </span>
-<span id="cb76-5"><a href="joint-estimation-of-emergence-and-survival.html#cb76-5" tabindex="-1"></a>    <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), <span class="at">data =</span> world, <span class="at">na.action =</span> na.exclude)</span>
-<span id="cb76-6"><a href="joint-estimation-of-emergence-and-survival.html#cb76-6" tabindex="-1"></a></span>
-<span id="cb76-7"><a href="joint-estimation-of-emergence-and-survival.html#cb76-7" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
-<span id="cb76-8"><a href="joint-estimation-of-emergence-and-survival.html#cb76-8" tabindex="-1"></a>                    Estimate Std. Error z value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>z<span class="sc">|</span>)    </span>
-<span id="cb76-9"><a href="joint-estimation-of-emergence-and-survival.html#cb76-9" tabindex="-1"></a>(Intercept)       <span class="sc">-</span><span class="fl">1.968e+00</span>  <span class="fl">5.139e-02</span> <span class="sc">-</span><span class="fl">38.290</span>  <span class="sc">&lt;</span> <span class="fl">2e-16</span> <span class="sc">**</span><span class="er">*</span></span>
-<span id="cb76-10"><a href="joint-estimation-of-emergence-and-survival.html#cb76-10" tabindex="-1"></a>gdppc             <span class="sc">-</span><span class="fl">2.954e-05</span>  <span class="fl">1.452e-05</span>  <span class="sc">-</span><span class="fl">2.034</span>    <span class="fl">0.042</span> <span class="sc">*</span>  </span>
-<span id="cb76-11"><a href="joint-estimation-of-emergence-and-survival.html#cb76-11" tabindex="-1"></a>l.democracy        <span class="fl">3.587e+00</span>  <span class="fl">1.001e-01</span>  <span class="fl">35.842</span>  <span class="sc">&lt;</span> <span class="fl">2e-16</span> <span class="sc">**</span><span class="er">*</span></span>
-<span id="cb76-12"><a href="joint-estimation-of-emergence-and-survival.html#cb76-12" tabindex="-1"></a>gdppc_l.democracy  <span class="fl">2.513e-04</span>  <span class="fl">4.863e-05</span>   <span class="fl">5.169</span> <span class="fl">2.36e-07</span> <span class="sc">**</span><span class="er">*</span></span>
-<span id="cb76-13"><a href="joint-estimation-of-emergence-and-survival.html#cb76-13" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb76-14"><a href="joint-estimation-of-emergence-and-survival.html#cb76-14" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">&#39;***&#39;</span> <span class="fl">0.001</span> <span class="st">&#39;**&#39;</span> <span class="fl">0.01</span> <span class="st">&#39;*&#39;</span> <span class="fl">0.05</span> <span class="st">&#39;.&#39;</span> <span class="fl">0.1</span> <span class="st">&#39; &#39;</span> <span class="dv">1</span></span>
-<span id="cb76-15"><a href="joint-estimation-of-emergence-and-survival.html#cb76-15" tabindex="-1"></a></span>
-<span id="cb76-16"><a href="joint-estimation-of-emergence-and-survival.html#cb76-16" tabindex="-1"></a>(Dispersion parameter <span class="cf">for</span> binomial family taken to be <span class="dv">1</span>)</span>
-<span id="cb76-17"><a href="joint-estimation-of-emergence-and-survival.html#cb76-17" tabindex="-1"></a></span>
-<span id="cb76-18"><a href="joint-estimation-of-emergence-and-survival.html#cb76-18" tabindex="-1"></a>    Null deviance<span class="sc">:</span> <span class="fl">10718.5</span>  on <span class="dv">7731</span>  degrees of freedom</span>
-<span id="cb76-19"><a href="joint-estimation-of-emergence-and-survival.html#cb76-19" tabindex="-1"></a>Residual deviance<span class="sc">:</span>  <span class="fl">1299.9</span>  on <span class="dv">7728</span>  degrees of freedom</span>
-<span id="cb76-20"><a href="joint-estimation-of-emergence-and-survival.html#cb76-20" tabindex="-1"></a>  (<span class="dv">1724</span> observations deleted due to missingness)</span>
-<span id="cb76-21"><a href="joint-estimation-of-emergence-and-survival.html#cb76-21" tabindex="-1"></a>AIC<span class="sc">:</span> <span class="fl">1307.9</span></span>
-<span id="cb76-22"><a href="joint-estimation-of-emergence-and-survival.html#cb76-22" tabindex="-1"></a></span>
-<span id="cb76-23"><a href="joint-estimation-of-emergence-and-survival.html#cb76-23" tabindex="-1"></a>Number of Fisher Scoring iterations<span class="sc">:</span> <span class="dv">11</span></span></code></pre></div>
-<p>For democratic emergence, we can report the Intercept <code>(Intercept)</code> and the slope coefficient <code>gdppc</code> straight away as -1.968 and -0.00002954, respectively. The slope coefficient is significant, as the p-value is <span class="math inline">\(&lt;0.05\)</span>. This is in line with the findings from estimating emergence separately. For democratic survival, we need to take the sum of <code>(Intercept)</code> and <code>l.democracy</code> to obtain the intercept, and <code>gdppc</code> and <code>gdppc_l.democracy</code> to obtain the slope coefficient. This calculation will yield the same coefficients as the two-stepped analysis.</p>
-<p>The last step is the assessment of statistical significance. For the emergence model, we can once again interpret the output straight away. For the survival scenario, however, we need to test the hypothesis that for example <span class="math inline">\(\beta_{0}\)</span> and <span class="math inline">\(\beta_{3}\)</span> are <em>jointly</em> different from zero. As the survival effect is a joint-venture between these two coefficients, we also need to assess their significance jointly, and not just concentrate on <span class="math inline">\(\beta_{3}\)</span>. This is the mistake <span class="citation">Przeworski et al. (2000)</span> have made in their seminal book, and this is what is discussed on the first few pages of the article by <span class="citation">Epstein et al. (2006)</span>. To do this, we are using a post-estimation command which is testing the aforementioned hypothesis that <span class="math inline">\(\beta_{0}\)</span> and<span class="math inline">\(\beta_{3}\)</span> are <em>jointly</em> different from zero, called a Wald-Test.</p>
-<p>For this we need to install and load a new package, called <code>survey</code>. This is a regression term test, where you first need to state the object within which the results are stored (here: <code>joint</code>), and the two terms you want to test, preceded by a tilde and connected by a plus. Lastly we specify that we want the Wald Test.</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="joint-estimation-of-emergence-and-survival.html#cb77-1" tabindex="-1"></a><span class="fu">library</span>(survey)</span>
-<span id="cb77-2"><a href="joint-estimation-of-emergence-and-survival.html#cb77-2" tabindex="-1"></a><span class="fu">regTermTest</span>(joint, <span class="sc">~</span>gdppc<span class="sc">+</span>gdppc_l.democracy, <span class="at">method=</span><span class="st">&quot;Wald&quot;</span>)</span>
-<span id="cb77-3"><a href="joint-estimation-of-emergence-and-survival.html#cb77-3" tabindex="-1"></a>Wald test <span class="cf">for</span> gdppc gdppc_l.democracy</span>
-<span id="cb77-4"><a href="joint-estimation-of-emergence-and-survival.html#cb77-4" tabindex="-1"></a> <span class="cf">in</span> <span class="fu">glm</span>(<span class="at">formula =</span> democracy <span class="sc">~</span> gdppc <span class="sc">+</span> l.democracy <span class="sc">+</span> gdppc_l.democracy, </span>
-<span id="cb77-5"><a href="joint-estimation-of-emergence-and-survival.html#cb77-5" tabindex="-1"></a>    <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), <span class="at">data =</span> world, <span class="at">na.action =</span> na.exclude)</span>
-<span id="cb77-6"><a href="joint-estimation-of-emergence-and-survival.html#cb77-6" tabindex="-1"></a>F <span class="ot">=</span>  <span class="fl">13.48875</span>  on  <span class="dv">2</span>  and  <span class="dv">7728</span>  df<span class="sc">:</span> p<span class="ot">=</span> <span class="fl">1.4194e-06</span> </span></code></pre></div>
-<p>With <span class="math inline">\(1.4194e-06\)</span> we can reject the null hypothesis, and conclude that jointly, the slope coefficients are different from zero, and as such that per capita GDP explains democratic survival.</p>
-<hr />
-</div>
-<div id="literature-recommendations-3" class="section level2 unnumbered hasAnchor">
-<h2>Literature Recommendations<a href="joint-estimation-of-emergence-and-survival.html#literature-recommendations-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><a href="https://www.cambridge.org/core/journals/political-analysis/article/abs/understanding-interaction-models-improving-empirical-analyses/9BA57B3720A303C61EBEC6DDFA40744B"><strong><span class="citation">Brambor et al. (2006)</span></strong></a>: This is for the Joint Estimation of Emergence and Survival</li>
-</ul>
-</div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="9">
-<li id="fn9"><p>This discussion draws on <span class="citation">Brambor et al. (2006)</span>. Please note that I am deliberately NOT lagging the independent variables (IVs) on this worksheet to keep notation as simple as possible. If you decide to run the interaction model, make sure you lag the IVs as explained above.<a href="joint-estimation-of-emergence-and-survival.html#fnref9" class="footnote-back">↩︎</a></p></li>
-</ol>
+<div id="glossary" class="section level1 unnumbered hasAnchor">
+<h1>Glossary<a href="glossary.html#glossary" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<table style="width:100%; color: black; margin-left: auto; margin-right: auto;" class="table">
+<caption>
+<span id="tab:glossary1">Table 2: </span>Glossary Week 1
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Term
+</th>
+<th style="text-align:left;">
+Description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+Test
+</td>
+<td style="text-align:left;">
+Test
+</td>
+</tr>
+</tbody>
+</table>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="model-fit-in-binary-response-models.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="exercises-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="homework.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="flashcards.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
