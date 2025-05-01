@@ -380,22 +380,22 @@ div.csl-indent {
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:latent"></span>
 <img src="files/Week%203/tau.png" alt="\label{fig:latent}Latent Variable" width="50%" />
 <p class="caption">
-Figure 13: Latent Variable
+Figure 14: Latent Variable
 </p>
 </div>
 <p>Your inclination to go out, is likely to be influenced by the amount of money you have in your wallet / bank. If you are broke, you will be less inclined (if you are sensible), and if you are swimming in it, you will be more inclined. So, if the “propensity to go out” (which remember is running from minus to plus infinity) is influenced by your budget, then let’s construct a graph, in which we pop the propensity to go out on the y-axis, and the budget on the x-axis. If we assume that this relationship is linear, we can fit a regression line into this coordinate system, just as we have in the previous week:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:out"></span>
 <img src="main_files/figure-html/out-1.png" alt="\label{fig:out}Effect of Budget on Propensity to Go Out" width="50%" />
 <p class="caption">
-Figure 14: Effect of Budget on Propensity to Go Out
+Figure 15: Effect of Budget on Propensity to Go Out
 </p>
 </div>
 <p>Whilst this visualises the influence of the budget on the latent variable, what we are aiming for is to make a prediction about the probability of you going out, or not.</p>
-<p>Now imagine, your budget is <span class="math inline">\(x_{1}\)</span>. The regression line depicts the propensity that we would expect to see, on average, for somebody with a budget of <span class="math inline">\(x_{1}\)</span>. But the crucial point is that not everybody is average. Some might have an essay deadline approaching which makes them even less likely to go out. Others might just have recieved their essay mark, and want to celebrate that they scored a first. In other words, there is variability around the regression line. And we assume that whilst this variability is random, it still follows a particular distribution. In the case of a probit, this is the normal distribution<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>. I have added these distributions to Figure <a href="probit---theory.html#fig:towcdf">15</a>. As you can see, even at budget <span class="math inline">\(x_{1}\)</span>, some area of the distribution has slipped over the cut-off point, <span class="math inline">\(\tau\)</span>.</p>
+<p>Now imagine, your budget is <span class="math inline">\(x_{1}\)</span>. The regression line depicts the propensity that we would expect to see, on average, for somebody with a budget of <span class="math inline">\(x_{1}\)</span>. But the crucial point is that not everybody is average. Some might have an essay deadline approaching which makes them even less likely to go out. Others might just have recieved their essay mark, and want to celebrate that they scored a first. In other words, there is variability around the regression line. And we assume that whilst this variability is random, it still follows a particular distribution. In the case of a probit, this is the normal distribution<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>. I have added these distributions to Figure <a href="probit---theory.html#fig:towcdf">16</a>. As you can see, even at budget <span class="math inline">\(x_{1}\)</span>, some area of the distribution has slipped over the cut-off point, <span class="math inline">\(\tau\)</span>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:towcdf"></span>
 <img src="files/Week%203/tau_prob.png" alt="\label{fig:towcdf}Towards the Cumulative Density Function, adapted from @scott:1997[p. 46]" width="50%" />
 <p class="caption">
-Figure 15: Towards the Cumulative Density Function, adapted from <span class="citation">J. S. Long (1997, p. 46)</span>
+Figure 16: Towards the Cumulative Density Function, adapted from <span class="citation">J. S. Long (1997, p. 46)</span>
 </p>
 </div>
 <p>The probability of going out is coloured in in grey. You can see that even at <span class="math inline">\(x_{1}\)</span> there is a teeny bit of probability that you will go out. As the budget increases, more and more probability slides over the threshold <span class="math inline">\(\tau\)</span>, until we reach the magical point of <span class="math inline">\(x_{5}\)</span> where the probability is 50%. From there on, the amount of probability sliding over <span class="math inline">\(\tau\)</span> is steadily decreasing, because of the shape of the normal distribution.</p>
@@ -403,14 +403,14 @@ Figure 15: Towards the Cumulative Density Function, adapted from <span class="ci
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:cdf"></span>
 <img src="main_files/figure-html/cdf-1.png" alt="\label{fig:cdf}The Cumulative Distribution Function, adapted from @scott:1997[p. 46]" width="50%" />
 <p class="caption">
-Figure 16: The Cumulative Distribution Function, adapted from <span class="citation">J. S. Long (1997, p. 46)</span>
+Figure 17: The Cumulative Distribution Function, adapted from <span class="citation">J. S. Long (1997, p. 46)</span>
 </p>
 </div>
 <p>This s-shaped curve now gives us the probability (of going out) for each <span class="math inline">\(x_{i}\)</span> (budget). It is important to note that the relationship is not linear, as in linear regression. Because we have an s-shaped curve the increase in probability when going from <span class="math inline">\(x_{2}\)</span> to <span class="math inline">\(x_{3}\)</span> is not the same as going from <span class="math inline">\(x_{3}\)</span> to <span class="math inline">\(x_{4}\)</span>. You can see that visualised here:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:marginal"></span>
 <img src="files/Week%203/probability.png" alt="\label{fig:marginal}Marginal Effect under the Cumulative Density Function" width="50%" />
 <p class="caption">
-Figure 17: Marginal Effect under the Cumulative Density Function
+Figure 18: Marginal Effect under the Cumulative Density Function
 </p>
 </div>
 <p>We will therefore not be able to interpret the coefficients in the same way as for OLS. We will be using predicted probabilities instead. But one step at a time. Let’s first get our hands dirty with some data.</p>
