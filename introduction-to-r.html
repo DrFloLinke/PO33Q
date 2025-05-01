@@ -356,14 +356,14 @@ div.csl-indent {
 <h1>Introduction to R<a href="introduction-to-r.html#introduction-to-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="how-data-are-organised" class="section level2 unnumbered hasAnchor">
 <h2>How Data are organised<a href="introduction-to-r.html#how-data-are-organised" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>I have put a little sample data set together for you which you can see here:</p>
+<p>I have put a little sample <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary.html">data set</a></span> together for you which you can see here:</p>
 <div class="figure" style="text-align: centre"><span style="display:block;" id="fig:excel"></span>
 <img src="files/Week%201/excel.png" alt="\label{fig:excel}Sample Data Set" width="38%" />
 <p class="caption">
 Figure 1: Sample Data Set
 </p>
 </div>
-<p>Each column represents a variable, the first one country names, and the second per capita GDP in 2015. Each row represents an observation, in our case an individual country. The meeting point between the the variable and the observation is a particular value. So for example, in Figure <a href="introduction-to-r.html#fig:excel">1</a> the GDP (second column) of the third country (row) is $ 5792 (cell). You see in the first row the names of the variables. Always make these short and sweet, but especially telling. Don’t go for something like “x4_st”, or “fubar”, as nobody (including yourself after a little while) will have any clue what this is.</p>
+<p>Each column represents a <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary.html">variable</a></span>, the first one country names, and the second per capita GDP in 2015. Each row represents an observation, in our case an individual country. The meeting point between the the variable and the observation is a particular value. So for example, in Figure <a href="introduction-to-r.html#fig:excel">1</a> the GDP (second column) of the third country (row) is $ 5792 (cell). You see in the first row the names of the variables. Always make these short and sweet, but especially telling. Don’t go for something like “x4_st”, or “fubar”, as nobody (including yourself after a little while) will have any clue what this is.</p>
 <hr />
 </div>
 <div id="r-rstudio-installation" class="section level2 unnumbered hasAnchor">
@@ -396,7 +396,6 @@ Figure 2: RStudio
 <p>It has – for now – three components to it. On the left hand-side you see the so-called “Console” into which you can enter the commands, and in which also most of the results will be displayed. On the right hands side, you see the “Workspace” which consists of an upper and a lower window. The upper window has three tabs in it. The tab “Environment” will provide you with a list of all the data sets you have loaded into R, and also of the objects and values you create (more on that later). Under the “History” tab, you find a history (I know, who would have thought it) of all the commands you have used. This can be very useful to retrace your steps. In the “Connections” tab you can connect to online sources. We will not use this tab.</p>
 <p>In the lower window, you have five tabs. Under “Files” you find the file structure of your computer. Once you have set a working directory (more on that in a moment), you can also view the files in your working directory here which gives you a good overview of the files you need to refer to for a particular project. The “Plots” tab will display the graphs we will be producing. “Packages” form the heart and soul of R and they make the program as powerful as it is (again, more on that later). RStudio also has a “Help” function, which is rarely very illuminating. I usually search for stuff online on “stackexchange”, as there is a large community of R users out there who share their knowledge and solutions to problems. We won’t use the last tab “Viewer”.</p>
 <div class="video">
-<p>To support you in learning the material we cover in this online companion, I have recorded videos for some central terms and topics. Here is the first introducing you to R Studio.</p>
 <p><strong>Introduction to R Studio</strong></p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/D7p2OXwBur8?si=ECd7It03IArA6_BP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
 </iframe>
@@ -553,23 +552,23 @@ Figure 5: Folder Structure
 <h3>Variable Types in R<a href="introduction-to-r.html#variable-types-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You have seen in the output of the <code>str()</code> command that R distinguishes between a number of different variable types. Here is a broad overview of the variable types, so that you know which descriptive statistics you can calculate, or into which variable type you need to recode (next step) to achieve what you want. There are two general types:</p>
 <ol style="list-style-type: decimal">
-<li><code>numeric</code> – numbers</li>
+<li><code>numeric</code> – numbers, <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary.html">continuous</a></span></li>
 <li><code>character</code> (also called string) – letters</li>
 </ol>
 <p>Within <code>numeric</code> we can distinguish between the following:</p>
 <ul>
-<li><code>factor</code> - nominal variable</li>
-<li><code>ordered factor</code> - ordinal variable</li>
-<li><code>integer</code> - numeric, but only “whole” numbers (discrete)</li>
+<li><code>factor</code> - nominal variable, <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary.html">categorical</a></span></li>
+<li><code>ordered factor</code> - ordinal variable, <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary.html">categorical</a></span></li>
+<li><code>integer</code> - numeric, but only “whole” numbers (<span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary.html">discrete</a></span>)</li>
 <li><code>numeric</code> - any number (interval or ratio scales)</li>
 </ul>
 <div class="puzzle">
-<p>If you are unfamiliar with measurement scales, then please look these up before proceding.</p>
+<p>If you are unfamiliar with measurement scales, then please look these up before proceeding.</p>
 </div>
 </div>
 <div id="descriptive-statistics" class="section level3 unnumbered hasAnchor">
 <h3>Descriptive Statistics<a href="introduction-to-r.html#descriptive-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Quite a large number of descriptive statistics can be calculated. For example:</p>
+<p>Quite a large number of <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary.html">descriptive statistics</a></span> can be calculated. For example:</p>
 <ul>
 <li><span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary.html">Mean</a></span></li>
 <li><span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary.html">Median</a></span></li>
@@ -659,7 +658,7 @@ Figure 6: Distributions with different Standard Deviations
 </div>
 <div id="the-real-data-set" class="section level2 unnumbered hasAnchor">
 <h2>The Real Data Set<a href="introduction-to-r.html#the-real-data-set" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Download the <code>world.csv</code> data set from the <a href="https://drfloreiche.github.io/PO33Q/downlads.html">Downloads Section</a> and place it into the current working directory.</p>
+<p>Download the <code>world.csv</code> data set from the <a href="https://drfloreiche.github.io/PO33Q/downloads.html">Downloads Section</a> and place it into the current working directory.</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="introduction-to-r.html#cb24-1" tabindex="-1"></a>world <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;Week 1/world.csv&quot;</span>)</span></code></pre></div>
 <p>The data are taken from <span class="citation">World Bank (2024)</span>, <span class="citation">Boix et al. (2018)</span>, and <span class="citation">Marshall &amp; Gurr (2020)</span>. Table <a href="introduction-to-r.html#tab:wdicode1">1</a> provides a full code book, but you can also download it <a href="files/Week%201/PO33Q_Codebook.pdf">in pdf format here</a>.</p>
 <table style="width:100%; color: black; margin-left: auto; margin-right: auto;" class="table">
