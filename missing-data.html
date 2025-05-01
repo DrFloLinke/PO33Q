@@ -197,10 +197,24 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i>Glossary</a></li>
 <li class="chapter" data-level="" data-path="flashcards.html"><a href="flashcards.html"><i class="fa fa-check"></i>Flashcards</a></li>
 <li class="part"><span><b>Week 2</b></span></li>
+<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html"><i class="fa fa-check"></i>Principles of Statistical Inference</a>
+<ul>
+<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#probability-distributions"><i class="fa fa-check"></i>Probability Distributions</a>
+<ul>
+<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#sampling-distributions"><i class="fa fa-check"></i>Sampling Distributions</a></li>
+<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#the-t-distribution"><i class="fa fa-check"></i>The t-Distribution</a></li>
+<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#confidence-intervals"><i class="fa fa-check"></i>Confidence Intervals</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#tests-of-statistical-significance"><i class="fa fa-check"></i>Tests of Statistical Significance</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html"><i class="fa fa-check"></i>Linear Regression - Theory</a>
 <ul>
 <li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#what-is-it"><i class="fa fa-check"></i>What is it?</a></li>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#what-is-it"><i class="fa fa-check"></i>What is it?</a>
+<ul>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#population"><i class="fa fa-check"></i>Population</a></li>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#sample"><i class="fa fa-check"></i>Sample</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#ordinary-least-squares-ols"><i class="fa fa-check"></i>Ordinary Least Squares (OLS)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html"><i class="fa fa-check"></i>Linear Regression – Application</a>
@@ -221,6 +235,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#parsimony"><i class="fa fa-check"></i>Parsimony</a></li>
 <li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#r-squared-again"><i class="fa fa-check"></i>R-Squared Again</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#limitations"><i class="fa fa-check"></i>Limitations</a></li>
 <li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#literature-recommendations"><i class="fa fa-check"></i>Literature Recommendations</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="important-disclaimer.html"><a href="important-disclaimer.html"><i class="fa fa-check"></i>Important Disclaimer</a></li>
@@ -377,17 +392,17 @@ div.csl-indent {
 <div class="figure"><span style="display:block;" id="fig:real"></span>
 <img src="files/Week%204/real.png" alt="\label{fig:real}Schematic of a real data set" width="40%" />
 <p class="caption">
-Figure 13: Schematic of a real data set
+Figure 18: Schematic of a real data set
 </p>
 </div>
-<p>You will already have seen this when opening the data sets we are working with. In Figure <a href="missing-data.html#fig:missing">14</a>, for example, the variable <code>gdppc</code> only has three missing values, but <code>agri</code> is completely missing.</p>
+<p>You will already have seen this when opening the data sets we are working with. In Figure <a href="missing-data.html#fig:missing">19</a>, for example, the variable <code>gdppc</code> only has three missing values, but <code>agri</code> is completely missing.</p>
 <div class="figure"><span style="display:block;" id="fig:missing"></span>
 <img src="files/Week%204/missingdata.png" alt="\label{fig:missing}Excerpt from the `world` data set" width="80%" />
 <p class="caption">
-Figure 14: Excerpt from the <code>world</code> data set
+Figure 19: Excerpt from the <code>world</code> data set
 </p>
 </div>
-<p>If you ran a regression model that uses the variable <code>agri</code> listwise deletion would delete all observations and you would end up with no model. Here, the amount of observations you would lose is obvious. But since different variables have missing values in different places, it is often not as obvious as that. Assume, for example that we wished to use all four variables in our Schematic in Figure <a href="missing-data.html#fig:real">13</a>. Even though the “missingness” problem looks much less pronounced than in the <code>agri</code> variable in the <code>world</code> data set (see Figure <a href="missing-data.html#fig:missing">14</a>, listwise deletion would ensure that we would only be left with two observations out of ten in our model:</p>
+<p>If you ran a regression model that uses the variable <code>agri</code> listwise deletion would delete all observations and you would end up with no model. Here, the amount of observations you would lose is obvious. But since different variables have missing values in different places, it is often not as obvious as that. Assume, for example that we wished to use all four variables in our Schematic in Figure <a href="missing-data.html#fig:real">18</a>. Even though the “missingness” problem looks much less pronounced than in the <code>agri</code> variable in the <code>world</code> data set (see Figure <a href="missing-data.html#fig:missing">19</a>, listwise deletion would ensure that we would only be left with two observations out of ten in our model:</p>
 <p><img src="files/Week%204/obs.png" width="40%" /></p>
 <p>So what do you do when you find yourself in such a situation? An obvious answer would be to simply leave out a variable that has a high degree of missingness. This solution is flawed, however. If your theory tells you that the variable plays a role in measuring one of the concepts then leaving it out would create so-called omitted variable bias – a problem you really don’t want to have. A much better solution, therefore, is to use a proxy variable. Take <code>agri</code> as an example. It measures the percentage of GDP generated by agriculture, and would probably enter a statistical model to measure the transition of a traditional society (agricultural) to a modern, industrialised society. So, rather then measuring the move away from <code>agri</code>, you would also measure the transformation into industry. If you can find a variable measuring the percentage of GDP generated by the industry sector, and this variable has fewer observations missing, you could you it instead of <code>agri</code> and still be measuring the same thing.</p>
 <p>Sometimes, it is not as straightforward as this, however, and you will have to resort to variables that have less measurement validity. Assume, for example, you want to measure the populations ability to read. Then <code>literacy</code> from our data set would be an obvious choice. But sadly, it has a high number of observations missing. An alternative is primary gross enrolment (<code>enrol_gross</code>), as pupils learn to read and write in primary school. This variable does not measure the characteristic we are interested in as directly as <code>literacy</code>, but it would allow us to include more observations in our model. It is an art to balance measurement validity against the number of observations, there is no hard and fast rule to help you make this decision. But as long as you discuss and explain your reasoning in the assessment, you will be fine for this module – after all, you are only starting out on this.</p>

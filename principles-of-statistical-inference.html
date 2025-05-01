@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Flashcards | PO33Q: Determinants of Democracy -  Analysing Emergence, Survival, and Fall</title>
+  <title>Principles of Statistical Inference | PO33Q: Determinants of Democracy -  Analysing Emergence, Survival, and Fall</title>
   <meta name="description" content="PO33Q: Determinants of Democracy - Analysing Emergence, Survival, and Fall" />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Flashcards | PO33Q: Determinants of Democracy -  Analysing Emergence, Survival, and Fall" />
+  <meta property="og:title" content="Principles of Statistical Inference | PO33Q: Determinants of Democracy -  Analysing Emergence, Survival, and Fall" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Flashcards | PO33Q: Determinants of Democracy -  Analysing Emergence, Survival, and Fall" />
+  <meta name="twitter:title" content="Principles of Statistical Inference | PO33Q: Determinants of Democracy -  Analysing Emergence, Survival, and Fall" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="glossary-2.html"/>
-<link rel="next" href="missing-data.html"/>
+<link rel="prev" href="flashcards.html"/>
+<link rel="next" href="linear-regression---theory.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -367,36 +367,111 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="flashcards-2" class="section level1 unnumbered hasAnchor">
-<h1>Flashcards<a href="flashcards-2.html#flashcards-2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div class="flashcard">
-<details>
-<summary>
-R Functions This Week
-</summary>
-<div style="padding-bottom:56.25%; position:relative; display:block; width: 100%">
-<p><iframe width="100%" height="100%"
-    src="files/flashcards/PO33Q_Week 1_All.html"
-    frameborder="0" allowfullscreen="" style="position:absolute; top:0; left: 0">
-</iframe></p>
-</div>
-<p>
+<div id="principles-of-statistical-inference" class="section level1 unnumbered hasAnchor">
+<h1>Principles of Statistical Inference<a href="principles-of-statistical-inference.html#principles-of-statistical-inference" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Starting to write this, I am tackling th interesting task of condensing four weeks’ worth of material of my introductory quantitative module into a few paragraphs. But a brief overview of statistical inference and significance tests is essential for you to understand the interpretation of the methods we are going to explore. So let’s start with probability distributions.</p>
+<hr />
+<div id="probability-distributions" class="section level2 unnumbered hasAnchor">
+<h2>Probability Distributions<a href="principles-of-statistical-inference.html#probability-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The term <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">probability distribution</a></span> sounds fancy, but really only implies that we are assessing the relative frequency with which a particular value occurs. So, for example, if I have six History students on the module, and four PAIS students, then the probability of being a PAIS student is 40%. For categorical data, such as this, we can assign a probability to each category. But for continuous variables, such as the Polity V score, or per capita GDP this no longer works. Instead, we assign probabilities to an interval of numbers. In the following graph, I am putting the values of such a continuous variable on the x-axis, and then draw a curve over this which indicates the probability distribution for these values.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:probability"></span>
+<img src="main_files/figure-html/probability-1.png" alt="\label{fig:probability}Probability Distribution for a Continuous Variable" width="50%" />
+<p class="caption">
+Figure 7: Probability Distribution for a Continuous Variable
 </p>
-The data are available as a <a href="files/excelfiles/PO33Q_Week%201_All.csv">.csv file</a>.
-</details>
 </div>
-
+<p>In this graph, the values on the x-axis between alpha and beta have a probability of occurring that is equal to the orange area under the curve. This curve is bell-shaped, and symmetrical around the mean of the variable x, and is known as the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">normal distribution</a></span>. The beauty of this distribution is that the amount of probability that is contained in an interval around the mean depends solely on the number of standard errors, denoted as <span class="math inline">\(\sigma\)</span>) of the variable x. So, for example, if I travel one standard deviation to the left and to the right from the mean, I will always have 68% of the area under the distribution in this interval. For two standard deviations, this is equivalent to 96% and for three standard deviations 99.9%. Schematically this looks as follows:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:normal"></span>
+<img src="main_files/figure-html/normal-1.png" alt="\label{fig:normal}Probabilities under the Normal Distribution" width="50%" />
+<p class="caption">
+Figure 8: Probabilities under the Normal Distribution
+</p>
 </div>
-
-
-
+<p>If we know that the area within one standard deviation of the mean is equivalent to 68%, then we also know that the area outside of these boundaries must be 32%, as both need to sum up to 100%. This is the white area in Figure <a href="principles-of-statistical-inference.html#fig:probability">7</a>. As this area is split equally into a left and a right side, the area on the right must be 16%. This is what is known as the right-tail probability.</p>
+<p>This means that if we know how many standard deviations away from the mean of the distribution a value falls, we can make a statement on how likely it would be to observe a value that is higher than this value. For example, if I know the distribution of marks on a module, this would allow me to state how likely it was to achieve a first, or a mark of higher than 70. Assume that the average was 63, and the standard deviation 9. Then the difference between the mean and the value we are interested in is equal to 70-63=7. To express this distance in units of standard deviations, we now divide 7 by 9, and obtain something that is called a z-score:</p>
+<p><span class="math display">\[\begin{equation}
+z=\frac{\text{Observation} - \text{Mean}}{\text{Standard Deviation}}=\frac{y-\mu}{\sigma}
+\end{equation}\]</span></p>
+<p>In our case, z would be equal to 7/9, or 0.7777778. You can look this value up in a z-table which lists the right-tail probability for all conceivable values of z. Here, it would return a probability of 21.77%. With this mean and standard deviation the probability of scoring a First would be 21.77%.</p>
+<p>This all works fine, so long as we are dealing with the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">population</a></span>. Sadly, we rarely have access to the population in the social sciences, however. Surveys, for example, are usually conducted for a small representative sub-group of the population, a <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">sample</a></span>. So, how do we make statements about the population if we only have access to a sample? The answer to this is: a sampling distribution.</p>
+<div id="sampling-distributions" class="section level3 unnumbered hasAnchor">
+<h3>Sampling Distributions<a href="principles-of-statistical-inference.html#sampling-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Whenever we draw a sample from a population, the values we draw will vary. Therefore, also the mean of these values will vary each time. Imagine I draw a sample of 5 students from a seminar group, time and time again, and each time calculate the average age of these 5 students. Sometimes the average will be high, sometimes it will be low, but – and here comes the magic – the vaue that will come up most often in these samples is the true mean of the population (all students in the seminar). We call this population value a <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">parameter</a></span>. If we arrange all of the sample means we have obtained from this process, these will form a distribution in their own right, the sampling distribution. This has the true population mean (let’s denote this as <span class="math inline">\(\mu\)</span>) in its centre. In Figure <a href="principles-of-statistical-inference.html#fig:sampling">9</a>, for example, I have simulated a population with a mean of zero, and have drawn 9000 samples from this population, each with 30 observations. As you can see, the distribution of means of each of these 9000 samples forms a normal distribution which has zero, the population mean, at its centre.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:sampling"></span>
+<img src="main_files/figure-html/sampling-1.png" alt="\label{fig:sampling}Sampling Distribution" width="50%" />
+<p class="caption">
+Figure 9: Sampling Distribution
+</p>
+</div>
+<p>So, we know the mean of the sampling distribution, but what about its standard deviation? We could of course take samples repeatedly from the population and calculate it, but that is wasteful. Instead, we estimate it by dividing the standard deviation of the one sample we usually have by the square root of the sample size. The result is the so-called <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">standard error</a></span>, denoted as “se”, the standard deviation of the sampling distribution.</p>
+<p><span class="math display">\[\begin{equation}
+se=\frac{s}{\sqrt{n}}
+\end{equation}\]</span></p>
+<p>where s is the sample standard deviation and n is the sample size.</p>
+<p>Using the sample standard deviation comes with the cost of having to deal with uncertainty, as we would expect variability of this value based on the sample we draw. This forrces us to abandon the normal distribution, and use the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">t-distribution</a></span> instead.</p>
+</div>
+<div id="the-t-distribution" class="section level3 unnumbered hasAnchor">
+<h3>The t-Distribution<a href="principles-of-statistical-inference.html#the-t-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The t-distribution is also bell-shaped and symmetrical, but around a fixed mean of zero. Its shape also depends on the so-called <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">degrees of freedom</a></span>. These are constraints on the estimation process. In our case this constraint is to replace the population with the sample standard deviation. It is defined as n-1. Depending on these degrees of freedom, the t-distribution becomes wider or narrower, expressing the uncertainty we are incurring from working with a sample. You can see in Figure <a href="principles-of-statistical-inference.html#fig:t">10</a> that with increasing sampling size the t-distribution becomes narrower and narrower, until – for an infinite sample size – it is equivalent to the normal distribution again.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:t"></span>
+<img src="main_files/figure-html/t-1.png" alt="\label{fig:t}The t-Distribution" width="50%" />
+<p class="caption">
+Figure 10: The t-Distribution
+</p>
+</div>
+<p>With the help of the sampling distribution, we can now construct an interval of values within which we believe the true population parameter lies. This interval is known as a <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">confidence interval</a></span>.</p>
+</div>
+<div id="confidence-intervals" class="section level3 unnumbered hasAnchor">
+<h3>Confidence Intervals<a href="principles-of-statistical-inference.html#confidence-intervals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>How does this work? We know that the sampling distribution has the true population mean at its centre. By invoking the idea of a sampling distribution, we can set an upper and a lower boundary to create an area of a certain probability around this mean – just as we did with the normal distribution. To do this, we need to determine how many standard errors we must move to the left and right of the mean to capture a desired proportion of the distribution. This number of standard errors corresponds to the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">t-score</a></span>. The appropriate t-score varies depending on the sample size. For smaller sample sizes, the t-distribution is wider, so we need to move farther from the mean to achieve the same level of confidence than we would with a larger sample size and a narrower distribution. For example, to achieve a 95% confidence interval, we would use a t-score of approximately 2.306 for a sample of 9, but only 2.045 for a sample of 30. We will come back to confidence intervals in the context of regression analysis.</p>
+<hr />
+</div>
+</div>
+<div id="tests-of-statistical-significance" class="section level2 unnumbered hasAnchor">
+<h2>Tests of Statistical Significance<a href="principles-of-statistical-inference.html#tests-of-statistical-significance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As you know from my introduction last week, in the social sciences we generally test whether we can explain behaviour or some kind of phenomenon through a particular theory. In practical terms this means that we distill the theory into testable statements, called hypotheses. Take this hypothesis, for example: The average level of democracy in the Middle East is different from that of Europe.</p>
+<p>In this case, we are no longer interested in establishing an interval of numbers within which we believe the average level of democracy in the Middle East to fall, but we are comparing it with a particular value, or point: the level of democracy in Europe. This kind of assessment is called a <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">significance test</a></span>.</p>
+<p>Every significance test has two hypotheses, an alternative, and a null-hypothesis. The alternative hypothesis is the one I already stated:</p>
+ 
+<center>
+H<span class="math inline">\(_\text{A}\)</span>: The average level of democracy in the Middle East is different from that of Europe.
+</center>
+<p> 
+ </p>
+<p>The null-hypothesis always states no effect, so In our case the region would have no impact on the democracy level, and the Polity V score would be identical in Europe and the Middle East.</p>
+ 
+<center>
+H<span class="math inline">\(_0\)</span>: The average level of democracy in the Middle East is the same as in Europe.
+</center>
+<p> 
+ </p>
+<p>The average Polity V score in the Middle East was -2.8 in 2015 with a standard deviation of 7.07 across 15 countries. The average Polity V score for Europe in the same year was 8.7. In order to ascertain whether the observed value of -2.8 is statistically different from the null-hypothesis value, 8.7, we need to make a probability statement. To be precise, we need to quantify the probability of observing a value that is more extreme than than one we have already observed. If this probability is small, then the value we have can be regarded as highly unusual and we can conclude that it is statistically different from the null-hypothesis value. This probability of observing a value more extreme than the one we have is the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">p-value</a></span>.</p>
+<p>Usually, we want the p-value to be quite small, either 5% or 1%. R will obtain this for us, but so you know what happens behind the scenes, here is a quick summary. We measure the distance between the observed value and the null-hypothesis value in units of standard error. This is equivalent to the t-value, our <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">test statistic</a></span>. We calculate it as follows:</p>
+<p><span class="math display">\[\begin{equation}
+t = \frac{\bar{y} - \mu_{0}}{se}, \quad \text{where} \, se = \frac{s}{\sqrt{n}}
+\end{equation}\]</span></p>
+<p>In our example:</p>
+<p><span class="math display">\[\begin{equation}
+t = \frac{-2.8 - 8.7}{1.826243}=-6.297081, \quad \text{where} \, se = \frac{7.07301}{\sqrt{15}}
+\end{equation}\]</span></p>
+<p>This places us quite far out into the tails of the t-distribution (see Figure <a href="principles-of-statistical-inference.html#fig:p">11</a>), and as such the probability remaining beyond this value is very, very small. The probability of observing a value more extreme is therefore low, we can regard our observed value of -2.8 as unusual and conclude the the average democracy level in the Middle East is statistically different from that of Europe. The precise p-value for this is 0.001283, well below our desired significance level of 5%.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:p"></span>
+<img src="main_files/figure-html/p-1.png" alt="\label{fig:p}The p-Value" width="50%" />
+<p class="caption">
+Figure 11: The p-Value
+</p>
+</div>
+<p>I have displayed this here as a two-sided test. We did not specify whether we expect the level of democracy in the Middle East to be higher or lower than in Europe, just different. As both directions are therefore possible, the p-value is thus made up of the sum of the areas in the left and the right tail of the distribution. One-sided tests are possible, but generally in regression analysis the test is two-sided which is why I will leave it at that here.</p>
+<p>And with that, we are finally ready to turn our attention to the actual topic for today: linear regression.</p>
+</div>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="glossary-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="missing-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="flashcards.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="linear-regression---theory.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

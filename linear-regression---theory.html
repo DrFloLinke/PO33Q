@@ -28,7 +28,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="flashcards.html"/>
+<link rel="prev" href="principles-of-statistical-inference.html"/>
 <link rel="next" href="linear-regression-application.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -197,10 +197,24 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i>Glossary</a></li>
 <li class="chapter" data-level="" data-path="flashcards.html"><a href="flashcards.html"><i class="fa fa-check"></i>Flashcards</a></li>
 <li class="part"><span><b>Week 2</b></span></li>
+<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html"><i class="fa fa-check"></i>Principles of Statistical Inference</a>
+<ul>
+<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#probability-distributions"><i class="fa fa-check"></i>Probability Distributions</a>
+<ul>
+<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#sampling-distributions"><i class="fa fa-check"></i>Sampling Distributions</a></li>
+<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#the-t-distribution"><i class="fa fa-check"></i>The t-Distribution</a></li>
+<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#confidence-intervals"><i class="fa fa-check"></i>Confidence Intervals</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#tests-of-statistical-significance"><i class="fa fa-check"></i>Tests of Statistical Significance</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html"><i class="fa fa-check"></i>Linear Regression - Theory</a>
 <ul>
 <li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#what-is-it"><i class="fa fa-check"></i>What is it?</a></li>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#what-is-it"><i class="fa fa-check"></i>What is it?</a>
+<ul>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#population"><i class="fa fa-check"></i>Population</a></li>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#sample"><i class="fa fa-check"></i>Sample</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#ordinary-least-squares-ols"><i class="fa fa-check"></i>Ordinary Least Squares (OLS)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html"><i class="fa fa-check"></i>Linear Regression – Application</a>
@@ -221,6 +235,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#parsimony"><i class="fa fa-check"></i>Parsimony</a></li>
 <li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#r-squared-again"><i class="fa fa-check"></i>R-Squared Again</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#limitations"><i class="fa fa-check"></i>Limitations</a></li>
 <li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#literature-recommendations"><i class="fa fa-check"></i>Literature Recommendations</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="important-disclaimer.html"><a href="important-disclaimer.html"><i class="fa fa-check"></i>Important Disclaimer</a></li>
@@ -356,7 +371,7 @@ div.csl-indent {
 <h1>Linear Regression - Theory<a href="linear-regression---theory.html#linear-regression---theory" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="introduction" class="section level2 unnumbered hasAnchor">
 <h2>Introduction<a href="linear-regression---theory.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Regression is the power house of the social sciences. It is widely applied and takes many different forms. In this Chapter we are going to explore the linear variant, also called Ordinary Least Squares (OLS). This type of regression is used if our dependent variable is continuous. In the following Chapter we will have a look at regression with a binary dependent variable and the calculation of the probability to fall into either of those two categories. But let’s first turn to linear regression.</p>
+<p><span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">Regression</a></span> is the power house of the social sciences. It is widely applied and takes many different forms. In this Chapter we are going to explore the linear variant, estimated through a method called Ordinary Least Squares (OLS). This type of regression is used if our dependent variable is continuous. In Week 3 we will have a look at regression with a binary dependent variable and the calculation of the probability to fall into either of those two categories. But let’s first turn to linear regression.</p>
 <hr />
 </div>
 <div id="what-is-it" class="section level2 unnumbered hasAnchor">
@@ -365,32 +380,35 @@ div.csl-indent {
 <p><strong>Regression - What is it?</strong></p>
 <p>YouTube link to follow</p>
 </div>
-<p>Regression is not only able to identify the direction of a relationship between an independent and a dependent variable, it is also able to quantify the effect. Let us choose <code>Y</code> as our dependent variable, and <code>X</code> as our independent variable. We have some data which we are displaying in a scatter plot:</p>
+<p>Regression is not only able to identify the direction of a relationship between an independent and a dependent variable, it is also able to quantify the size of the effect. Let us choose <code>Y</code> as our dependent variable, and <code>X</code> as our independent variable. We have some data which we are displaying in a scatter plot:</p>
 <p><img src="files/Week%202/scatter.png" style="width:50.0%" /></p>
-<p>With a little goodwill we can already see that there is a positive relationship: as <code>X</code> increases, <code>Y</code> increases, as well. Now, imagine taking a ruler and trying to fit in a line that best describes the relationship depicted by these points. This will be our regression line.</p>
-<p>The position of a line in a coordinate system is usually described by two items: the intercept with the Y-axis, and the slope of the line. The slope is defined as rise over run, and indicates by how much Y increases (or decreases is the slope is negative) if we add an additional unit of X. In the notation which follows we will call the intercept <span class="math inline">\(\beta_{0}\)</span>, and the slope <span class="math inline">\(\beta_{1}\)</span>. It will be our task to estimate these values, also called coefficients. You can see this depicted graphically here:</p>
+<p>With a little goodwill we can already see that there is a positive relationship: as <code>X</code> increases, <code>Y</code> increases, as well. Now, imagine taking a ruler and trying to fit in a line that best describes the relationship depicted by these points. This will be our <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">regression line</a></span>.</p>
+<p>The position of a line in a coordinate system is usually described by two items: the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">intercept</a></span> with the Y-axis, and the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">slope</a></span> of the line. The slope is defined as rise over run, and indicates by how much Y increases (or decreases is the slope is negative) if we add an additional unit of X. In the notation which follows we will call the intercept <span class="math inline">\(\beta_{0}\)</span>, and the slope <span class="math inline">\(\beta_{1}\)</span>. It will be our task to estimate these values, also called <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">coefficients</a></span> You can see this depicted graphically here:</p>
 <p><img src="files/Week%202/regline.png" style="width:50.0%" /></p>
 <p>In the context of the module, we would for example have per capita GDP on the x-axis (independent variable), and Polity V measuring the level of democracy on the y-axis (dependent variable). This would look like this in the year 2015:</p>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-35"></span>
-<img src="main_files/figure-html/unnamed-chunk-35-1.png" alt="\label{fig:modern}Democracy and Development in 2015" width="50%" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-36"></span>
+<img src="main_files/figure-html/unnamed-chunk-36-1.png" alt="\label{fig:modern}Democracy and Development in 2015" width="50%" />
 <p class="caption">
-Figure 7: Democracy and Development in 2015
+Figure 12: Democracy and Development in 2015
 </p>
 </div>
-<p><strong>Population</strong></p>
-<p>We will first assume here that we are dealing with the population and not a sample. The regression line we have just drawn would then be called the Population Regression Function (PRF) and is written as follows:</p>
+<div id="population" class="section level3 unnumbered hasAnchor">
+<h3>Population<a href="linear-regression---theory.html#population" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We will first assume here that we are dealing with the population and not a sample. The regression line we have just drawn would then be called the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">Population Regression Function</a></span> (PRF) and is written as follows:</p>
 <p><span class="math display">\[\begin{equation}
 E(Y|X_{i}) = \beta_{0} + \beta_{1} X_{i}
 \end{equation}\]</span></p>
-<p>Because wer are dealing with the population, the line is the geometric locus of all the expected values of the dependent variable <code>Y</code>, given the values of the independent variables <code>X</code>. This has to do with the approach to statistics that underpins this module: frequentist statsctics (as opposed to Bayesian statistics). We are understanding all values to be “in the long run”, and if we sampled repeatedly from a population, then the expected value is the value we would, well, expect to see most often in the long run.</p>
-<p>The regression line is not intercepting with all observations. Only two are located on the line, and all others have a little distance between them and the PRF. These distances between <span class="math inline">\(E(Y|X_{i})\)</span> and <span class="math inline">\(Y_{i}\)</span> are called error terms and are denoted as <span class="math inline">\(\epsilon_{i}\)</span>.</p>
+<p>Because we are dealing with the population, the line is the geometric locus of all the expected values of the dependent variable <code>Y</code>, given the values of the independent variables <code>X</code>, also known as the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">conditional expectation function</a></span> (which value of Y would we expect, on average, for a given Y?). This has to do with the approach to statistics that underpins this module: frequentist statistics (as opposed to Bayesian statistics). We are understanding all values to be “in the long run”, and if we sampled repeatedly from a population, then the expected value is the value we would, well, expect to see most often in the long run.</p>
+<p>The regression line is not intercepting with all observations. Only two are located on the line, and all others have a little distance between them and the PRF. These distances between <span class="math inline">\(E(Y|X_{i})\)</span> and <span class="math inline">\(Y_{i}\)</span> are called <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">error terms</a></span> and are denoted as <span class="math inline">\(\epsilon_{i}\)</span>.</p>
 <p><img src="files/Week%202/errors.png" style="width:50.0%" /></p>
 <p>To describe the observations <span class="math inline">\(Y_{i}\)</span> we therefore need to add the error terms to the PRF:</p>
 <p><span class="math display">\[\begin{equation}
 Y_{i} = \beta_{0} + \beta_{1} X_{i} + \epsilon_{i}
 \end{equation}\]</span></p>
-<p><strong>Sample</strong></p>
-<p>In reality we hardly ever have the population in the social sciences, and we generally have to contend with a sample. Nonetheless, we can construct a regression line on the basis of the sample, the Sample Regression Function (SRF). It is important to note that the nature of the regression line we derive fromt he sample will be different for every sample, as each sample will have other values in it. Rarely, the PRF is the same as the SRF - but we are always using the SRF to estimate the PRF.</p>
+</div>
+<div id="sample" class="section level3 unnumbered hasAnchor">
+<h3>Sample<a href="linear-regression---theory.html#sample" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In reality we hardly ever have the population in the social sciences, and we generally have to contend with a sample. Nonetheless, we can construct a regression line on the basis of the sample, the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">Sample Regression Function</a></span> (SRF). It is important to note that the nature of the regression line we derive from the sample will be different for every sample, as each sample will have other values in it. Rarely, the PRF is the same as the SRF - but we are always using the SRF to estimate the PRF.</p>
 <p>In order to flag this up in the notation we use to specify the SRF, we are using little hats over everything we estimate, like this:</p>
 <p><span class="math display">\[\begin{equation}
 \hat{Y}_{i} = \hat{\beta}_{0} + \hat{\beta}_{1} X_{i}
@@ -399,14 +417,15 @@ Y_{i} = \beta_{0} + \beta_{1} X_{i} + \epsilon_{i}
 <p><span class="math display">\[\begin{equation}
 Y_{i} = \hat{\beta}_{0} + \hat{\beta}_{1} X_{i} + \hat{\epsilon}_{i}
 \end{equation}\]</span></p>
-<p>The following graph visdualised the relationship between an observation, the PRF, the SRF and the respective error terms.</p>
+<p>These estimated error terms, <span class="math inline">\(\hat{\epsilon}_{i}\)</span>, are called <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">residuals</a></span>. The following graph visualises the relationship between an observation, the PRF, the SRF, the error terms, and the residuals.</p>
 <p><img src="files/Week%202/SRF_PRF.png" style="width:50.0%" /></p>
 <hr />
+</div>
 </div>
 <div id="ordinary-least-squares-ols" class="section level2 unnumbered hasAnchor">
 <h2>Ordinary Least Squares (OLS)<a href="linear-regression---theory.html#ordinary-least-squares-ols" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>When you eye-balled the scatter plot at the start of this Chapter in order to fit a line through it, you have sub-consciously done so by minimising the distance between each of the observations and the line. Or put differently, you have tried to minimise the error term <span class="math inline">\(\hat{\epsilon}_{i}\)</span>. This is basically the intuition behind fitting the SRF mathematically, too. We try to minimise the sum of all error terms, so that all observations are as close to the regression line as possible. The only problem that we encounter when doing this is that these distances will always sum up to zero.</p>
-<p>But similar to calculating the standard deviation where the differences between the observations and the mean would sum up to zero (essentially we are doing the same thing here), we simply square those distances. So we are not minimising the sum of distances between observations and the regression line, but the sum of the <strong>squared</strong> distances between the observations and the regression line. Graphically, we would end up with little squares made out of each <span class="math inline">\(\hat{\epsilon}_{i}\)</span> which gives the the method its name: Ordinary Least Squares (OLS).</p>
+<p>But similar to calculating the standard deviation where the differences between the observations and the mean would sum up to zero (essentially we are doing the same thing here), we simply square those distances. So we are not minimising the sum of distances between observations and the regression line, but the sum of the <strong>squared</strong> distances between the observations and the regression line. Graphically, we would end up with little squares made out of each <span class="math inline">\(\hat{\epsilon}_{i}\)</span> which gives the the method its name: <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">Ordinary Least Squares</a></span> (OLS).</p>
 <p><img src="files/Week%202/OLS.png" style="width:50.0%" /></p>
 <div class="video">
 <p><strong>Ordinary Least Squares (OLS)</strong></p>
@@ -420,7 +439,7 @@ Y_{i} = \hat{\beta}_{0} + \hat{\beta}_{1} X_{i} + \hat{\epsilon}_{i}
           </div>
         </div>
       </div>
-<a href="flashcards.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="principles-of-statistical-inference.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="linear-regression-application.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

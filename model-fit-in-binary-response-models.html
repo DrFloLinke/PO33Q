@@ -197,10 +197,24 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i>Glossary</a></li>
 <li class="chapter" data-level="" data-path="flashcards.html"><a href="flashcards.html"><i class="fa fa-check"></i>Flashcards</a></li>
 <li class="part"><span><b>Week 2</b></span></li>
+<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html"><i class="fa fa-check"></i>Principles of Statistical Inference</a>
+<ul>
+<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#probability-distributions"><i class="fa fa-check"></i>Probability Distributions</a>
+<ul>
+<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#sampling-distributions"><i class="fa fa-check"></i>Sampling Distributions</a></li>
+<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#the-t-distribution"><i class="fa fa-check"></i>The t-Distribution</a></li>
+<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#confidence-intervals"><i class="fa fa-check"></i>Confidence Intervals</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#tests-of-statistical-significance"><i class="fa fa-check"></i>Tests of Statistical Significance</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html"><i class="fa fa-check"></i>Linear Regression - Theory</a>
 <ul>
 <li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#what-is-it"><i class="fa fa-check"></i>What is it?</a></li>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#what-is-it"><i class="fa fa-check"></i>What is it?</a>
+<ul>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#population"><i class="fa fa-check"></i>Population</a></li>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#sample"><i class="fa fa-check"></i>Sample</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#ordinary-least-squares-ols"><i class="fa fa-check"></i>Ordinary Least Squares (OLS)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html"><i class="fa fa-check"></i>Linear Regression – Application</a>
@@ -221,6 +235,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#parsimony"><i class="fa fa-check"></i>Parsimony</a></li>
 <li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#r-squared-again"><i class="fa fa-check"></i>R-Squared Again</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#limitations"><i class="fa fa-check"></i>Limitations</a></li>
 <li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#literature-recommendations"><i class="fa fa-check"></i>Literature Recommendations</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="important-disclaimer.html"><a href="important-disclaimer.html"><i class="fa fa-check"></i>Important Disclaimer</a></li>
@@ -364,37 +379,37 @@ div.csl-indent {
 <p>YouTube link to follow</p>
 </div>
 <p>The principle idea of ROC is to determine how well our model is able to separate cases into the two categories of our dependent variable. It approaches this question by comparing the actual observed values of the dependent variable with the values the model would predict, given the values of the independent variables.</p>
-<p>Consider Figure <a href="model-fit-in-binary-response-models.html#fig:separation">15</a> a). On the x-axis you see eight observations, marked as coloured diamonds. Red diamonds represent countries which are dictatorships, and blue ones democracies. They are sorted by their respective level of per capita GDP. Now suppose that the displayed CDF is the results of a model we have estimated. With a cut off point <span class="math inline">\(\tau=0.5\)</span> we would correctly predict the group of four observations on the left to be dictatorships. They are True Negatives (TN). The group on the right would be correctly predicted as democracies, these are True Positives (TP). We have no incorrectly classified cases; our model has been able to separate cases perfectly. You can see this represented in the form of distributions in panel b).</p>
+<p>Consider Figure <a href="model-fit-in-binary-response-models.html#fig:separation">20</a> a). On the x-axis you see eight observations, marked as coloured diamonds. Red diamonds represent countries which are dictatorships, and blue ones democracies. They are sorted by their respective level of per capita GDP. Now suppose that the displayed CDF is the results of a model we have estimated. With a cut off point <span class="math inline">\(\tau=0.5\)</span> we would correctly predict the group of four observations on the left to be dictatorships. They are True Negatives (TN). The group on the right would be correctly predicted as democracies, these are True Positives (TP). We have no incorrectly classified cases; our model has been able to separate cases perfectly. You can see this represented in the form of distributions in panel b).</p>
 <div class="figure"><span style="display:block;" id="fig:separation"></span>
 <img src="files/Week%207/separate.png" alt="\label{fig:separation}Perfect Separation" width="75%" />
 <p class="caption">
-Figure 15: Perfect Separation
+Figure 20: Perfect Separation
 </p>
 </div>
-<p>As you well know by now, the real world is oddly deficient in achieving perfection such as this. We will observe both poor democracies, and rich dictatorships. This scenario is shown in Figure <a href="model-fit-in-binary-response-models.html#fig:overlap">16</a> a).</p>
+<p>As you well know by now, the real world is oddly deficient in achieving perfection such as this. We will observe both poor democracies, and rich dictatorships. This scenario is shown in Figure <a href="model-fit-in-binary-response-models.html#fig:overlap">21</a> a).</p>
 <div class="figure"><span style="display:block;" id="fig:overlap"></span>
 <img src="files/Week%207/overlap.png" alt="\label{fig:overlap}Overlap" width="75%" />
 <p class="caption">
-Figure 16: Overlap
+Figure 21: Overlap
 </p>
 </div>
-<p>According to the CDF we would predict the poor democracy as a dictatorship. It would be a False Negative (FN). Conversely, we would predict the rich dictatorship as a democracy and would obtain a False Positive (FP). The distribution of cases in Figure <a href="model-fit-in-binary-response-models.html#fig:overlap">16</a> b) is not as clearly separated any more as in Figure <a href="model-fit-in-binary-response-models.html#fig:separation">15</a> b). Now they overlap, leading to incorrect classifications. These are marked accordingly in Figure <a href="model-fit-in-binary-response-models.html#fig:tntp1">17</a>. As we are no longer operating in a world in which we only have TNs and TPs, I think we can all agree that our model fit is no longer as good as in Figure <a href="model-fit-in-binary-response-models.html#fig:separation">15</a>.</p>
+<p>According to the CDF we would predict the poor democracy as a dictatorship. It would be a False Negative (FN). Conversely, we would predict the rich dictatorship as a democracy and would obtain a False Positive (FP). The distribution of cases in Figure <a href="model-fit-in-binary-response-models.html#fig:overlap">21</a> b) is not as clearly separated any more as in Figure <a href="model-fit-in-binary-response-models.html#fig:separation">20</a> b). Now they overlap, leading to incorrect classifications. These are marked accordingly in Figure <a href="model-fit-in-binary-response-models.html#fig:tntp1">22</a>. As we are no longer operating in a world in which we only have TNs and TPs, I think we can all agree that our model fit is no longer as good as in Figure <a href="model-fit-in-binary-response-models.html#fig:separation">20</a>.</p>
 <div class="figure"><span style="display:block;" id="fig:tntp1"></span>
 <img src="files/Week%207/tntp1.png" alt="\label{fig:tntp1}False Negatives and False Positives" width="30%" />
 <p class="caption">
-Figure 17: False Negatives and False Positives
+Figure 22: False Negatives and False Positives
 </p>
 </div>
-<p>But there is another issue: whilst setting <span class="math inline">\(\tau\)</span> at 0.5 makes intuitive sense, there is nothing preventing us from shifting <span class="math inline">\(\tau\)</span> around. Indeed, the number of FPs and FNs very much depends on where we place our cut-off point. For example, if we don’t want any FNs, then we just have to shift <span class="math inline">\(\tau\)</span> sufficiently downwards. Or if we want to avoid FPs we only need to move it far enough upwards. I have illustrated this in Figure <a href="model-fit-in-binary-response-models.html#fig:taushift">18</a> a) and b), respectively.</p>
+<p>But there is another issue: whilst setting <span class="math inline">\(\tau\)</span> at 0.5 makes intuitive sense, there is nothing preventing us from shifting <span class="math inline">\(\tau\)</span> around. Indeed, the number of FPs and FNs very much depends on where we place our cut-off point. For example, if we don’t want any FNs, then we just have to shift <span class="math inline">\(\tau\)</span> sufficiently downwards. Or if we want to avoid FPs we only need to move it far enough upwards. I have illustrated this in Figure <a href="model-fit-in-binary-response-models.html#fig:taushift">23</a> a) and b), respectively.</p>
 <div class="figure"><span style="display:block;" id="fig:taushift"></span>
 <img src="files/Week%207/taushift.png" alt="\label{fig:taushift}Shifting $\tau$" width="75%" />
 <p class="caption">
-Figure 18: Shifting <span class="math inline">\(\tau\)</span>
+Figure 23: Shifting <span class="math inline">\(\tau\)</span>
 </p>
 </div>
 <p>These are only three options of placing the threshold. But we have a total of eight observations which means that there are nine potential positions for the cut-off point with each leading to a different conclusion of how well our model fits the observed data. Let’s go through this more systematically and start by placing <span class="math inline">\(\tau\)</span> at the very bottom. Because the number of TNs, TPs, FNs, and FPs will only change at the “next” observation we only need to shift as many times as there are observations. For each shift we record the values of all four quantities in a crosstabulation which is displayed in the following table:</p>
 <p><img src="files/Week%207/ROC1.png" width="50%" /></p>
-<p>These tables are useful in their own right, but since we will end up with as many of them as there are observations, this can quickly get very messy. There are only eight observations here, but imagine doing these for the <code>world</code> data set with 190 observationsWe therefore need to find a way to condense the information contained in each of the n confusion matrices into a single measure. If you look closely, you will see that TNs and FPs form a close relationship: if we shift up <span class="math inline">\(\tau\)</span> in Figure <a href="model-fit-in-binary-response-models.html#fig:taushift">18</a> a) we are reducing the number of FPs and obtain more TNs. As TPs relate in the same way to FNs, we can quantify their respective relationships in the following rates:</p>
+<p>These tables are useful in their own right, but since we will end up with as many of them as there are observations, this can quickly get very messy. There are only eight observations here, but imagine doing these for the <code>world</code> data set with 190 observationsWe therefore need to find a way to condense the information contained in each of the n confusion matrices into a single measure. If you look closely, you will see that TNs and FPs form a close relationship: if we shift up <span class="math inline">\(\tau\)</span> in Figure <a href="model-fit-in-binary-response-models.html#fig:taushift">23</a> a) we are reducing the number of FPs and obtain more TNs. As TPs relate in the same way to FNs, we can quantify their respective relationships in the following rates:</p>
 <p><span class="math display">\[\begin{equation}
 \text{False Positive Rate}=\text{Sensitivity}=\frac{\text{False Positives}}{\text{False Positives}+\text{True Negatives}}
 \end{equation}\]</span></p>
@@ -403,26 +418,26 @@ Figure 18: Shifting <span class="math inline">\(\tau\)</span>
 \text{True Positive Rate}&amp;=1-\text{Specificity}=\frac{\text{True Positives}}{\text{True Positives}+\text{False Negatives}}\\[10pt]
 \text{Specificity}          &amp;=1-\text{True Positive Rate}=1-\frac{\text{TP}}{\text{TP}+\text{FN}} \nonumber
 \end{align}\]</span></p>
-<p>For our example the True Positive Rate (TPR) represents the proportion of correctly specified democracies. If we calculate these rates for each of our n confusion matrices, we are already reducing four quantities into two. Let’s do it. To provide a visual aid in this rather laborious process, I have created Figure <a href="model-fit-in-binary-response-models.html#fig:towardsroc">19</a> which depicts all eight shifts.</p>
+<p>For our example the True Positive Rate (TPR) represents the proportion of correctly specified democracies. If we calculate these rates for each of our n confusion matrices, we are already reducing four quantities into two. Let’s do it. To provide a visual aid in this rather laborious process, I have created Figure <a href="model-fit-in-binary-response-models.html#fig:towardsroc">24</a> which depicts all eight shifts.</p>
 <div class="figure"><span style="display:block;" id="fig:towardsroc"></span>
 <img src="files/Week%207/towardsroc.png" alt="\label{fig:towardsroc}Towards the ROC Curve" width="80%" />
 <p class="caption">
-Figure 19: Towards the ROC Curve
+Figure 24: Towards the ROC Curve
 </p>
 </div>
-<p>The following table displays the confusion matrix for each of the panels in Figure <a href="model-fit-in-binary-response-models.html#fig:towardsroc">19</a>, as well as the respective TPR and FPR (you are welcome).</p>
+<p>The following table displays the confusion matrix for each of the panels in Figure <a href="model-fit-in-binary-response-models.html#fig:towardsroc">24</a>, as well as the respective TPR and FPR (you are welcome).</p>
 <p><img src="files/Week%207/roctable.png" width="80%" /></p>
 <p>As we only need the TPRs and FPRs going forward, it makes sense to collect these in their own little table:</p>
 <p><img src="files/Week%207/fpr.png" width="30%" /></p>
-<p>We are nearly there! The last step is to display all these values in the form of a curve with the TPR on the y-axis, and the FPR on the x-axis. You can see the result – the ROC curve – in Figure <a href="model-fit-in-binary-response-models.html#fig:rocman">20</a> a).</p>
+<p>We are nearly there! The last step is to display all these values in the form of a curve with the TPR on the y-axis, and the FPR on the x-axis. You can see the result – the ROC curve – in Figure <a href="model-fit-in-binary-response-models.html#fig:rocman">25</a> a).</p>
 <div class="figure"><span style="display:block;" id="fig:rocman"></span>
 <img src="files/Week%207/rocman.png" alt="\label{fig:rocman}ROC Curve" width="80%" />
 <p class="caption">
-Figure 20: ROC Curve
+Figure 25: ROC Curve
 </p>
 </div>
 <p>Note that I have added a diagonal where TPR = FPR. This is sometimes described as a model without independent variables. I like to think of the line as the graphical point where our model would not be able to separate between the two categories, at all. The further the ROC curve is away from the diagonal, the better our model is at separating the two categories. But there are two sides to the diagonal. We want it to be above the diagonal, as here the model is predicting 0s as 0s and 1s as 1s. Underneath, the prediction is inverse and 0s are predicted as 1s, and 1s are predicted as 0s.</p>
-<p>To summarize the position of the curve into a numerical expression, the Area Under Curve (AUC) is used, as shown in Figure <a href="model-fit-in-binary-response-models.html#fig:rocman">20</a> b). If the area is 100% we are correctly predicting everything. At 50% the model is incapable of separation, and at 0% the model gets everything wrong. This is very useful to compare different models.</p>
+<p>To summarize the position of the curve into a numerical expression, the Area Under Curve (AUC) is used, as shown in Figure <a href="model-fit-in-binary-response-models.html#fig:rocman">25</a> b). If the area is 100% we are correctly predicting everything. At 50% the model is incapable of separation, and at 0% the model gets everything wrong. This is very useful to compare different models.</p>
 </div>
 <div id="r" class="section level3 unnumbered hasAnchor">
 <h3>R<a href="model-fit-in-binary-response-models.html#r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -446,7 +461,7 @@ Figure 20: ROC Curve
 </ul>
 <p>But we can also plot the ROC curve:</p>
 <div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="model-fit-in-binary-response-models.html#cb68-1" tabindex="-1"></a><span class="fu">plot</span>(roc, <span class="at">print.auc=</span><span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="main_files/figure-html/unnamed-chunk-99-1.png" width="70%" /></p>
+<p><img src="main_files/figure-html/unnamed-chunk-100-1.png" width="70%" /></p>
 <p>Note that <code>print.auc=TRUE</code> prints the numerical value into this plot. You can suppress it by setting it to <code>FALSE</code>.</p>
 <p>Let’s follow this procedure for the other models.</p>
 </div>
@@ -460,7 +475,7 @@ Figure 20: ROC Curve
 <span id="cb69-6"><a href="model-fit-in-binary-response-models.html#cb69-6" tabindex="-1"></a><span class="fu">auc</span>(roc)</span>
 <span id="cb69-7"><a href="model-fit-in-binary-response-models.html#cb69-7" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.5932</span></span></code></pre></div>
 <div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="model-fit-in-binary-response-models.html#cb70-1" tabindex="-1"></a><span class="fu">plot</span>(roc, <span class="at">print.auc=</span><span class="cn">TRUE</span>) </span></code></pre></div>
-<p><img src="main_files/figure-html/unnamed-chunk-101-1.png" width="70%" /></p>
+<p><img src="main_files/figure-html/unnamed-chunk-102-1.png" width="70%" /></p>
 </div>
 <div id="survival" class="section level3 unnumbered hasAnchor">
 <h3>Survival<a href="model-fit-in-binary-response-models.html#survival" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -472,7 +487,7 @@ Figure 20: ROC Curve
 <span id="cb71-6"><a href="model-fit-in-binary-response-models.html#cb71-6" tabindex="-1"></a><span class="fu">auc</span>(roc)</span>
 <span id="cb71-7"><a href="model-fit-in-binary-response-models.html#cb71-7" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.8317</span></span></code></pre></div>
 <div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="model-fit-in-binary-response-models.html#cb72-1" tabindex="-1"></a><span class="fu">plot</span>(roc, <span class="at">print.auc=</span><span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="main_files/figure-html/unnamed-chunk-103-1.png" width="70%" /></p>
+<p><img src="main_files/figure-html/unnamed-chunk-104-1.png" width="70%" /></p>
 </div>
 <div id="survival-full-model" class="section level3 unnumbered hasAnchor">
 <h3>Survival: Full Model<a href="model-fit-in-binary-response-models.html#survival-full-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -484,7 +499,7 @@ Figure 20: ROC Curve
 <span id="cb73-6"><a href="model-fit-in-binary-response-models.html#cb73-6" tabindex="-1"></a><span class="fu">auc</span>(roc)</span>
 <span id="cb73-7"><a href="model-fit-in-binary-response-models.html#cb73-7" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.8165</span></span>
 <span id="cb73-8"><a href="model-fit-in-binary-response-models.html#cb73-8" tabindex="-1"></a><span class="fu">plot</span>(roc, <span class="at">print.auc=</span><span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="main_files/figure-html/unnamed-chunk-104-1.png" width="70%" /></p>
+<p><img src="main_files/figure-html/unnamed-chunk-105-1.png" width="70%" /></p>
 </div>
 </div>
 </div>
