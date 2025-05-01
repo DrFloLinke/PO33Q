@@ -381,10 +381,10 @@ Use the data set called <code>prz.dta</code> which is available in the <a href="
 <li><p>Run a probit model where <code>democ</code> is the dependent variable and <code>g</code>, <code>gdpw</code> and <code>oil</code> are the independent variables. Put the results in column 1 of Table 1. What is (possibly) wrong with this approach? Interpret the coefficients on one or two of the variables.</p></li>
 <li><p>Run the same probit model as before but now include a lagged dependent variable. To create the lagged dependent variable, call:</p></li>
 </ol>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="exercises-2.html#cb78-1" tabindex="-1"></a>prz <span class="ot">&lt;-</span> prz <span class="sc">%&gt;%</span></span>
-<span id="cb78-2"><a href="exercises-2.html#cb78-2" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
-<span id="cb78-3"><a href="exercises-2.html#cb78-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.democ =</span> <span class="fu">lag</span>(democ)) <span class="sc">%&gt;%</span></span>
-<span id="cb78-4"><a href="exercises-2.html#cb78-4" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="exercises-2.html#cb79-1" tabindex="-1"></a>prz <span class="ot">&lt;-</span> prz <span class="sc">%&gt;%</span></span>
+<span id="cb79-2"><a href="exercises-2.html#cb79-2" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
+<span id="cb79-3"><a href="exercises-2.html#cb79-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.democ =</span> <span class="fu">lag</span>(democ)) <span class="sc">%&gt;%</span></span>
+<span id="cb79-4"><a href="exercises-2.html#cb79-4" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
 <p>Put the results in column two of Table 1. What are we assuming by including a lagged dependent variable? Do you think that this is appropriate here?</p>
 <ol start="3" style="list-style-type: decimal">
 <li><p>Now estimate a probit “transition to democracy” model i.e. how do growth, wealth and oil affect the probability that a country is a democracy this year given that it was a dictatorship last year. We are also lagging the independent variables by one year. Put the results in column 3 of Table 1. Interpret the sign of the coefficients on each independent variable.</p></li>

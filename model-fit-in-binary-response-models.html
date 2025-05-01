@@ -442,16 +442,16 @@ Figure 26: ROC Curve
 <div id="r" class="section level3 unnumbered hasAnchor">
 <h3>R<a href="model-fit-in-binary-response-models.html#r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>How do you do all of this in R? Let’s start with the simple emergence model. In order to calculate a ROC curve, we need a new package, called <code>pROC</code>. Install it and load it.</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="model-fit-in-binary-response-models.html#cb66-1" tabindex="-1"></a><span class="fu">library</span>(pROC)</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="model-fit-in-binary-response-models.html#cb67-1" tabindex="-1"></a><span class="fu">library</span>(pROC)</span></code></pre></div>
 <p>To calculate the ROC curve, we need a few steps:</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="model-fit-in-binary-response-models.html#cb67-1" tabindex="-1"></a>prob_em <span class="ot">&lt;-</span> <span class="fu">predict</span>(emergence, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
-<span id="cb67-2"><a href="model-fit-in-binary-response-models.html#cb67-2" tabindex="-1"></a></span>
-<span id="cb67-3"><a href="model-fit-in-binary-response-models.html#cb67-3" tabindex="-1"></a>world_democ0<span class="sc">$</span>prob_em <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_em)</span>
-<span id="cb67-4"><a href="model-fit-in-binary-response-models.html#cb67-4" tabindex="-1"></a></span>
-<span id="cb67-5"><a href="model-fit-in-binary-response-models.html#cb67-5" tabindex="-1"></a>roc <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ0<span class="sc">$</span>democracy, world_democ0<span class="sc">$</span>prob_em)</span>
-<span id="cb67-6"><a href="model-fit-in-binary-response-models.html#cb67-6" tabindex="-1"></a></span>
-<span id="cb67-7"><a href="model-fit-in-binary-response-models.html#cb67-7" tabindex="-1"></a><span class="fu">auc</span>(roc)</span>
-<span id="cb67-8"><a href="model-fit-in-binary-response-models.html#cb67-8" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.5048</span></span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="model-fit-in-binary-response-models.html#cb68-1" tabindex="-1"></a>prob_em <span class="ot">&lt;-</span> <span class="fu">predict</span>(emergence, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb68-2"><a href="model-fit-in-binary-response-models.html#cb68-2" tabindex="-1"></a></span>
+<span id="cb68-3"><a href="model-fit-in-binary-response-models.html#cb68-3" tabindex="-1"></a>world_democ0<span class="sc">$</span>prob_em <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_em)</span>
+<span id="cb68-4"><a href="model-fit-in-binary-response-models.html#cb68-4" tabindex="-1"></a></span>
+<span id="cb68-5"><a href="model-fit-in-binary-response-models.html#cb68-5" tabindex="-1"></a>roc <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ0<span class="sc">$</span>democracy, world_democ0<span class="sc">$</span>prob_em)</span>
+<span id="cb68-6"><a href="model-fit-in-binary-response-models.html#cb68-6" tabindex="-1"></a></span>
+<span id="cb68-7"><a href="model-fit-in-binary-response-models.html#cb68-7" tabindex="-1"></a><span class="fu">auc</span>(roc)</span>
+<span id="cb68-8"><a href="model-fit-in-binary-response-models.html#cb68-8" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.5048</span></span></code></pre></div>
 <p>What does each line do?</p>
 <ul>
 <li>predict the probability of democratic emergence for each observation (country year) and store them in a new vector called <code>prob_em</code>.</li>
@@ -460,46 +460,46 @@ Figure 26: ROC Curve
 <li>as a last step we calculate the area under the curve with the <code>auc()</code> function</li>
 </ul>
 <p>But we can also plot the ROC curve:</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="model-fit-in-binary-response-models.html#cb68-1" tabindex="-1"></a><span class="fu">plot</span>(roc, <span class="at">print.auc=</span><span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="main_files/figure-html/unnamed-chunk-100-1.png" width="70%" /></p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="model-fit-in-binary-response-models.html#cb69-1" tabindex="-1"></a><span class="fu">plot</span>(roc, <span class="at">print.auc=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="main_files/figure-html/unnamed-chunk-101-1.png" width="70%" /></p>
 <p>Note that <code>print.auc=TRUE</code> prints the numerical value into this plot. You can suppress it by setting it to <code>FALSE</code>.</p>
 <p>Let’s follow this procedure for the other models.</p>
 </div>
 <div id="emergence-full-model" class="section level3 unnumbered hasAnchor">
 <h3>Emergence: Full Model<a href="model-fit-in-binary-response-models.html#emergence-full-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="model-fit-in-binary-response-models.html#cb69-1" tabindex="-1"></a>prob_em_full <span class="ot">&lt;-</span> <span class="fu">predict</span>(emergence_full, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
-<span id="cb69-2"><a href="model-fit-in-binary-response-models.html#cb69-2" tabindex="-1"></a>world_democ0<span class="sc">$</span>prob_em_full <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_em_full)</span>
-<span id="cb69-3"><a href="model-fit-in-binary-response-models.html#cb69-3" tabindex="-1"></a></span>
-<span id="cb69-4"><a href="model-fit-in-binary-response-models.html#cb69-4" tabindex="-1"></a>roc <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ0<span class="sc">$</span>democracy, world_democ0<span class="sc">$</span>prob_em_full)</span>
-<span id="cb69-5"><a href="model-fit-in-binary-response-models.html#cb69-5" tabindex="-1"></a></span>
-<span id="cb69-6"><a href="model-fit-in-binary-response-models.html#cb69-6" tabindex="-1"></a><span class="fu">auc</span>(roc)</span>
-<span id="cb69-7"><a href="model-fit-in-binary-response-models.html#cb69-7" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.5932</span></span></code></pre></div>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="model-fit-in-binary-response-models.html#cb70-1" tabindex="-1"></a><span class="fu">plot</span>(roc, <span class="at">print.auc=</span><span class="cn">TRUE</span>) </span></code></pre></div>
-<p><img src="main_files/figure-html/unnamed-chunk-102-1.png" width="70%" /></p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="model-fit-in-binary-response-models.html#cb70-1" tabindex="-1"></a>prob_em_full <span class="ot">&lt;-</span> <span class="fu">predict</span>(emergence_full, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb70-2"><a href="model-fit-in-binary-response-models.html#cb70-2" tabindex="-1"></a>world_democ0<span class="sc">$</span>prob_em_full <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_em_full)</span>
+<span id="cb70-3"><a href="model-fit-in-binary-response-models.html#cb70-3" tabindex="-1"></a></span>
+<span id="cb70-4"><a href="model-fit-in-binary-response-models.html#cb70-4" tabindex="-1"></a>roc <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ0<span class="sc">$</span>democracy, world_democ0<span class="sc">$</span>prob_em_full)</span>
+<span id="cb70-5"><a href="model-fit-in-binary-response-models.html#cb70-5" tabindex="-1"></a></span>
+<span id="cb70-6"><a href="model-fit-in-binary-response-models.html#cb70-6" tabindex="-1"></a><span class="fu">auc</span>(roc)</span>
+<span id="cb70-7"><a href="model-fit-in-binary-response-models.html#cb70-7" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.5932</span></span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="model-fit-in-binary-response-models.html#cb71-1" tabindex="-1"></a><span class="fu">plot</span>(roc, <span class="at">print.auc=</span><span class="cn">TRUE</span>) </span></code></pre></div>
+<p><img src="main_files/figure-html/unnamed-chunk-103-1.png" width="70%" /></p>
 </div>
 <div id="survival" class="section level3 unnumbered hasAnchor">
 <h3>Survival<a href="model-fit-in-binary-response-models.html#survival" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="model-fit-in-binary-response-models.html#cb71-1" tabindex="-1"></a>prob_sur <span class="ot">&lt;-</span> <span class="fu">predict</span>(survival, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
-<span id="cb71-2"><a href="model-fit-in-binary-response-models.html#cb71-2" tabindex="-1"></a>world_democ1<span class="sc">$</span>prob_sur <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_sur)</span>
-<span id="cb71-3"><a href="model-fit-in-binary-response-models.html#cb71-3" tabindex="-1"></a></span>
-<span id="cb71-4"><a href="model-fit-in-binary-response-models.html#cb71-4" tabindex="-1"></a>roc <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ1<span class="sc">$</span>democracy, world_democ1<span class="sc">$</span>prob_sur)</span>
-<span id="cb71-5"><a href="model-fit-in-binary-response-models.html#cb71-5" tabindex="-1"></a></span>
-<span id="cb71-6"><a href="model-fit-in-binary-response-models.html#cb71-6" tabindex="-1"></a><span class="fu">auc</span>(roc)</span>
-<span id="cb71-7"><a href="model-fit-in-binary-response-models.html#cb71-7" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.8317</span></span></code></pre></div>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="model-fit-in-binary-response-models.html#cb72-1" tabindex="-1"></a><span class="fu">plot</span>(roc, <span class="at">print.auc=</span><span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="main_files/figure-html/unnamed-chunk-104-1.png" width="70%" /></p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="model-fit-in-binary-response-models.html#cb72-1" tabindex="-1"></a>prob_sur <span class="ot">&lt;-</span> <span class="fu">predict</span>(survival, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb72-2"><a href="model-fit-in-binary-response-models.html#cb72-2" tabindex="-1"></a>world_democ1<span class="sc">$</span>prob_sur <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_sur)</span>
+<span id="cb72-3"><a href="model-fit-in-binary-response-models.html#cb72-3" tabindex="-1"></a></span>
+<span id="cb72-4"><a href="model-fit-in-binary-response-models.html#cb72-4" tabindex="-1"></a>roc <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ1<span class="sc">$</span>democracy, world_democ1<span class="sc">$</span>prob_sur)</span>
+<span id="cb72-5"><a href="model-fit-in-binary-response-models.html#cb72-5" tabindex="-1"></a></span>
+<span id="cb72-6"><a href="model-fit-in-binary-response-models.html#cb72-6" tabindex="-1"></a><span class="fu">auc</span>(roc)</span>
+<span id="cb72-7"><a href="model-fit-in-binary-response-models.html#cb72-7" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.8317</span></span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="model-fit-in-binary-response-models.html#cb73-1" tabindex="-1"></a><span class="fu">plot</span>(roc, <span class="at">print.auc=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="main_files/figure-html/unnamed-chunk-105-1.png" width="70%" /></p>
 </div>
 <div id="survival-full-model" class="section level3 unnumbered hasAnchor">
 <h3>Survival: Full Model<a href="model-fit-in-binary-response-models.html#survival-full-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="model-fit-in-binary-response-models.html#cb73-1" tabindex="-1"></a>prob_sur_full <span class="ot">&lt;-</span> <span class="fu">predict</span>(survival_full, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
-<span id="cb73-2"><a href="model-fit-in-binary-response-models.html#cb73-2" tabindex="-1"></a>world_democ1<span class="sc">$</span>prob_sur_full <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_sur_full)</span>
-<span id="cb73-3"><a href="model-fit-in-binary-response-models.html#cb73-3" tabindex="-1"></a></span>
-<span id="cb73-4"><a href="model-fit-in-binary-response-models.html#cb73-4" tabindex="-1"></a>roc <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ1<span class="sc">$</span>democracy, world_democ1<span class="sc">$</span>prob_sur_full)</span>
-<span id="cb73-5"><a href="model-fit-in-binary-response-models.html#cb73-5" tabindex="-1"></a></span>
-<span id="cb73-6"><a href="model-fit-in-binary-response-models.html#cb73-6" tabindex="-1"></a><span class="fu">auc</span>(roc)</span>
-<span id="cb73-7"><a href="model-fit-in-binary-response-models.html#cb73-7" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.8165</span></span>
-<span id="cb73-8"><a href="model-fit-in-binary-response-models.html#cb73-8" tabindex="-1"></a><span class="fu">plot</span>(roc, <span class="at">print.auc=</span><span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="main_files/figure-html/unnamed-chunk-105-1.png" width="70%" /></p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="model-fit-in-binary-response-models.html#cb74-1" tabindex="-1"></a>prob_sur_full <span class="ot">&lt;-</span> <span class="fu">predict</span>(survival_full, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb74-2"><a href="model-fit-in-binary-response-models.html#cb74-2" tabindex="-1"></a>world_democ1<span class="sc">$</span>prob_sur_full <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_sur_full)</span>
+<span id="cb74-3"><a href="model-fit-in-binary-response-models.html#cb74-3" tabindex="-1"></a></span>
+<span id="cb74-4"><a href="model-fit-in-binary-response-models.html#cb74-4" tabindex="-1"></a>roc <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ1<span class="sc">$</span>democracy, world_democ1<span class="sc">$</span>prob_sur_full)</span>
+<span id="cb74-5"><a href="model-fit-in-binary-response-models.html#cb74-5" tabindex="-1"></a></span>
+<span id="cb74-6"><a href="model-fit-in-binary-response-models.html#cb74-6" tabindex="-1"></a><span class="fu">auc</span>(roc)</span>
+<span id="cb74-7"><a href="model-fit-in-binary-response-models.html#cb74-7" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.8165</span></span>
+<span id="cb74-8"><a href="model-fit-in-binary-response-models.html#cb74-8" tabindex="-1"></a><span class="fu">plot</span>(roc, <span class="at">print.auc=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="main_files/figure-html/unnamed-chunk-106-1.png" width="70%" /></p>
 </div>
 </div>
 </div>

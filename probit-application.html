@@ -372,44 +372,44 @@ div.csl-indent {
 <div id="the-command" class="section level2 unnumbered hasAnchor">
 <h2>The Command<a href="probit-application.html#the-command" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The command to run a probit is as follows:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="probit-application.html#cb38-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">glm</span>(depvar <span class="sc">~</span> indepvar</span>
-<span id="cb38-2"><a href="probit-application.html#cb38-2" tabindex="-1"></a>                     <span class="at">data =</span> dataframe, </span>
-<span id="cb38-3"><a href="probit-application.html#cb38-3" tabindex="-1"></a>                     <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="probit-application.html#cb39-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">glm</span>(depvar <span class="sc">~</span> indepvar</span>
+<span id="cb39-2"><a href="probit-application.html#cb39-2" tabindex="-1"></a>                     <span class="at">data =</span> dataframe, </span>
+<span id="cb39-3"><a href="probit-application.html#cb39-3" tabindex="-1"></a>                     <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span></code></pre></div>
 <p><code>glm</code> stands for “General Linear Model”. We then specify a model in the same way as last week, stating the dependent variable first, followed by a tilde and then the independent variable(s). We complete the command by naming the data frame we wish to use and selecting the model type, in our case it is a probit model which is binomial (our dependent variable only has two possible outcomes).</p>
 <p>Once again, let us do a specific example with the data set “Europe” in the year 2000. First set the working directory for today’s seminar:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="probit-application.html#cb39-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Warwick/Modules/PO33Q/Week 3&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="probit-application.html#cb40-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Warwick/Modules/PO33Q/Week 3&quot;</span>)</span></code></pre></div>
 <p>and then load the data set into a data frame called <code>world</code> which we subset to the year 2000.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="probit-application.html#cb40-1" tabindex="-1"></a>world <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;files/Week 3/world.csv&quot;</span>)</span>
-<span id="cb40-2"><a href="probit-application.html#cb40-2" tabindex="-1"></a></span>
-<span id="cb40-3"><a href="probit-application.html#cb40-3" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb40-4"><a href="probit-application.html#cb40-4" tabindex="-1"></a></span>
-<span id="cb40-5"><a href="probit-application.html#cb40-5" tabindex="-1"></a>world2000 <span class="ot">&lt;-</span> <span class="fu">filter</span>(world, year<span class="sc">==</span><span class="dv">2000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="probit-application.html#cb41-1" tabindex="-1"></a>world <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;files/Week 3/world.csv&quot;</span>)</span>
+<span id="cb41-2"><a href="probit-application.html#cb41-2" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="probit-application.html#cb41-3" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb41-4"><a href="probit-application.html#cb41-4" tabindex="-1"></a></span>
+<span id="cb41-5"><a href="probit-application.html#cb41-5" tabindex="-1"></a>world2000 <span class="ot">&lt;-</span> <span class="fu">filter</span>(world, year<span class="sc">==</span><span class="dv">2000</span>)</span></code></pre></div>
 <p>For a probit regression, we cannot use the Polity V scale any more, because it is continuous, and not binary. We therefore switch the democracy coding to index created by Boix, Miller &amp; Rosato in 2018. We will use life expectancy as our independent variable, and examine the situation in the year 2000. To do this, we call:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="probit-application.html#cb41-1" tabindex="-1"></a>probit <span class="ot">&lt;-</span> <span class="fu">glm</span>(democracy <span class="sc">~</span> life, </span>
-<span id="cb41-2"><a href="probit-application.html#cb41-2" tabindex="-1"></a>              <span class="at">data =</span> world2000, </span>
-<span id="cb41-3"><a href="probit-application.html#cb41-3" tabindex="-1"></a>              <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="probit-application.html#cb42-1" tabindex="-1"></a>probit <span class="ot">&lt;-</span> <span class="fu">glm</span>(democracy <span class="sc">~</span> life, </span>
+<span id="cb42-2"><a href="probit-application.html#cb42-2" tabindex="-1"></a>              <span class="at">data =</span> world2000, </span>
+<span id="cb42-3"><a href="probit-application.html#cb42-3" tabindex="-1"></a>              <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span></code></pre></div>
 <p>This should lead to the following results:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="probit-application.html#cb42-1" tabindex="-1"></a><span class="fu">summary</span>(probit)</span>
-<span id="cb42-2"><a href="probit-application.html#cb42-2" tabindex="-1"></a></span>
-<span id="cb42-3"><a href="probit-application.html#cb42-3" tabindex="-1"></a>Call<span class="sc">:</span></span>
-<span id="cb42-4"><a href="probit-application.html#cb42-4" tabindex="-1"></a><span class="fu">glm</span>(<span class="at">formula =</span> democracy <span class="sc">~</span> life, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), </span>
-<span id="cb42-5"><a href="probit-application.html#cb42-5" tabindex="-1"></a>    <span class="at">data =</span> world2000)</span>
-<span id="cb42-6"><a href="probit-application.html#cb42-6" tabindex="-1"></a></span>
-<span id="cb42-7"><a href="probit-application.html#cb42-7" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
-<span id="cb42-8"><a href="probit-application.html#cb42-8" tabindex="-1"></a>            Estimate Std. Error z value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>z<span class="sc">|</span>)    </span>
-<span id="cb42-9"><a href="probit-application.html#cb42-9" tabindex="-1"></a>(Intercept) <span class="sc">-</span><span class="fl">3.73066</span>    <span class="fl">0.72586</span>  <span class="sc">-</span><span class="fl">5.140</span> <span class="fl">2.75e-07</span> <span class="sc">**</span><span class="er">*</span></span>
-<span id="cb42-10"><a href="probit-application.html#cb42-10" tabindex="-1"></a>life         <span class="fl">0.05793</span>    <span class="fl">0.01078</span>   <span class="fl">5.375</span> <span class="fl">7.66e-08</span> <span class="sc">**</span><span class="er">*</span></span>
-<span id="cb42-11"><a href="probit-application.html#cb42-11" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb42-12"><a href="probit-application.html#cb42-12" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">&#39;***&#39;</span> <span class="fl">0.001</span> <span class="st">&#39;**&#39;</span> <span class="fl">0.01</span> <span class="st">&#39;*&#39;</span> <span class="fl">0.05</span> <span class="st">&#39;.&#39;</span> <span class="fl">0.1</span> <span class="st">&#39; &#39;</span> <span class="dv">1</span></span>
-<span id="cb42-13"><a href="probit-application.html#cb42-13" tabindex="-1"></a></span>
-<span id="cb42-14"><a href="probit-application.html#cb42-14" tabindex="-1"></a>(Dispersion parameter <span class="cf">for</span> binomial family taken to be <span class="dv">1</span>)</span>
-<span id="cb42-15"><a href="probit-application.html#cb42-15" tabindex="-1"></a></span>
-<span id="cb42-16"><a href="probit-application.html#cb42-16" tabindex="-1"></a>    Null deviance<span class="sc">:</span> <span class="fl">252.11</span>  on <span class="dv">182</span>  degrees of freedom</span>
-<span id="cb42-17"><a href="probit-application.html#cb42-17" tabindex="-1"></a>Residual deviance<span class="sc">:</span> <span class="fl">220.10</span>  on <span class="dv">181</span>  degrees of freedom</span>
-<span id="cb42-18"><a href="probit-application.html#cb42-18" tabindex="-1"></a>  (<span class="dv">8</span> observations deleted due to missingness)</span>
-<span id="cb42-19"><a href="probit-application.html#cb42-19" tabindex="-1"></a>AIC<span class="sc">:</span> <span class="fl">224.1</span></span>
-<span id="cb42-20"><a href="probit-application.html#cb42-20" tabindex="-1"></a></span>
-<span id="cb42-21"><a href="probit-application.html#cb42-21" tabindex="-1"></a>Number of Fisher Scoring iterations<span class="sc">:</span> <span class="dv">4</span></span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="probit-application.html#cb43-1" tabindex="-1"></a><span class="fu">summary</span>(probit)</span>
+<span id="cb43-2"><a href="probit-application.html#cb43-2" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="probit-application.html#cb43-3" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb43-4"><a href="probit-application.html#cb43-4" tabindex="-1"></a><span class="fu">glm</span>(<span class="at">formula =</span> democracy <span class="sc">~</span> life, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), </span>
+<span id="cb43-5"><a href="probit-application.html#cb43-5" tabindex="-1"></a>    <span class="at">data =</span> world2000)</span>
+<span id="cb43-6"><a href="probit-application.html#cb43-6" tabindex="-1"></a></span>
+<span id="cb43-7"><a href="probit-application.html#cb43-7" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
+<span id="cb43-8"><a href="probit-application.html#cb43-8" tabindex="-1"></a>            Estimate Std. Error z value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>z<span class="sc">|</span>)    </span>
+<span id="cb43-9"><a href="probit-application.html#cb43-9" tabindex="-1"></a>(Intercept) <span class="sc">-</span><span class="fl">3.73066</span>    <span class="fl">0.72586</span>  <span class="sc">-</span><span class="fl">5.140</span> <span class="fl">2.75e-07</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb43-10"><a href="probit-application.html#cb43-10" tabindex="-1"></a>life         <span class="fl">0.05793</span>    <span class="fl">0.01078</span>   <span class="fl">5.375</span> <span class="fl">7.66e-08</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb43-11"><a href="probit-application.html#cb43-11" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb43-12"><a href="probit-application.html#cb43-12" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">&#39;***&#39;</span> <span class="fl">0.001</span> <span class="st">&#39;**&#39;</span> <span class="fl">0.01</span> <span class="st">&#39;*&#39;</span> <span class="fl">0.05</span> <span class="st">&#39;.&#39;</span> <span class="fl">0.1</span> <span class="st">&#39; &#39;</span> <span class="dv">1</span></span>
+<span id="cb43-13"><a href="probit-application.html#cb43-13" tabindex="-1"></a></span>
+<span id="cb43-14"><a href="probit-application.html#cb43-14" tabindex="-1"></a>(Dispersion parameter <span class="cf">for</span> binomial family taken to be <span class="dv">1</span>)</span>
+<span id="cb43-15"><a href="probit-application.html#cb43-15" tabindex="-1"></a></span>
+<span id="cb43-16"><a href="probit-application.html#cb43-16" tabindex="-1"></a>    Null deviance<span class="sc">:</span> <span class="fl">252.11</span>  on <span class="dv">182</span>  degrees of freedom</span>
+<span id="cb43-17"><a href="probit-application.html#cb43-17" tabindex="-1"></a>Residual deviance<span class="sc">:</span> <span class="fl">220.10</span>  on <span class="dv">181</span>  degrees of freedom</span>
+<span id="cb43-18"><a href="probit-application.html#cb43-18" tabindex="-1"></a>  (<span class="dv">8</span> observations deleted due to missingness)</span>
+<span id="cb43-19"><a href="probit-application.html#cb43-19" tabindex="-1"></a>AIC<span class="sc">:</span> <span class="fl">224.1</span></span>
+<span id="cb43-20"><a href="probit-application.html#cb43-20" tabindex="-1"></a></span>
+<span id="cb43-21"><a href="probit-application.html#cb43-21" tabindex="-1"></a>Number of Fisher Scoring iterations<span class="sc">:</span> <span class="dv">4</span></span></code></pre></div>
 <hr />
 </div>
 <div id="the-coefficients" class="section level2 unnumbered hasAnchor">
@@ -427,31 +427,31 @@ div.csl-indent {
 <div id="setting-the-x-values" class="section level3 unnumbered hasAnchor">
 <h3>Setting the x-values<a href="probit-application.html#setting-the-x-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let us first get a basic overview of the variable <code>life</code>. We can do this by calling</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="probit-application.html#cb43-1" tabindex="-1"></a><span class="fu">summary</span>(world2000<span class="sc">$</span>life)</span>
-<span id="cb43-2"><a href="probit-application.html#cb43-2" tabindex="-1"></a>   Min. <span class="dv">1</span>st Qu.  Median    Mean <span class="dv">3</span>rd Qu.    Max.    NA<span class="st">&#39;s </span></span>
-<span id="cb43-3"><a href="probit-application.html#cb43-3" tabindex="-1"></a><span class="st">  44.52   59.46   69.58   66.49   73.84   81.08       8 </span></span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="probit-application.html#cb44-1" tabindex="-1"></a><span class="fu">summary</span>(world2000<span class="sc">$</span>life)</span>
+<span id="cb44-2"><a href="probit-application.html#cb44-2" tabindex="-1"></a>   Min. <span class="dv">1</span>st Qu.  Median    Mean <span class="dv">3</span>rd Qu.    Max.    NA<span class="st">&#39;s </span></span>
+<span id="cb44-3"><a href="probit-application.html#cb44-3" tabindex="-1"></a><span class="st">  44.52   59.46   69.58   66.49   73.84   81.08       8 </span></span></code></pre></div>
 <p>So we know that the average life expectancy in the world in the year 2000 was 66.49 years,with a minimum of 44.52 years, and a maximum of 81 years. We also have eight missing observations (<code>NA</code>) which we need to exclude from the following by setting <code>na.rm=TRUE</code><a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>, as R is otherwise unable to calculate descriptive measures within the <code>setx</code> function, such as the mean. Let us set <code>life</code> to its mean now, by typing:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="probit-application.html#cb44-1" tabindex="-1"></a>setx <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">life=</span><span class="fl">66.49</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="probit-application.html#cb45-1" tabindex="-1"></a>setx <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">life=</span><span class="fl">66.49</span>)</span></code></pre></div>
 <p>If you want to change this value for calculations later on, you simply set different values in the <code>setx</code> dataframe or specify a new one).</p>
 <p>We now have the shape of the probability curve, and we have agreed on a point on the x-axis. We are finally ready to have a look at the probability to be a democracy at this point.</p>
 </div>
 <div id="predicting-the-probability" class="section level3 unnumbered hasAnchor">
 <h3>Predicting the Probability<a href="probit-application.html#predicting-the-probability" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The quantity of interest we are interested in is the probability of being a democracy. To calculate this quantity of interest, we use the function <code>predict()</code> and specify within this function for which model we want to calculate the quantity, and the data frame in which we specified the value of our x-variable. In our case this variable is <code>life</code> and we have assigned the mean value to an object called <code>setx</code> earlier.</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="probit-application.html#cb45-1" tabindex="-1"></a><span class="fu">predict</span>(probit, setx, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
-<span id="cb45-2"><a href="probit-application.html#cb45-2" tabindex="-1"></a>        <span class="dv">1</span> </span>
-<span id="cb45-3"><a href="probit-application.html#cb45-3" tabindex="-1"></a><span class="fl">0.5481741</span> </span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="probit-application.html#cb46-1" tabindex="-1"></a><span class="fu">predict</span>(probit, setx, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb46-2"><a href="probit-application.html#cb46-2" tabindex="-1"></a>        <span class="dv">1</span> </span>
+<span id="cb46-3"><a href="probit-application.html#cb46-3" tabindex="-1"></a><span class="fl">0.5481741</span> </span></code></pre></div>
 <p>Remember that we have put the value of life expectancy at the mean. For this level of life expectancy R returns to us a probability of being a democracy at 54.82%. Contrarily, this means that probability to be an autocracy is 45.18% (the two probabilities always sum up to 1).</p>
 <p>Now we set life expectancy to its minimum</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="probit-application.html#cb46-1" tabindex="-1"></a>setx <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">life=</span><span class="fu">min</span>(world2000<span class="sc">$</span>life, <span class="at">na.rm =</span> T))</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="probit-application.html#cb47-1" tabindex="-1"></a>setx <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">life=</span><span class="fu">min</span>(world2000<span class="sc">$</span>life, <span class="at">na.rm =</span> T))</span></code></pre></div>
 <p>and calculate the quantity of interest again. Our probabilities have changed very drastically (ensure you get the same results before proceeding):</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="probit-application.html#cb47-1" tabindex="-1"></a><span class="fu">predict</span>(probit, setx, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
-<span id="cb47-2"><a href="probit-application.html#cb47-2" tabindex="-1"></a>       <span class="dv">1</span> </span>
-<span id="cb47-3"><a href="probit-application.html#cb47-3" tabindex="-1"></a><span class="fl">0.124708</span> </span></code></pre></div>
-<p>If we set life expectancy to its maximum (how?), then we receive the following regime probabilities:</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="probit-application.html#cb48-1" tabindex="-1"></a><span class="fu">predict</span>(probit, setx, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
-<span id="cb48-2"><a href="probit-application.html#cb48-2" tabindex="-1"></a>        <span class="dv">1</span> </span>
-<span id="cb48-3"><a href="probit-application.html#cb48-3" tabindex="-1"></a><span class="fl">0.8329802</span> </span></code></pre></div>
+<span id="cb48-2"><a href="probit-application.html#cb48-2" tabindex="-1"></a>       <span class="dv">1</span> </span>
+<span id="cb48-3"><a href="probit-application.html#cb48-3" tabindex="-1"></a><span class="fl">0.124708</span> </span></code></pre></div>
+<p>If we set life expectancy to its maximum (how?), then we receive the following regime probabilities:</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="probit-application.html#cb49-1" tabindex="-1"></a><span class="fu">predict</span>(probit, setx, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb49-2"><a href="probit-application.html#cb49-2" tabindex="-1"></a>        <span class="dv">1</span> </span>
+<span id="cb49-3"><a href="probit-application.html#cb49-3" tabindex="-1"></a><span class="fl">0.8329802</span> </span></code></pre></div>
 <p>Now we can make statements such as:</p>
 <ul>
 <li>In 2000, a country’s probability to be a democracy with average life expectancy was 54.82%.</li>
@@ -462,18 +462,18 @@ div.csl-indent {
 <div id="all-predicted-probabilities" class="section level3 unnumbered hasAnchor">
 <h3>All Predicted Probabilities<a href="probit-application.html#all-predicted-probabilities" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If you want to create a graph which depicts the predicted probability for all value sof your independent variable, then you can download the RScript for creating such a graph <a href="files/RScripts/PO33Q_Week%203_Predicted%20Probability%20Graph.R">here</a>. It will look like this:</p>
-<p><img src="main_files/figure-html/unnamed-chunk-72-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="main_files/figure-html/unnamed-chunk-73-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <hr />
 </div>
 </div>
 <div id="how-to-report-results" class="section level2 unnumbered hasAnchor">
 <h2>How to Report Results<a href="probit-application.html#how-to-report-results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The question is now: how do you report all of this in an article, or closer to home, in your assessment? Let us start by calculating a model which assesses the impact of per capita GDP on the probability to be a democracy in 2000, worldwide. The R commands and output look like this:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="probit-application.html#cb49-1" tabindex="-1"></a>probit <span class="ot">&lt;-</span> <span class="fu">glm</span>(democracy <span class="sc">~</span> gdppc,</span>
-<span id="cb49-2"><a href="probit-application.html#cb49-2" tabindex="-1"></a>                <span class="at">data =</span> world2000, </span>
-<span id="cb49-3"><a href="probit-application.html#cb49-3" tabindex="-1"></a>                <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span>
-<span id="cb49-4"><a href="probit-application.html#cb49-4" tabindex="-1"></a></span>
-<span id="cb49-5"><a href="probit-application.html#cb49-5" tabindex="-1"></a><span class="fu">summary</span>(probit)</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="probit-application.html#cb50-1" tabindex="-1"></a>probit <span class="ot">&lt;-</span> <span class="fu">glm</span>(democracy <span class="sc">~</span> gdppc,</span>
+<span id="cb50-2"><a href="probit-application.html#cb50-2" tabindex="-1"></a>                <span class="at">data =</span> world2000, </span>
+<span id="cb50-3"><a href="probit-application.html#cb50-3" tabindex="-1"></a>                <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span>
+<span id="cb50-4"><a href="probit-application.html#cb50-4" tabindex="-1"></a></span>
+<span id="cb50-5"><a href="probit-application.html#cb50-5" tabindex="-1"></a><span class="fu">summary</span>(probit)</span></code></pre></div>
 <pre><code>
 Call:
 glm(formula = democracy ~ gdppc, family = binomial(link = &quot;probit&quot;), 
@@ -617,15 +617,15 @@ Observations
 <div id="multiple-independent-variables" class="section level3 unnumbered hasAnchor">
 <h3>Multiple Independent Variables<a href="probit-application.html#multiple-independent-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As in multiple linear regression, you can also have multiple independent variables in a probit model. Schematically this would look as follows:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="probit-application.html#cb51-1" tabindex="-1"></a>probit <span class="ot">&lt;-</span> <span class="fu">glm</span>(depvar <span class="sc">~</span> indepvar1 <span class="sc">+</span> indepvar2 <span class="sc">+</span> indepvar3, </span>
-<span id="cb51-2"><a href="probit-application.html#cb51-2" tabindex="-1"></a>              <span class="at">data =</span> dataframe, </span>
-<span id="cb51-3"><a href="probit-application.html#cb51-3" tabindex="-1"></a>              <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), </span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="probit-application.html#cb52-1" tabindex="-1"></a>probit <span class="ot">&lt;-</span> <span class="fu">glm</span>(depvar <span class="sc">~</span> indepvar1 <span class="sc">+</span> indepvar2 <span class="sc">+</span> indepvar3, </span>
+<span id="cb52-2"><a href="probit-application.html#cb52-2" tabindex="-1"></a>              <span class="at">data =</span> dataframe, </span>
+<span id="cb52-3"><a href="probit-application.html#cb52-3" tabindex="-1"></a>              <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), </span></code></pre></div>
 <p>The fun starts when you begin to calculate probabilities for different values for all of these independent variables.</p>
 <div id="setting-the-x-values-1" class="section level4 unnumbered hasAnchor">
 <h4>Setting the x-values<a href="probit-application.html#setting-the-x-values-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>You can set the value for each variable individually, such as in this little example:</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="probit-application.html#cb52-1" tabindex="-1"></a>setx <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">gdppc=</span><span class="fu">min</span>(world2000<span class="sc">$</span>gdppc, <span class="at">na.rm =</span> T),</span>
-<span id="cb52-2"><a href="probit-application.html#cb52-2" tabindex="-1"></a>                  <span class="at">life=</span><span class="fl">66.49</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="probit-application.html#cb53-1" tabindex="-1"></a>setx <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">gdppc=</span><span class="fu">min</span>(world2000<span class="sc">$</span>gdppc, <span class="at">na.rm =</span> T),</span>
+<span id="cb53-2"><a href="probit-application.html#cb53-2" tabindex="-1"></a>                  <span class="at">life=</span><span class="fl">66.49</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="predicting-the-probability-1" class="section level3 unnumbered hasAnchor">
