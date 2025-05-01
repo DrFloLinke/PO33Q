@@ -259,7 +259,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#how-to-report-results"><i class="fa fa-check"></i>How to Report Results</a>
 <ul>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#stargazer"><i class="fa fa-check"></i>Stargazer</a></li>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#modelsummary"><i class="fa fa-check"></i>Modelsummary</a></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#multiple-independent-variables"><i class="fa fa-check"></i>Multiple Independent Variables</a></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#predicting-the-probability-1"><i class="fa fa-check"></i>Predicting the Probability</a></li>
 </ul></li>
@@ -417,7 +417,7 @@ div.csl-indent {
 <p>The coefficients are displayed in the results as follows:</p>
 <p><img src="files/Week%203/coef.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>But how do we interpret them? As you have seen in the Theory section above, the relationship between our independent variable and the probability of democracy is not linear: the curve was s-shaped, so that the increment in probability is not the same for, say moving from <span class="math inline">\(x_{1}\)</span> to <span class="math inline">\(x_{2}\)</span> and from <span class="math inline">\(x_{2}\)</span> to <span class="math inline">\(x_{3}\)</span>. For illustration see the red bars in the following Figure:</p>
-<p><img src="files/Week%203/probability.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="main_files/figure-html/unnamed-chunk-66-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>What we therefore need to do in the world of probit, is to evaluate the probability at individual values of <span class="math inline">\(x_{i}\)</span>, or put differently, assess how much of the bell-shaped curve has slid across our cut-off point <span class="math inline">\(\tau\)</span> (tau) at a particular point <span class="math inline">\(x_{i}\)</span>. And this brings us to predicted probabilities.</p>
 <hr />
 </div>
@@ -430,7 +430,7 @@ div.csl-indent {
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="probit-application.html#cb44-1" tabindex="-1"></a><span class="fu">summary</span>(world2000<span class="sc">$</span>life)</span>
 <span id="cb44-2"><a href="probit-application.html#cb44-2" tabindex="-1"></a>   Min. <span class="dv">1</span>st Qu.  Median    Mean <span class="dv">3</span>rd Qu.    Max.    NA<span class="st">&#39;s </span></span>
 <span id="cb44-3"><a href="probit-application.html#cb44-3" tabindex="-1"></a><span class="st">  44.52   59.46   69.58   66.49   73.84   81.08       8 </span></span></code></pre></div>
-<p>So we know that the average life expectancy in the world in the year 2000 was 66.49 years,with a minimum of 44.52 years, and a maximum of 81 years. We also have eight missing observations (<code>NA</code>) which we need to exclude from the following by setting <code>na.rm=TRUE</code><a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>, as R is otherwise unable to calculate descriptive measures within the <code>setx</code> function, such as the mean. Let us set <code>life</code> to its mean now, by typing:</p>
+<p>So we know that the average life expectancy in the world in the year 2000 was 66.49 years,with a minimum of 44.52 years, and a maximum of 81 years. We also have eight missing observations (<code>NA</code>) which we need to exclude from the following by setting <code>na.rm=TRUE</code><a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>, as R is otherwise unable to calculate descriptive measures within the <code>setx</code> function, such as the mean. Let us set <code>life</code> to its mean now, by typing:</p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="probit-application.html#cb45-1" tabindex="-1"></a>setx <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">life=</span><span class="fl">66.49</span>)</span></code></pre></div>
 <p>If you want to change this value for calculations later on, you simply set different values in the <code>setx</code> dataframe or specify a new one).</p>
 <p>We now have the shape of the probability curve, and we have agreed on a point on the x-axis. We are finally ready to have a look at the probability to be a democracy at this point.</p>
@@ -461,171 +461,385 @@ div.csl-indent {
 </div>
 <div id="all-predicted-probabilities" class="section level3 unnumbered hasAnchor">
 <h3>All Predicted Probabilities<a href="probit-application.html#all-predicted-probabilities" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>If you want to create a graph which depicts the predicted probability for all value sof your independent variable, then you can download the RScript for creating such a graph <a href="files/RScripts/PO33Q_Week%203_Predicted%20Probability%20Graph.R">here</a>. It will look like this:</p>
-<p><img src="main_files/figure-html/unnamed-chunk-73-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p>It is also possible to depict the predicted probabilities for all values of your independent graphically. That would look like this:</p>
+<p><img src="main_files/figure-html/unnamed-chunk-74-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<div class="baser">
+<details>
+<summary>
+Code for the Predicted Probabilities Graph
+</summary>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="probit-application.html#cb50-1" tabindex="-1"></a>probit <span class="ot">&lt;-</span> <span class="fu">glm</span>(democracy <span class="sc">~</span> life, </span>
+<span id="cb50-2"><a href="probit-application.html#cb50-2" tabindex="-1"></a>               <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), </span>
+<span id="cb50-3"><a href="probit-application.html#cb50-3" tabindex="-1"></a>               <span class="at">data =</span> world2000)</span>
+<span id="cb50-4"><a href="probit-application.html#cb50-4" tabindex="-1"></a></span>
+<span id="cb50-5"><a href="probit-application.html#cb50-5" tabindex="-1"></a>xlife <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="fl">81.08</span>, <span class="dv">1</span>)</span>
+<span id="cb50-6"><a href="probit-application.html#cb50-6" tabindex="-1"></a></span>
+<span id="cb50-7"><a href="probit-application.html#cb50-7" tabindex="-1"></a>ylife <span class="ot">&lt;-</span> <span class="fu">predict</span>(probit, <span class="fu">list</span>(<span class="at">life =</span> xlife),<span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb50-8"><a href="probit-application.html#cb50-8" tabindex="-1"></a></span>
+<span id="cb50-9"><a href="probit-application.html#cb50-9" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(xlife,ylife) </span>
+<span id="cb50-10"><a href="probit-application.html#cb50-10" tabindex="-1"></a></span>
+<span id="cb50-11"><a href="probit-application.html#cb50-11" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>predictions, <span class="fu">aes</span>(<span class="at">x=</span>xlife, <span class="at">y=</span>ylife)) <span class="sc">+</span></span>
+<span id="cb50-12"><a href="probit-application.html#cb50-12" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb50-13"><a href="probit-application.html#cb50-13" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span> <span class="st">&quot;Life Expectancy at Birth&quot;</span>, <span class="at">y=</span><span class="st">&quot;Pr(Democracy)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb50-14"><a href="probit-application.html#cb50-14" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb50-15"><a href="probit-application.html#cb50-15" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">14</span>),</span>
+<span id="cb50-16"><a href="probit-application.html#cb50-16" tabindex="-1"></a>        <span class="at">axis.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">16</span>))</span></code></pre></div>
+</details>
+</div>
 <hr />
 </div>
 </div>
 <div id="how-to-report-results" class="section level2 unnumbered hasAnchor">
 <h2>How to Report Results<a href="probit-application.html#how-to-report-results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The question is now: how do you report all of this in an article, or closer to home, in your assessment? Let us start by calculating a model which assesses the impact of per capita GDP on the probability to be a democracy in 2000, worldwide. The R commands and output look like this:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="probit-application.html#cb50-1" tabindex="-1"></a>probit <span class="ot">&lt;-</span> <span class="fu">glm</span>(democracy <span class="sc">~</span> gdppc,</span>
-<span id="cb50-2"><a href="probit-application.html#cb50-2" tabindex="-1"></a>                <span class="at">data =</span> world2000, </span>
-<span id="cb50-3"><a href="probit-application.html#cb50-3" tabindex="-1"></a>                <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span>
-<span id="cb50-4"><a href="probit-application.html#cb50-4" tabindex="-1"></a></span>
-<span id="cb50-5"><a href="probit-application.html#cb50-5" tabindex="-1"></a><span class="fu">summary</span>(probit)</span></code></pre></div>
-<pre><code>
-Call:
-glm(formula = democracy ~ gdppc, family = binomial(link = &quot;probit&quot;), 
-    data = world2000)
-
-Coefficients:
-              Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept) -1.621e-01  1.161e-01  -1.396    0.163    
-gdppc        5.128e-05  1.309e-05   3.918 8.93e-05 ***
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-
-(Dispersion parameter for binomial family taken to be 1)
-
-    Null deviance: 248.48  on 180  degrees of freedom
-Residual deviance: 225.62  on 179  degrees of freedom
-  (10 observations deleted due to missingness)
-AIC: 229.62
-
-Number of Fisher Scoring iterations: 5</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="probit-application.html#cb51-1" tabindex="-1"></a>probit1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(democracy <span class="sc">~</span> gdppc,</span>
+<span id="cb51-2"><a href="probit-application.html#cb51-2" tabindex="-1"></a>                <span class="at">data =</span> world2000, </span>
+<span id="cb51-3"><a href="probit-application.html#cb51-3" tabindex="-1"></a>                <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span>
+<span id="cb51-4"><a href="probit-application.html#cb51-4" tabindex="-1"></a><span class="fu">summary</span>(probit1)</span>
+<span id="cb51-5"><a href="probit-application.html#cb51-5" tabindex="-1"></a></span>
+<span id="cb51-6"><a href="probit-application.html#cb51-6" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb51-7"><a href="probit-application.html#cb51-7" tabindex="-1"></a><span class="fu">glm</span>(<span class="at">formula =</span> democracy <span class="sc">~</span> gdppc, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), </span>
+<span id="cb51-8"><a href="probit-application.html#cb51-8" tabindex="-1"></a>    <span class="at">data =</span> world2000)</span>
+<span id="cb51-9"><a href="probit-application.html#cb51-9" tabindex="-1"></a></span>
+<span id="cb51-10"><a href="probit-application.html#cb51-10" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
+<span id="cb51-11"><a href="probit-application.html#cb51-11" tabindex="-1"></a>              Estimate Std. Error z value <span class="fu">Pr</span>(<span class="sc">&gt;</span><span class="er">|</span>z<span class="sc">|</span>)    </span>
+<span id="cb51-12"><a href="probit-application.html#cb51-12" tabindex="-1"></a>(Intercept) <span class="sc">-</span><span class="fl">1.621e-01</span>  <span class="fl">1.161e-01</span>  <span class="sc">-</span><span class="fl">1.396</span>    <span class="fl">0.163</span>    </span>
+<span id="cb51-13"><a href="probit-application.html#cb51-13" tabindex="-1"></a>gdppc        <span class="fl">5.128e-05</span>  <span class="fl">1.309e-05</span>   <span class="fl">3.918</span> <span class="fl">8.93e-05</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb51-14"><a href="probit-application.html#cb51-14" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb51-15"><a href="probit-application.html#cb51-15" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">&#39;***&#39;</span> <span class="fl">0.001</span> <span class="st">&#39;**&#39;</span> <span class="fl">0.01</span> <span class="st">&#39;*&#39;</span> <span class="fl">0.05</span> <span class="st">&#39;.&#39;</span> <span class="fl">0.1</span> <span class="st">&#39; &#39;</span> <span class="dv">1</span></span>
+<span id="cb51-16"><a href="probit-application.html#cb51-16" tabindex="-1"></a></span>
+<span id="cb51-17"><a href="probit-application.html#cb51-17" tabindex="-1"></a>(Dispersion parameter <span class="cf">for</span> binomial family taken to be <span class="dv">1</span>)</span>
+<span id="cb51-18"><a href="probit-application.html#cb51-18" tabindex="-1"></a></span>
+<span id="cb51-19"><a href="probit-application.html#cb51-19" tabindex="-1"></a>    Null deviance<span class="sc">:</span> <span class="fl">248.48</span>  on <span class="dv">180</span>  degrees of freedom</span>
+<span id="cb51-20"><a href="probit-application.html#cb51-20" tabindex="-1"></a>Residual deviance<span class="sc">:</span> <span class="fl">225.62</span>  on <span class="dv">179</span>  degrees of freedom</span>
+<span id="cb51-21"><a href="probit-application.html#cb51-21" tabindex="-1"></a>  (<span class="dv">10</span> observations deleted due to missingness)</span>
+<span id="cb51-22"><a href="probit-application.html#cb51-22" tabindex="-1"></a>AIC<span class="sc">:</span> <span class="fl">229.62</span></span>
+<span id="cb51-23"><a href="probit-application.html#cb51-23" tabindex="-1"></a></span>
+<span id="cb51-24"><a href="probit-application.html#cb51-24" tabindex="-1"></a>Number of Fisher Scoring iterations<span class="sc">:</span> <span class="dv">5</span></span></code></pre></div>
 <p>Now, <strong>please, please</strong> never, ever copy this into an article or an assessment, as every time you do this, a little part of me dies. Make the effort of reporting the results in a nice and neat Table, that only contains all relevant information, communicates it in an accessible form, and is clearly labelled. The output above, processed properly, would look like this:</p>
 <center>
 <p> 
  </p>
-<table style="text-align:center">
-<caption>
-<strong><span id="tab:reg1"><span id="tab:reg1">Table 4: </span></span>Influence of per capita GDP on Democracy</strong>
-</caption>
+<!-- preamble start -->
+
+    <script>
+
+      function styleCell_pngza5e9hxippdz2o5ft(i, j, css_id) {
+          var table = document.getElementById("tinytable_pngza5e9hxippdz2o5ft");
+          var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
+          if (cell) {
+              console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
+              cell.classList.add(css_id);
+          } else {
+              console.warn(`Cell at (${i}, ${j}) not found.`);
+          }
+      }
+      function insertSpanRow(i, colspan, content) {
+        var table = document.getElementById('tinytable_pngza5e9hxippdz2o5ft');
+        var newRow = table.insertRow(i);
+        var newCell = newRow.insertCell(0);
+        newCell.setAttribute("colspan", colspan);
+        // newCell.innerText = content;
+        // this may be unsafe, but innerText does not interpret <br>
+        newCell.innerHTML = content;
+      }
+      function spanCell_pngza5e9hxippdz2o5ft(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_pngza5e9hxippdz2o5ft");
+        const targetRow = table.rows[i];
+        const targetCell = targetRow.cells[j];
+        for (let r = 0; r < rowspan; r++) {
+          // Only start deleting cells to the right for the first row (r == 0)
+          if (r === 0) {
+            // Delete cells to the right of the target cell in the first row
+            for (let c = colspan - 1; c > 0; c--) {
+              if (table.rows[i + r].cells[j + c]) {
+                table.rows[i + r].deleteCell(j + c);
+              }
+            }
+          }
+          // For rows below the first, delete starting from the target column
+          if (r > 0) {
+            for (let c = colspan - 1; c >= 0; c--) {
+              if (table.rows[i + r] && table.rows[i + r].cells[j]) {
+                table.rows[i + r].deleteCell(j);
+              }
+            }
+          }
+        }
+        // Set rowspan and colspan of the target cell
+        targetCell.rowSpan = rowspan;
+        targetCell.colSpan = colspan;
+      }
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_y82i7vpyvq6crgb70k08',}, 
+          { positions: [ { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 },  ], css_id: 'tinytable_css_wv6e9fxgggiffnknrsw8',}, 
+          { positions: [ { i: 2, j: 1 }, { i: 3, j: 1 }, { i: 4, j: 1 },  ], css_id: 'tinytable_css_wsbl35tqryz6rshmjyw2',}, 
+          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_wavns6wzs41zhwbdsdds',}, 
+          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_w8eclnf5niej35hhmatv',}, 
+          { positions: [ { i: 5, j: 1 },  ], css_id: 'tinytable_css_rl949xtpw0j51iiogwp6',}, 
+          { positions: [ { i: 5, j: 0 },  ], css_id: 'tinytable_css_mb7m8v70u09zfzp4npwj',}, 
+          { positions: [ { i: 1, j: 1 },  ], css_id: 'tinytable_css_lfl1adbikzomfz4qb84k',}, 
+          { positions: [ { i: 6, j: 0 },  ], css_id: 'tinytable_css_l9hjti8ju9c3rsrla4my',}, 
+          { positions: [ { i: 6, j: 1 },  ], css_id: 'tinytable_css_2j4w3oiv9c8ihkaa42h3',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  styleCell_pngza5e9hxippdz2o5ft(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script>
+
+    <style>
+      /* tinytable css entries after */
+      .table td.tinytable_css_y82i7vpyvq6crgb70k08, .table th.tinytable_css_y82i7vpyvq6crgb70k08 { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_wv6e9fxgggiffnknrsw8, .table th.tinytable_css_wv6e9fxgggiffnknrsw8 { text-align: left; }
+      .table td.tinytable_css_wsbl35tqryz6rshmjyw2, .table th.tinytable_css_wsbl35tqryz6rshmjyw2 { text-align: center; }
+      .table td.tinytable_css_wavns6wzs41zhwbdsdds, .table th.tinytable_css_wavns6wzs41zhwbdsdds { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_w8eclnf5niej35hhmatv, .table th.tinytable_css_w8eclnf5niej35hhmatv { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_rl949xtpw0j51iiogwp6, .table th.tinytable_css_rl949xtpw0j51iiogwp6 { text-align: center; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_mb7m8v70u09zfzp4npwj, .table th.tinytable_css_mb7m8v70u09zfzp4npwj { text-align: left; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_lfl1adbikzomfz4qb84k, .table th.tinytable_css_lfl1adbikzomfz4qb84k { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_l9hjti8ju9c3rsrla4my, .table th.tinytable_css_l9hjti8ju9c3rsrla4my { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_2j4w3oiv9c8ihkaa42h3, .table th.tinytable_css_2j4w3oiv9c8ihkaa42h3 { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+    </style>
+    <div class="container">
+      <table class="table table-borderless" id="tinytable_pngza5e9hxippdz2o5ft" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
+        <thead>
 <tr>
-<td colspan="2" style="border-bottom: 1px solid black">
-</td>
+<th scope="col" align="center" colspan=1> </th>
+<th scope="col" align="center" colspan=1>Dependent Variable:<br>Democracy</th>
 </tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-<em>Dependent variable:</em>
-</td>
-</tr>
-<tr>
-<td>
-</td>
-<td colspan="1" style="border-bottom: 1px solid black">
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-Democracy
-</td>
-</tr>
-<tr>
-<td colspan="2" style="border-bottom: 1px solid black">
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-per capita GDP
-</td>
-<td>
-0.058<sup>***</sup>
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-(0.011)
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Constant
-</td>
-<td>
--3.731<sup>***</sup>
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-(0.726)
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td colspan="2" style="border-bottom: 1px solid black">
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Observations
-</td>
-<td>
-183
-</td>
-</tr>
-<tr>
-<td colspan="2" style="border-bottom: 1px solid black">
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-<em>Note:</em>
-</td>
-<td style="text-align:right">
-<code>*</code>p&lt;0.1; <code>**</code>p&lt;0.05; <code>***</code>p&lt;0.01
-</td>
-</tr>
-</table>
+        <caption><span id="tab:reg">Table 4: </span> Influence of per capita GDP on Democracy</caption>
+              <tr>
+                <th scope="col"> </th>
+                <th scope="col">(1)</th>
+              </tr>
+        </thead>
+        <tfoot><tr><td colspan='2'>+ p < 0.1, * p < 0.05, ** p < 0.01, *** p < 0.001</td></tr></tfoot>
+        <tbody>
+                <tr>
+                  <td>per capita GDP</td>
+                  <td>0.000***</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>(0.000)</td>
+                </tr>
+                <tr>
+                  <td>Intercept</td>
+                  <td>-0.162</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>(0.116)</td>
+                </tr>
+                <tr>
+                  <td>Num.Obs.</td>
+                  <td>181</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
  
  
 </center>
 <p>You see, this table manages to convey clearly the relationship we are assessing, the label of the independent variable (not in the form of cryptic variable names), the value of the intercept, the value of the slope coefficient, their respective p-value, and the number of observations. It also has an informative caption underneath and is properly labelled (so that it can be cross-referenced in the text). As such, the table itself could already communicate the main take-away message without somebody looking at the text. This needs to be the goal: the table, or figure needs to be able to communicate the message without having to look at the text. In turn, the text needs to be able to communicate the message on its own without looking at the table. But both need to say the same thing.</p>
 <p>After you have reported the results of the regression output in this way, you can then proceed to interpret (in the text) the transition probabilities as discussed above. Again, you might wish to sum up the main results in tabular format.</p>
-<div id="stargazer" class="section level3 unnumbered hasAnchor">
-<h3>Stargazer<a href="probit-application.html#stargazer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Rather than setting tables manually in Excel, or even worse in Word (it basically violates all standards of professional table formatting), you can let R do this work for you. All you need is a magical package called <code>stargazer</code>. I have provided some <a href="files/RScripts/Sample%20Stargazer.R">Sample Stargazer Code</a> in the <a href="https://drfloreiche.github.io/PO33Q/downloads.html">Downloads Section</a>. Open it now, and try to understand it, I have annotated it. But here are some pointers:</p>
+<div id="modelsummary" class="section level3 unnumbered hasAnchor">
+<h3>Modelsummary<a href="probit-application.html#modelsummary" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Rather than setting tables manually in Excel, or even worse in Word (it basically violates all standards of professional table formatting), you can let R do this work for you. All you need for this is the <code>modelsummary</code> package.</p>
+<p>Just like writing a shopping list, we start by creating a list of models for which we want <code>modelsummary</code> to produce a table. You can merely list the names of the objects in which the models are stored, such as <code>probit1</code>, or you can give them specific names which will appear as column titles in the table. This addition is by no means a must, but sometimes you might wish to give models a particular name, for example if you have used different methods of estimation, different components of a theory, emergence vs. survival, etc. By default, <code>modelsummary</code> just numbers models in ascending order.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="probit-application.html#cb52-1" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb52-2"><a href="probit-application.html#cb52-2" tabindex="-1"></a>  <span class="st">&quot;(1)&quot;</span>    <span class="ot">=</span> probit1</span>
+<span id="cb52-3"><a href="probit-application.html#cb52-3" tabindex="-1"></a>)</span></code></pre></div>
+<p>This simple step is already sufficient to produce – an admittedly somewhat crude – results table. All we have to do is to load the <code>modelsummary</code> package and to use the previously defined list of models as the argument of the <code>modelsummary()</code> function:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="probit-application.html#cb53-1" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb53-2"><a href="probit-application.html#cb53-2" tabindex="-1"></a><span class="fu">modelsummary</span>(models)</span></code></pre></div>
 <div class="bulb">
-<p>The <span style="color:black"><code>stargazer</code></span> function needs to contain, in order: the name of the R object where you stored the regression results, the option <span style="color:black"><code>header=F</code></span> to suppress the annoying immortalisation of the author, the option <span style="color:black"><code>type="html"</code></span>, and the option <span style="color:black"><code>out="documentname.doc"</code></span> which places a word document with that file name in your working directory.</p>
+<p>Execute these code chunks as we go through this Section, so you can see the alterations we make to the table in real-time.</p>
 </div>
+<p>This table is a vast improvement on the raw R output you would receive when calling <code>summary(model1)</code>. But it is far from finished. One characteristic which is conspicuously absent is an assessment of statistical significance. In model summaries of this kind this information is usually provided in the form of asterisks or other symbols next to the respective coefficient. We can add these simply by adding the option <code>stars=TRUE</code> to the code.</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="probit-application.html#cb54-1" tabindex="-1"></a><span class="fu">modelsummary</span>(models,</span>
+<span id="cb54-2"><a href="probit-application.html#cb54-2" tabindex="-1"></a>             <span class="at">stars =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Next up is the modification of the stub. The stub is the leftmost column in which you name the indicators for which coefficients will be presented.In the stub, “[a]bbreviate nothing. And never ever ever use computer variable names to stand for concepts. These are personal code words that convey no meaning to readers.” <span class="citation">(Stimson, n.d., p. 10)</span> Following this advice, let us add proper labels to the independent variables.</p>
+<p>To let <code>modelsummary</code> know how to replace each variable name, we create a so-called coefficient map. This is really just a character vector which follows a “before-after” logic in each of its rows. For example <code>'gddpc'='per capita GDP'</code> replaces the variable name <code>gdppc</code> with the label <code>per capita GDP</code>. We need to do this for all the variables we used in our models. I am storing this in a vector called <code>cm</code> which stands for coefficient map.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="probit-application.html#cb55-1" tabindex="-1"></a>cm <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;gdppc&#39;</span>    <span class="ot">=</span> <span class="st">&#39;per capita GDP&#39;</span>,</span>
+<span id="cb55-2"><a href="probit-application.html#cb55-2" tabindex="-1"></a>        <span class="st">&#39;(Intercept)&#39;</span> <span class="ot">=</span> <span class="st">&#39;Intercept&#39;</span>)</span></code></pre></div>
+<p>The next step is easy, as we only need to feed this coefficient map into the <code>modelsummary</code> code with the option <code>coef_map=cm</code>:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="probit-application.html#cb56-1" tabindex="-1"></a><span class="fu">modelsummary</span>(models,</span>
+<span id="cb56-2"><a href="probit-application.html#cb56-2" tabindex="-1"></a>             <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb56-3"><a href="probit-application.html#cb56-3" tabindex="-1"></a>             <span class="at">coef_map =</span> cm)</span></code></pre></div>
+<p>This is a personal thing, but I also like to show the label of the dependent variable in results tables. They just feel incomplete to me without this information. There is no default to achieve this in <code>modelsummary</code> and so we need to use a little trick.</p>
+<p>What I want to add in the first row, but only in the second columm, is the text . This requires us to alter the style of the table slightly. <code>modelsummary</code> uses another package called <code>tinytable</code> to style the output. We load the package with <code>library(tinytable)</code> and instruct R to place the text where we want it.</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="probit-application.html#cb57-1" tabindex="-1"></a><span class="fu">library</span>(tinytable)</span>
+<span id="cb57-2"><a href="probit-application.html#cb57-2" tabindex="-1"></a><span class="fu">modelsummary</span>(models,</span>
+<span id="cb57-3"><a href="probit-application.html#cb57-3" tabindex="-1"></a>             <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb57-4"><a href="probit-application.html#cb57-4" tabindex="-1"></a>             <span class="at">coef_map =</span> cm)<span class="sc">|&gt;</span></span>
+<span id="cb57-5"><a href="probit-application.html#cb57-5" tabindex="-1"></a>  <span class="fu">group_tt</span>(<span class="at">j =</span> <span class="fu">list</span>(<span class="st">&quot;Dependent Variable: Democracy&quot;</span> <span class="ot">=</span> <span class="dv">2</span>))</span></code></pre></div>
+<p>Lastly, let us tackle the model fit statistics. By default, <code>modelsummary</code> prints a whole festival of these into the bottom section of the table, but I want to concentrate only on the number of observations for now. We will be adding a model fit measure in Week 7.</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="probit-application.html#cb58-1" tabindex="-1"></a><span class="fu">modelsummary</span>(models,</span>
+<span id="cb58-2"><a href="probit-application.html#cb58-2" tabindex="-1"></a>             <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb58-3"><a href="probit-application.html#cb58-3" tabindex="-1"></a>             <span class="at">coef_map =</span> cm,</span>
+<span id="cb58-4"><a href="probit-application.html#cb58-4" tabindex="-1"></a>             <span class="at">gof_omit =</span> <span class="st">&#39;DF|Deviance|Log.Lik|F|AIC|BIC|RMSE&#39;</span>)<span class="sc">|&gt;</span></span>
+<span id="cb58-5"><a href="probit-application.html#cb58-5" tabindex="-1"></a>  <span class="fu">group_tt</span>(<span class="at">j =</span> <span class="fu">list</span>(<span class="st">&quot;Dependent Variable: Democracy&quot;</span> <span class="ot">=</span> <span class="dv">2</span>))</span></code></pre></div>
+<p>This should produce this table:</p>
+<!-- preamble start -->
+
+    <script>
+
+      function styleCell_ednsc5gsz8ob0qgvzdkg(i, j, css_id) {
+          var table = document.getElementById("tinytable_ednsc5gsz8ob0qgvzdkg");
+          var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
+          if (cell) {
+              console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
+              cell.classList.add(css_id);
+          } else {
+              console.warn(`Cell at (${i}, ${j}) not found.`);
+          }
+      }
+      function insertSpanRow(i, colspan, content) {
+        var table = document.getElementById('tinytable_ednsc5gsz8ob0qgvzdkg');
+        var newRow = table.insertRow(i);
+        var newCell = newRow.insertCell(0);
+        newCell.setAttribute("colspan", colspan);
+        // newCell.innerText = content;
+        // this may be unsafe, but innerText does not interpret <br>
+        newCell.innerHTML = content;
+      }
+      function spanCell_ednsc5gsz8ob0qgvzdkg(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_ednsc5gsz8ob0qgvzdkg");
+        const targetRow = table.rows[i];
+        const targetCell = targetRow.cells[j];
+        for (let r = 0; r < rowspan; r++) {
+          // Only start deleting cells to the right for the first row (r == 0)
+          if (r === 0) {
+            // Delete cells to the right of the target cell in the first row
+            for (let c = colspan - 1; c > 0; c--) {
+              if (table.rows[i + r].cells[j + c]) {
+                table.rows[i + r].deleteCell(j + c);
+              }
+            }
+          }
+          // For rows below the first, delete starting from the target column
+          if (r > 0) {
+            for (let c = colspan - 1; c >= 0; c--) {
+              if (table.rows[i + r] && table.rows[i + r].cells[j]) {
+                table.rows[i + r].deleteCell(j);
+              }
+            }
+          }
+        }
+        // Set rowspan and colspan of the target cell
+        targetCell.rowSpan = rowspan;
+        targetCell.colSpan = colspan;
+      }
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: 2, j: 1 }, { i: 3, j: 1 }, { i: 4, j: 1 },  ], css_id: 'tinytable_css_z9h9qpxppn1la4qjtola',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_wbk2cni8g3c3woa5h9bp',}, 
+          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_py1phamaif0virr5i9o3',}, 
+          { positions: [ { i: 5, j: 0 },  ], css_id: 'tinytable_css_n6dwf81ntewqyqbiifmv',}, 
+          { positions: [ { i: 6, j: 0 },  ], css_id: 'tinytable_css_mchy26y1vnnceaamucho',}, 
+          { positions: [ { i: 5, j: 1 },  ], css_id: 'tinytable_css_il9l9acpe013bpqsb80c',}, 
+          { positions: [ { i: 1, j: 1 },  ], css_id: 'tinytable_css_ck5htfrokrlshx0kdt05',}, 
+          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_at2i7r1d04r75ec21fjm',}, 
+          { positions: [ { i: 6, j: 1 },  ], css_id: 'tinytable_css_6w96pjy1v10b4zpvc4np',}, 
+          { positions: [ { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 },  ], css_id: 'tinytable_css_67gd6dmln9xnravlsh9v',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  styleCell_ednsc5gsz8ob0qgvzdkg(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script>
+
+    <style>
+      /* tinytable css entries after */
+      .table td.tinytable_css_z9h9qpxppn1la4qjtola, .table th.tinytable_css_z9h9qpxppn1la4qjtola { text-align: center; }
+      .table td.tinytable_css_wbk2cni8g3c3woa5h9bp, .table th.tinytable_css_wbk2cni8g3c3woa5h9bp { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_py1phamaif0virr5i9o3, .table th.tinytable_css_py1phamaif0virr5i9o3 { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_n6dwf81ntewqyqbiifmv, .table th.tinytable_css_n6dwf81ntewqyqbiifmv { text-align: left; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_mchy26y1vnnceaamucho, .table th.tinytable_css_mchy26y1vnnceaamucho { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_il9l9acpe013bpqsb80c, .table th.tinytable_css_il9l9acpe013bpqsb80c { text-align: center; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_ck5htfrokrlshx0kdt05, .table th.tinytable_css_ck5htfrokrlshx0kdt05 { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_at2i7r1d04r75ec21fjm, .table th.tinytable_css_at2i7r1d04r75ec21fjm { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_6w96pjy1v10b4zpvc4np, .table th.tinytable_css_6w96pjy1v10b4zpvc4np { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_67gd6dmln9xnravlsh9v, .table th.tinytable_css_67gd6dmln9xnravlsh9v { text-align: left; }
+    </style>
+    <div class="container">
+      <table class="table table-borderless" id="tinytable_ednsc5gsz8ob0qgvzdkg" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
+        <thead>
+<tr>
+<th scope="col" align="center" colspan=1> </th>
+<th scope="col" align="center" colspan=1>Dependent Variable:<br>Democracy</th>
+</tr>
+        
+              <tr>
+                <th scope="col"> </th>
+                <th scope="col">(1)</th>
+              </tr>
+        </thead>
+        <tfoot><tr><td colspan='2'>+ p < 0.1, * p < 0.05, ** p < 0.01, *** p < 0.001</td></tr></tfoot>
+        <tbody>
+                <tr>
+                  <td>per capita GDP</td>
+                  <td>0.000***</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>(0.000)</td>
+                </tr>
+                <tr>
+                  <td>Intercept</td>
+                  <td>-0.162</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>(0.116)</td>
+                </tr>
+                <tr>
+                  <td>Num.Obs.</td>
+                  <td>181</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+<p>You can export your tables for use in MS Word, or Apple Pages. But you will not be able to export the full table, only up to the point at which you are specifying the options for <code>tinytable</code> with <code>|&gt;</code>. This is probably as good a reason as any to start working with Markdown or LaTeXBut if you are happy with this caveat, the following code will render the table in an MS Word document (<code>output="table.docx"</code>) that is placed in your working directory.</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="probit-application.html#cb59-1" tabindex="-1"></a><span class="fu">modelsummary</span>(models,</span>
+<span id="cb59-2"><a href="probit-application.html#cb59-2" tabindex="-1"></a>             <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb59-3"><a href="probit-application.html#cb59-3" tabindex="-1"></a>             <span class="at">coef_map =</span> cm,</span>
+<span id="cb59-4"><a href="probit-application.html#cb59-4" tabindex="-1"></a>             <span class="at">gof_omit =</span> <span class="st">&#39;DF|Deviance|Log.Lik|F|AIC|BIC|RMSE&#39;</span>,</span>
+<span id="cb59-5"><a href="probit-application.html#cb59-5" tabindex="-1"></a>             <span class="at">output =</span> <span class="st">&quot;table.docx&quot;</span>)</span></code></pre></div>
 <div class="warning">
 <p>Should you use MS Word to write your essay and your essay is saved in your working directory, <strong>do not</strong> save the table document under the same name as your essay, as R will overwrite it and it will be gone forever.</p>
 </div>
-<p>Beyond these basic elements I have added some lines in the sample code to improve the table. For example, I replaced the variable names with the variable labels, and <a href="www.rdocumentation.org/packages/stargazer/versions/5.2.3/topics/stargazer_stat_code_list">suppressed unwanted statistics</a>. You could also add a name for the model, or give the table a title. There is some good documenttation available for this on <a href="www.jakeruss.com/cheatsheets/stargazer/">this cheat sheet</a>.</p>
 <p>It is worth investing some time into this. There is a learning curve at the beginning, but it will make your life so much easier further down the line.</p>
 </div>
 <div id="multiple-independent-variables" class="section level3 unnumbered hasAnchor">
 <h3>Multiple Independent Variables<a href="probit-application.html#multiple-independent-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As in multiple linear regression, you can also have multiple independent variables in a probit model. Schematically this would look as follows:</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="probit-application.html#cb52-1" tabindex="-1"></a>probit <span class="ot">&lt;-</span> <span class="fu">glm</span>(depvar <span class="sc">~</span> indepvar1 <span class="sc">+</span> indepvar2 <span class="sc">+</span> indepvar3, </span>
-<span id="cb52-2"><a href="probit-application.html#cb52-2" tabindex="-1"></a>              <span class="at">data =</span> dataframe, </span>
-<span id="cb52-3"><a href="probit-application.html#cb52-3" tabindex="-1"></a>              <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), </span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="probit-application.html#cb60-1" tabindex="-1"></a>probit <span class="ot">&lt;-</span> <span class="fu">glm</span>(depvar <span class="sc">~</span> indepvar1 <span class="sc">+</span> indepvar2 <span class="sc">+</span> indepvar3, </span>
+<span id="cb60-2"><a href="probit-application.html#cb60-2" tabindex="-1"></a>              <span class="at">data =</span> dataframe, </span>
+<span id="cb60-3"><a href="probit-application.html#cb60-3" tabindex="-1"></a>              <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), </span></code></pre></div>
 <p>The fun starts when you begin to calculate probabilities for different values for all of these independent variables.</p>
 <div id="setting-the-x-values-1" class="section level4 unnumbered hasAnchor">
 <h4>Setting the x-values<a href="probit-application.html#setting-the-x-values-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>You can set the value for each variable individually, such as in this little example:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="probit-application.html#cb53-1" tabindex="-1"></a>setx <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">gdppc=</span><span class="fu">min</span>(world2000<span class="sc">$</span>gdppc, <span class="at">na.rm =</span> T),</span>
-<span id="cb53-2"><a href="probit-application.html#cb53-2" tabindex="-1"></a>                  <span class="at">life=</span><span class="fl">66.49</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="probit-application.html#cb61-1" tabindex="-1"></a>setx <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">gdppc=</span><span class="fu">min</span>(world2000<span class="sc">$</span>gdppc, <span class="at">na.rm =</span> T),</span>
+<span id="cb61-2"><a href="probit-application.html#cb61-2" tabindex="-1"></a>                  <span class="at">life=</span><span class="fl">66.49</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="predicting-the-probability-1" class="section level3 unnumbered hasAnchor">
@@ -645,8 +859,8 @@ Observations
 </div>
 <div class="footnotes">
 <hr />
-<ol start="6">
-<li id="fn6"><p>This stands for “not available remove equals true”.<a href="probit-application.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<ol start="7">
+<li id="fn7"><p>This stands for “not available remove equals true”.<a href="probit-application.html#fnref7" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

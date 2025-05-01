@@ -259,7 +259,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#how-to-report-results"><i class="fa fa-check"></i>How to Report Results</a>
 <ul>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#stargazer"><i class="fa fa-check"></i>Stargazer</a></li>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#modelsummary"><i class="fa fa-check"></i>Modelsummary</a></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#multiple-independent-variables"><i class="fa fa-check"></i>Multiple Independent Variables</a></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#predicting-the-probability-1"><i class="fa fa-check"></i>Predicting the Probability</a></li>
 </ul></li>
@@ -373,8 +373,8 @@ div.csl-indent {
 <h2>Options in R<a href="missing-data.html#options-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Missing data is a real problem in doing empirical research. What compounds this problem is that developing countries are more affected than developed ones. Ironically, we are more interested in developing countries in this module, and so this is going to become a real-life struggle for you over the coming weeks.</p>
 <p>R has multiple ways in which to address missing data. We have already encountered the exclusion of missing values when using descriptive statistics within the <code>setx</code> function in Week 3, such as:</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="missing-data.html#cb54-1" tabindex="-1"></a><span class="fu">mean</span>(europe2000<span class="sc">$</span>lifeexp, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
-<p>When we run regression models, for example through the function <code>lm</code>, R let’s you specify what you wish to do with observations (rows) that have missing values in them with the function <code>na.action</code>. This option has four logical options<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>:</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="missing-data.html#cb62-1" tabindex="-1"></a><span class="fu">mean</span>(europe2000<span class="sc">$</span>lifeexp, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<p>When we run regression models, for example through the function <code>lm</code>, R let’s you specify what you wish to do with observations (rows) that have missing values in them with the function <code>na.action</code>. This option has four logical options<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>:</p>
 <ul>
 <li><code>na.fail</code>: Stop if any missing values are encountered</li>
 <li><code>na.omit</code>: Drop out any rows with missing values anywhere in them and forgets them forever.</li>
@@ -410,8 +410,8 @@ Figure 20: Excerpt from the <code>world</code> data set
 </div>
 <div class="footnotes">
 <hr />
-<ol start="7">
-<li id="fn7"><p><a href="https://faculty.nps.edu/sebuttre/home/R/missings.html" class="uri">https://faculty.nps.edu/sebuttre/home/R/missings.html</a><a href="missing-data.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<ol start="8">
+<li id="fn8"><p><a href="https://faculty.nps.edu/sebuttre/home/R/missings.html" class="uri">https://faculty.nps.edu/sebuttre/home/R/missings.html</a><a href="missing-data.html#fnref8" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

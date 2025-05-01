@@ -259,7 +259,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#how-to-report-results"><i class="fa fa-check"></i>How to Report Results</a>
 <ul>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#stargazer"><i class="fa fa-check"></i>Stargazer</a></li>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#modelsummary"><i class="fa fa-check"></i>Modelsummary</a></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#multiple-independent-variables"><i class="fa fa-check"></i>Multiple Independent Variables</a></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#predicting-the-probability-1"><i class="fa fa-check"></i>Predicting the Probability</a></li>
 </ul></li>
@@ -372,7 +372,7 @@ div.csl-indent {
 <div id="the-data-set" class="section level2 unnumbered hasAnchor">
 <h2>The Data Set<a href="exercises-2.html#the-data-set" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>
-Use the data set called <code>prz.dta</code> which is available in the <a href="https://drfloreiche.github.io/PO33Q/downlads.html">Downloads Section</a>. This is the data set used in the book “Democracy and Development” <span class="citation">(Przeworski et al., 2000)</span>. Deposit this in an appropriate working directory and import the data set into a data frame called <code>prz</code>. We will only be looking at a few variables – democ = 1 if democracy, 0 otherwise; gdpw - GDP per worker; g = growth rate; oil = 1 if oil producer, 0 otherwise.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a></p>
+Use the data set called <code>prz.dta</code> which is available in the <a href="https://drfloreiche.github.io/PO33Q/downlads.html">Downloads Section</a>. This is the data set used in the book “Democracy and Development” <span class="citation">(Przeworski et al., 2000)</span>. Deposit this in an appropriate working directory and import the data set into a data frame called <code>prz</code>. We will only be looking at a few variables – democ = 1 if democracy, 0 otherwise; gdpw - GDP per worker; g = growth rate; oil = 1 if oil producer, 0 otherwise.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a></p>
 <hr />
 </div>
 <div id="basics" class="section level2 unnumbered hasAnchor">
@@ -381,10 +381,10 @@ Use the data set called <code>prz.dta</code> which is available in the <a href="
 <li><p>Run a probit model where <code>democ</code> is the dependent variable and <code>g</code>, <code>gdpw</code> and <code>oil</code> are the independent variables. Put the results in column 1 of Table 1. What is (possibly) wrong with this approach? Interpret the coefficients on one or two of the variables.</p></li>
 <li><p>Run the same probit model as before but now include a lagged dependent variable. To create the lagged dependent variable, call:</p></li>
 </ol>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="exercises-2.html#cb79-1" tabindex="-1"></a>prz <span class="ot">&lt;-</span> prz <span class="sc">%&gt;%</span></span>
-<span id="cb79-2"><a href="exercises-2.html#cb79-2" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
-<span id="cb79-3"><a href="exercises-2.html#cb79-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.democ =</span> <span class="fu">lag</span>(democ)) <span class="sc">%&gt;%</span></span>
-<span id="cb79-4"><a href="exercises-2.html#cb79-4" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="exercises-2.html#cb87-1" tabindex="-1"></a>prz <span class="ot">&lt;-</span> prz <span class="sc">%&gt;%</span></span>
+<span id="cb87-2"><a href="exercises-2.html#cb87-2" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
+<span id="cb87-3"><a href="exercises-2.html#cb87-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.democ =</span> <span class="fu">lag</span>(democ)) <span class="sc">%&gt;%</span></span>
+<span id="cb87-4"><a href="exercises-2.html#cb87-4" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
 <p>Put the results in column two of Table 1. What are we assuming by including a lagged dependent variable? Do you think that this is appropriate here?</p>
 <ol start="3" style="list-style-type: decimal">
 <li><p>Now estimate a probit “transition to democracy” model i.e. how do growth, wealth and oil affect the probability that a country is a democracy this year given that it was a dictatorship last year. We are also lagging the independent variables by one year. Put the results in column 3 of Table 1. Interpret the sign of the coefficients on each independent variable.</p></li>
@@ -407,8 +407,8 @@ This section draws on the instructions for joint estimation.</p>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="10">
-<li id="fn10"><p>I have taken these exercises from some material written by <a href="https://mattgolder.com/">Matt Golder</a> from whom I learned all this many moons ago.<a href="exercises-2.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<ol start="11">
+<li id="fn11"><p>I have taken these exercises from some material written by <a href="https://mattgolder.com/">Matt Golder</a> from whom I learned all this many moons ago.<a href="exercises-2.html#fnref11" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

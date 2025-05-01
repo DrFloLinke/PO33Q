@@ -259,7 +259,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#how-to-report-results"><i class="fa fa-check"></i>How to Report Results</a>
 <ul>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#stargazer"><i class="fa fa-check"></i>Stargazer</a></li>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#modelsummary"><i class="fa fa-check"></i>Modelsummary</a></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#multiple-independent-variables"><i class="fa fa-check"></i>Multiple Independent Variables</a></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#predicting-the-probability-1"><i class="fa fa-check"></i>Predicting the Probability</a></li>
 </ul></li>
@@ -399,7 +399,7 @@ Figure 9: Probabilities under the Normal Distribution
 <p><span class="math display">\[\begin{equation}
 z=\frac{\text{Observation} - \text{Mean}}{\text{Standard Deviation}}
 \end{equation}\]</span></p>
-<p>In our case, z would be equal to 7/9, or 0.7777778. You can look this value up in a z-table which lists the right-tail probability for all conceivable values of z. For z=0.78 it returns a probability of 21.77%. With a mean of 63 and standard deviation of 9,the probability of scoring a First would be 21.77%.</p>
+<p>In our case, z would be equal to 7/9, or 0.7777778. You can look this value up in a <a href="files/Downloads/Statistical%20Tables.pdf">z-table</a> which lists the right-tail probability for all conceivable values of z. For z=0.78 it returns a probability of 21.77%. With a mean of 63 and standard deviation of 9,the probability of scoring a First would be 21.77%.</p>
 <p>This all works fine, so long as we are dealing with the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">population</a></span>. Sadly, we rarely have access to the population in the social sciences, however. Surveys, for example, are usually conducted for a small representative sub-group of the population, a <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">sample</a></span>. So, how do we make statements about the population if we only have access to a sample? The answer is: with a sampling distribution.</p>
 <div id="sampling-distributions" class="section level3 unnumbered hasAnchor">
 <h3>Sampling Distributions<a href="principles-of-statistical-inference.html#sampling-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -431,7 +431,7 @@ Figure 11: The t-Distribution
 <div id="confidence-intervals" class="section level3 unnumbered hasAnchor">
 <h3>Confidence Intervals<a href="principles-of-statistical-inference.html#confidence-intervals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>How do we construct confidence intervals? We start by setting the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">confidence level</a></span>—the probability with which we believe the confidence interval contains the true population parameter. It is defined as <span class="math inline">\((1 - \alpha)\)</span>, where <span class="math inline">\(\alpha\)</span> is the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">significance level</a></span>.</p>
-<p>Because we are constructing the interval based on a sample, we use the sampling distribution. We place the sample mean at the center of this distribution and treat it as our point estimate of the unknown population mean. To establish an interval around this value that corresponds to the desired confidence level, we determine how many standard errors we must move to the left and right. This number is the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">t-score</a></span>, which we can find using a statistical table.</p>
+<p>Because we are constructing the interval based on a sample, we use the sampling distribution. We place the sample mean at the center of this distribution and treat it as our point estimate of the unknown population mean. To establish an interval around this value that corresponds to the desired confidence level, we determine how many standard errors we must move to the left and right. This number is the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">t-score</a></span>, which we can find using a <a href="files/Downloads/Statistical%20Tables.pdf">statistical table</a>.</p>
 <p>The appropriate t-score depends on the sample size (or the degrees of freedom, to be more precise). For smaller samples, the t-distribution is wider, so we need to travel further away from the mean to achieve the same level of confidence than we would with a larger sample and a narrower distribution. For example, to construct a 95% confidence interval, we would use a t-score of approximately 2.306 for a sample of 9, but only 2.045 for a sample of 30.</p>
 <p>As an example, reconsider our fictitious assessment with an average of 63, and the standard deviation 9. I used this for a probability statement in a population earlier, but now assume this is based on a sample of 15 students from a much larger module. Within which boundaries do we believe the parameter to fall with 95% confidence?</p>
 <p>As a first step, we calculate the standard error:</p>
@@ -444,7 +444,7 @@ se=\frac{s}{\sqrt{n}}= \frac{9}{\sqrt{15}} = 2.32379
 63- 2.145 \cdot 2.32379 \le \;\; &amp;\mu \; \le 63 + 2.145 \cdot 2.32379 \\\\
 58.01547 \le \;\; &amp;\mu \; \le 67.98453
 \end{align}\]</span></p>
-<p>where <span class="math inline">\(\bar{y}\)</span> is the average in the sample.</p>
+<p>where <span class="math inline">\(\bar{y}\)</span> is the average in the sample<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>.</p>
 <p>We will come back to confidence intervals in the context of regression analysis. Let us now look at significance tests.</p>
 <hr />
 </div>
@@ -526,6 +526,12 @@ Figure 12: The p-Value
 <p>I have displayed this here as a two-sided test. We did not specify whether we expect the level of democracy in the Middle East to be higher or lower than in Europe, just different. As both directions are therefore possible, the p-value is made up of the sum of the areas in the left and the right tails of the distribution. One-sided tests are possible, but generally in regression analysis the test is two-sided which is why I will leave it at that here.</p>
 <p>And with that, we are finally ready to turn our attention to the actual topic for today: linear regression.</p>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="4">
+<li id="fn4"><p>For the pedants: I am aware this should read <span class="math inline">\(\bar{y} - t_{\alpha/2} \cdot se \le \mu \le \bar{y} - t_{\alpha/2} \cdot se\)</span>, but I have left the subscripts out to make it less confusing here.<a href="principles-of-statistical-inference.html#fnref4" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 

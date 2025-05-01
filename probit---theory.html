@@ -259,7 +259,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#how-to-report-results"><i class="fa fa-check"></i>How to Report Results</a>
 <ul>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#stargazer"><i class="fa fa-check"></i>Stargazer</a></li>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#modelsummary"><i class="fa fa-check"></i>Modelsummary</a></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#multiple-independent-variables"><i class="fa fa-check"></i>Multiple Independent Variables</a></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#predicting-the-probability-1"><i class="fa fa-check"></i>Predicting the Probability</a></li>
 </ul></li>
@@ -376,7 +376,7 @@ div.csl-indent {
 </div>
 <div id="probit---what-is-it" class="section level2 unnumbered hasAnchor">
 <h2>Probit - What is it?<a href="probit---theory.html#probit---what-is-it" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A question we can all relate to is whether to go out tonight, or not. The “propensity to go out” is not directly observable, and so we call this a <strong>latent variable</strong>. You can imagine this running from minus infinity to plus infinity, and at some point on this continuum you are making the decision to go out. Let’s call this point tau (<span class="math inline">\(\tau\)</span>). Graphically, this would look like this:</p>
+<p>A question we can all relate to is whether to go out tonight, or not. The “propensity to go out” is not directly observable, and so we call this a <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">latent variable</a></span>. You can imagine this running from minus infinity to plus infinity, and at some point on this continuum you are making the decision to go out. Let’s call this point tau (<span class="math inline">\(\tau\)</span>). Graphically, this would look like this:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:latent"></span>
 <img src="files/Week%203/tau.png" alt="\label{fig:latent}Latent Variable" width="50%" />
 <p class="caption">
@@ -391,7 +391,7 @@ Figure 15: Effect of Budget on Propensity to Go Out
 </p>
 </div>
 <p>Whilst this visualises the influence of the budget on the latent variable, what we are aiming for is to make a prediction about the probability of you going out, or not.</p>
-<p>Now imagine, your budget is <span class="math inline">\(x_{1}\)</span>. The regression line depicts the propensity that we would expect to see, on average, for somebody with a budget of <span class="math inline">\(x_{1}\)</span>. But the crucial point is that not everybody is average. Some might have an essay deadline approaching which makes them even less likely to go out. Others might just have recieved their essay mark, and want to celebrate that they scored a first. In other words, there is variability around the regression line. And we assume that whilst this variability is random, it still follows a particular distribution. In the case of a probit, this is the normal distribution<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>. I have added these distributions to Figure <a href="probit---theory.html#fig:towcdf">16</a>. As you can see, even at budget <span class="math inline">\(x_{1}\)</span>, some area of the distribution has slipped over the cut-off point, <span class="math inline">\(\tau\)</span>.</p>
+<p>Now imagine, your budget is <span class="math inline">\(x_{1}\)</span>. The regression line depicts the propensity that we would expect to see, on average, for somebody with a budget of <span class="math inline">\(x_{1}\)</span>. But the crucial point is that not everybody is average. Some might have an essay deadline approaching which makes them even less likely to go out. Others might just have recieved their essay mark, and want to celebrate that they scored a first. In other words, there is variability around the regression line. And we assume that whilst this variability is random, it still follows a particular distribution. In the case of a probit, this is the normal distribution<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>. I have added these distributions to Figure <a href="probit---theory.html#fig:towcdf">16</a>. As you can see, even at budget <span class="math inline">\(x_{1}\)</span>, some area of the distribution has slipped over the cut-off point, <span class="math inline">\(\tau\)</span>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:towcdf"></span>
 <img src="files/Week%203/tau_prob.png" alt="\label{fig:towcdf}Towards the Cumulative Density Function, adapted from @scott:1997[p. 46]" width="50%" />
 <p class="caption">
@@ -407,8 +407,8 @@ Figure 17: The Cumulative Distribution Function, adapted from <span class="citat
 </p>
 </div>
 <p>This s-shaped curve now gives us the probability (of going out) for each <span class="math inline">\(x_{i}\)</span> (budget). It is important to note that the relationship is not linear, as in linear regression. Because we have an s-shaped curve the increase in probability when going from <span class="math inline">\(x_{2}\)</span> to <span class="math inline">\(x_{3}\)</span> is not the same as going from <span class="math inline">\(x_{3}\)</span> to <span class="math inline">\(x_{4}\)</span>. You can see that visualised here:</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:marginal"></span>
-<img src="files/Week%203/probability.png" alt="\label{fig:marginal}Marginal Effect under the Cumulative Density Function" width="50%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-58"></span>
+<img src="main_files/figure-html/unnamed-chunk-58-1.png" alt="\label{fig:marginal}Marginal Effect under the Cumulative Density Function" width="50%" />
 <p class="caption">
 Figure 18: Marginal Effect under the Cumulative Density Function
 </p>
@@ -418,8 +418,8 @@ Figure 18: Marginal Effect under the Cumulative Density Function
 </div>
 <div class="footnotes">
 <hr />
-<ol start="5">
-<li id="fn5"><p>For logit, the logistic distribution is used. This would lead to very similar results.<a href="probit---theory.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<ol start="6">
+<li id="fn6"><p>For logit, the logistic distribution is used. This would lead to very similar results.<a href="probit---theory.html#fnref6" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
