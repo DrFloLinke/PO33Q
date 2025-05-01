@@ -397,7 +397,7 @@ Figure 9: Probabilities under the Normal Distribution
 <p>The total area under the probability distribution is equal to 100%. So, if the orange area in Figure <a href="principles-of-statistical-inference.html#fig:righttail">8</a> is equal to 68%, then the white area must be 32%. As this area is split equally into a left and a right side, the area on the right must be 16%. This is what is known as a right-tail probability. Here it is the probability beyond 1 standard deviation, or <span class="math inline">\(1 \sigma\)</span>.</p>
 <p>This means that if we know how many standard deviations away from the mean of the distribution a value falls, we can make a statement on how likely it would be to observe a value that is higher than this value. For example, if I know the distribution of marks on a module, this would allow me to state how likely it was to achieve a First, or a mark of higher than 70. Assume that the average of an assessment was 63, and the standard deviation 9. Then the difference between the mean and the value we are interested in is equal to 70-63=7. To express this distance in units of standard deviations, we now divide 7 by 9, and obtain something that is called a z-score:</p>
 <p><span class="math display">\[\begin{equation}
-z=\frac{\text{Observation} - \text{Mean}}{\text{Standard Deviation}}=\frac{y-\mu}{\sigma}
+z=\frac{\text{Observation} - \text{Mean}}{\text{Standard Deviation}}
 \end{equation}\]</span></p>
 <p>In our case, z would be equal to 7/9, or 0.7777778. You can look this value up in a z-table which lists the right-tail probability for all conceivable values of z. For z=0.78 it returns a probability of 21.77%. With a mean of 63 and standard deviation of 9,the probability of scoring a First would be 21.77%.</p>
 <p>This all works fine, so long as we are dealing with the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">population</a></span>. Sadly, we rarely have access to the population in the social sciences, however. Surveys, for example, are usually conducted for a small representative sub-group of the population, a <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">sample</a></span>. So, how do we make statements about the population if we only have access to a sample? The answer is: with a sampling distribution.</p>
@@ -432,7 +432,20 @@ Figure 11: The t-Distribution
 <h3>Confidence Intervals<a href="principles-of-statistical-inference.html#confidence-intervals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>How do we construct confidence intervals? We start by setting the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">confidence level</a></span>—the probability with which we believe the confidence interval contains the true population parameter. It is defined as <span class="math inline">\((1 - \alpha)\)</span>, where <span class="math inline">\(\alpha\)</span> is the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">significance level</a></span>.</p>
 <p>Because we are constructing the interval based on a sample, we use the sampling distribution. We place the sample mean at the center of this distribution and treat it as our point estimate of the unknown population mean. To establish an interval around this value that corresponds to the desired confidence level, we determine how many standard errors we must move to the left and right. This number is the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">t-score</a></span>, which we can find using a statistical table.</p>
-<p>The appropriate t-score depends on the sample size (or the degrees of freedom, to be more precise). For smaller samples, the t-distribution is wider, so we need to travel further away from the mean to achieve the same level of confidence than we would with a larger sample and a narrower distribution. For example, to construct a 95% confidence interval, we would use a t-score of approximately 2.306 for a sample of 9, but only 2.045 for a sample of 30. We will come back to confidence intervals in the context of regression analysis.</p>
+<p>The appropriate t-score depends on the sample size (or the degrees of freedom, to be more precise). For smaller samples, the t-distribution is wider, so we need to travel further away from the mean to achieve the same level of confidence than we would with a larger sample and a narrower distribution. For example, to construct a 95% confidence interval, we would use a t-score of approximately 2.306 for a sample of 9, but only 2.045 for a sample of 30.</p>
+<p>As an example, reconsider our fictitious assessment with an average of 63, and the standard deviation 9. I used this for a probability statement in a population earlier, but now assume this is based on a sample of 15 students from a much larger module. Within which boundaries do we believe the parameter to fall with 95% confidence?</p>
+<p>As a first step, we calculate the standard error:</p>
+<p><span class="math display">\[\begin{equation}
+se=\frac{s}{\sqrt{n}}= \frac{9}{\sqrt{15}} = 2.32379
+\end{equation}\]</span></p>
+<p>As we have 15 observations, we have 14 degrees of freedom (n-1) which corresponds to a t-score of 2.145. We can thus state that with 95% confidence the parameter, <span class="math inline">\(\mu\)</span>, falls between 58.02 and 67.98.</p>
+<p><span class="math display">\[\begin{align}
+\bar{y} - t \cdot se \le \;\; &amp;\mu \; \le \bar{y} - t \cdot se \\\\
+63- 2.145 \cdot 2.32379 \le \;\; &amp;\mu \; \le 63 + 2.145 \cdot 2.32379 \\\\
+58.01547 \le \; &amp;\mu \;\; \le 67.98453
+\end{align}\]</span></p>
+<p>where <span class="math inline">\(\bar{y}\)</span> is the average in the sample.</p>
+<p>We will come back to confidence intervals in the context of regression analysis. Let us now look at significance tests.</p>
 <hr />
 </div>
 </div>
@@ -512,7 +525,7 @@ t = \frac{-2.8 - 8.7}{1.826243}=-6.297081, \quad \text{where} \, se = \frac{7.07
 Figure 12: The p-Value
 </p>
 </div>
-<p>I have displayed this here as a two-sided test. We did not specify whether we expect the level of democracy in the Middle East to be higher or lower than in Europe, just different. As both directions are therefore possible, the p-value is thus made up of the sum of the areas in the left and the right tail of the distribution. One-sided tests are possible, but generally in regression analysis the test is two-sided which is why I will leave it at that here.</p>
+<p>I have displayed this here as a two-sided test. We did not specify whether we expect the level of democracy in the Middle East to be higher or lower than in Europe, just different. As both directions are therefore possible, the p-value is made up of the sum of the areas in the left and the right tails of the distribution. One-sided tests are possible, but generally in regression analysis the test is two-sided which is why I will leave it at that here.</p>
 <p>And with that, we are finally ready to turn our attention to the actual topic for today: linear regression.</p>
 </div>
 </div>
