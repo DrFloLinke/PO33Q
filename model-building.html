@@ -259,7 +259,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#how-to-report-results"><i class="fa fa-check"></i>How to Report Results</a>
 <ul>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#modelsummary"><i class="fa fa-check"></i>Modelsummary</a></li>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#modelsummary"><i class="fa fa-check"></i><code>modelsummary</code></a></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#multiple-independent-variables"><i class="fa fa-check"></i>Multiple Independent Variables</a></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#predicting-the-probability-1"><i class="fa fa-check"></i>Predicting the Probability</a></li>
 </ul></li>
@@ -322,6 +322,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#survival"><i class="fa fa-check"></i>Survival</a></li>
 <li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#survival-full-model"><i class="fa fa-check"></i>Survival: Full Model</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#including-roc-in-modelsummary"><i class="fa fa-check"></i>Including ROC in <code>modelsummary</code></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html"><i class="fa fa-check"></i>Joint Estimation of Emergence and Survival</a>
 <ul>
@@ -374,7 +375,7 @@ div.csl-indent {
 <p>YouTube link to follow</p>
 </div>
 <p>When we are testing a theory, such as modernisation theory, then we usually have a plethora of independent variables to measure the concepts involved in that theory. Take economic development. In its origins, modernisation theory saw development almost purely as economic growth, a notion enshrined in what we refer to now as Classical Modernisation Theory. But as our understanding of what constitutes “development” has changed over time, so have the propositions of modernisation theory. <span class="citation">Diamond (1992)</span> made an important contribution to the literature by proposing that wealth, such as per capita GDP, really is only a means to facilitate social change, such as increasing education levels, allowing people to look after their health, etc. He posited that it is these social changes that facilitate democracy. Wealth is necessary, but it is only a first step.</p>
-<p>Modernisation theory, therefore, can be seen as having to parts, the classical, and the new one. When you look at journal articlaes, you will notice that these parts are usually tested separately in regression models, first just the classical component, then just the social component, then both of them together. This is an important strategy in regressiona nalysis, as it allows us to isoloate the explanatory power of not only each part of the theory, but also of individual variables.</p>
+<p>Modernisation theory, therefore, can be seen as having to parts, the classical, and the new one. When you look at journal articles, you will notice that these parts are usually tested separately in regression models, first just the classical component, then just the social component, then both of them together. This bottom-up approach is an important strategy of <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">model building</a></span> in regression analysis, as it allows us to isoloate the explanatory power of not only each part of the theory, but also of individual variables.</p>
 <p>Let me illustrate what I mean by this. First, we need to decide how to actually measure “economic development” and “social change”. There are a lot of options:</p>
 <ul>
 <li>Economic Development
@@ -392,7 +393,7 @@ div.csl-indent {
 <li>…</li>
 </ul></li>
 </ul>
-<p>Once we have selected our variables, we start by runnign bivariate models between each independent variable and democracy as the dependent variable. This give sus information if each variable is individually able to explain democracy, and if so, how well. Then we start to combine independent variables into multivariate models, to test different combinations. This will allow us to see if one independent variable might take explanatory power away from another, and as such explains democracy better. I have done this in the following table:</p>
+<p>Once we have selected our variables, we start by running bivariate models between each independent variable and democracy as the dependent variable. This gives us information if each variable is individually able to explain democracy, and if so, how well. Then we start to combine independent variables into multivariate models, to test different combinations. This will allow us to see if one independent variable might take explanatory power away from another, and as such explains democracy better. I have done this in the following table:</p>
 <table style="text-align:center">
 <caption>
 <strong><span id="tab:regweek4"><span id="tab:regweek4">Table 6: </span></span>Impact of Socio-Economic Development on Democracy</strong>
@@ -611,7 +612,7 @@ Adjusted R<sup>2</sup>
 <div id="control-variables" class="section level2 unnumbered hasAnchor">
 <h2>Control Variables<a href="model-building.html#control-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The selection of independent variables MUST be guided by theory. After all, this is our purpose in running regression models: finding out whether a particular theory can explain an empirical phenomenon we are witnessing. If you select variables that are irrelevant to your theory, then the research design breaks down, as you are no longer focusing on testing your theory. I know it sounds trivial, but you would be surprised how many students mess this up in assessments.</p>
-<p>But there is one – and only one – exception to the rule of not including variables that are not motivated by the theory you are testing: so-called control variables.</p>
+<p>But there is one – and only one – exception to the rule of not including variables that are not motivated by the theory you are testing: so-called <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">control variables</a></span>.</p>
 <p>For example, we suspect that the amount of official development aid (ODA) a country has received might influence democracy. Modernisation theory is only concerned with processed WITHIN a country, and so a flow of money coming from outside of the country is not part of the theory. Nonetheless, such funds can either facilitate development, in the sense of helping to build infrastructure such as roads, etc. Or it can be used for democracy promotion directly (the World Bank does tie some of its ODA funds to this purpose), through funding relevant institutions, facilitating elections, etc. So, even though these external funds have no place in our theory, we have strong reason to believe that they affect the dependent variable. And it is for this reason, that we would still include them in our regression model to control for their influence. Why? The principle of ceteris paribus (see Week 3) only applies with respect to those variables included in the model. And if we wish to control for ODA, or to purify those coefficients which are motivated by theory from the influence of ODA, we need to include this variable in the model in order to do so.</p>
 <p>Even though I am presenting this here as the last step, you would realistically select these variables together with the ones motivated by the theory, as you will also have to perform conceptualisation and measurement, check data availability, etc.</p>
 <hr />

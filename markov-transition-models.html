@@ -259,7 +259,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#how-to-report-results"><i class="fa fa-check"></i>How to Report Results</a>
 <ul>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#modelsummary"><i class="fa fa-check"></i>Modelsummary</a></li>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#modelsummary"><i class="fa fa-check"></i><code>modelsummary</code></a></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#multiple-independent-variables"><i class="fa fa-check"></i>Multiple Independent Variables</a></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#predicting-the-probability-1"><i class="fa fa-check"></i>Predicting the Probability</a></li>
 </ul></li>
@@ -322,6 +322,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#survival"><i class="fa fa-check"></i>Survival</a></li>
 <li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#survival-full-model"><i class="fa fa-check"></i>Survival: Full Model</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#including-roc-in-modelsummary"><i class="fa fa-check"></i>Including ROC in <code>modelsummary</code></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html"><i class="fa fa-check"></i>Joint Estimation of Emergence and Survival</a>
 <ul>
@@ -428,6 +429,9 @@ P(y_{i,t} = 1 | y_{i, t-1} = 0)
 <span id="cb68-2"><a href="markov-transition-models.html#cb68-2" tabindex="-1"></a>  <span class="fu">group_by</span>(countrycode) <span class="sc">%&gt;%</span></span>
 <span id="cb68-3"><a href="markov-transition-models.html#cb68-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.enrol_gross =</span> <span class="fu">lag</span>(enrol_gross)) <span class="sc">%&gt;%</span></span>
 <span id="cb68-4"><a href="markov-transition-models.html#cb68-4" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
+<div class="bulb">
+<p>Remember when writing the assessment in general, and the methods section in particular, ythat lagging the independent variables is not a methodological consideration, but a substantive one. It has nothing to do with the Markov Transition Model itself.</p>
+</div>
 </div>
 <div id="subsetting-the-data-for-conditional-probabilities" class="section level3 unnumbered hasAnchor">
 <h3>Subsetting the Data for Conditional Probabilities<a href="markov-transition-models.html#subsetting-the-data-for-conditional-probabilities" class="anchor-section" aria-label="Anchor link to header"></a></h3>

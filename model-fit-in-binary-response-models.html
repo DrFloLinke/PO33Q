@@ -259,7 +259,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#how-to-report-results"><i class="fa fa-check"></i>How to Report Results</a>
 <ul>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#modelsummary"><i class="fa fa-check"></i>Modelsummary</a></li>
+<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#modelsummary"><i class="fa fa-check"></i><code>modelsummary</code></a></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#multiple-independent-variables"><i class="fa fa-check"></i>Multiple Independent Variables</a></li>
 <li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#predicting-the-probability-1"><i class="fa fa-check"></i>Predicting the Probability</a></li>
 </ul></li>
@@ -322,6 +322,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#survival"><i class="fa fa-check"></i>Survival</a></li>
 <li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#survival-full-model"><i class="fa fa-check"></i>Survival: Full Model</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#including-roc-in-modelsummary"><i class="fa fa-check"></i>Including ROC in <code>modelsummary</code></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html"><i class="fa fa-check"></i>Joint Estimation of Emergence and Survival</a>
 <ul>
@@ -448,9 +449,9 @@ Figure 26: ROC Curve
 <span id="cb76-2"><a href="model-fit-in-binary-response-models.html#cb76-2" tabindex="-1"></a></span>
 <span id="cb76-3"><a href="model-fit-in-binary-response-models.html#cb76-3" tabindex="-1"></a>world_democ0<span class="sc">$</span>prob_em <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_em)</span>
 <span id="cb76-4"><a href="model-fit-in-binary-response-models.html#cb76-4" tabindex="-1"></a></span>
-<span id="cb76-5"><a href="model-fit-in-binary-response-models.html#cb76-5" tabindex="-1"></a>roc <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ0<span class="sc">$</span>democracy, world_democ0<span class="sc">$</span>prob_em)</span>
+<span id="cb76-5"><a href="model-fit-in-binary-response-models.html#cb76-5" tabindex="-1"></a>roc1 <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ0<span class="sc">$</span>democracy, world_democ0<span class="sc">$</span>prob_em)</span>
 <span id="cb76-6"><a href="model-fit-in-binary-response-models.html#cb76-6" tabindex="-1"></a></span>
-<span id="cb76-7"><a href="model-fit-in-binary-response-models.html#cb76-7" tabindex="-1"></a><span class="fu">auc</span>(roc)</span>
+<span id="cb76-7"><a href="model-fit-in-binary-response-models.html#cb76-7" tabindex="-1"></a><span class="fu">auc</span>(roc1)</span>
 <span id="cb76-8"><a href="model-fit-in-binary-response-models.html#cb76-8" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.5048</span></span></code></pre></div>
 <p>What does each line do?</p>
 <ul>
@@ -460,7 +461,7 @@ Figure 26: ROC Curve
 <li>as a last step we calculate the area under the curve with the <code>auc()</code> function</li>
 </ul>
 <p>But we can also plot the ROC curve:</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="model-fit-in-binary-response-models.html#cb77-1" tabindex="-1"></a><span class="fu">plot</span>(roc, <span class="at">print.auc=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="model-fit-in-binary-response-models.html#cb77-1" tabindex="-1"></a><span class="fu">plot</span>(roc1, <span class="at">print.auc=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="main_files/figure-html/unnamed-chunk-112-1.png" width="70%" /></p>
 <p>Note that <code>print.auc=TRUE</code> prints the numerical value into this plot. You can suppress it by setting it to <code>FALSE</code>.</p>
 <p>Let’s follow this procedure for the other models.</p>
@@ -470,11 +471,11 @@ Figure 26: ROC Curve
 <div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="model-fit-in-binary-response-models.html#cb78-1" tabindex="-1"></a>prob_em_full <span class="ot">&lt;-</span> <span class="fu">predict</span>(emergence_full, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
 <span id="cb78-2"><a href="model-fit-in-binary-response-models.html#cb78-2" tabindex="-1"></a>world_democ0<span class="sc">$</span>prob_em_full <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_em_full)</span>
 <span id="cb78-3"><a href="model-fit-in-binary-response-models.html#cb78-3" tabindex="-1"></a></span>
-<span id="cb78-4"><a href="model-fit-in-binary-response-models.html#cb78-4" tabindex="-1"></a>roc <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ0<span class="sc">$</span>democracy, world_democ0<span class="sc">$</span>prob_em_full)</span>
+<span id="cb78-4"><a href="model-fit-in-binary-response-models.html#cb78-4" tabindex="-1"></a>roc2 <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ0<span class="sc">$</span>democracy, world_democ0<span class="sc">$</span>prob_em_full)</span>
 <span id="cb78-5"><a href="model-fit-in-binary-response-models.html#cb78-5" tabindex="-1"></a></span>
-<span id="cb78-6"><a href="model-fit-in-binary-response-models.html#cb78-6" tabindex="-1"></a><span class="fu">auc</span>(roc)</span>
+<span id="cb78-6"><a href="model-fit-in-binary-response-models.html#cb78-6" tabindex="-1"></a><span class="fu">auc</span>(roc2)</span>
 <span id="cb78-7"><a href="model-fit-in-binary-response-models.html#cb78-7" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.5932</span></span></code></pre></div>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="model-fit-in-binary-response-models.html#cb79-1" tabindex="-1"></a><span class="fu">plot</span>(roc, <span class="at">print.auc=</span><span class="cn">TRUE</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="model-fit-in-binary-response-models.html#cb79-1" tabindex="-1"></a><span class="fu">plot</span>(roc2, <span class="at">print.auc=</span><span class="cn">TRUE</span>) </span></code></pre></div>
 <p><img src="main_files/figure-html/unnamed-chunk-114-1.png" width="70%" /></p>
 </div>
 <div id="survival" class="section level3 unnumbered hasAnchor">
@@ -482,11 +483,11 @@ Figure 26: ROC Curve
 <div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="model-fit-in-binary-response-models.html#cb80-1" tabindex="-1"></a>prob_sur <span class="ot">&lt;-</span> <span class="fu">predict</span>(survival, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
 <span id="cb80-2"><a href="model-fit-in-binary-response-models.html#cb80-2" tabindex="-1"></a>world_democ1<span class="sc">$</span>prob_sur <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_sur)</span>
 <span id="cb80-3"><a href="model-fit-in-binary-response-models.html#cb80-3" tabindex="-1"></a></span>
-<span id="cb80-4"><a href="model-fit-in-binary-response-models.html#cb80-4" tabindex="-1"></a>roc <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ1<span class="sc">$</span>democracy, world_democ1<span class="sc">$</span>prob_sur)</span>
+<span id="cb80-4"><a href="model-fit-in-binary-response-models.html#cb80-4" tabindex="-1"></a>roc3 <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ1<span class="sc">$</span>democracy, world_democ1<span class="sc">$</span>prob_sur)</span>
 <span id="cb80-5"><a href="model-fit-in-binary-response-models.html#cb80-5" tabindex="-1"></a></span>
-<span id="cb80-6"><a href="model-fit-in-binary-response-models.html#cb80-6" tabindex="-1"></a><span class="fu">auc</span>(roc)</span>
+<span id="cb80-6"><a href="model-fit-in-binary-response-models.html#cb80-6" tabindex="-1"></a><span class="fu">auc</span>(roc3)</span>
 <span id="cb80-7"><a href="model-fit-in-binary-response-models.html#cb80-7" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.8317</span></span></code></pre></div>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="model-fit-in-binary-response-models.html#cb81-1" tabindex="-1"></a><span class="fu">plot</span>(roc, <span class="at">print.auc=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="model-fit-in-binary-response-models.html#cb81-1" tabindex="-1"></a><span class="fu">plot</span>(roc3, <span class="at">print.auc=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="main_files/figure-html/unnamed-chunk-116-1.png" width="70%" /></p>
 </div>
 <div id="survival-full-model" class="section level3 unnumbered hasAnchor">
@@ -494,12 +495,288 @@ Figure 26: ROC Curve
 <div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="model-fit-in-binary-response-models.html#cb82-1" tabindex="-1"></a>prob_sur_full <span class="ot">&lt;-</span> <span class="fu">predict</span>(survival_full, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
 <span id="cb82-2"><a href="model-fit-in-binary-response-models.html#cb82-2" tabindex="-1"></a>world_democ1<span class="sc">$</span>prob_sur_full <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_sur_full)</span>
 <span id="cb82-3"><a href="model-fit-in-binary-response-models.html#cb82-3" tabindex="-1"></a></span>
-<span id="cb82-4"><a href="model-fit-in-binary-response-models.html#cb82-4" tabindex="-1"></a>roc <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ1<span class="sc">$</span>democracy, world_democ1<span class="sc">$</span>prob_sur_full)</span>
+<span id="cb82-4"><a href="model-fit-in-binary-response-models.html#cb82-4" tabindex="-1"></a>roc4 <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ1<span class="sc">$</span>democracy, world_democ1<span class="sc">$</span>prob_sur_full)</span>
 <span id="cb82-5"><a href="model-fit-in-binary-response-models.html#cb82-5" tabindex="-1"></a></span>
-<span id="cb82-6"><a href="model-fit-in-binary-response-models.html#cb82-6" tabindex="-1"></a><span class="fu">auc</span>(roc)</span>
+<span id="cb82-6"><a href="model-fit-in-binary-response-models.html#cb82-6" tabindex="-1"></a><span class="fu">auc</span>(roc4)</span>
 <span id="cb82-7"><a href="model-fit-in-binary-response-models.html#cb82-7" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.8165</span></span>
-<span id="cb82-8"><a href="model-fit-in-binary-response-models.html#cb82-8" tabindex="-1"></a><span class="fu">plot</span>(roc, <span class="at">print.auc=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<span id="cb82-8"><a href="model-fit-in-binary-response-models.html#cb82-8" tabindex="-1"></a><span class="fu">plot</span>(roc4, <span class="at">print.auc=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="main_files/figure-html/unnamed-chunk-117-1.png" width="70%" /></p>
+</div>
+</div>
+<div id="including-roc-in-modelsummary" class="section level2 unnumbered hasAnchor">
+<h2>Including ROC in <code>modelsummary</code><a href="model-fit-in-binary-response-models.html#including-roc-in-modelsummary" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When I introduced you to <code>modelsummary</code> in Week 3, I mentioned that we will be adding a model fit measure to the results table in Week 7. This model fit measure is the AUC. A properly formatted table summarising the results of all four models we have calculated would look like this:</p>
+<!-- preamble start -->
+
+    <script>
+
+      function styleCell_quis94ocxj3yu3enunyj(i, j, css_id) {
+          var table = document.getElementById("tinytable_quis94ocxj3yu3enunyj");
+          var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
+          if (cell) {
+              console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
+              cell.classList.add(css_id);
+          } else {
+              console.warn(`Cell at (${i}, ${j}) not found.`);
+          }
+      }
+      function insertSpanRow(i, colspan, content) {
+        var table = document.getElementById('tinytable_quis94ocxj3yu3enunyj');
+        var newRow = table.insertRow(i);
+        var newCell = newRow.insertCell(0);
+        newCell.setAttribute("colspan", colspan);
+        // newCell.innerText = content;
+        // this may be unsafe, but innerText does not interpret <br>
+        newCell.innerHTML = content;
+      }
+      function spanCell_quis94ocxj3yu3enunyj(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_quis94ocxj3yu3enunyj");
+        const targetRow = table.rows[i];
+        const targetCell = targetRow.cells[j];
+        for (let r = 0; r < rowspan; r++) {
+          // Only start deleting cells to the right for the first row (r == 0)
+          if (r === 0) {
+            // Delete cells to the right of the target cell in the first row
+            for (let c = colspan - 1; c > 0; c--) {
+              if (table.rows[i + r].cells[j + c]) {
+                table.rows[i + r].deleteCell(j + c);
+              }
+            }
+          }
+          // For rows below the first, delete starting from the target column
+          if (r > 0) {
+            for (let c = colspan - 1; c >= 0; c--) {
+              if (table.rows[i + r] && table.rows[i + r].cells[j]) {
+                table.rows[i + r].deleteCell(j);
+              }
+            }
+          }
+        }
+        // Set rowspan and colspan of the target cell
+        targetCell.rowSpan = rowspan;
+        targetCell.colSpan = colspan;
+      }
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_vctk5o2gz9zx0h755361',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_srl6oju80eemrqmqo8ed',}, 
+          { positions: [ { i: 10, j: 0 },  ], css_id: 'tinytable_css_sasacworqu7zaqdp8nla',}, 
+          { positions: [ { i: 0, j: 3 }, { i: 0, j: 2 }, { i: 0, j: 4 },  ], css_id: 'tinytable_css_nxm0vg9uhdlstsce9l30',}, 
+          { positions: [ { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 11, j: 0 },  ], css_id: 'tinytable_css_kv2mvfdv4307vd7m9f13',}, 
+          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_gu6nit77hz2p083ftks8',}, 
+          { positions: [ { i: 10, j: 3 }, { i: 10, j: 2 }, { i: 10, j: 4 }, { i: 10, j: 1 },  ], css_id: 'tinytable_css_d7x4795r5tio0zast5c0',}, 
+          { positions: [ { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_bs1mgl2ikjk2qr1q74e1',}, 
+          { positions: [ { i: 4, j: 1 }, { i: 3, j: 1 }, { i: 8, j: 1 }, { i: 5, j: 1 }, { i: 7, j: 1 }, { i: 3, j: 2 }, { i: 9, j: 1 }, { i: 6, j: 1 }, { i: 11, j: 1 }, { i: 7, j: 2 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 11, j: 2 }, { i: 8, j: 2 }, { i: 9, j: 2 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 9, j: 3 }, { i: 5, j: 4 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 4, j: 4 }, { i: 9, j: 4 }, { i: 11, j: 3 }, { i: 3, j: 4 }, { i: 8, j: 4 }, { i: 6, j: 4 }, { i: 7, j: 4 }, { i: 11, j: 4 },  ], css_id: 'tinytable_css_amp5xu4791uk2nrll9j0',}, 
+          { positions: [ { i: 2, j: 0 },  ], css_id: 'tinytable_css_9s2g8zwnipdknvjk1hnm',}, 
+          { positions: [ { i: 1, j: 4 }, { i: 1, j: 3 },  ], css_id: 'tinytable_css_91022y13r5d8h2sipftz',}, 
+          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_79hhb3ig1kivslzbo9zh',}, 
+          { positions: [ { i: 2, j: 1 }, { i: 2, j: 2 }, { i: 2, j: 3 }, { i: 2, j: 4 },  ], css_id: 'tinytable_css_41boef3mi3da9osi9wxe',}, 
+          { positions: [ { i: 12, j: 1 }, { i: 12, j: 4 }, { i: 12, j: 2 }, { i: 12, j: 3 },  ], css_id: 'tinytable_css_0jp319hxhxjpg25ibq83',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  styleCell_quis94ocxj3yu3enunyj(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script>
+
+    <style>
+      /* tinytable css entries after */
+      .table td.tinytable_css_vctk5o2gz9zx0h755361, .table th.tinytable_css_vctk5o2gz9zx0h755361 { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_srl6oju80eemrqmqo8ed, .table th.tinytable_css_srl6oju80eemrqmqo8ed { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_sasacworqu7zaqdp8nla, .table th.tinytable_css_sasacworqu7zaqdp8nla { text-align: left; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_nxm0vg9uhdlstsce9l30, .table th.tinytable_css_nxm0vg9uhdlstsce9l30 { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_kv2mvfdv4307vd7m9f13, .table th.tinytable_css_kv2mvfdv4307vd7m9f13 { text-align: left; }
+      .table td.tinytable_css_gu6nit77hz2p083ftks8, .table th.tinytable_css_gu6nit77hz2p083ftks8 { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_d7x4795r5tio0zast5c0, .table th.tinytable_css_d7x4795r5tio0zast5c0 { text-align: center; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_bs1mgl2ikjk2qr1q74e1, .table th.tinytable_css_bs1mgl2ikjk2qr1q74e1 { text-align: center; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_amp5xu4791uk2nrll9j0, .table th.tinytable_css_amp5xu4791uk2nrll9j0 { text-align: center; }
+      .table td.tinytable_css_9s2g8zwnipdknvjk1hnm, .table th.tinytable_css_9s2g8zwnipdknvjk1hnm { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_91022y13r5d8h2sipftz, .table th.tinytable_css_91022y13r5d8h2sipftz { text-align: center; text-align: center; }
+      .table td.tinytable_css_79hhb3ig1kivslzbo9zh, .table th.tinytable_css_79hhb3ig1kivslzbo9zh { text-align: left; text-align: center; }
+      .table td.tinytable_css_41boef3mi3da9osi9wxe, .table th.tinytable_css_41boef3mi3da9osi9wxe { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_0jp319hxhxjpg25ibq83, .table th.tinytable_css_0jp319hxhxjpg25ibq83 { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+    </style>
+    <div class="container">
+      <table class="table table-borderless" id="tinytable_quis94ocxj3yu3enunyj" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
+        <thead>
+<tr>
+<th scope="col" align="center" colspan=1> </th>
+<th scope="col" align="center" colspan=4>Dependent Variable:<br>Democracy</th>
+</tr>
+<tr>
+<th scope="col" align="center" colspan=1> </th>
+<th scope="col" align="center" colspan=2>Emergence</th>
+<th scope="col" align="center" colspan=2>Survival</th>
+</tr>
+        
+              <tr>
+                <th scope="col"> </th>
+                <th scope="col">Classical</th>
+                <th scope="col">New</th>
+                <th scope="col">Classical </th>
+                <th scope="col">New </th>
+              </tr>
+        </thead>
+        <tfoot><tr><td colspan='5'>+ p < 0.1, * p < 0.05, ** p < 0.01, *** p < 0.001</td></tr></tfoot>
+        <tbody>
+                <tr>
+                  <td>per capita GDP (lagged)</td>
+                  <td>-0.000*</td>
+                  <td>-0.000*</td>
+                  <td>0.000***</td>
+                  <td>0.000**</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>(0.000)</td>
+                  <td>(0.000)</td>
+                  <td>(0.000)</td>
+                  <td>(0.000)</td>
+                </tr>
+                <tr>
+                  <td>Life Expectancy (lagged)</td>
+                  <td></td>
+                  <td>0.018*</td>
+                  <td></td>
+                  <td>0.008</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td>(0.008)</td>
+                  <td></td>
+                  <td>(0.012)</td>
+                </tr>
+                <tr>
+                  <td>Gross Primary Enrollment (lagged)</td>
+                  <td></td>
+                  <td>-0.002</td>
+                  <td></td>
+                  <td>0.004</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td>(0.003)</td>
+                  <td></td>
+                  <td>(0.004)</td>
+                </tr>
+                <tr>
+                  <td>Intercept</td>
+                  <td>-1.967***</td>
+                  <td>-2.706***</td>
+                  <td>1.627***</td>
+                  <td>0.840</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>(0.052)</td>
+                  <td>(0.368)</td>
+                  <td>(0.086)</td>
+                  <td>(0.607)</td>
+                </tr>
+                <tr>
+                  <td>ROC Curve</td>
+                  <td>0.505</td>
+                  <td>0.593</td>
+                  <td>0.832</td>
+                  <td>0.816</td>
+                </tr>
+                <tr>
+                  <td>Num.Obs.</td>
+                  <td>3880</td>
+                  <td>2846</td>
+                  <td>3792</td>
+                  <td>2916</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+<p>How did I get this table? We start again by loading the packages <code>modelsummary</code> and <code>tinytable</code>.</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="model-fit-in-binary-response-models.html#cb83-1" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb83-2"><a href="model-fit-in-binary-response-models.html#cb83-2" tabindex="-1"></a><span class="fu">library</span>(tinytable)</span></code></pre></div>
+<p>Then we store our models in a list</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="model-fit-in-binary-response-models.html#cb84-1" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb84-2"><a href="model-fit-in-binary-response-models.html#cb84-2" tabindex="-1"></a>  <span class="st">&quot;Classical&quot;</span>    <span class="ot">=</span> emergence,</span>
+<span id="cb84-3"><a href="model-fit-in-binary-response-models.html#cb84-3" tabindex="-1"></a>  <span class="st">&quot;New&quot;</span>    <span class="ot">=</span> emergence_full,</span>
+<span id="cb84-4"><a href="model-fit-in-binary-response-models.html#cb84-4" tabindex="-1"></a>  <span class="st">&quot;Classical&quot;</span>    <span class="ot">=</span> survival,</span>
+<span id="cb84-5"><a href="model-fit-in-binary-response-models.html#cb84-5" tabindex="-1"></a>  <span class="st">&quot;New&quot;</span>    <span class="ot">=</span> survival_full</span>
+<span id="cb84-6"><a href="model-fit-in-binary-response-models.html#cb84-6" tabindex="-1"></a>)</span></code></pre></div>
+<p>and create the coefficient map. Note that the variable names need to match exactly those in the model.</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="model-fit-in-binary-response-models.html#cb85-1" tabindex="-1"></a>cm <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;l.gdppc&#39;</span>    <span class="ot">=</span> <span class="st">&#39;per capita GDP (lagged)&#39;</span>,</span>
+<span id="cb85-2"><a href="model-fit-in-binary-response-models.html#cb85-2" tabindex="-1"></a>        <span class="st">&#39;l.life&#39;</span>    <span class="ot">=</span> <span class="st">&#39;Life Expectancy (lagged)&#39;</span>,</span>
+<span id="cb85-3"><a href="model-fit-in-binary-response-models.html#cb85-3" tabindex="-1"></a>        <span class="st">&#39;l.enrol_gross&#39;</span>    <span class="ot">=</span> <span class="st">&#39;Gross Primary Enrollment (lagged)&#39;</span>,</span>
+<span id="cb85-4"><a href="model-fit-in-binary-response-models.html#cb85-4" tabindex="-1"></a>        <span class="st">&#39;(Intercept)&#39;</span> <span class="ot">=</span> <span class="st">&#39;Intercept&#39;</span>)</span></code></pre></div>
+<p>To get the ROC information into the table, we need to create a custom line. For this, we create a mini data frame whose structure corresponds to that of the table. Our table has five columns, and so we need to specify information for all five columns of our custom line:</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="model-fit-in-binary-response-models.html#cb86-1" tabindex="-1"></a>rows <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb86-2"><a href="model-fit-in-binary-response-models.html#cb86-2" tabindex="-1"></a>  <span class="st">&#39;~term&#39;</span> <span class="ot">=</span> <span class="st">&#39;ROC Curve&#39;</span>,</span>
+<span id="cb86-3"><a href="model-fit-in-binary-response-models.html#cb86-3" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(1)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">auc</span>(roc1),</span>
+<span id="cb86-4"><a href="model-fit-in-binary-response-models.html#cb86-4" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(2)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">auc</span>(roc2),</span>
+<span id="cb86-5"><a href="model-fit-in-binary-response-models.html#cb86-5" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(3)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">auc</span>(roc3),</span>
+<span id="cb86-6"><a href="model-fit-in-binary-response-models.html#cb86-6" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(4)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">auc</span>(roc4)</span>
+<span id="cb86-7"><a href="model-fit-in-binary-response-models.html#cb86-7" tabindex="-1"></a>)</span></code></pre></div>
+<p><code>modelsummary</code> is very flexible when it comes to designing the layout of the final table, and we can place the custom row into the exact location we want. Here, it is the ninth row:</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="model-fit-in-binary-response-models.html#cb87-1" tabindex="-1"></a><span class="fu">attr</span>(rows, <span class="st">&#39;position&#39;</span>) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">9</span>)</span></code></pre></div>
+<p>In a last step, we include the custom row in the actual <code>modelsummary</code> code. Note that I have added a header at the top which groups the emergence and survival models.</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="model-fit-in-binary-response-models.html#cb88-1" tabindex="-1"></a><span class="fu">modelsummary</span>(models,</span>
+<span id="cb88-2"><a href="model-fit-in-binary-response-models.html#cb88-2" tabindex="-1"></a>             <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb88-3"><a href="model-fit-in-binary-response-models.html#cb88-3" tabindex="-1"></a>             <span class="at">coef_map =</span> cm,</span>
+<span id="cb88-4"><a href="model-fit-in-binary-response-models.html#cb88-4" tabindex="-1"></a>             <span class="at">gof_omit =</span> <span class="st">&#39;AIC|BIC|Log.Lik|F|RMSE&#39;</span>,</span>
+<span id="cb88-5"><a href="model-fit-in-binary-response-models.html#cb88-5" tabindex="-1"></a>             <span class="at">add_rows =</span> rows)<span class="sc">|&gt;</span>                                 <span class="co"># this is the custom row</span></span>
+<span id="cb88-6"><a href="model-fit-in-binary-response-models.html#cb88-6" tabindex="-1"></a>  <span class="fu">group_tt</span>(<span class="at">j =</span> <span class="fu">list</span>(<span class="st">&quot;Emergence&quot;</span> <span class="ot">=</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>, <span class="st">&quot;Survival&quot;</span> <span class="ot">=</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>))<span class="sc">|&gt;</span>     <span class="co"># this creates the header</span></span>
+<span id="cb88-7"><a href="model-fit-in-binary-response-models.html#cb88-7" tabindex="-1"></a>  <span class="fu">group_tt</span>(<span class="at">j =</span> <span class="fu">list</span>(<span class="st">&quot;Dependent Variable: Democracy&quot;</span> <span class="ot">=</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>))     <span class="co"># this creates the top line</span></span></code></pre></div>
+<div class="baser">
+<details>
+<summary>
+Full code you can adapt for the assessment
+</summary>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="model-fit-in-binary-response-models.html#cb89-1" tabindex="-1"></a><span class="co"># load packages</span></span>
+<span id="cb89-2"><a href="model-fit-in-binary-response-models.html#cb89-2" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb89-3"><a href="model-fit-in-binary-response-models.html#cb89-3" tabindex="-1"></a><span class="fu">library</span>(tinytable)</span>
+<span id="cb89-4"><a href="model-fit-in-binary-response-models.html#cb89-4" tabindex="-1"></a></span>
+<span id="cb89-5"><a href="model-fit-in-binary-response-models.html#cb89-5" tabindex="-1"></a></span>
+<span id="cb89-6"><a href="model-fit-in-binary-response-models.html#cb89-6" tabindex="-1"></a><span class="co"># store models in a list</span></span>
+<span id="cb89-7"><a href="model-fit-in-binary-response-models.html#cb89-7" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb89-8"><a href="model-fit-in-binary-response-models.html#cb89-8" tabindex="-1"></a>  <span class="st">&quot;Classical&quot;</span>    <span class="ot">=</span> emergence,</span>
+<span id="cb89-9"><a href="model-fit-in-binary-response-models.html#cb89-9" tabindex="-1"></a>  <span class="st">&quot;New&quot;</span>    <span class="ot">=</span> emergence_full,</span>
+<span id="cb89-10"><a href="model-fit-in-binary-response-models.html#cb89-10" tabindex="-1"></a>  <span class="st">&quot;Classical&quot;</span>    <span class="ot">=</span> survival,</span>
+<span id="cb89-11"><a href="model-fit-in-binary-response-models.html#cb89-11" tabindex="-1"></a>  <span class="st">&quot;New&quot;</span>    <span class="ot">=</span> survival_full</span>
+<span id="cb89-12"><a href="model-fit-in-binary-response-models.html#cb89-12" tabindex="-1"></a>)</span>
+<span id="cb89-13"><a href="model-fit-in-binary-response-models.html#cb89-13" tabindex="-1"></a></span>
+<span id="cb89-14"><a href="model-fit-in-binary-response-models.html#cb89-14" tabindex="-1"></a><span class="co"># write the coefficient map</span></span>
+<span id="cb89-15"><a href="model-fit-in-binary-response-models.html#cb89-15" tabindex="-1"></a>cm <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;l.gdppc&#39;</span>    <span class="ot">=</span> <span class="st">&#39;per capita GDP (lagged)&#39;</span>,</span>
+<span id="cb89-16"><a href="model-fit-in-binary-response-models.html#cb89-16" tabindex="-1"></a>        <span class="st">&#39;l.life&#39;</span>    <span class="ot">=</span> <span class="st">&#39;Life Expectancy (lagged)&#39;</span>,</span>
+<span id="cb89-17"><a href="model-fit-in-binary-response-models.html#cb89-17" tabindex="-1"></a>        <span class="st">&#39;l.enrol_gross&#39;</span>    <span class="ot">=</span> <span class="st">&#39;Gross Primary Enrollment (lagged)&#39;</span>,</span>
+<span id="cb89-18"><a href="model-fit-in-binary-response-models.html#cb89-18" tabindex="-1"></a>        <span class="st">&#39;(Intercept)&#39;</span> <span class="ot">=</span> <span class="st">&#39;Intercept&#39;</span>)</span>
+<span id="cb89-19"><a href="model-fit-in-binary-response-models.html#cb89-19" tabindex="-1"></a></span>
+<span id="cb89-20"><a href="model-fit-in-binary-response-models.html#cb89-20" tabindex="-1"></a><span class="co"># create a mini dataset with the information on the ROC curves</span></span>
+<span id="cb89-21"><a href="model-fit-in-binary-response-models.html#cb89-21" tabindex="-1"></a>rows <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb89-22"><a href="model-fit-in-binary-response-models.html#cb89-22" tabindex="-1"></a>  <span class="st">&#39;~term&#39;</span> <span class="ot">=</span> <span class="st">&#39;ROC Curve&#39;</span>,</span>
+<span id="cb89-23"><a href="model-fit-in-binary-response-models.html#cb89-23" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(1)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">auc</span>(roc1),</span>
+<span id="cb89-24"><a href="model-fit-in-binary-response-models.html#cb89-24" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(2)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">auc</span>(roc2),</span>
+<span id="cb89-25"><a href="model-fit-in-binary-response-models.html#cb89-25" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(3)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">auc</span>(roc3),</span>
+<span id="cb89-26"><a href="model-fit-in-binary-response-models.html#cb89-26" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(4)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">auc</span>(roc4)</span>
+<span id="cb89-27"><a href="model-fit-in-binary-response-models.html#cb89-27" tabindex="-1"></a>)</span>
+<span id="cb89-28"><a href="model-fit-in-binary-response-models.html#cb89-28" tabindex="-1"></a></span>
+<span id="cb89-29"><a href="model-fit-in-binary-response-models.html#cb89-29" tabindex="-1"></a><span class="co"># place the custom row into position in the final table</span></span>
+<span id="cb89-30"><a href="model-fit-in-binary-response-models.html#cb89-30" tabindex="-1"></a><span class="fu">attr</span>(rows, <span class="st">&#39;position&#39;</span>) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">9</span>)</span>
+<span id="cb89-31"><a href="model-fit-in-binary-response-models.html#cb89-31" tabindex="-1"></a></span>
+<span id="cb89-32"><a href="model-fit-in-binary-response-models.html#cb89-32" tabindex="-1"></a><span class="co"># modelsummary code</span></span>
+<span id="cb89-33"><a href="model-fit-in-binary-response-models.html#cb89-33" tabindex="-1"></a><span class="fu">modelsummary</span>(models,</span>
+<span id="cb89-34"><a href="model-fit-in-binary-response-models.html#cb89-34" tabindex="-1"></a>             <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb89-35"><a href="model-fit-in-binary-response-models.html#cb89-35" tabindex="-1"></a>             <span class="at">coef_map =</span> cm,</span>
+<span id="cb89-36"><a href="model-fit-in-binary-response-models.html#cb89-36" tabindex="-1"></a>             <span class="at">gof_omit =</span> <span class="st">&#39;AIC|BIC|Log.Lik|F|RMSE&#39;</span>,</span>
+<span id="cb89-37"><a href="model-fit-in-binary-response-models.html#cb89-37" tabindex="-1"></a>             <span class="at">add_rows =</span> rows)<span class="sc">|&gt;</span>                                 <span class="co"># this is the custom row</span></span>
+<span id="cb89-38"><a href="model-fit-in-binary-response-models.html#cb89-38" tabindex="-1"></a>  <span class="fu">group_tt</span>(<span class="at">j =</span> <span class="fu">list</span>(<span class="st">&quot;Emergence&quot;</span> <span class="ot">=</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>, <span class="st">&quot;Survival&quot;</span> <span class="ot">=</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>))<span class="sc">|&gt;</span>     <span class="co"># this creates the header</span></span>
+<span id="cb89-39"><a href="model-fit-in-binary-response-models.html#cb89-39" tabindex="-1"></a>  <span class="fu">group_tt</span>(<span class="at">j =</span> <span class="fu">list</span>(<span class="st">&quot;Dependent Variable:&lt;br&gt;Democracy&quot;</span> <span class="ot">=</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>))  <span class="co"># this creates the top line</span></span></code></pre></div>
+</details>
 </div>
 </div>
 </div>
