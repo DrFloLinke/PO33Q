@@ -404,7 +404,7 @@ Figure 1: Sample Data Set
 <li><code>A typewriter font for R functions, values, etc.</code></li>
 </ul>
 <p>Let’s have a look at RStudio itself. When you open the programme, you are presented with the following screen:</p>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-13"></span>
 <img src="files/Week%201/RStudio.png" alt="\label{fig:RStudio}RStudio" width="60%" />
 <p class="caption">
 Figure 2: RStudio
@@ -425,7 +425,7 @@ Figure 2: RStudio
 <p>One of the foundations of scientific research is “reproducibility”“, or”replicability”. This means that “sufficient information exists with which to understand, evaluate, and build upon a prior work if a third party could replicate the results without any additional information from the author.” <span class="citation">(King, 1995, p. 444, emphasis removed)</span> This principle applies in academia more generally, because only if you understand what a person has done before you, you can pick their work up whether they left it, and push the boundaries of knowledge further. But a bit closer to home, it is also relevant for conducting quantitative research in assessments. We require you to submit an RScript (or a “do file” if you use Stata) now together with your actual essay. This is not only to check what you have done; data preparation is often the most time-consuming part (as you will soon discover), and this is a way to gain recognition for this work. So it is actually to your advantage, and not a mere plagiarism check.</p>
 <p>The creation of an RScript will allow you to open the raw data, and by running the script, to bring it to exactly where you left off. This saves you saving data sets which can take up a lot of work. If you back the script up properly, you also have an insurance against losing all your work a day before the assessment is due.</p>
 <p>To create an RScript, click File <span class="math inline">\(\rightarrow\)</span> New File <span class="math inline">\(\rightarrow\)</span> RScript. A fourth window opens, and your screen will now look something like this:</p>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-2"></span>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-14"></span>
 <img src="files/Week%201/rscript.png" alt="\label{fig:RScript}The RScript Window" width="60%" />
 <p class="caption">
 Figure 3: The RScript Window
@@ -677,7 +677,7 @@ Figure 6: Distributions with different Standard Deviations
 <h2>The Real Data Set<a href="introduction-to-r.html#the-real-data-set" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Download the <code>world.csv</code> data set from the <a href="https://drfloreiche.github.io/PO33Q/downloads.html">Downloads Section</a> and place it into the current working directory.</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="introduction-to-r.html#cb24-1" tabindex="-1"></a>world <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;Week 1/world.csv&quot;</span>)</span></code></pre></div>
-<p>The data are taken from <span class="citation">World Bank (2024)</span>, <span class="citation">Boix et al. (2018)</span>, and <span class="citation">Marshall &amp; Gurr (2020)</span>. Table <a href="introduction-to-r.html#tab:wdicode1">1</a> provides a full code book, but you can also download it <a href="files/Week%201/PO33Q_Codebook.pdf">in pdf format here</a>.</p>
+<p>The data are taken from <span class="citation">World Bank (2024)</span>, <span class="citation">Miller et al. (2022)</span>, and <span class="citation">Marshall &amp; Gurr (2020)</span>. Table <a href="introduction-to-r.html#tab:wdicode1">1</a> provides a full code book, but you can also download it <a href="files/Week%201/PO33Q_Codebook.pdf">in pdf format here</a>.</p>
 <table style="width:100%; color: black; margin-left: auto; margin-right: auto;" class="table">
 <caption>
 <span id="tab:wdicode1">Table 1: </span>WDI Codebook
@@ -1010,19 +1010,19 @@ Region on continent
 <p>Again, let’s explore the data set through the <code>view()</code> function:</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="introduction-to-r.html#cb25-1" tabindex="-1"></a><span class="fu">view</span>(world)</span></code></pre></div>
 <p>Now, don’t panic. This data set is big, but you know the basic structure: country by year in rows, and the variables in the column. The value for the variable in a given country in a given year is in the meeting point between row and column.</p>
-<p>The data are (yes, the word “data” is plural) organised by country name in the first instance. So the first country you see is Afghanistan. There are multiple rows for Afghanistan, because each row gives you information about the value in a particular year (second column). This is repeated for every country in the world, leading to a total of 9.456 observations, to save you scrolling all the way down. Schematically, the structure of this data set looks as follows:</p>
+<p>The data are (yes, the word “data” is plural) organised by country name in the first instance. So the first country you see is Afghanistan. There are multiple rows for Afghanistan, because each row gives you information about the value in a particular year (second column). This is repeated for every country in the world, leading to a total of 10,824 observations, to save you scrolling all the way down. Schematically, the structure of this data set looks as follows:</p>
 <p><img src="files/Week%201/tscs.png" width="25%" /></p>
 <p>When you look at the data set in R, you will see that not every box contains a value - this means that the data are missing for this particular country-year for that particular variable. This is an issue we will be discussing a later stage in more detail, but I can already say now, that this issue is more pronounced in developing countries than in developed ones, and that it often severely limits the variables you can include in the analysis.</p>
-<p>Let us conclude today with some more descriptive statistics to get used to entering and executing commands. Say, we want to find out the average GDP per capita of the UK since 1960 (which is when this data set begins, it ends in 2015). To do this, we first need to create a data frame which only contains data for GB. We call this process “subsetting”. The <code>filter</code> function comes out the <code>dplyr</code> package, and takes a particular data frame and filters all those observations which meet the condition specified. We will use this a lot on this module, and so it makes sense to remember this one well:</p>
+<p>Let us conclude today with some more descriptive statistics to get used to entering and executing commands. Say, we want to find out the average GDP per capita of the UK since 1960 (which is when this data set begins, it ends in 2020). To do this, we first need to create a data frame which only contains data for GB. We call this process “subsetting”. The <code>filter</code> function comes out the <code>dplyr</code> package, and takes a particular data frame and filters all those observations which meet the condition specified. We will use this a lot on this module, and so it makes sense to remember this one well:</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="introduction-to-r.html#cb26-1" tabindex="-1"></a>GB <span class="ot">&lt;-</span> <span class="fu">filter</span>(world, countrycode<span class="sc">==</span><span class="st">&quot;GBR&quot;</span>)</span></code></pre></div>
 <p>We can now produce</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="introduction-to-r.html#cb27-1" tabindex="-1"></a><span class="fu">summary</span>(GB<span class="sc">$</span>gdppc)</span>
-<span id="cb27-2"><a href="introduction-to-r.html#cb27-2" tabindex="-1"></a>   Min. <span class="dv">1</span>st Qu.  Median    Mean <span class="dv">3</span>rd Qu.    Max.    NA<span class="st">&#39;s </span></span>
-<span id="cb27-3"><a href="introduction-to-r.html#cb27-3" tabindex="-1"></a><span class="st">   1398    3606   14553   18629   29091   50398      10 </span></span></code></pre></div>
+<span id="cb27-2"><a href="introduction-to-r.html#cb27-2" tabindex="-1"></a>   Min. <span class="dv">1</span>st Qu.  Median    Mean <span class="dv">3</span>rd Qu.    Max. </span>
+<span id="cb27-3"><a href="introduction-to-r.html#cb27-3" tabindex="-1"></a>   <span class="dv">1398</span>    <span class="dv">4138</span>   <span class="dv">18389</span>   <span class="dv">20506</span>   <span class="dv">39599</span>   <span class="dv">50398</span> </span></code></pre></div>
 <p>and all other descriptive statistics outlined before for “Great Britain”. If you want the number of observations, then you can display them by calling:</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="introduction-to-r.html#cb28-1" tabindex="-1"></a><span class="fu">length</span>(GB<span class="sc">$</span>gdppc)</span>
-<span id="cb28-2"><a href="introduction-to-r.html#cb28-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">66</span></span></code></pre></div>
-<p>In this particular case, it would tell us that we have data for 56 years.</p>
+<span id="cb28-2"><a href="introduction-to-r.html#cb28-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">61</span></span></code></pre></div>
+<p>In this particular case, it would tell us that we have data for 61 years.</p>
 <p>If this all seems a little much at the moment, don’t worry. As we go through the module, R will become much, much easier to handle!</p>
 <hr />
 </div>
