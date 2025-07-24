@@ -203,14 +203,19 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#sampling-distributions"><i class="fa fa-check"></i>Sampling Distributions</a></li>
 <li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#the-t-distribution"><i class="fa fa-check"></i>The t-Distribution</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#confidence-intervals"><i class="fa fa-check"></i>Confidence Intervals</a></li>
+<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#tests-of-statistical-significance"><i class="fa fa-check"></i>Tests of Statistical Significance</a></li>
 </ul></li>
-<li class="chapter" data-level="0.1" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#constructing-confidence-intervals"><i class="fa fa-check"></i><b>0.1</b> Constructing Confidence Intervals</a></li>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#tests-of-statistical-significance"><i class="fa fa-check"></i>Tests of Statistical Significance</a>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html"><i class="fa fa-check"></i>Linear Regression - Theory</a>
 <ul>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#sample"><i class="fa fa-check"></i>Sample</a></li>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#what-is-it"><i class="fa fa-check"></i>What is it?</a>
+<ul>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#population"><i class="fa fa-check"></i>Population</a></li>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#sample"><i class="fa fa-check"></i>Sample</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#ordinary-least-squares-ols"><i class="fa fa-check"></i>Ordinary Least Squares (OLS)</a></li>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#ordinary-least-squares-ols"><i class="fa fa-check"></i>Ordinary Least Squares (OLS)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html"><i class="fa fa-check"></i>Linear Regression – Application</a>
 <ul>
@@ -311,7 +316,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#how-to-measure-model-fit"><i class="fa fa-check"></i>How to Measure Model Fit</a>
 <ul>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#what-is-it"><i class="fa fa-check"></i>What is it?</a></li>
+<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#what-is-it-1"><i class="fa fa-check"></i>What is it?</a></li>
 <li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#r"><i class="fa fa-check"></i>R</a></li>
 <li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#emergence-full-model"><i class="fa fa-check"></i>Emergence: Full Model</a></li>
 <li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#survival"><i class="fa fa-check"></i>Survival</a></li>
@@ -419,7 +424,7 @@ div.csl-indent {
 </div>
 <div id="pedicted-probabilities" class="section level2 unnumbered hasAnchor">
 <h2>Pedicted Probabilities<a href="probit-application.html#pedicted-probabilities" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Once we have estimated the model, we have determined the shape of the s-shaped curve in Figure <a href="probit---theory.html#fig:cdf">15</a>. What we now need to do, is to evaluate the probability on the y-axis for different values on the x-axis. In our case this is the variable <code>life</code>.</p>
+<p>Once we have estimated the model, we have determined the shape of the s-shaped curve in Figure <a href="probit---theory.html#fig:cdf">17</a>. What we now need to do, is to evaluate the probability on the y-axis for different values on the x-axis. In our case this is the variable <code>life</code>.</p>
 <div id="setting-the-x-values" class="section level3 unnumbered hasAnchor">
 <h3>Setting the x-values<a href="probit-application.html#setting-the-x-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let us first get a basic overview of the variable <code>life</code>. We can do this by calling</p>
@@ -520,8 +525,8 @@ Code for the Predicted Probabilities Graph
 
     <script>
 
-      function styleCell_ak1k58qyifp19kux6l5g(i, j, css_id) {
-          var table = document.getElementById("tinytable_ak1k58qyifp19kux6l5g");
+      function styleCell_9n5tr7u5cx56ag8oit0k(i, j, css_id) {
+          var table = document.getElementById("tinytable_9n5tr7u5cx56ag8oit0k");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -531,7 +536,7 @@ Code for the Predicted Probabilities Graph
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_ak1k58qyifp19kux6l5g');
+        var table = document.getElementById('tinytable_9n5tr7u5cx56ag8oit0k');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -539,8 +544,8 @@ Code for the Predicted Probabilities Graph
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_ak1k58qyifp19kux6l5g(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_ak1k58qyifp19kux6l5g");
+      function spanCell_9n5tr7u5cx56ag8oit0k(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_9n5tr7u5cx56ag8oit0k");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -570,22 +575,22 @@ Code for the Predicted Probabilities Graph
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 6, j: 1 },  ], css_id: 'tinytable_css_j08z20pjn6ngxfpyp58g',}, 
-          { positions: [ { i: 5, j: 1 },  ], css_id: 'tinytable_css_yzdpnql29gow8nh112ww',}, 
-          { positions: [ { i: 2, j: 1 }, { i: 3, j: 1 }, { i: 4, j: 1 },  ], css_id: 'tinytable_css_knst63qppy37zu8jgmk0',}, 
-          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_kha7kbxhwzevxzxvrfg0',}, 
-          { positions: [ { i: 1, j: 1 },  ], css_id: 'tinytable_css_8u2vyglgl59556g0waht',}, 
-          { positions: [ { i: 6, j: 0 },  ], css_id: 'tinytable_css_maw0lraje7zmeyy147ap',}, 
-          { positions: [ { i: 5, j: 0 },  ], css_id: 'tinytable_css_ae7z6adjedswjqhtlkev',}, 
-          { positions: [ { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 },  ], css_id: 'tinytable_css_d01q0ew110qsi0pr8e3p',}, 
-          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_oukjojbmgf1pawsecxm2',}, 
-          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_ti2wvvsoqsyw84wk7478',}, 
+          { positions: [ { i: 6, j: 1 },  ], css_id: 'tinytable_css_2nfgm6ck6i9txr3irrld',}, 
+          { positions: [ { i: 5, j: 1 },  ], css_id: 'tinytable_css_eppeu9pn7h5hfalsg86t',}, 
+          { positions: [ { i: 2, j: 1 }, { i: 3, j: 1 }, { i: 4, j: 1 },  ], css_id: 'tinytable_css_v41evsm9otm15o0sycwz',}, 
+          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_sbmk86evt2dz2xrw5dgx',}, 
+          { positions: [ { i: 1, j: 1 },  ], css_id: 'tinytable_css_fgrzdvq7lvb3536kcypx',}, 
+          { positions: [ { i: 6, j: 0 },  ], css_id: 'tinytable_css_wazpkwtde6wj5klmi98n',}, 
+          { positions: [ { i: 5, j: 0 },  ], css_id: 'tinytable_css_ydqi1dgec6vfzmtkecbn',}, 
+          { positions: [ { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 },  ], css_id: 'tinytable_css_c7ff6nerssa6q29lnfrt',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_u8kffhp2s82d6vj18f48',}, 
+          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_56pul5jbkcwqekqbf0ao',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_ak1k58qyifp19kux6l5g(cell.i, cell.j, group.css_id);
+                  styleCell_9n5tr7u5cx56ag8oit0k(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -593,19 +598,19 @@ Code for the Predicted Probabilities Graph
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_j08z20pjn6ngxfpyp58g, .table th.tinytable_css_j08z20pjn6ngxfpyp58g { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_yzdpnql29gow8nh112ww, .table th.tinytable_css_yzdpnql29gow8nh112ww { text-align: center; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_knst63qppy37zu8jgmk0, .table th.tinytable_css_knst63qppy37zu8jgmk0 { text-align: center; }
-      .table td.tinytable_css_kha7kbxhwzevxzxvrfg0, .table th.tinytable_css_kha7kbxhwzevxzxvrfg0 { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_8u2vyglgl59556g0waht, .table th.tinytable_css_8u2vyglgl59556g0waht { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_maw0lraje7zmeyy147ap, .table th.tinytable_css_maw0lraje7zmeyy147ap { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_ae7z6adjedswjqhtlkev, .table th.tinytable_css_ae7z6adjedswjqhtlkev { text-align: left; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_d01q0ew110qsi0pr8e3p, .table th.tinytable_css_d01q0ew110qsi0pr8e3p { text-align: left; }
-      .table td.tinytable_css_oukjojbmgf1pawsecxm2, .table th.tinytable_css_oukjojbmgf1pawsecxm2 { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_ti2wvvsoqsyw84wk7478, .table th.tinytable_css_ti2wvvsoqsyw84wk7478 { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_2nfgm6ck6i9txr3irrld, .table th.tinytable_css_2nfgm6ck6i9txr3irrld { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_eppeu9pn7h5hfalsg86t, .table th.tinytable_css_eppeu9pn7h5hfalsg86t { text-align: center; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_v41evsm9otm15o0sycwz, .table th.tinytable_css_v41evsm9otm15o0sycwz { text-align: center; }
+      .table td.tinytable_css_sbmk86evt2dz2xrw5dgx, .table th.tinytable_css_sbmk86evt2dz2xrw5dgx { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_fgrzdvq7lvb3536kcypx, .table th.tinytable_css_fgrzdvq7lvb3536kcypx { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_wazpkwtde6wj5klmi98n, .table th.tinytable_css_wazpkwtde6wj5klmi98n { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_ydqi1dgec6vfzmtkecbn, .table th.tinytable_css_ydqi1dgec6vfzmtkecbn { text-align: left; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_c7ff6nerssa6q29lnfrt, .table th.tinytable_css_c7ff6nerssa6q29lnfrt { text-align: left; }
+      .table td.tinytable_css_u8kffhp2s82d6vj18f48, .table th.tinytable_css_u8kffhp2s82d6vj18f48 { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_56pul5jbkcwqekqbf0ao, .table th.tinytable_css_56pul5jbkcwqekqbf0ao { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_ak1k58qyifp19kux6l5g" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
+      <table class="table table-borderless" id="tinytable_9n5tr7u5cx56ag8oit0k" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
         <thead>
 <tr>
 <th scope="col" align="center" colspan=1> </th>
@@ -690,8 +695,8 @@ Code for the Predicted Probabilities Graph
 
     <script>
 
-      function styleCell_l1hz6wl35ul51v8tkn5w(i, j, css_id) {
-          var table = document.getElementById("tinytable_l1hz6wl35ul51v8tkn5w");
+      function styleCell_i08s7k8ydjzrtua81sgz(i, j, css_id) {
+          var table = document.getElementById("tinytable_i08s7k8ydjzrtua81sgz");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -701,7 +706,7 @@ Code for the Predicted Probabilities Graph
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_l1hz6wl35ul51v8tkn5w');
+        var table = document.getElementById('tinytable_i08s7k8ydjzrtua81sgz');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -709,8 +714,8 @@ Code for the Predicted Probabilities Graph
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_l1hz6wl35ul51v8tkn5w(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_l1hz6wl35ul51v8tkn5w");
+      function spanCell_i08s7k8ydjzrtua81sgz(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_i08s7k8ydjzrtua81sgz");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -740,22 +745,22 @@ Code for the Predicted Probabilities Graph
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 6, j: 1 },  ], css_id: 'tinytable_css_gckww30vf5ofk062b3g9',}, 
-          { positions: [ { i: 5, j: 1 },  ], css_id: 'tinytable_css_qrxz12te58l4xem3hr1w',}, 
-          { positions: [ { i: 2, j: 1 }, { i: 3, j: 1 }, { i: 4, j: 1 },  ], css_id: 'tinytable_css_mjh0xyacapncqxsktkcr',}, 
-          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_murxz0gvgw1x6yejx5mi',}, 
-          { positions: [ { i: 1, j: 1 },  ], css_id: 'tinytable_css_o4ifbsq5y1bjcnn34nxo',}, 
-          { positions: [ { i: 6, j: 0 },  ], css_id: 'tinytable_css_nhecqcip6vu600kj8b3a',}, 
-          { positions: [ { i: 5, j: 0 },  ], css_id: 'tinytable_css_pgujur50g0mwsewho6fz',}, 
-          { positions: [ { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 },  ], css_id: 'tinytable_css_0mh0whpdaah87x9o8cyq',}, 
-          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_3mo10gk4ar8xran4vxup',}, 
-          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_95d2wehva97pxfh3r2cn',}, 
+          { positions: [ { i: 6, j: 1 },  ], css_id: 'tinytable_css_inxy4cljihjxiwg83sio',}, 
+          { positions: [ { i: 5, j: 1 },  ], css_id: 'tinytable_css_owjt33cgco5ndxgi5gxq',}, 
+          { positions: [ { i: 2, j: 1 }, { i: 3, j: 1 }, { i: 4, j: 1 },  ], css_id: 'tinytable_css_fks2gdvdr2epfqc3exjp',}, 
+          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_q9mannhg704xmcz7f4b1',}, 
+          { positions: [ { i: 1, j: 1 },  ], css_id: 'tinytable_css_g8h8tf7w9aptz57m51de',}, 
+          { positions: [ { i: 6, j: 0 },  ], css_id: 'tinytable_css_5apc5e8j00lky8fxsp8r',}, 
+          { positions: [ { i: 5, j: 0 },  ], css_id: 'tinytable_css_k409qpew6imucucl3kk6',}, 
+          { positions: [ { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 },  ], css_id: 'tinytable_css_7s6acftt036naobhmbbp',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_nqpuqj9iyvwnl72y0mmi',}, 
+          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_2q840eevppxj0f1bwbj5',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_l1hz6wl35ul51v8tkn5w(cell.i, cell.j, group.css_id);
+                  styleCell_i08s7k8ydjzrtua81sgz(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -763,19 +768,19 @@ Code for the Predicted Probabilities Graph
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_gckww30vf5ofk062b3g9, .table th.tinytable_css_gckww30vf5ofk062b3g9 { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_qrxz12te58l4xem3hr1w, .table th.tinytable_css_qrxz12te58l4xem3hr1w { text-align: center; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_mjh0xyacapncqxsktkcr, .table th.tinytable_css_mjh0xyacapncqxsktkcr { text-align: center; }
-      .table td.tinytable_css_murxz0gvgw1x6yejx5mi, .table th.tinytable_css_murxz0gvgw1x6yejx5mi { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_o4ifbsq5y1bjcnn34nxo, .table th.tinytable_css_o4ifbsq5y1bjcnn34nxo { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_nhecqcip6vu600kj8b3a, .table th.tinytable_css_nhecqcip6vu600kj8b3a { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_pgujur50g0mwsewho6fz, .table th.tinytable_css_pgujur50g0mwsewho6fz { text-align: left; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_0mh0whpdaah87x9o8cyq, .table th.tinytable_css_0mh0whpdaah87x9o8cyq { text-align: left; }
-      .table td.tinytable_css_3mo10gk4ar8xran4vxup, .table th.tinytable_css_3mo10gk4ar8xran4vxup { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_95d2wehva97pxfh3r2cn, .table th.tinytable_css_95d2wehva97pxfh3r2cn { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_inxy4cljihjxiwg83sio, .table th.tinytable_css_inxy4cljihjxiwg83sio { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_owjt33cgco5ndxgi5gxq, .table th.tinytable_css_owjt33cgco5ndxgi5gxq { text-align: center; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_fks2gdvdr2epfqc3exjp, .table th.tinytable_css_fks2gdvdr2epfqc3exjp { text-align: center; }
+      .table td.tinytable_css_q9mannhg704xmcz7f4b1, .table th.tinytable_css_q9mannhg704xmcz7f4b1 { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_g8h8tf7w9aptz57m51de, .table th.tinytable_css_g8h8tf7w9aptz57m51de { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_5apc5e8j00lky8fxsp8r, .table th.tinytable_css_5apc5e8j00lky8fxsp8r { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_k409qpew6imucucl3kk6, .table th.tinytable_css_k409qpew6imucucl3kk6 { text-align: left; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_7s6acftt036naobhmbbp, .table th.tinytable_css_7s6acftt036naobhmbbp { text-align: left; }
+      .table td.tinytable_css_nqpuqj9iyvwnl72y0mmi, .table th.tinytable_css_nqpuqj9iyvwnl72y0mmi { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_2q840eevppxj0f1bwbj5, .table th.tinytable_css_2q840eevppxj0f1bwbj5 { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_l1hz6wl35ul51v8tkn5w" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
+      <table class="table table-borderless" id="tinytable_i08s7k8ydjzrtua81sgz" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
         <thead>
 <tr>
 <th scope="col" align="center" colspan=1> </th>

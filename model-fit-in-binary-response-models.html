@@ -203,14 +203,19 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#sampling-distributions"><i class="fa fa-check"></i>Sampling Distributions</a></li>
 <li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#the-t-distribution"><i class="fa fa-check"></i>The t-Distribution</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#confidence-intervals"><i class="fa fa-check"></i>Confidence Intervals</a></li>
+<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#tests-of-statistical-significance"><i class="fa fa-check"></i>Tests of Statistical Significance</a></li>
 </ul></li>
-<li class="chapter" data-level="0.1" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#constructing-confidence-intervals"><i class="fa fa-check"></i><b>0.1</b> Constructing Confidence Intervals</a></li>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#tests-of-statistical-significance"><i class="fa fa-check"></i>Tests of Statistical Significance</a>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html"><i class="fa fa-check"></i>Linear Regression - Theory</a>
 <ul>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#sample"><i class="fa fa-check"></i>Sample</a></li>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#what-is-it"><i class="fa fa-check"></i>What is it?</a>
+<ul>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#population"><i class="fa fa-check"></i>Population</a></li>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#sample"><i class="fa fa-check"></i>Sample</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#ordinary-least-squares-ols"><i class="fa fa-check"></i>Ordinary Least Squares (OLS)</a></li>
+<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#ordinary-least-squares-ols"><i class="fa fa-check"></i>Ordinary Least Squares (OLS)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html"><i class="fa fa-check"></i>Linear Regression – Application</a>
 <ul>
@@ -311,7 +316,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#how-to-measure-model-fit"><i class="fa fa-check"></i>How to Measure Model Fit</a>
 <ul>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#what-is-it"><i class="fa fa-check"></i>What is it?</a></li>
+<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#what-is-it-1"><i class="fa fa-check"></i>What is it?</a></li>
 <li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#r"><i class="fa fa-check"></i>R</a></li>
 <li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#emergence-full-model"><i class="fa fa-check"></i>Emergence: Full Model</a></li>
 <li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#survival"><i class="fa fa-check"></i>Survival</a></li>
@@ -368,44 +373,44 @@ div.csl-indent {
 <div id="how-to-measure-model-fit" class="section level2 unnumbered hasAnchor">
 <h2>How to Measure Model Fit<a href="model-fit-in-binary-response-models.html#how-to-measure-model-fit" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There are quite a few model fit measures around for binary response models, such as pseudo R-Squared and the Akaike Information Criterion (AIC). What I am going to present here, however, is the so-called ROC curve, as I personally really don’t like the aforementioned measures.</p>
-<div id="what-is-it" class="section level3 unnumbered hasAnchor">
-<h3>What is it?<a href="model-fit-in-binary-response-models.html#what-is-it" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="what-is-it-1" class="section level3 unnumbered hasAnchor">
+<h3>What is it?<a href="model-fit-in-binary-response-models.html#what-is-it-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="video">
 <p><strong>The ROC Curve</strong></p>
 <p>YouTube link to follow</p>
 </div>
 <p>The principle idea of ROC is to determine how well our model is able to separate cases into the two categories of our dependent variable. It approaches this question by comparing the actual observed values of the dependent variable with the values the model would predict, given the values of the independent variables.</p>
-<p>Consider Figure <a href="model-fit-in-binary-response-models.html#fig:separation">19</a> a). On the x-axis you see eight observations, marked as coloured diamonds. Red diamonds represent countries which are dictatorships, and blue ones democracies. They are sorted by their respective level of per capita GDP. Now suppose that the displayed CDF is the results of a model we have estimated. With a cut off point <span class="math inline">\(\tau=0.5\)</span> we would correctly predict the group of four observations on the left to be dictatorships. They are True Negatives (TN). The group on the right would be correctly predicted as democracies, these are True Positives (TP). We have no incorrectly classified cases; our model has been able to separate cases perfectly. You can see this represented in the form of distributions in panel b).</p>
+<p>Consider Figure <a href="model-fit-in-binary-response-models.html#fig:separation">21</a> a). On the x-axis you see eight observations, marked as coloured diamonds. Red diamonds represent countries which are dictatorships, and blue ones democracies. They are sorted by their respective level of per capita GDP. Now suppose that the displayed CDF is the results of a model we have estimated. With a cut off point <span class="math inline">\(\tau=0.5\)</span> we would correctly predict the group of four observations on the left to be dictatorships. They are True Negatives (TN). The group on the right would be correctly predicted as democracies, these are True Positives (TP). We have no incorrectly classified cases; our model has been able to separate cases perfectly. You can see this represented in the form of distributions in panel b).</p>
 <div class="figure"><span style="display:block;" id="fig:separation"></span>
 <img src="files/Week%207/separate.png" alt="\label{fig:separation}Perfect Separation" width="75%" />
 <p class="caption">
-Figure 19: Perfect Separation
+Figure 21: Perfect Separation
 </p>
 </div>
-<p>As you well know by now, the real world is oddly deficient in achieving perfection such as this. We will observe both poor democracies, and rich dictatorships. This scenario is shown in Figure <a href="model-fit-in-binary-response-models.html#fig:overlap">20</a> a).</p>
+<p>As you well know by now, the real world is oddly deficient in achieving perfection such as this. We will observe both poor democracies, and rich dictatorships. This scenario is shown in Figure <a href="model-fit-in-binary-response-models.html#fig:overlap">22</a> a).</p>
 <div class="figure"><span style="display:block;" id="fig:overlap"></span>
 <img src="files/Week%207/overlap.png" alt="\label{fig:overlap}Overlap" width="75%" />
 <p class="caption">
-Figure 20: Overlap
+Figure 22: Overlap
 </p>
 </div>
-<p>According to the CDF we would predict the poor democracy as a dictatorship. It would be a False Negative (FN). Conversely, we would predict the rich dictatorship as a democracy and would obtain a False Positive (FP). The distribution of cases in Figure <a href="model-fit-in-binary-response-models.html#fig:overlap">20</a> b) is not as clearly separated any more as in Figure <a href="model-fit-in-binary-response-models.html#fig:separation">19</a> b). Now they overlap, leading to incorrect classifications. These are marked accordingly in Figure <a href="model-fit-in-binary-response-models.html#fig:tntp1">21</a>. As we are no longer operating in a world in which we only have TNs and TPs, I think we can all agree that our model fit is no longer as good as in Figure <a href="model-fit-in-binary-response-models.html#fig:separation">19</a>.</p>
+<p>According to the CDF we would predict the poor democracy as a dictatorship. It would be a False Negative (FN). Conversely, we would predict the rich dictatorship as a democracy and would obtain a False Positive (FP). The distribution of cases in Figure <a href="model-fit-in-binary-response-models.html#fig:overlap">22</a> b) is not as clearly separated any more as in Figure <a href="model-fit-in-binary-response-models.html#fig:separation">21</a> b). Now they overlap, leading to incorrect classifications. These are marked accordingly in Figure <a href="model-fit-in-binary-response-models.html#fig:tntp1">23</a>. As we are no longer operating in a world in which we only have TNs and TPs, I think we can all agree that our model fit is no longer as good as in Figure <a href="model-fit-in-binary-response-models.html#fig:separation">21</a>.</p>
 <div class="figure"><span style="display:block;" id="fig:tntp1"></span>
 <img src="files/Week%207/tntp1.png" alt="\label{fig:tntp1}False Negatives and False Positives" width="30%" />
 <p class="caption">
-Figure 21: False Negatives and False Positives
+Figure 23: False Negatives and False Positives
 </p>
 </div>
-<p>But there is another issue: whilst setting <span class="math inline">\(\tau\)</span> at 0.5 makes intuitive sense, there is nothing preventing us from shifting <span class="math inline">\(\tau\)</span> around. Indeed, the number of FPs and FNs very much depends on where we place our cut-off point. For example, if we don’t want any FNs, then we just have to shift <span class="math inline">\(\tau\)</span> sufficiently downwards. Or if we want to avoid FPs we only need to move it far enough upwards. I have illustrated this in Figure <a href="model-fit-in-binary-response-models.html#fig:taushift">22</a> a) and b), respectively.</p>
+<p>But there is another issue: whilst setting <span class="math inline">\(\tau\)</span> at 0.5 makes intuitive sense, there is nothing preventing us from shifting <span class="math inline">\(\tau\)</span> around. Indeed, the number of FPs and FNs very much depends on where we place our cut-off point. For example, if we don’t want any FNs, then we just have to shift <span class="math inline">\(\tau\)</span> sufficiently downwards. Or if we want to avoid FPs we only need to move it far enough upwards. I have illustrated this in Figure <a href="model-fit-in-binary-response-models.html#fig:taushift">24</a> a) and b), respectively.</p>
 <div class="figure"><span style="display:block;" id="fig:taushift"></span>
 <img src="files/Week%207/taushift.png" alt="\label{fig:taushift}Shifting $\tau$" width="75%" />
 <p class="caption">
-Figure 22: Shifting <span class="math inline">\(\tau\)</span>
+Figure 24: Shifting <span class="math inline">\(\tau\)</span>
 </p>
 </div>
 <p>These are only three options of placing the threshold. But we have a total of eight observations which means that there are nine potential positions for the cut-off point with each leading to a different conclusion of how well our model fits the observed data. Let’s go through this more systematically and start by placing <span class="math inline">\(\tau\)</span> at the very bottom. Because the number of TNs, TPs, FNs, and FPs will only change at the “next” observation we only need to shift as many times as there are observations. For each shift we record the values of all four quantities in a crosstabulation which is displayed in the following table:</p>
 <p><img src="files/Week%207/ROC1.png" width="50%" /></p>
-<p>These tables are useful in their own right, but since we will end up with as many of them as there are observations, this can quickly get very messy. There are only eight observations here, but imagine doing these for the <code>world</code> data set with 190 observationsWe therefore need to find a way to condense the information contained in each of the n confusion matrices into a single measure. If you look closely, you will see that TNs and FPs form a close relationship: if we shift up <span class="math inline">\(\tau\)</span> in Figure <a href="model-fit-in-binary-response-models.html#fig:taushift">22</a> a) we are reducing the number of FPs and obtain more TNs. As TPs relate in the same way to FNs, we can quantify their respective relationships in the following rates:</p>
+<p>These tables are useful in their own right, but since we will end up with as many of them as there are observations, this can quickly get very messy. There are only eight observations here, but imagine doing these for the <code>world</code> data set with 190 observationsWe therefore need to find a way to condense the information contained in each of the n confusion matrices into a single measure. If you look closely, you will see that TNs and FPs form a close relationship: if we shift up <span class="math inline">\(\tau\)</span> in Figure <a href="model-fit-in-binary-response-models.html#fig:taushift">24</a> a) we are reducing the number of FPs and obtain more TNs. As TPs relate in the same way to FNs, we can quantify their respective relationships in the following rates:</p>
 <p><span class="math display">\[\begin{equation}
 \text{False Positive Rate}=\text{Sensitivity}=\frac{\text{False Positives}}{\text{False Positives}+\text{True Negatives}}
 \end{equation}\]</span></p>
@@ -414,26 +419,26 @@ Figure 22: Shifting <span class="math inline">\(\tau\)</span>
 \text{True Positive Rate}&amp;=1-\text{Specificity}=\frac{\text{True Positives}}{\text{True Positives}+\text{False Negatives}}\\[10pt]
 \text{Specificity}          &amp;=1-\text{True Positive Rate}=1-\frac{\text{TP}}{\text{TP}+\text{FN}} \nonumber
 \end{align}\]</span></p>
-<p>For our example the True Positive Rate (TPR) represents the proportion of correctly specified democracies. If we calculate these rates for each of our n confusion matrices, we are already reducing four quantities into two. Let’s do it. To provide a visual aid in this rather laborious process, I have created Figure <a href="model-fit-in-binary-response-models.html#fig:towardsroc">23</a> which depicts all eight shifts.</p>
+<p>For our example the True Positive Rate (TPR) represents the proportion of correctly specified democracies. If we calculate these rates for each of our n confusion matrices, we are already reducing four quantities into two. Let’s do it. To provide a visual aid in this rather laborious process, I have created Figure <a href="model-fit-in-binary-response-models.html#fig:towardsroc">25</a> which depicts all eight shifts.</p>
 <div class="figure"><span style="display:block;" id="fig:towardsroc"></span>
 <img src="files/Week%207/towardsroc.png" alt="\label{fig:towardsroc}Towards the ROC Curve" width="80%" />
 <p class="caption">
-Figure 23: Towards the ROC Curve
+Figure 25: Towards the ROC Curve
 </p>
 </div>
-<p>The following table displays the confusion matrix for each of the panels in Figure <a href="model-fit-in-binary-response-models.html#fig:towardsroc">23</a>, as well as the respective TPR and FPR (you are welcome).</p>
+<p>The following table displays the confusion matrix for each of the panels in Figure <a href="model-fit-in-binary-response-models.html#fig:towardsroc">25</a>, as well as the respective TPR and FPR (you are welcome).</p>
 <p><img src="files/Week%207/roctable.png" width="80%" /></p>
 <p>As we only need the TPRs and FPRs going forward, it makes sense to collect these in their own little table:</p>
 <p><img src="files/Week%207/fpr.png" width="30%" /></p>
-<p>We are nearly there! The last step is to display all these values in the form of a curve with the TPR on the y-axis, and the FPR on the x-axis. You can see the result – the ROC curve – in Figure <a href="model-fit-in-binary-response-models.html#fig:rocman">24</a> a).</p>
+<p>We are nearly there! The last step is to display all these values in the form of a curve with the TPR on the y-axis, and the FPR on the x-axis. You can see the result – the ROC curve – in Figure <a href="model-fit-in-binary-response-models.html#fig:rocman">26</a> a).</p>
 <div class="figure"><span style="display:block;" id="fig:rocman"></span>
 <img src="files/Week%207/rocman.png" alt="\label{fig:rocman}ROC Curve" width="80%" />
 <p class="caption">
-Figure 24: ROC Curve
+Figure 26: ROC Curve
 </p>
 </div>
 <p>Note that I have added a diagonal where TPR = FPR. This is sometimes described as a model without independent variables. I like to think of the line as the graphical point where our model would not be able to separate between the two categories, at all. The further the ROC curve is away from the diagonal, the better our model is at separating the two categories. But there are two sides to the diagonal. We want it to be above the diagonal, as here the model is predicting 0s as 0s and 1s as 1s. Underneath, the prediction is inverse and 0s are predicted as 1s, and 1s are predicted as 0s.</p>
-<p>To summarize the position of the curve into a numerical expression, the Area Under Curve (AUC) is used, as shown in Figure <a href="model-fit-in-binary-response-models.html#fig:rocman">24</a> b). If the area is 100% we are correctly predicting everything. At 50% the model is incapable of separation, and at 0% the model gets everything wrong. This is very useful to compare different models.</p>
+<p>To summarize the position of the curve into a numerical expression, the Area Under Curve (AUC) is used, as shown in Figure <a href="model-fit-in-binary-response-models.html#fig:rocman">26</a> b). If the area is 100% we are correctly predicting everything. At 50% the model is incapable of separation, and at 0% the model gets everything wrong. This is very useful to compare different models.</p>
 </div>
 <div id="r" class="section level3 unnumbered hasAnchor">
 <h3>R<a href="model-fit-in-binary-response-models.html#r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -507,8 +512,8 @@ Figure 24: ROC Curve
 
     <script>
 
-      function styleCell_kdb29jv58a4y8pug3r62(i, j, css_id) {
-          var table = document.getElementById("tinytable_kdb29jv58a4y8pug3r62");
+      function styleCell_11n7pts70y8quixexczr(i, j, css_id) {
+          var table = document.getElementById("tinytable_11n7pts70y8quixexczr");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -518,7 +523,7 @@ Figure 24: ROC Curve
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_kdb29jv58a4y8pug3r62');
+        var table = document.getElementById('tinytable_11n7pts70y8quixexczr');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -526,8 +531,8 @@ Figure 24: ROC Curve
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_kdb29jv58a4y8pug3r62(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_kdb29jv58a4y8pug3r62");
+      function spanCell_11n7pts70y8quixexczr(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_11n7pts70y8quixexczr");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -557,26 +562,26 @@ Figure 24: ROC Curve
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 1, j: 4 }, { i: 1, j: 3 },  ], css_id: 'tinytable_css_jnddvw0oikt079r2b7r0',}, 
-          { positions: [ { i: 0, j: 3 }, { i: 0, j: 2 }, { i: 0, j: 4 },  ], css_id: 'tinytable_css_u67h3eltcudc9o7gvq0w',}, 
-          { positions: [ { i: 12, j: 1 }, { i: 12, j: 4 }, { i: 12, j: 2 }, { i: 12, j: 3 },  ], css_id: 'tinytable_css_oznmht3hb06yovghkzce',}, 
-          { positions: [ { i: 10, j: 3 }, { i: 10, j: 2 }, { i: 10, j: 4 }, { i: 10, j: 1 },  ], css_id: 'tinytable_css_53v8yrhoigze4942tspk',}, 
-          { positions: [ { i: 4, j: 1 }, { i: 3, j: 1 }, { i: 8, j: 1 }, { i: 5, j: 1 }, { i: 7, j: 1 }, { i: 3, j: 2 }, { i: 9, j: 1 }, { i: 6, j: 1 }, { i: 11, j: 1 }, { i: 7, j: 2 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 11, j: 2 }, { i: 8, j: 2 }, { i: 9, j: 2 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 9, j: 3 }, { i: 5, j: 4 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 4, j: 4 }, { i: 9, j: 4 }, { i: 11, j: 3 }, { i: 3, j: 4 }, { i: 8, j: 4 }, { i: 6, j: 4 }, { i: 7, j: 4 }, { i: 11, j: 4 },  ], css_id: 'tinytable_css_mnsrw0cz407t7g99i5mp',}, 
-          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_9am5f6lok5frd7018mzq',}, 
-          { positions: [ { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_qjo7mtclqde9qt183fwe',}, 
-          { positions: [ { i: 2, j: 1 }, { i: 2, j: 2 }, { i: 2, j: 3 }, { i: 2, j: 4 },  ], css_id: 'tinytable_css_x794ddpuwu0awgdqhej9',}, 
-          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_jpzg8p9l8g8oe534raae',}, 
-          { positions: [ { i: 10, j: 0 },  ], css_id: 'tinytable_css_4aqg2fzanxqrieergcdw',}, 
-          { positions: [ { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 11, j: 0 },  ], css_id: 'tinytable_css_cu8gs4qni2bn5asmqx0r',}, 
-          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_tx74bae3zfqbcxklqe33',}, 
-          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_qae3d321wqc5tlth8czo',}, 
-          { positions: [ { i: 2, j: 0 },  ], css_id: 'tinytable_css_uqfgk2b5uf0uqtb9zor1',}, 
+          { positions: [ { i: 1, j: 4 }, { i: 1, j: 3 },  ], css_id: 'tinytable_css_060slv9xecpn93fd7rg8',}, 
+          { positions: [ { i: 0, j: 3 }, { i: 0, j: 2 }, { i: 0, j: 4 },  ], css_id: 'tinytable_css_r8m2c6il9o25piwql0bq',}, 
+          { positions: [ { i: 12, j: 1 }, { i: 12, j: 4 }, { i: 12, j: 2 }, { i: 12, j: 3 },  ], css_id: 'tinytable_css_prdj47tu5usuqpourxf6',}, 
+          { positions: [ { i: 10, j: 3 }, { i: 10, j: 2 }, { i: 10, j: 4 }, { i: 10, j: 1 },  ], css_id: 'tinytable_css_fumhtdjd5m2o5pg293jk',}, 
+          { positions: [ { i: 4, j: 1 }, { i: 3, j: 1 }, { i: 8, j: 1 }, { i: 5, j: 1 }, { i: 7, j: 1 }, { i: 3, j: 2 }, { i: 9, j: 1 }, { i: 6, j: 1 }, { i: 11, j: 1 }, { i: 7, j: 2 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 11, j: 2 }, { i: 8, j: 2 }, { i: 9, j: 2 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 9, j: 3 }, { i: 5, j: 4 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 4, j: 4 }, { i: 9, j: 4 }, { i: 11, j: 3 }, { i: 3, j: 4 }, { i: 8, j: 4 }, { i: 6, j: 4 }, { i: 7, j: 4 }, { i: 11, j: 4 },  ], css_id: 'tinytable_css_p33a46jpy3v278bs1mq4',}, 
+          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_sunf9vbp57s9qgua6sjx',}, 
+          { positions: [ { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_5eitodn96qjjaietd0kh',}, 
+          { positions: [ { i: 2, j: 1 }, { i: 2, j: 2 }, { i: 2, j: 3 }, { i: 2, j: 4 },  ], css_id: 'tinytable_css_4wgupp396npgqgtnjsw1',}, 
+          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_7v0fhp2albst662uhgac',}, 
+          { positions: [ { i: 10, j: 0 },  ], css_id: 'tinytable_css_ukxvlmsw2x4if0rqb8nd',}, 
+          { positions: [ { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 11, j: 0 },  ], css_id: 'tinytable_css_okxj68oui4fac3bscjvu',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_8riziu8sjs8axb53i1fs',}, 
+          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_b7nnn807jr18g4enbx5s',}, 
+          { positions: [ { i: 2, j: 0 },  ], css_id: 'tinytable_css_ba4oieqha2ogl78508lr',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_kdb29jv58a4y8pug3r62(cell.i, cell.j, group.css_id);
+                  styleCell_11n7pts70y8quixexczr(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -584,23 +589,23 @@ Figure 24: ROC Curve
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_jnddvw0oikt079r2b7r0, .table th.tinytable_css_jnddvw0oikt079r2b7r0 { text-align: center; text-align: center; }
-      .table td.tinytable_css_u67h3eltcudc9o7gvq0w, .table th.tinytable_css_u67h3eltcudc9o7gvq0w { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_oznmht3hb06yovghkzce, .table th.tinytable_css_oznmht3hb06yovghkzce { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_53v8yrhoigze4942tspk, .table th.tinytable_css_53v8yrhoigze4942tspk { text-align: center; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_mnsrw0cz407t7g99i5mp, .table th.tinytable_css_mnsrw0cz407t7g99i5mp { text-align: center; }
-      .table td.tinytable_css_9am5f6lok5frd7018mzq, .table th.tinytable_css_9am5f6lok5frd7018mzq { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_qjo7mtclqde9qt183fwe, .table th.tinytable_css_qjo7mtclqde9qt183fwe { text-align: center; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_x794ddpuwu0awgdqhej9, .table th.tinytable_css_x794ddpuwu0awgdqhej9 { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_jpzg8p9l8g8oe534raae, .table th.tinytable_css_jpzg8p9l8g8oe534raae { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_4aqg2fzanxqrieergcdw, .table th.tinytable_css_4aqg2fzanxqrieergcdw { text-align: left; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_cu8gs4qni2bn5asmqx0r, .table th.tinytable_css_cu8gs4qni2bn5asmqx0r { text-align: left; }
-      .table td.tinytable_css_tx74bae3zfqbcxklqe33, .table th.tinytable_css_tx74bae3zfqbcxklqe33 { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_qae3d321wqc5tlth8czo, .table th.tinytable_css_qae3d321wqc5tlth8czo { text-align: left; text-align: center; }
-      .table td.tinytable_css_uqfgk2b5uf0uqtb9zor1, .table th.tinytable_css_uqfgk2b5uf0uqtb9zor1 { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_060slv9xecpn93fd7rg8, .table th.tinytable_css_060slv9xecpn93fd7rg8 { text-align: center; text-align: center; }
+      .table td.tinytable_css_r8m2c6il9o25piwql0bq, .table th.tinytable_css_r8m2c6il9o25piwql0bq { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_prdj47tu5usuqpourxf6, .table th.tinytable_css_prdj47tu5usuqpourxf6 { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_fumhtdjd5m2o5pg293jk, .table th.tinytable_css_fumhtdjd5m2o5pg293jk { text-align: center; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_p33a46jpy3v278bs1mq4, .table th.tinytable_css_p33a46jpy3v278bs1mq4 { text-align: center; }
+      .table td.tinytable_css_sunf9vbp57s9qgua6sjx, .table th.tinytable_css_sunf9vbp57s9qgua6sjx { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_5eitodn96qjjaietd0kh, .table th.tinytable_css_5eitodn96qjjaietd0kh { text-align: center; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_4wgupp396npgqgtnjsw1, .table th.tinytable_css_4wgupp396npgqgtnjsw1 { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_7v0fhp2albst662uhgac, .table th.tinytable_css_7v0fhp2albst662uhgac { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_ukxvlmsw2x4if0rqb8nd, .table th.tinytable_css_ukxvlmsw2x4if0rqb8nd { text-align: left; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_okxj68oui4fac3bscjvu, .table th.tinytable_css_okxj68oui4fac3bscjvu { text-align: left; }
+      .table td.tinytable_css_8riziu8sjs8axb53i1fs, .table th.tinytable_css_8riziu8sjs8axb53i1fs { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_b7nnn807jr18g4enbx5s, .table th.tinytable_css_b7nnn807jr18g4enbx5s { text-align: left; text-align: center; }
+      .table td.tinytable_css_ba4oieqha2ogl78508lr, .table th.tinytable_css_ba4oieqha2ogl78508lr { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_kdb29jv58a4y8pug3r62" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
+      <table class="table table-borderless" id="tinytable_11n7pts70y8quixexczr" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
         <thead>
 <tr>
 <th scope="col" align="center" colspan=1> </th>
