@@ -533,6 +533,8 @@ Figure 27: Towards the ROC Curve
 <p> 
  </p>
 <p>The following table displays the confusion matrix for each of the panels in Figure <a href="model-fit-in-binary-response-models.html#fig:towardsroc">27</a>, as well as the respective TPR and FPR (you are welcome).</p>
+<p> 
+ </p>
 <table style="font-size:10px; margin-left:auto; margin-right:auto; border-collapse: collapse;">
 <thead>
 <tr>
@@ -1040,7 +1042,11 @@ FPR=0
 </tr>
 </tbody>
 </table>
+<p> 
+ </p>
 <p>As we only need the TPRs and FPRs going forward, it makes sense to collect these in their own little table:</p>
+<p> 
+ </p>
 <table style="font-size:10px; margin-left:auto; margin-right:auto; border-collapse: collapse; width: 4.5cm;">
 <thead>
 <tr>
@@ -1157,13 +1163,19 @@ i
 </tr>
 </tbody>
 </table>
+<p> 
+ </p>
 <p>We are nearly there! The last step is to display all these values in the form of a curve with the TPR on the y-axis, and the FPR on the x-axis. You can see the result – the ROC curve – in Figure <a href="model-fit-in-binary-response-models.html#fig:rocman">28</a> a).</p>
+<p> 
+ </p>
 <div class="figure"><span style="display:block;" id="fig:rocman"></span>
 <img src="files/Week%207/rocman.png" alt="\label{fig:rocman}ROC Curve" width="80%" />
 <p class="caption">
 Figure 28: ROC Curve
 </p>
 </div>
+<p> 
+ </p>
 <p>Note that I have added a diagonal where TPR = FPR. This is sometimes described as a model without independent variables. I like to think of the line as the graphical point where our model would not be able to separate between the two categories, at all. The further the ROC curve is away from the diagonal, the better our model is at separating the two categories. But there are two sides to the diagonal. We want it to be above the diagonal, as here the model is predicting 0s as 0s and 1s as 1s. Underneath, the prediction is inverse and 0s are predicted as 1s, and 1s are predicted as 0s.</p>
 <p>To summarize the position of the curve into a numerical expression, the Area Under Curve (AUC) is used, as shown in Figure <a href="model-fit-in-binary-response-models.html#fig:rocman">28</a> b). If the area is 100% we are correctly predicting everything. At 50% the model is incapable of separation, and at 0% the model gets everything wrong. This is very useful to compare different models.</p>
 </div>
@@ -1189,7 +1201,11 @@ Figure 28: ROC Curve
 </ul>
 <p>But we can also plot the ROC curve:</p>
 <div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="model-fit-in-binary-response-models.html#cb77-1" tabindex="-1"></a><span class="fu">plot</span>(roc1, <span class="at">print.auc=</span><span class="cn">TRUE</span>) </span></code></pre></div>
-<p><img src="main_files/figure-html/unnamed-chunk-138-1.png" width="70%" /></p>
+<p> 
+ </p>
+<p><img src="main_files/figure-html/unnamed-chunk-134-1.png" width="70%" /></p>
+<p> 
+ </p>
 <div class="bulb">
 <p>Note that <code>print.auc=TRUE</code> prints the numerical value into this plot. You can suppress it by setting it to <code>FALSE</code>.</p>
 </div>
@@ -1205,7 +1221,11 @@ Figure 28: ROC Curve
 <span id="cb78-6"><a href="model-fit-in-binary-response-models.html#cb78-6" tabindex="-1"></a><span class="fu">auc</span>(roc2)</span>
 <span id="cb78-7"><a href="model-fit-in-binary-response-models.html#cb78-7" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.596</span></span></code></pre></div>
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="model-fit-in-binary-response-models.html#cb79-1" tabindex="-1"></a><span class="fu">plot</span>(roc2, <span class="at">print.auc=</span><span class="cn">TRUE</span>) </span></code></pre></div>
-<p><img src="main_files/figure-html/unnamed-chunk-141-1.png" width="70%" /></p>
+<p> 
+ </p>
+<p><img src="main_files/figure-html/unnamed-chunk-137-1.png" width="70%" /></p>
+<p> 
+ </p>
 </div>
 <div id="survival" class="section level3 unnumbered hasAnchor">
 <h3>Survival<a href="model-fit-in-binary-response-models.html#survival" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1217,7 +1237,11 @@ Figure 28: ROC Curve
 <span id="cb80-6"><a href="model-fit-in-binary-response-models.html#cb80-6" tabindex="-1"></a><span class="fu">auc</span>(roc3)</span>
 <span id="cb80-7"><a href="model-fit-in-binary-response-models.html#cb80-7" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.8357</span></span></code></pre></div>
 <div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="model-fit-in-binary-response-models.html#cb81-1" tabindex="-1"></a><span class="fu">plot</span>(roc3, <span class="at">print.auc=</span><span class="cn">TRUE</span>) </span></code></pre></div>
-<p><img src="main_files/figure-html/unnamed-chunk-144-1.png" width="70%" /></p>
+<p> 
+ </p>
+<p><img src="main_files/figure-html/unnamed-chunk-140-1.png" width="70%" /></p>
+<p> 
+ </p>
 </div>
 <div id="survival-full-model" class="section level3 unnumbered hasAnchor">
 <h3>Survival: Full Model<a href="model-fit-in-binary-response-models.html#survival-full-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1229,7 +1253,11 @@ Figure 28: ROC Curve
 <span id="cb82-6"><a href="model-fit-in-binary-response-models.html#cb82-6" tabindex="-1"></a><span class="fu">auc</span>(roc4)</span>
 <span id="cb82-7"><a href="model-fit-in-binary-response-models.html#cb82-7" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.8224</span></span></code></pre></div>
 <div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="model-fit-in-binary-response-models.html#cb83-1" tabindex="-1"></a><span class="fu">plot</span>(roc4, <span class="at">print.auc=</span><span class="cn">TRUE</span>) </span></code></pre></div>
-<p><img src="main_files/figure-html/unnamed-chunk-147-1.png" width="70%" /></p>
+<p> 
+ </p>
+<p><img src="main_files/figure-html/unnamed-chunk-143-1.png" width="70%" /></p>
+<p> 
+ </p>
 </div>
 </div>
 <div id="including-roc-in-modelsummary" class="section level2 unnumbered hasAnchor">
@@ -1239,8 +1267,8 @@ Figure 28: ROC Curve
 
     <script>
 
-      function styleCell_kt6hglfn459pdg6hmd8x(i, j, css_id) {
-          var table = document.getElementById("tinytable_kt6hglfn459pdg6hmd8x");
+      function styleCell_jo1dd0spmukel57nwoj1(i, j, css_id) {
+          var table = document.getElementById("tinytable_jo1dd0spmukel57nwoj1");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -1250,7 +1278,7 @@ Figure 28: ROC Curve
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_kt6hglfn459pdg6hmd8x');
+        var table = document.getElementById('tinytable_jo1dd0spmukel57nwoj1');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -1258,8 +1286,8 @@ Figure 28: ROC Curve
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_kt6hglfn459pdg6hmd8x(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_kt6hglfn459pdg6hmd8x");
+      function spanCell_jo1dd0spmukel57nwoj1(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_jo1dd0spmukel57nwoj1");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -1289,26 +1317,26 @@ Figure 28: ROC Curve
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 1, j: 4 }, { i: 1, j: 3 },  ], css_id: 'tinytable_css_h2jtrhvn7nwdexgtw63x',}, 
-          { positions: [ { i: 0, j: 3 }, { i: 0, j: 2 }, { i: 0, j: 4 },  ], css_id: 'tinytable_css_lfnnkl0g6cffvce1hwla',}, 
-          { positions: [ { i: 12, j: 1 }, { i: 12, j: 4 }, { i: 12, j: 2 }, { i: 12, j: 3 },  ], css_id: 'tinytable_css_011x4c5mi0tsinf9rqzo',}, 
-          { positions: [ { i: 10, j: 3 }, { i: 10, j: 2 }, { i: 10, j: 4 }, { i: 10, j: 1 },  ], css_id: 'tinytable_css_otjdpsayarolokpw9gbh',}, 
-          { positions: [ { i: 4, j: 1 }, { i: 3, j: 1 }, { i: 8, j: 1 }, { i: 5, j: 1 }, { i: 7, j: 1 }, { i: 3, j: 2 }, { i: 9, j: 1 }, { i: 6, j: 1 }, { i: 11, j: 1 }, { i: 7, j: 2 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 11, j: 2 }, { i: 8, j: 2 }, { i: 9, j: 2 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 9, j: 3 }, { i: 5, j: 4 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 4, j: 4 }, { i: 9, j: 4 }, { i: 11, j: 3 }, { i: 3, j: 4 }, { i: 8, j: 4 }, { i: 6, j: 4 }, { i: 7, j: 4 }, { i: 11, j: 4 },  ], css_id: 'tinytable_css_47n7vcgkpj4d3iw5mva1',}, 
-          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_71uy7x7q8atiesp8iepc',}, 
-          { positions: [ { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_43xl81u1g4xb926a2z0w',}, 
-          { positions: [ { i: 2, j: 1 }, { i: 2, j: 2 }, { i: 2, j: 3 }, { i: 2, j: 4 },  ], css_id: 'tinytable_css_0nvw97l04r7vfiso21kc',}, 
-          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_5ogldu8o2y7tnb98s2y3',}, 
-          { positions: [ { i: 10, j: 0 },  ], css_id: 'tinytable_css_28yperg95308urlqmtv7',}, 
-          { positions: [ { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 11, j: 0 },  ], css_id: 'tinytable_css_8n6xzbuls6ek027ugaqv',}, 
-          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_3xw7yr8f4wxdyy0gc6b1',}, 
-          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_4oq2mjwvo8oo5dzqzvmk',}, 
-          { positions: [ { i: 2, j: 0 },  ], css_id: 'tinytable_css_7ijslviih6tqdu2mr81q',}, 
+          { positions: [ { i: 1, j: 4 }, { i: 1, j: 3 },  ], css_id: 'tinytable_css_t5vd3tcakdjrbk74r5s6',}, 
+          { positions: [ { i: 0, j: 3 }, { i: 0, j: 2 }, { i: 0, j: 4 },  ], css_id: 'tinytable_css_pzvr60y8ehk2qvmo9o5f',}, 
+          { positions: [ { i: 12, j: 1 }, { i: 12, j: 4 }, { i: 12, j: 2 }, { i: 12, j: 3 },  ], css_id: 'tinytable_css_49j3jc0sf7o12pmr5fuv',}, 
+          { positions: [ { i: 10, j: 3 }, { i: 10, j: 2 }, { i: 10, j: 4 }, { i: 10, j: 1 },  ], css_id: 'tinytable_css_rve2ch02m5gudswnbhf7',}, 
+          { positions: [ { i: 4, j: 1 }, { i: 3, j: 1 }, { i: 8, j: 1 }, { i: 5, j: 1 }, { i: 7, j: 1 }, { i: 3, j: 2 }, { i: 9, j: 1 }, { i: 6, j: 1 }, { i: 11, j: 1 }, { i: 7, j: 2 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 11, j: 2 }, { i: 8, j: 2 }, { i: 9, j: 2 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 9, j: 3 }, { i: 5, j: 4 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 4, j: 4 }, { i: 9, j: 4 }, { i: 11, j: 3 }, { i: 3, j: 4 }, { i: 8, j: 4 }, { i: 6, j: 4 }, { i: 7, j: 4 }, { i: 11, j: 4 },  ], css_id: 'tinytable_css_jtemlc6rngk85g3ztoaq',}, 
+          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_a4lq97vsmzdfco78fxrd',}, 
+          { positions: [ { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_r3e8q1ycqsc7vl34wp6n',}, 
+          { positions: [ { i: 2, j: 1 }, { i: 2, j: 2 }, { i: 2, j: 3 }, { i: 2, j: 4 },  ], css_id: 'tinytable_css_i9db25swngkxloevw6m7',}, 
+          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_ph1c1c84bnbj7g26i878',}, 
+          { positions: [ { i: 10, j: 0 },  ], css_id: 'tinytable_css_s3v5xglsbvwaa44af9nf',}, 
+          { positions: [ { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 11, j: 0 },  ], css_id: 'tinytable_css_rospewsfydtr3d18skes',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_ada3kojrlcsnwit50b36',}, 
+          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_t0gmx28qg4qzjjis5ng0',}, 
+          { positions: [ { i: 2, j: 0 },  ], css_id: 'tinytable_css_3bhzj0b5vmay5k7w4kwx',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_kt6hglfn459pdg6hmd8x(cell.i, cell.j, group.css_id);
+                  styleCell_jo1dd0spmukel57nwoj1(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1316,23 +1344,23 @@ Figure 28: ROC Curve
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_h2jtrhvn7nwdexgtw63x, .table th.tinytable_css_h2jtrhvn7nwdexgtw63x { text-align: center; text-align: center; }
-      .table td.tinytable_css_lfnnkl0g6cffvce1hwla, .table th.tinytable_css_lfnnkl0g6cffvce1hwla { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_011x4c5mi0tsinf9rqzo, .table th.tinytable_css_011x4c5mi0tsinf9rqzo { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_otjdpsayarolokpw9gbh, .table th.tinytable_css_otjdpsayarolokpw9gbh { text-align: center; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_47n7vcgkpj4d3iw5mva1, .table th.tinytable_css_47n7vcgkpj4d3iw5mva1 { text-align: center; }
-      .table td.tinytable_css_71uy7x7q8atiesp8iepc, .table th.tinytable_css_71uy7x7q8atiesp8iepc { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_43xl81u1g4xb926a2z0w, .table th.tinytable_css_43xl81u1g4xb926a2z0w { text-align: center; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_0nvw97l04r7vfiso21kc, .table th.tinytable_css_0nvw97l04r7vfiso21kc { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_5ogldu8o2y7tnb98s2y3, .table th.tinytable_css_5ogldu8o2y7tnb98s2y3 { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_28yperg95308urlqmtv7, .table th.tinytable_css_28yperg95308urlqmtv7 { text-align: left; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_8n6xzbuls6ek027ugaqv, .table th.tinytable_css_8n6xzbuls6ek027ugaqv { text-align: left; }
-      .table td.tinytable_css_3xw7yr8f4wxdyy0gc6b1, .table th.tinytable_css_3xw7yr8f4wxdyy0gc6b1 { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_4oq2mjwvo8oo5dzqzvmk, .table th.tinytable_css_4oq2mjwvo8oo5dzqzvmk { text-align: left; text-align: center; }
-      .table td.tinytable_css_7ijslviih6tqdu2mr81q, .table th.tinytable_css_7ijslviih6tqdu2mr81q { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_t5vd3tcakdjrbk74r5s6, .table th.tinytable_css_t5vd3tcakdjrbk74r5s6 { text-align: center; text-align: center; }
+      .table td.tinytable_css_pzvr60y8ehk2qvmo9o5f, .table th.tinytable_css_pzvr60y8ehk2qvmo9o5f { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_49j3jc0sf7o12pmr5fuv, .table th.tinytable_css_49j3jc0sf7o12pmr5fuv { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_rve2ch02m5gudswnbhf7, .table th.tinytable_css_rve2ch02m5gudswnbhf7 { text-align: center; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_jtemlc6rngk85g3ztoaq, .table th.tinytable_css_jtemlc6rngk85g3ztoaq { text-align: center; }
+      .table td.tinytable_css_a4lq97vsmzdfco78fxrd, .table th.tinytable_css_a4lq97vsmzdfco78fxrd { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_r3e8q1ycqsc7vl34wp6n, .table th.tinytable_css_r3e8q1ycqsc7vl34wp6n { text-align: center; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_i9db25swngkxloevw6m7, .table th.tinytable_css_i9db25swngkxloevw6m7 { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_ph1c1c84bnbj7g26i878, .table th.tinytable_css_ph1c1c84bnbj7g26i878 { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_s3v5xglsbvwaa44af9nf, .table th.tinytable_css_s3v5xglsbvwaa44af9nf { text-align: left; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_rospewsfydtr3d18skes, .table th.tinytable_css_rospewsfydtr3d18skes { text-align: left; }
+      .table td.tinytable_css_ada3kojrlcsnwit50b36, .table th.tinytable_css_ada3kojrlcsnwit50b36 { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_t0gmx28qg4qzjjis5ng0, .table th.tinytable_css_t0gmx28qg4qzjjis5ng0 { text-align: left; text-align: center; }
+      .table td.tinytable_css_3bhzj0b5vmay5k7w4kwx, .table th.tinytable_css_3bhzj0b5vmay5k7w4kwx { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_kt6hglfn459pdg6hmd8x" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
+      <table class="table table-borderless" id="tinytable_jo1dd0spmukel57nwoj1" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
         <thead>
 <tr>
 <th scope="col" align="center" colspan=1> </th>
