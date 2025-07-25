@@ -380,7 +380,7 @@ div.csl-indent {
 <p>YouTube link to follow</p>
 </div>
 <p>The principle idea of ROC is to determine how well our model is able to separate cases into the two categories of our dependent variable. It approaches this question by comparing the actual observed values of the dependent variable with the values the model would predict, given the values of the independent variables.</p>
-<p>Consider Figure <a href="model-fit-in-binary-response-models.html#fig:separation">23</a> a). On the x-axis you see eight observations, marked as coloured diamonds. Red diamonds represent countries which are dictatorships, and blue ones democracies. They are sorted by their respective level of per capita GDP. Now suppose that the displayed CDF is the results of a model we have estimated. With a cut off point <span class="math inline">\(\tau=0.5\)</span> we would correctly predict the group of four observations on the left to be dictatorships. They are True Negatives (TN). The group on the right would be correctly predicted as democracies, these are True Positives (TP). We have no incorrectly classified cases; our model has been able to separate cases perfectly. You can see this represented in the form of distributions in panel b).</p>
+<p>Consider Figure <a href="model-fit-in-binary-response-models.html#fig:separation">23</a> a). On the x-axis you see eight observations, marked as coloured circles. Red circles represent countries which are dictatorships, and orange ones democracies. They are sorted by their respective level of per capita GDP. Now suppose that the displayed CDF is the results of a model we have estimated. With a cut off point <span class="math inline">\(\tau=0.5\)</span> we would correctly predict the group of four observations on the left to be dictatorships. They are True Negatives (TN). The group on the right would be correctly predicted as democracies, these are True Positives (TP). We have no incorrectly classified cases; our model has been able to separate cases perfectly. You can see this represented in the form of distributions in panel b).</p>
 <p> 
  </p>
 <div class="figure"><span style="display:block;" id="fig:separation"></span>
@@ -1262,8 +1262,8 @@ Figure 28: ROC Curve
 
     <script>
 
-      function styleCell_fnxnxkb4f67052xxkf9v(i, j, css_id) {
-          var table = document.getElementById("tinytable_fnxnxkb4f67052xxkf9v");
+      function styleCell_qng95vbjiuaxllf12z3g(i, j, css_id) {
+          var table = document.getElementById("tinytable_qng95vbjiuaxllf12z3g");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -1273,7 +1273,7 @@ Figure 28: ROC Curve
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_fnxnxkb4f67052xxkf9v');
+        var table = document.getElementById('tinytable_qng95vbjiuaxllf12z3g');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -1281,8 +1281,8 @@ Figure 28: ROC Curve
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_fnxnxkb4f67052xxkf9v(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_fnxnxkb4f67052xxkf9v");
+      function spanCell_qng95vbjiuaxllf12z3g(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_qng95vbjiuaxllf12z3g");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -1312,26 +1312,26 @@ Figure 28: ROC Curve
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 1, j: 4 }, { i: 1, j: 3 },  ], css_id: 'tinytable_css_z6epm17zbi7muct88d9f',}, 
-          { positions: [ { i: 0, j: 3 }, { i: 0, j: 2 }, { i: 0, j: 4 },  ], css_id: 'tinytable_css_c5avauyxt93lg3nhxywc',}, 
-          { positions: [ { i: 12, j: 1 }, { i: 12, j: 4 }, { i: 12, j: 2 }, { i: 12, j: 3 },  ], css_id: 'tinytable_css_e1til554dbskrzf5wimd',}, 
-          { positions: [ { i: 10, j: 3 }, { i: 10, j: 2 }, { i: 10, j: 4 }, { i: 10, j: 1 },  ], css_id: 'tinytable_css_06fwfsu9h43590hox9zp',}, 
-          { positions: [ { i: 4, j: 1 }, { i: 3, j: 1 }, { i: 8, j: 1 }, { i: 5, j: 1 }, { i: 7, j: 1 }, { i: 3, j: 2 }, { i: 9, j: 1 }, { i: 6, j: 1 }, { i: 11, j: 1 }, { i: 7, j: 2 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 11, j: 2 }, { i: 8, j: 2 }, { i: 9, j: 2 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 9, j: 3 }, { i: 5, j: 4 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 4, j: 4 }, { i: 9, j: 4 }, { i: 11, j: 3 }, { i: 3, j: 4 }, { i: 8, j: 4 }, { i: 6, j: 4 }, { i: 7, j: 4 }, { i: 11, j: 4 },  ], css_id: 'tinytable_css_1ll2oo3mi8pfe6ju601s',}, 
-          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_k4modaluldox0nd7phki',}, 
-          { positions: [ { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_299a6w45supg2o1zl0oc',}, 
-          { positions: [ { i: 2, j: 1 }, { i: 2, j: 2 }, { i: 2, j: 3 }, { i: 2, j: 4 },  ], css_id: 'tinytable_css_hfv1so0a8vm71cr3oeke',}, 
-          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_2g319bfe0g0onr75o7ed',}, 
-          { positions: [ { i: 10, j: 0 },  ], css_id: 'tinytable_css_zrq4ixxgk7c8m660vdle',}, 
-          { positions: [ { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 11, j: 0 },  ], css_id: 'tinytable_css_zmklei21dgsx6mf965i7',}, 
-          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_es747lq5xe0ed3w61xpx',}, 
-          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_4p57t3fst6tiey94a287',}, 
-          { positions: [ { i: 2, j: 0 },  ], css_id: 'tinytable_css_9d1xx2pcgkg1flyxasmm',}, 
+          { positions: [ { i: 1, j: 4 }, { i: 1, j: 3 },  ], css_id: 'tinytable_css_tdr6qk82vucy4v0s5ttn',}, 
+          { positions: [ { i: 0, j: 3 }, { i: 0, j: 2 }, { i: 0, j: 4 },  ], css_id: 'tinytable_css_iysmof1s4eceur0n432n',}, 
+          { positions: [ { i: 12, j: 1 }, { i: 12, j: 4 }, { i: 12, j: 2 }, { i: 12, j: 3 },  ], css_id: 'tinytable_css_011oofgz5azbza1bt14v',}, 
+          { positions: [ { i: 10, j: 3 }, { i: 10, j: 2 }, { i: 10, j: 4 }, { i: 10, j: 1 },  ], css_id: 'tinytable_css_j5v5on4ljxdj5p5vhb89',}, 
+          { positions: [ { i: 4, j: 1 }, { i: 3, j: 1 }, { i: 8, j: 1 }, { i: 5, j: 1 }, { i: 7, j: 1 }, { i: 3, j: 2 }, { i: 9, j: 1 }, { i: 6, j: 1 }, { i: 11, j: 1 }, { i: 7, j: 2 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 11, j: 2 }, { i: 8, j: 2 }, { i: 9, j: 2 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 9, j: 3 }, { i: 5, j: 4 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 4, j: 4 }, { i: 9, j: 4 }, { i: 11, j: 3 }, { i: 3, j: 4 }, { i: 8, j: 4 }, { i: 6, j: 4 }, { i: 7, j: 4 }, { i: 11, j: 4 },  ], css_id: 'tinytable_css_hk7lug4fwrfw85umirx7',}, 
+          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_sc3rqev5jjqnbxo92zpp',}, 
+          { positions: [ { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_6znjc15ko93dlixi4co0',}, 
+          { positions: [ { i: 2, j: 1 }, { i: 2, j: 2 }, { i: 2, j: 3 }, { i: 2, j: 4 },  ], css_id: 'tinytable_css_ondldhq8erm16u6bxx6u',}, 
+          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_c6vskxsqkwi1r2h5smp3',}, 
+          { positions: [ { i: 10, j: 0 },  ], css_id: 'tinytable_css_2xwfj4z713ulnvhqihm8',}, 
+          { positions: [ { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 11, j: 0 },  ], css_id: 'tinytable_css_ezu8rqndgjhx7b1i4ytt',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_gnv9dv1ccahjiexcro2i',}, 
+          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_ucprr6bng2ss898261z8',}, 
+          { positions: [ { i: 2, j: 0 },  ], css_id: 'tinytable_css_hd2h55tocfjptqorykc2',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_fnxnxkb4f67052xxkf9v(cell.i, cell.j, group.css_id);
+                  styleCell_qng95vbjiuaxllf12z3g(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1339,23 +1339,23 @@ Figure 28: ROC Curve
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_z6epm17zbi7muct88d9f, .table th.tinytable_css_z6epm17zbi7muct88d9f { text-align: center; text-align: center; }
-      .table td.tinytable_css_c5avauyxt93lg3nhxywc, .table th.tinytable_css_c5avauyxt93lg3nhxywc { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_e1til554dbskrzf5wimd, .table th.tinytable_css_e1til554dbskrzf5wimd { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_06fwfsu9h43590hox9zp, .table th.tinytable_css_06fwfsu9h43590hox9zp { text-align: center; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_1ll2oo3mi8pfe6ju601s, .table th.tinytable_css_1ll2oo3mi8pfe6ju601s { text-align: center; }
-      .table td.tinytable_css_k4modaluldox0nd7phki, .table th.tinytable_css_k4modaluldox0nd7phki { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_299a6w45supg2o1zl0oc, .table th.tinytable_css_299a6w45supg2o1zl0oc { text-align: center; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_hfv1so0a8vm71cr3oeke, .table th.tinytable_css_hfv1so0a8vm71cr3oeke { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_2g319bfe0g0onr75o7ed, .table th.tinytable_css_2g319bfe0g0onr75o7ed { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_zrq4ixxgk7c8m660vdle, .table th.tinytable_css_zrq4ixxgk7c8m660vdle { text-align: left; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_zmklei21dgsx6mf965i7, .table th.tinytable_css_zmklei21dgsx6mf965i7 { text-align: left; }
-      .table td.tinytable_css_es747lq5xe0ed3w61xpx, .table th.tinytable_css_es747lq5xe0ed3w61xpx { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_4p57t3fst6tiey94a287, .table th.tinytable_css_4p57t3fst6tiey94a287 { text-align: left; text-align: center; }
-      .table td.tinytable_css_9d1xx2pcgkg1flyxasmm, .table th.tinytable_css_9d1xx2pcgkg1flyxasmm { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_tdr6qk82vucy4v0s5ttn, .table th.tinytable_css_tdr6qk82vucy4v0s5ttn { text-align: center; text-align: center; }
+      .table td.tinytable_css_iysmof1s4eceur0n432n, .table th.tinytable_css_iysmof1s4eceur0n432n { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_011oofgz5azbza1bt14v, .table th.tinytable_css_011oofgz5azbza1bt14v { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_j5v5on4ljxdj5p5vhb89, .table th.tinytable_css_j5v5on4ljxdj5p5vhb89 { text-align: center; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_hk7lug4fwrfw85umirx7, .table th.tinytable_css_hk7lug4fwrfw85umirx7 { text-align: center; }
+      .table td.tinytable_css_sc3rqev5jjqnbxo92zpp, .table th.tinytable_css_sc3rqev5jjqnbxo92zpp { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_6znjc15ko93dlixi4co0, .table th.tinytable_css_6znjc15ko93dlixi4co0 { text-align: center; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_ondldhq8erm16u6bxx6u, .table th.tinytable_css_ondldhq8erm16u6bxx6u { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_c6vskxsqkwi1r2h5smp3, .table th.tinytable_css_c6vskxsqkwi1r2h5smp3 { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_2xwfj4z713ulnvhqihm8, .table th.tinytable_css_2xwfj4z713ulnvhqihm8 { text-align: left; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_ezu8rqndgjhx7b1i4ytt, .table th.tinytable_css_ezu8rqndgjhx7b1i4ytt { text-align: left; }
+      .table td.tinytable_css_gnv9dv1ccahjiexcro2i, .table th.tinytable_css_gnv9dv1ccahjiexcro2i { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_ucprr6bng2ss898261z8, .table th.tinytable_css_ucprr6bng2ss898261z8 { text-align: left; text-align: center; }
+      .table td.tinytable_css_hd2h55tocfjptqorykc2, .table th.tinytable_css_hd2h55tocfjptqorykc2 { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_fnxnxkb4f67052xxkf9v" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
+      <table class="table table-borderless" id="tinytable_qng95vbjiuaxllf12z3g" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
         <thead>
 <tr>
 <th scope="col" align="center" colspan=1> </th>
