@@ -29,7 +29,7 @@
   
   
 <link rel="prev" href="linear-regression---theory.html"/>
-<link rel="next" href="important-disclaimer.html"/>
+<link rel="next" href="homework-for-week-3.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -237,8 +237,8 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#limitations"><i class="fa fa-check"></i>Limitations</a></li>
 <li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#literature-recommendations"><i class="fa fa-check"></i>Literature Recommendations</a></li>
+<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#important-disclaimer"><i class="fa fa-check"></i>Important Disclaimer</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="important-disclaimer.html"><a href="important-disclaimer.html"><i class="fa fa-check"></i>Important Disclaimer</a></li>
 <li class="chapter" data-level="" data-path="homework-for-week-3.html"><a href="homework-for-week-3.html"><i class="fa fa-check"></i>Homework for Week 3</a></li>
 <li class="chapter" data-level="" data-path="glossary-1.html"><a href="glossary-1.html"><i class="fa fa-check"></i>Glossary</a></li>
 <li class="chapter" data-level="" data-path="flashcards-1.html"><a href="flashcards-1.html"><i class="fa fa-check"></i>Flashcards</a></li>
@@ -524,10 +524,8 @@ div.csl-indent {
 </div>
 <div id="r-squared-again" class="section level3 unnumbered hasAnchor">
 <h3>R-Squared Again<a href="linear-regression-application.html#r-squared-again" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>As soon as we introduce more than one independent variable to the model, we cannot use “Multiple R-Squared” any more. The reason is that this measure cannot properly take into account added variables. It will either stay the same, or increase, it cannot decrease. This of course, makes no sense, for example if we add average shoe size in 1994 to the analysis, this would not help to explain democracy, but Multiple R-Squared would still likely go up. We therefore need to new measure, called As the number of hospital beds only explain the Polity V score partially now, the coefficients in a multiple regression model are also known as
-<span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">Adjusted R-Squared</a></span> which not only penalises us for adding more indepenent variables, but will also decrease if a variable takes explanatory power away from a model. You find it here:</p>
-<p><img src="files/Week%202/ceteris.png" width="75%" style="display: block; margin: auto;" />
-</p>
+<p>As soon as we introduce more than one independent variable to the model, we cannot use “Multiple R-Squared” any more. The reason is that this measure cannot properly take into account added variables. It will either stay the same, or increase, it cannot decrease. This of course, makes no sense, for example if we add average shoe size in 1994 to the analysis, this would not help to explain democracy, but Multiple R-Squared would still likely go up. We therefore need a new measure, called <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">Adjusted R-Squared</a></span> which not only penalises us for adding more independent variables, but will also decrease if a variable takes explanatory power away from a model. You find it here:</p>
+<p><img src="files/Week%202/ceteris.png" width="75%" style="display: block; margin: auto;" /></p>
 <hr />
 </div>
 </div>
@@ -545,6 +543,15 @@ div.csl-indent {
 <li><a href="https://warwick.summon.serialssolutions.com/#!/search/document?pn=1&amp;ho=t&amp;include.ft.matches=f&amp;fvf=ContentType,Newspaper%20Article,t%7CContentType,Book%20Review,t&amp;l=en-UK&amp;q=fogarty%20social%20science&amp;id=FETCHMERGED-warwick_catalog_b396978733"><strong><span class="citation">Fogarty (2023)</span></strong></a>: Chapter 11, read Chapter 12 if you want to be really good</li>
 <li><a href="https://warwick.summon.serialssolutions.com/#!/search/document?pn=1&amp;ho=t&amp;include.ft.matches=f&amp;fvf=ContentType,Newspaper%20Article,t%7CContentType,Book%20Review,t&amp;l=en-UK&amp;q=stinerock%20r&amp;id=FETCHMERGED-warwick_catalog_b396975143"><strong><span class="citation">Stinerock (2022)</span></strong></a>: Chapter 12 and Sections 13.1-13.5, 13.8 and 13.10.</li>
 </ul>
+<hr />
+</div>
+<div id="important-disclaimer" class="section level2 unnumbered hasAnchor">
+<h2>Important Disclaimer<a href="linear-regression-application.html#important-disclaimer" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>I have discussed linear regression with you this week for two reasons:</p>
+<ol style="list-style-type: decimal">
+<li>I am trying to sketch the methodological development through which the relationship between economic development and democracy has been analysed over time. <span class="citation">Lipset (1959)</span> started with a simple correlation analysis, and this quickly developed into linear regression analysis, as it is more powerful and more sophisticated than correlation analysis.</li>
+<li>It forms the foundation for the binary response models (probit in our case) which we will start with next week. To start with, we will only look at the probability to be democratic in a particular year across different countries. But in Week 7, we will extend this to not only investigate this relationship across countries, but also over time. This dynamic probit, or Markov Transition Model (MTM), is the model you need to apply in the assessment of the module. Please DO NOT stick to linear regression in the assessment, as OLS is not capable to deal with time-series data. The same applies for a cross-sectional probit. The only method permissible int he assessment is an MTM.</li>
+</ol>
 </div>
 </div>
 <div class="footnotes">
@@ -559,7 +566,7 @@ div.csl-indent {
         </div>
       </div>
 <a href="linear-regression---theory.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="important-disclaimer.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="homework-for-week-3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
