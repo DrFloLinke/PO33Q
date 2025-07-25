@@ -516,7 +516,9 @@ P(y_{i,t} = 1 | y_{i, t-1} = 0)
 <span id="cb65-3"><a href="markov-transition-models.html#cb65-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.democracy =</span> <span class="fu">lag</span>(democracy)) <span class="sc">%&gt;%</span></span>
 <span id="cb65-4"><a href="markov-transition-models.html#cb65-4" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
 <p>This creates a new variable <code>l.democracy</code> which gives us the information we were after: the regime type of the country in the previous year. Note that as the first observation for each country cannot be lagged, it creates as many missing values as we have countries in the data set. Perhaps this makes more sense with a visualisation:</p>
-<p><img src="files/Week%207/lag_schematic.png" width="40%" /></p>
+<p> </p>
+<p><img src="files/Week%207/lag_schematic.png" width="65%" /></p>
+<p> </p>
 </div>
 <div id="lagging-the-independent-variables" class="section level3 unnumbered hasAnchor">
 <h3>Lagging the Independent Variables<a href="markov-transition-models.html#lagging-the-independent-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -537,7 +539,7 @@ P(y_{i,t} = 1 | y_{i, t-1} = 0)
 <span id="cb68-3"><a href="markov-transition-models.html#cb68-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.enrol_gross =</span> <span class="fu">lag</span>(enrol_gross)) <span class="sc">%&gt;%</span></span>
 <span id="cb68-4"><a href="markov-transition-models.html#cb68-4" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
 <div class="bulb">
-<p>Remember when writing the assessment in general, and the methods section in particular, ythat lagging the independent variables is not a methodological consideration, but a substantive one. It has nothing to do with the Markov Transition Model itself.</p>
+<p>Remember when writing the assessment in general, and the methods section in particular, that lagging the independent variables is not a methodological consideration, but a substantive one. It has nothing to do with the Markov Transition Model itself.</p>
 </div>
 </div>
 <div id="subsetting-the-data-for-conditional-probabilities" class="section level3 unnumbered hasAnchor">
@@ -552,7 +554,7 @@ P(y_{i,t} = 1 | y_{i, t-1} = 0)
 </div>
 <div id="democratic-emergence-1" class="section level2 unnumbered hasAnchor">
 <h2>Democratic Emergence<a href="markov-transition-models.html#democratic-emergence-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Even though “Markov Transition Model” sounds very complicated, the code in R is actually no different from a “regular” probit model. The only difference is that we have selected a certain type of observations. For emergence we call:</p>
+<p>Even though “Markov Transition Model” sounds very complicated, the code in R is actually no different from a “regular” probit model. The only difference is that we have selected a certain type of observations. For emergence we use the data frame <code>world_democ0</code>:</p>
 <div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="markov-transition-models.html#cb71-1" tabindex="-1"></a>emergence <span class="ot">&lt;-</span> <span class="fu">glm</span>(democracy <span class="sc">~</span> l.gdppc, </span>
 <span id="cb71-2"><a href="markov-transition-models.html#cb71-2" tabindex="-1"></a>                 <span class="at">data =</span> world_democ0, </span>
 <span id="cb71-3"><a href="markov-transition-models.html#cb71-3" tabindex="-1"></a>                 <span class="at">na.action =</span> na.exclude,</span>
@@ -617,7 +619,7 @@ P(y_{i,t} = 1 | y_{i, t-1} = 0)
 <p><span class="math display">\[\begin{equation*}
 P(y_{i,t} = 1 | y_{i, t-1} = 1)
 \end{equation*}\]</span></p>
-<p>we call:</p>
+<p>This time we use <code>world_democ1</code>:</p>
 <div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="markov-transition-models.html#cb73-1" tabindex="-1"></a>survival <span class="ot">&lt;-</span> <span class="fu">glm</span>(democracy <span class="sc">~</span> l.gdppc,</span>
 <span id="cb73-2"><a href="markov-transition-models.html#cb73-2" tabindex="-1"></a>                <span class="at">data =</span> world_democ1, </span>
 <span id="cb73-3"><a href="markov-transition-models.html#cb73-3" tabindex="-1"></a>                <span class="at">na.action =</span> na.exclude,</span>
