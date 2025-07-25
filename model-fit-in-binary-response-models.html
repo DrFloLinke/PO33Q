@@ -425,89 +425,84 @@ Figure 26: Shifting <span class="math inline">\(\tau\)</span>
 <p> 
  </p>
 <p>These are only three options of placing the threshold. But we have a total of eight observations which means that there are nine potential positions for the cut-off point with each leading to a different conclusion of how well our model fits the observed data. Let’s go through this more systematically and start by placing <span class="math inline">\(\tau\)</span> at the very bottom. Because the number of TNs, TPs, FNs, and FPs will only change at the “next” observation we only need to shift as many times as there are observations. For each shift we record the values of all four quantities in a crosstabulation which is displayed in the following table:</p>
-<table class="table" style="color: black; width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:crosstab">Table 11: </span>Crosstabulation — Schematic
-</caption>
+<table style="border-collapse: collapse; width: auto; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
-<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
+<th style="padding: 6px;">
 </th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="3">
-<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
-Actual
-</div>
+<th colspan="3" style="text-align: center; padding: 6px;">
+<strong>Actual</strong>
 </th>
 </tr>
 <tr>
-<th style="text-align:left;">
+<th style="padding: 6px;">
 </th>
-<th style="text-align:center;">
-Democracy
+<th style="padding: 6px;">
+<strong>Democracy</strong>
 </th>
-<th style="text-align:center;">
+<th style="padding: 6px;">
 </th>
-<th style="text-align:center;">
-Dictatorship
+<th style="padding: 6px;">
+<strong>Dictatorship</strong>
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;font-weight: bold;">
-Predicted
+<td style="padding: 6px;">
+<strong>Predicted</strong>
 </td>
-<td style="text-align:center;width: 2.5cm; ">
+<td style="padding: 6px;">
 </td>
-<td style="text-align:center;width: 2.5cm; ">
+<td style="padding: 6px;">
 </td>
-<td style="text-align:center;width: 2.5cm; ">
+<td style="padding: 6px;">
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;">
-Democracy
+<td style="padding: 6px;">
+<strong>Democracy</strong>
 </td>
-<td style="text-align:center;width: 2.5cm; ">
+<td style="padding: 6px;">
 True Positive
 </td>
-<td style="text-align:center;width: 2.5cm; ">
+<td style="padding: 6px;">
 </td>
-<td style="text-align:center;width: 2.5cm; ">
+<td style="padding: 6px;">
 False Positive
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;">
+<td style="padding: 6px;">
 </td>
-<td style="text-align:center;width: 2.5cm; ">
+<td style="padding: 6px;">
 </td>
-<td style="text-align:center;width: 2.5cm; ">
+<td style="padding: 6px;">
 </td>
-<td style="text-align:center;width: 2.5cm; ">
+<td style="padding: 6px;">
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;">
-Dictatorship
+<td style="padding: 6px;">
+<strong>Dictatorship</strong>
 </td>
-<td style="text-align:center;width: 2.5cm; ">
+<td style="padding: 6px;">
 False Negative
 </td>
-<td style="text-align:center;width: 2.5cm; ">
+<td style="padding: 6px;">
 </td>
-<td style="text-align:center;width: 2.5cm; ">
+<td style="padding: 6px;">
 True Negative
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;">
+<td style="padding: 6px;">
 </td>
-<td style="text-align:center;width: 2.5cm; ">
+<td style="padding: 6px;">
 </td>
-<td style="text-align:center;width: 2.5cm; ">
+<td style="padding: 6px;">
 </td>
-<td style="text-align:center;width: 2.5cm; ">
+<td style="padding: 6px;">
 </td>
 </tr>
 </tbody>
@@ -538,506 +533,506 @@ Figure 27: Towards the ROC Curve
 <table style="font-size:10px; margin-left:auto; margin-right:auto; border-collapse: collapse;">
 <thead>
 <tr>
-<th>
+<th style="padding-left:6px; padding-right:6px;">
 </th>
-<th style="text-align:center;">
+<th style="text-align:center; padding-left:6px; padding-right:6px;">
 a)
 </th>
-<th colspan="2" style="text-align:center;">
+<th colspan="2" style="text-align:center; padding-left:6px; padding-right:6px;">
 Actual
 </th>
-<th style="text-align:center;">
+<th style="text-align:center; padding-left:6px; padding-right:6px;">
 b)
 </th>
-<th colspan="2" style="text-align:center;">
+<th colspan="2" style="text-align:center; padding-left:6px; padding-right:6px;">
 Actual
 </th>
 </tr>
 <tr>
-<th>
+<th style="padding-left:6px; padding-right:6px;">
 </th>
-<th>
+<th style="padding-left:6px; padding-right:6px;">
 </th>
-<th style="text-align:center;">
+<th style="text-align:center; padding-left:6px; padding-right:6px;">
 Dem
 </th>
-<th style="text-align:center;">
+<th style="text-align:center; padding-left:6px; padding-right:6px;">
 Dic
 </th>
-<th>
+<th style="padding-left:6px; padding-right:6px;">
 </th>
-<th style="text-align:center;">
+<th style="text-align:center; padding-left:6px; padding-right:6px;">
 Dem
 </th>
-<th style="text-align:center;">
+<th style="text-align:center; padding-left:6px; padding-right:6px;">
 Dic
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th rowspan="2" style="vertical-align:middle;">
+<th rowspan="2" style="vertical-align:middle; padding-left:6px; padding-right:6px;">
 Pred.
 </th>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 Dem
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 TP=4
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 FP=4
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 Dem
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 TP=4
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 FP=3
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 Dic
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 FN=0
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 TN=0
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 Dic
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 FN=0
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 TN=1
 </td>
 </tr>
 <tr>
-<td>
+<td style="padding-left:6px; padding-right:6px;">
 </td>
-<td>
+<td style="padding-left:6px; padding-right:6px;">
 </td>
-<td style="text-align:center; font-weight:bold;">
+<td style="text-align:center; font-weight:bold; padding-left:6px; padding-right:6px;">
 TPR=1
 </td>
-<td style="text-align:center; font-weight:bold;">
+<td style="text-align:center; font-weight:bold; padding-left:6px; padding-right:6px;">
 FPR=1
 </td>
-<td>
+<td style="padding-left:6px; padding-right:6px;">
 </td>
-<td style="text-align:center; font-weight:bold;">
+<td style="text-align:center; font-weight:bold; padding-left:6px; padding-right:6px;">
 TPR=1
 </td>
-<td style="text-align:center; font-weight:bold;">
+<td style="text-align:center; font-weight:bold; padding-left:6px; padding-right:6px;">
 FPR=0.75
 </td>
 </tr>
 <tr>
-<td colspan="7" style="height:12px;">
+<td colspan="7" style="height:12px; padding-left:6px; padding-right:6px;">
 </td>
 </tr>
 <tr>
-<th>
+<th style="padding-left:6px; padding-right:6px;">
 </th>
-<th style="text-align:center;">
+<th style="text-align:center; padding-left:6px; padding-right:6px;">
 c)
 </th>
-<th colspan="2" style="text-align:center;">
+<th colspan="2" style="text-align:center; padding-left:6px; padding-right:6px;">
 Actual
 </th>
-<th style="text-align:center;">
+<th style="text-align:center; padding-left:6px; padding-right:6px;">
 d)
 </th>
-<th colspan="2" style="text-align:center;">
+<th colspan="2" style="text-align:center; padding-left:6px; padding-right:6px;">
 Actual
 </th>
 </tr>
 <tr>
-<th>
+<th style="padding-left:6px; padding-right:6px;">
 </th>
-<th>
+<th style="padding-left:6px; padding-right:6px;">
 </th>
-<th style="text-align:center;">
+<th style="text-align:center; padding-left:6px; padding-right:6px;">
 Dem
 </th>
-<th style="text-align:center;">
+<th style="text-align:center; padding-left:6px; padding-right:6px;">
 Dic
 </th>
-<th>
+<th style="padding-left:6px; padding-right:6px;">
 </th>
-<th style="text-align:center;">
+<th style="text-align:center; padding-left:6px; padding-right:6px;">
 Dem
 </th>
-<th style="text-align:center;">
+<th style="text-align:center; padding-left:6px; padding-right:6px;">
 Dic
 </th>
 </tr>
 <tr>
-<th rowspan="2" style="vertical-align:middle;">
+<th rowspan="2" style="vertical-align:middle; padding-left:6px; padding-right:6px;">
 Pred.
 </th>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 Dem
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 TP=4
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 FP=2
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 Dem
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 TP=3
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 FP=2
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 Dic
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 FN=0
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 TN=2
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 Dic
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 FN=1
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 TN=2
 </td>
 </tr>
 <tr>
-<td>
+<td style="padding-left:6px; padding-right:6px;">
 </td>
-<td>
+<td style="padding-left:6px; padding-right:6px;">
 </td>
-<td style="text-align:center; font-weight:bold;">
+<td style="text-align:center; font-weight:bold; padding-left:6px; padding-right:6px;">
 TPR=1
 </td>
-<td style="text-align:center; font-weight:bold;">
+<td style="text-align:center; font-weight:bold; padding-left:6px; padding-right:6px;">
 FPR=0.5
 </td>
-<td>
+<td style="padding-left:6px; padding-right:6px;">
 </td>
-<td style="text-align:center; font-weight:bold;">
+<td style="text-align:center; font-weight:bold; padding-left:6px; padding-right:6px;">
 TPR=0.75
 </td>
-<td style="text-align:center; font-weight:bold;">
+<td style="text-align:center; font-weight:bold; padding-left:6px; padding-right:6px;">
 FPR=0.5
 </td>
 </tr>
 <tr>
-<td colspan="7" style="height:12px;">
+<td colspan="7" style="height:12px; padding-left:6px; padding-right:6px;">
 </td>
 </tr>
 <tr>
-<th>
+<th style="padding-left:6px; padding-right:6px;">
 </th>
-<th style="text-align:center;">
+<th style="text-align:center; padding-left:6px; padding-right:6px;">
 e)
 </th>
-<th colspan="2" style="text-align:center;">
+<th colspan="2" style="text-align:center; padding-left:6px; padding-right:6px;">
 Actual
 </th>
-<th style="text-align:center;">
+<th style="text-align:center; padding-left:6px; padding-right:6px;">
 f)
 </th>
-<th colspan="2" style="text-align:center;">
+<th colspan="2" style="text-align:center; padding-left:6px; padding-right:6px;">
 Actual
 </th>
 </tr>
 <tr>
-<th>
+<th style="padding-left:6px; padding-right:6px;">
 </th>
-<th>
+<th style="padding-left:6px; padding-right:6px;">
 </th>
-<th style="text-align:center;">
+<th style="text-align:center; padding-left:6px; padding-right:6px;">
 Dem
 </th>
-<th style="text-align:center;">
+<th style="text-align:center; padding-left:6px; padding-right:6px;">
 Dic
 </th>
-<th>
+<th style="padding-left:6px; padding-right:6px;">
 </th>
-<th style="text-align:center;">
+<th style="text-align:center; padding-left:6px; padding-right:6px;">
 Dem
 </th>
-<th style="text-align:center;">
+<th style="text-align:center; padding-left:6px; padding-right:6px;">
 Dic
 </th>
 </tr>
 <tr>
-<th rowspan="2" style="vertical-align:middle;">
+<th rowspan="2" style="vertical-align:middle; padding-left:6px; padding-right:6px;">
 Pred.
 </th>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 Dem
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 TP=3
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 FP=1
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 Dem
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 TP=3
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 FP=0
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 Dic
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 FN=1
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 TN=3
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 Dic
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 FN=1
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 TN=4
 </td>
 </tr>
 <tr>
-<td>
+<td style="padding-left:6px; padding-right:6px;">
 </td>
-<td>
+<td style="padding-left:6px; padding-right:6px;">
 </td>
-<td style="text-align:center; font-weight:bold;">
+<td style="text-align:center; font-weight:bold; padding-left:6px; padding-right:6px;">
 TPR=0.75
 </td>
-<td style="text-align:center; font-weight:bold;">
+<td style="text-align:center; font-weight:bold; padding-left:6px; padding-right:6px;">
 FPR=0.25
 </td>
-<td>
+<td style="padding-left:6px; padding-right:6px;">
 </td>
-<td style="text-align:center; font-weight:bold;">
+<td style="text-align:center; font-weight:bold; padding-left:6px; padding-right:6px;">
 TPR=0.75
 </td>
-<td style="text-align:center; font-weight:bold;">
+<td style="text-align:center; font-weight:bold; padding-left:6px; padding-right:6px;">
 FPR=0
 </td>
 </tr>
 <tr>
-<td colspan="7" style="height:12px;">
+<td colspan="7" style="height:12px; padding-left:6px; padding-right:6px;">
 </td>
 </tr>
 <tr>
-<th>
+<th style="padding-left:6px; padding-right:6px;">
 </th>
-<th style="text-align:center;">
+<th style="text-align:center; padding-left:6px; padding-right:6px;">
 g)
 </th>
-<th colspan="2" style="text-align:center;">
+<th colspan="2" style="text-align:center; padding-left:6px; padding-right:6px;">
 Actual
 </th>
-<th style="text-align:center;">
+<th style="text-align:center; padding-left:6px; padding-right:6px;">
 h)
 </th>
-<th colspan="2" style="text-align:center;">
+<th colspan="2" style="text-align:center; padding-left:6px; padding-right:6px;">
 Actual
 </th>
 </tr>
 <tr>
-<th>
+<th style="padding-left:6px; padding-right:6px;">
 </th>
-<th>
+<th style="padding-left:6px; padding-right:6px;">
 </th>
-<th style="text-align:center;">
+<th style="text-align:center; padding-left:6px; padding-right:6px;">
 Dem
 </th>
-<th style="text-align:center;">
+<th style="text-align:center; padding-left:6px; padding-right:6px;">
 Dic
 </th>
-<th>
+<th style="padding-left:6px; padding-right:6px;">
 </th>
-<th style="text-align:center;">
+<th style="text-align:center; padding-left:6px; padding-right:6px;">
 Dem
 </th>
-<th style="text-align:center;">
+<th style="text-align:center; padding-left:6px; padding-right:6px;">
 Dic
 </th>
 </tr>
 <tr>
-<th rowspan="2" style="vertical-align:middle;">
+<th rowspan="2" style="vertical-align:middle; padding-left:6px; padding-right:6px;">
 Pred.
 </th>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 Dem
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 TP=2
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 FP=0
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 Dem
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 TP=1
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 FP=0
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 Dic
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 FN=2
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 TN=4
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 Dic
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 FN=3
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 TN=4
 </td>
 </tr>
 <tr>
-<td>
+<td style="padding-left:6px; padding-right:6px;">
 </td>
-<td>
+<td style="padding-left:6px; padding-right:6px;">
 </td>
-<td style="text-align:center; font-weight:bold;">
+<td style="text-align:center; font-weight:bold; padding-left:6px; padding-right:6px;">
 TPR=0.5
 </td>
-<td style="text-align:center; font-weight:bold;">
+<td style="text-align:center; font-weight:bold; padding-left:6px; padding-right:6px;">
 FPR=0
 </td>
-<td>
+<td style="padding-left:6px; padding-right:6px;">
 </td>
-<td style="text-align:center; font-weight:bold;">
+<td style="text-align:center; font-weight:bold; padding-left:6px; padding-right:6px;">
 TPR=0.25
 </td>
-<td style="text-align:center; font-weight:bold;">
+<td style="text-align:center; font-weight:bold; padding-left:6px; padding-right:6px;">
 FPR=0
 </td>
 </tr>
 <tr>
-<td colspan="7" style="height:12px;">
+<td colspan="7" style="height:12px; padding-left:6px; padding-right:6px;">
 </td>
 </tr>
 <tr>
-<th>
+<th style="padding-left:6px; padding-right:6px;">
 </th>
-<th style="text-align:center;">
+<th style="text-align:center; padding-left:6px; padding-right:6px;">
 i)
 </th>
-<th colspan="2" style="text-align:center;">
+<th colspan="2" style="text-align:center; padding-left:6px; padding-right:6px;">
 Actual
 </th>
-<th>
+<th style="padding-left:6px; padding-right:6px;">
 </th>
-<th>
+<th style="padding-left:6px; padding-right:6px;">
 </th>
-<th>
+<th style="padding-left:6px; padding-right:6px;">
 </th>
 </tr>
 <tr>
-<th>
+<th style="padding-left:6px; padding-right:6px;">
 </th>
-<th>
+<th style="padding-left:6px; padding-right:6px;">
 </th>
-<th style="text-align:center;">
+<th style="text-align:center; padding-left:6px; padding-right:6px;">
 Dem
 </th>
-<th style="text-align:center;">
+<th style="text-align:center; padding-left:6px; padding-right:6px;">
 Dic
 </th>
-<th>
+<th style="padding-left:6px; padding-right:6px;">
 </th>
-<th>
+<th style="padding-left:6px; padding-right:6px;">
 </th>
-<td>
+<td style="padding-left:6px; padding-right:6px;">
 </td>
 </tr>
 <tr>
-<th rowspan="2" style="vertical-align:middle;">
+<th rowspan="2" style="vertical-align:middle; padding-left:6px; padding-right:6px;">
 Pred.
 </th>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 Dem
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 TP=0
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 FP=0
 </td>
-<td>
+<td style="padding-left:6px; padding-right:6px;">
 </td>
-<td>
+<td style="padding-left:6px; padding-right:6px;">
 </td>
-<td>
+<td style="padding-left:6px; padding-right:6px;">
 </td>
 </tr>
 <tr>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 Dic
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 FN=4
 </td>
-<td style="text-align:center;">
+<td style="text-align:center; padding-left:6px; padding-right:6px;">
 TN=4
 </td>
-<td>
+<td style="padding-left:6px; padding-right:6px;">
 </td>
-<td>
+<td style="padding-left:6px; padding-right:6px;">
 </td>
-<td>
+<td style="padding-left:6px; padding-right:6px;">
 </td>
 </tr>
 <tr>
-<td>
+<td style="padding-left:6px; padding-right:6px;">
 </td>
-<td>
+<td style="padding-left:6px; padding-right:6px;">
 </td>
-<td style="text-align:center; font-weight:bold;">
+<td style="text-align:center; font-weight:bold; padding-left:6px; padding-right:6px;">
 TPR=0
 </td>
-<td style="text-align:center; font-weight:bold;">
+<td style="text-align:center; font-weight:bold; padding-left:6px; padding-right:6px;">
 FPR=0
 </td>
-<td>
+<td style="padding-left:6px; padding-right:6px;">
 </td>
-<td>
+<td style="padding-left:6px; padding-right:6px;">
 </td>
-<td>
+<td style="padding-left:6px; padding-right:6px;">
 </td>
 </tr>
 </tbody>
@@ -1267,8 +1262,8 @@ Figure 28: ROC Curve
 
     <script>
 
-      function styleCell_4wjcikdi0ojy2shb2lz3(i, j, css_id) {
-          var table = document.getElementById("tinytable_4wjcikdi0ojy2shb2lz3");
+      function styleCell_fnxnxkb4f67052xxkf9v(i, j, css_id) {
+          var table = document.getElementById("tinytable_fnxnxkb4f67052xxkf9v");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -1278,7 +1273,7 @@ Figure 28: ROC Curve
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_4wjcikdi0ojy2shb2lz3');
+        var table = document.getElementById('tinytable_fnxnxkb4f67052xxkf9v');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -1286,8 +1281,8 @@ Figure 28: ROC Curve
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_4wjcikdi0ojy2shb2lz3(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_4wjcikdi0ojy2shb2lz3");
+      function spanCell_fnxnxkb4f67052xxkf9v(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_fnxnxkb4f67052xxkf9v");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -1317,26 +1312,26 @@ Figure 28: ROC Curve
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 1, j: 4 }, { i: 1, j: 3 },  ], css_id: 'tinytable_css_hmhb5jybsxj5j53d2rik',}, 
-          { positions: [ { i: 0, j: 3 }, { i: 0, j: 2 }, { i: 0, j: 4 },  ], css_id: 'tinytable_css_5oiohrwn5z5bwvumhtdz',}, 
-          { positions: [ { i: 12, j: 1 }, { i: 12, j: 4 }, { i: 12, j: 2 }, { i: 12, j: 3 },  ], css_id: 'tinytable_css_tgk88gwyylc1hs70e05u',}, 
-          { positions: [ { i: 10, j: 3 }, { i: 10, j: 2 }, { i: 10, j: 4 }, { i: 10, j: 1 },  ], css_id: 'tinytable_css_dbm8f8tjshg31x4w324q',}, 
-          { positions: [ { i: 4, j: 1 }, { i: 3, j: 1 }, { i: 8, j: 1 }, { i: 5, j: 1 }, { i: 7, j: 1 }, { i: 3, j: 2 }, { i: 9, j: 1 }, { i: 6, j: 1 }, { i: 11, j: 1 }, { i: 7, j: 2 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 11, j: 2 }, { i: 8, j: 2 }, { i: 9, j: 2 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 9, j: 3 }, { i: 5, j: 4 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 4, j: 4 }, { i: 9, j: 4 }, { i: 11, j: 3 }, { i: 3, j: 4 }, { i: 8, j: 4 }, { i: 6, j: 4 }, { i: 7, j: 4 }, { i: 11, j: 4 },  ], css_id: 'tinytable_css_tijqvysipasa9xec95g4',}, 
-          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_yuph9sx3a2ustilfvl9m',}, 
-          { positions: [ { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_m6zr1e0gmqiv4mbv4b3k',}, 
-          { positions: [ { i: 2, j: 1 }, { i: 2, j: 2 }, { i: 2, j: 3 }, { i: 2, j: 4 },  ], css_id: 'tinytable_css_n92irf2lcq9fsq538y3x',}, 
-          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_iythovhiyx692xup0940',}, 
-          { positions: [ { i: 10, j: 0 },  ], css_id: 'tinytable_css_ei08pe0q2i409ul1iqrv',}, 
-          { positions: [ { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 11, j: 0 },  ], css_id: 'tinytable_css_md9jpnmicwg49mebq7ie',}, 
-          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_mu05tl3h5606xfgoylfv',}, 
-          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_l5zd0b3jl2y84ldaoaho',}, 
-          { positions: [ { i: 2, j: 0 },  ], css_id: 'tinytable_css_fvio1qqom5q9yshi4wql',}, 
+          { positions: [ { i: 1, j: 4 }, { i: 1, j: 3 },  ], css_id: 'tinytable_css_z6epm17zbi7muct88d9f',}, 
+          { positions: [ { i: 0, j: 3 }, { i: 0, j: 2 }, { i: 0, j: 4 },  ], css_id: 'tinytable_css_c5avauyxt93lg3nhxywc',}, 
+          { positions: [ { i: 12, j: 1 }, { i: 12, j: 4 }, { i: 12, j: 2 }, { i: 12, j: 3 },  ], css_id: 'tinytable_css_e1til554dbskrzf5wimd',}, 
+          { positions: [ { i: 10, j: 3 }, { i: 10, j: 2 }, { i: 10, j: 4 }, { i: 10, j: 1 },  ], css_id: 'tinytable_css_06fwfsu9h43590hox9zp',}, 
+          { positions: [ { i: 4, j: 1 }, { i: 3, j: 1 }, { i: 8, j: 1 }, { i: 5, j: 1 }, { i: 7, j: 1 }, { i: 3, j: 2 }, { i: 9, j: 1 }, { i: 6, j: 1 }, { i: 11, j: 1 }, { i: 7, j: 2 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 11, j: 2 }, { i: 8, j: 2 }, { i: 9, j: 2 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 9, j: 3 }, { i: 5, j: 4 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 4, j: 4 }, { i: 9, j: 4 }, { i: 11, j: 3 }, { i: 3, j: 4 }, { i: 8, j: 4 }, { i: 6, j: 4 }, { i: 7, j: 4 }, { i: 11, j: 4 },  ], css_id: 'tinytable_css_1ll2oo3mi8pfe6ju601s',}, 
+          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_k4modaluldox0nd7phki',}, 
+          { positions: [ { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_299a6w45supg2o1zl0oc',}, 
+          { positions: [ { i: 2, j: 1 }, { i: 2, j: 2 }, { i: 2, j: 3 }, { i: 2, j: 4 },  ], css_id: 'tinytable_css_hfv1so0a8vm71cr3oeke',}, 
+          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_2g319bfe0g0onr75o7ed',}, 
+          { positions: [ { i: 10, j: 0 },  ], css_id: 'tinytable_css_zrq4ixxgk7c8m660vdle',}, 
+          { positions: [ { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 11, j: 0 },  ], css_id: 'tinytable_css_zmklei21dgsx6mf965i7',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_es747lq5xe0ed3w61xpx',}, 
+          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_4p57t3fst6tiey94a287',}, 
+          { positions: [ { i: 2, j: 0 },  ], css_id: 'tinytable_css_9d1xx2pcgkg1flyxasmm',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_4wjcikdi0ojy2shb2lz3(cell.i, cell.j, group.css_id);
+                  styleCell_fnxnxkb4f67052xxkf9v(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1344,23 +1339,23 @@ Figure 28: ROC Curve
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_hmhb5jybsxj5j53d2rik, .table th.tinytable_css_hmhb5jybsxj5j53d2rik { text-align: center; text-align: center; }
-      .table td.tinytable_css_5oiohrwn5z5bwvumhtdz, .table th.tinytable_css_5oiohrwn5z5bwvumhtdz { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_tgk88gwyylc1hs70e05u, .table th.tinytable_css_tgk88gwyylc1hs70e05u { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_dbm8f8tjshg31x4w324q, .table th.tinytable_css_dbm8f8tjshg31x4w324q { text-align: center; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_tijqvysipasa9xec95g4, .table th.tinytable_css_tijqvysipasa9xec95g4 { text-align: center; }
-      .table td.tinytable_css_yuph9sx3a2ustilfvl9m, .table th.tinytable_css_yuph9sx3a2ustilfvl9m { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_m6zr1e0gmqiv4mbv4b3k, .table th.tinytable_css_m6zr1e0gmqiv4mbv4b3k { text-align: center; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_n92irf2lcq9fsq538y3x, .table th.tinytable_css_n92irf2lcq9fsq538y3x { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_iythovhiyx692xup0940, .table th.tinytable_css_iythovhiyx692xup0940 { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_ei08pe0q2i409ul1iqrv, .table th.tinytable_css_ei08pe0q2i409ul1iqrv { text-align: left; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_md9jpnmicwg49mebq7ie, .table th.tinytable_css_md9jpnmicwg49mebq7ie { text-align: left; }
-      .table td.tinytable_css_mu05tl3h5606xfgoylfv, .table th.tinytable_css_mu05tl3h5606xfgoylfv { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_l5zd0b3jl2y84ldaoaho, .table th.tinytable_css_l5zd0b3jl2y84ldaoaho { text-align: left; text-align: center; }
-      .table td.tinytable_css_fvio1qqom5q9yshi4wql, .table th.tinytable_css_fvio1qqom5q9yshi4wql { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_z6epm17zbi7muct88d9f, .table th.tinytable_css_z6epm17zbi7muct88d9f { text-align: center; text-align: center; }
+      .table td.tinytable_css_c5avauyxt93lg3nhxywc, .table th.tinytable_css_c5avauyxt93lg3nhxywc { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_e1til554dbskrzf5wimd, .table th.tinytable_css_e1til554dbskrzf5wimd { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_06fwfsu9h43590hox9zp, .table th.tinytable_css_06fwfsu9h43590hox9zp { text-align: center; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_1ll2oo3mi8pfe6ju601s, .table th.tinytable_css_1ll2oo3mi8pfe6ju601s { text-align: center; }
+      .table td.tinytable_css_k4modaluldox0nd7phki, .table th.tinytable_css_k4modaluldox0nd7phki { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_299a6w45supg2o1zl0oc, .table th.tinytable_css_299a6w45supg2o1zl0oc { text-align: center; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_hfv1so0a8vm71cr3oeke, .table th.tinytable_css_hfv1so0a8vm71cr3oeke { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_2g319bfe0g0onr75o7ed, .table th.tinytable_css_2g319bfe0g0onr75o7ed { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_zrq4ixxgk7c8m660vdle, .table th.tinytable_css_zrq4ixxgk7c8m660vdle { text-align: left; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_zmklei21dgsx6mf965i7, .table th.tinytable_css_zmklei21dgsx6mf965i7 { text-align: left; }
+      .table td.tinytable_css_es747lq5xe0ed3w61xpx, .table th.tinytable_css_es747lq5xe0ed3w61xpx { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_4p57t3fst6tiey94a287, .table th.tinytable_css_4p57t3fst6tiey94a287 { text-align: left; text-align: center; }
+      .table td.tinytable_css_9d1xx2pcgkg1flyxasmm, .table th.tinytable_css_9d1xx2pcgkg1flyxasmm { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_4wjcikdi0ojy2shb2lz3" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
+      <table class="table table-borderless" id="tinytable_fnxnxkb4f67052xxkf9v" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
         <thead>
 <tr>
 <th scope="col" align="center" colspan=1> </th>
@@ -1371,7 +1366,7 @@ Figure 28: ROC Curve
 <th scope="col" align="center" colspan=2>Emergence</th>
 <th scope="col" align="center" colspan=2>Survival</th>
 </tr>
-        <caption><span id="tab:emsur">Table 12: </span> Democratic Emergence and Survival</caption>
+        <caption><span id="tab:emsur">Table 11: </span> Democratic Emergence and Survival</caption>
               <tr>
                 <th scope="col"> </th>
                 <th scope="col">Classical</th>
