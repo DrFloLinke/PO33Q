@@ -404,7 +404,7 @@ Figure 1: Sample Data Set
 <li><code>A typewriter font for R functions, values, etc.</code></li>
 </ul>
 <p>Let’s have a look at RStudio itself. When you open the programme, you are presented with the following screen:</p>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
 <img src="files/Week%201/RStudio.png" alt="\label{fig:RStudio}RStudio" width="60%" />
 <p class="caption">
 Figure 2: RStudio
@@ -425,7 +425,7 @@ Figure 2: RStudio
 <p>One of the foundations of scientific research is “reproducibility”“, or”replicability”. This means that “sufficient information exists with which to understand, evaluate, and build upon a prior work if a third party could replicate the results without any additional information from the author.” <span class="citation">(King, 1995, p. 444, emphasis removed)</span> This principle applies in academia more generally, because only if you understand what a person has done before you, you can pick their work up whether they left it, and push the boundaries of knowledge further. But a bit closer to home, it is also relevant for conducting quantitative research in assessments. We require you to submit an RScript (or a “do file” if you use Stata) now together with your actual essay. This is not only to check what you have done; data preparation is often the most time-consuming part (as you will soon discover), and this is a way to gain recognition for this work. So it is actually to your advantage, and not a mere plagiarism check.</p>
 <p>The creation of an RScript will allow you to open the raw data, and by running the script, to bring it to exactly where you left off. This saves you saving data sets which can take up a lot of work. If you back the script up properly, you also have an insurance against losing all your work a day before the assessment is due.</p>
 <p>To create an RScript, click File <span class="math inline">\(\rightarrow\)</span> New File <span class="math inline">\(\rightarrow\)</span> RScript. A fourth window opens, and your screen will now look something like this:</p>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-2"></span>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-6"></span>
 <img src="files/Week%201/rscript.png" alt="\label{fig:RScript}The RScript Window" width="60%" />
 <p class="caption">
 Figure 3: The RScript Window
@@ -499,7 +499,7 @@ Figure 4: Example of an RScript
 Figure 5: Folder Structure
 </p>
 </div>
-<p>You see that there is a sub-folder for each week of the module (I have only done a few for illustrative purposes), and that each of these folders is divided into lecture and seminar in turn. Into these you can place the lecture and seminar materials, respectively. Create this system now for PO33Q.</p>
+<p>You see that there is a sub-folder for each week of the module, and that each of these folders is divided into lecture and seminar in turn. Into these you can place the lecture and seminar materials, respectively. Create this system now for PO33Q.</p>
 <p>R works with so-called “Working Directories”. You can think of these as drawers from which R takes everything it needs to conduct the analysis (such as the data set), and into which it puts everything it produces (such as graph plots). As this will be an R-specific drawer within the seminar, create yet another sub-folder in your seminar folder, and call it something suitable, such as “PO33QQ_Seminar_Week 1”. Do <em>NOT</em> call this “Working Directory”, as you will have many of those, rendering this name completely meaningless.</p>
 <div class="warning">
 <p>Please set up this structure now. If I find you using a random folder on your desktop named “working directory” in the coming weeks, I am going to implode! I mean it.</p>
@@ -614,7 +614,7 @@ Figure 5: Folder Structure
 <span id="cb16-2"><a href="introduction-to-r.html#cb16-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">26218</span></span></code></pre></div>
 <p>Mean, median, and also mode (the most frequently occurring value) are all measures of centrality, but centrality alone does not adequately describe a distribution. You can think of two scenarios, in both we have two people in a group and we are trying to describe their age. In group one we have one person who is 50 years old, and one who is 52 years old. Average age = 51. In the second group we have a toddler aged 2, and a very old person aged 100. Same average, but a very different distribution of age. Schematically you can see this in Figure <a href="introduction-to-r.html#fig:distribution">6</a> where two distributions have the same mean, median and mode, but their spread is quite different.</p>
 <div class="figure"><span style="display:block;" id="fig:distribution"></span>
-<img src="main_files/figure-html/distribution-1.png" alt="\label{fig:distribution}Distributions with different Standard Deviations" width="60%" />
+<img src="images/Week%201/two_distributions.png" alt="\label{fig:distribution}Distributions with different Standard Deviations" width="60%" />
 <p class="caption">
 Figure 6: Distributions with different Standard Deviations
 </p>
@@ -1011,7 +1011,114 @@ Region on continent
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="introduction-to-r.html#cb25-1" tabindex="-1"></a><span class="fu">view</span>(world)</span></code></pre></div>
 <p>Now, don’t panic. This data set is big, but you know the basic structure: country by year in rows, and the variables in the column. The value for the variable in a given country in a given year is in the meeting point between row and column.</p>
 <p>The data are (yes, the word “data” is plural) organised by country name in the first instance. So the first country you see is Afghanistan. There are multiple rows for Afghanistan, because each row gives you information about the value in a particular year (second column). This is repeated for every country in the world, leading to a total of 10,824 observations, to save you scrolling all the way down. Schematically, the structure of this data set looks as follows:</p>
-<p><img src="files/Week%201/tscs.png" width="25%" /></p>
+<table style="width:50%; color: black; margin-left: auto; margin-right: auto;" class="table">
+<caption>
+<span id="tab:tscs1">Table 2: </span>Schematic: Time-Series, Cross-Sectional Data
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+country
+</th>
+<th style="text-align:right;">
+year
+</th>
+<th style="text-align:right;">
+literacy
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+A
+</td>
+<td style="text-align:right;">
+2000
+</td>
+<td style="text-align:right;">
+80
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+A
+</td>
+<td style="text-align:right;">
+2001
+</td>
+<td style="text-align:right;">
+81
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+A
+</td>
+<td style="text-align:right;">
+2002
+</td>
+<td style="text-align:right;">
+85
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+A
+</td>
+<td style="text-align:right;">
+2003
+</td>
+<td style="text-align:right;">
+90
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+B
+</td>
+<td style="text-align:right;">
+2000
+</td>
+<td style="text-align:right;">
+92
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+B
+</td>
+<td style="text-align:right;">
+2001
+</td>
+<td style="text-align:right;">
+93
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+B
+</td>
+<td style="text-align:right;">
+2002
+</td>
+<td style="text-align:right;">
+95
+</td>
+</tr>
+<tr>
+<td style="text-align:left;min-width: 1.25in; ">
+B
+</td>
+<td style="text-align:right;">
+2003
+</td>
+<td style="text-align:right;">
+99
+</td>
+</tr>
+</tbody>
+</table>
 <p>When you look at the data set in R, you will see that not every box contains a value - this means that the data are missing for this particular country-year for that particular variable. This is an issue we will be discussing a later stage in more detail, but I can already say now, that this issue is more pronounced in developing countries than in developed ones, and that it often severely limits the variables you can include in the analysis.</p>
 <p>Let us conclude today with some more descriptive statistics to get used to entering and executing commands. Say, we want to find out the average GDP per capita of the UK since 1960 (which is when this data set begins, it ends in 2020). To do this, we first need to create a data frame which only contains data for GB. We call this process “subsetting”. The <code>filter</code> function comes out the <code>dplyr</code> package, and takes a particular data frame and filters all those observations which meet the condition specified. We will use this a lot on this module, and so it makes sense to remember this one well:</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="introduction-to-r.html#cb26-1" tabindex="-1"></a>GB <span class="ot">&lt;-</span> <span class="fu">filter</span>(world, countrycode<span class="sc">==</span><span class="st">&quot;GBR&quot;</span>)</span></code></pre></div>

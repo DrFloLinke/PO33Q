@@ -384,10 +384,10 @@ Use the data set called <code>prz.dta</code> which is available in the <a href="
 <ol style="list-style-type: decimal">
 <li><p>Run a probit model where <code>democ</code> is the dependent variable and <code>g</code>, <code>gdpw</code> and <code>oil</code> are the independent variables. Put the results in column 1 of Table 1. What is (possibly) wrong with this approach? Interpret the coefficients on one or two of the variables.</p></li>
 <li><p>Run the same probit model as before but now include a lagged dependent variable. To create the lagged dependent variable, call:</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="exercises-2.html#cb94-1" tabindex="-1"></a>prz <span class="ot">&lt;-</span> prz <span class="sc">%&gt;%</span></span>
-<span id="cb94-2"><a href="exercises-2.html#cb94-2" tabindex="-1"></a><span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
-<span id="cb94-3"><a href="exercises-2.html#cb94-3" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">l.democ =</span> <span class="fu">lag</span>(democ)) <span class="sc">%&gt;%</span></span>
-<span id="cb94-4"><a href="exercises-2.html#cb94-4" tabindex="-1"></a><span class="fu">ungroup</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="exercises-2.html#cb95-1" tabindex="-1"></a>prz <span class="ot">&lt;-</span> prz <span class="sc">%&gt;%</span></span>
+<span id="cb95-2"><a href="exercises-2.html#cb95-2" tabindex="-1"></a><span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
+<span id="cb95-3"><a href="exercises-2.html#cb95-3" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">l.democ =</span> <span class="fu">lag</span>(democ)) <span class="sc">%&gt;%</span></span>
+<span id="cb95-4"><a href="exercises-2.html#cb95-4" tabindex="-1"></a><span class="fu">ungroup</span>()</span></code></pre></div>
 <p>Put the results in column two of Table 1. What are we assuming by including a lagged dependent variable? Do you think that this is appropriate here?</p></li>
 <li><p>Now estimate a probit “transition to democracy” model i.e. how do growth, wealth and oil affect the probability that a country is a democracy this year given that it was a dictatorship last year. We are also lagging the independent variables by one year. Put the results in column 3 of Table 1. Interpret the sign of the coefficients on each independent variable.</p></li>
 <li><p>Now estimate a probit “survival of democracy” model i.e. how do (lagged) growth, wealth and oil affect the probability that a country is a democracy this year given that it was a democracy last year. Put the results in column 4 of Table 1. Interpret the sign of the coefficients on each independent variable.</p></li>
@@ -409,188 +409,188 @@ This section draws on the instructions for joint estimation.</p>
 <summary>
 <code>modelsummary</code> code for the Results Table
 </summary>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="exercises-2.html#cb95-1" tabindex="-1"></a></span>
-<span id="cb95-2"><a href="exercises-2.html#cb95-2" tabindex="-1"></a><span class="co"># Set Working Directory</span></span>
-<span id="cb95-3"><a href="exercises-2.html#cb95-3" tabindex="-1"></a><span class="do">########################</span></span>
-<span id="cb95-4"><a href="exercises-2.html#cb95-4" tabindex="-1"></a></span>
-<span id="cb95-5"><a href="exercises-2.html#cb95-5" tabindex="-1"></a><span class="fu">setwd</span>()</span>
-<span id="cb95-6"><a href="exercises-2.html#cb95-6" tabindex="-1"></a></span>
-<span id="cb95-7"><a href="exercises-2.html#cb95-7" tabindex="-1"></a></span>
-<span id="cb95-8"><a href="exercises-2.html#cb95-8" tabindex="-1"></a><span class="co"># PACKAGES</span></span>
-<span id="cb95-9"><a href="exercises-2.html#cb95-9" tabindex="-1"></a><span class="do">############</span></span>
-<span id="cb95-10"><a href="exercises-2.html#cb95-10" tabindex="-1"></a></span>
-<span id="cb95-11"><a href="exercises-2.html#cb95-11" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb95-12"><a href="exercises-2.html#cb95-12" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb95-13"><a href="exercises-2.html#cb95-13" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span>
-<span id="cb95-14"><a href="exercises-2.html#cb95-14" tabindex="-1"></a></span>
-<span id="cb95-15"><a href="exercises-2.html#cb95-15" tabindex="-1"></a></span>
-<span id="cb95-16"><a href="exercises-2.html#cb95-16" tabindex="-1"></a><span class="co"># Import Data</span></span>
-<span id="cb95-17"><a href="exercises-2.html#cb95-17" tabindex="-1"></a><span class="do">#############</span></span>
-<span id="cb95-18"><a href="exercises-2.html#cb95-18" tabindex="-1"></a></span>
-<span id="cb95-19"><a href="exercises-2.html#cb95-19" tabindex="-1"></a>prz <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">&quot;prz.dta&quot;</span>)</span>
-<span id="cb95-20"><a href="exercises-2.html#cb95-20" tabindex="-1"></a></span>
-<span id="cb95-21"><a href="exercises-2.html#cb95-21" tabindex="-1"></a></span>
-<span id="cb95-22"><a href="exercises-2.html#cb95-22" tabindex="-1"></a></span>
-<span id="cb95-23"><a href="exercises-2.html#cb95-23" tabindex="-1"></a><span class="co"># Exercise 1</span></span>
-<span id="cb95-24"><a href="exercises-2.html#cb95-24" tabindex="-1"></a><span class="do">#####################</span></span>
-<span id="cb95-25"><a href="exercises-2.html#cb95-25" tabindex="-1"></a></span>
-<span id="cb95-26"><a href="exercises-2.html#cb95-26" tabindex="-1"></a></span>
-<span id="cb95-27"><a href="exercises-2.html#cb95-27" tabindex="-1"></a>democracy <span class="ot">&lt;-</span> <span class="fu">glm</span>(democ <span class="sc">~</span> g <span class="sc">+</span> gdpw <span class="sc">+</span> oil, </span>
-<span id="cb95-28"><a href="exercises-2.html#cb95-28" tabindex="-1"></a>                 <span class="at">data =</span> prz,</span>
-<span id="cb95-29"><a href="exercises-2.html#cb95-29" tabindex="-1"></a>                 <span class="at">na.action =</span> na.exclude,</span>
-<span id="cb95-30"><a href="exercises-2.html#cb95-30" tabindex="-1"></a>                 <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span>
-<span id="cb95-31"><a href="exercises-2.html#cb95-31" tabindex="-1"></a></span>
-<span id="cb95-32"><a href="exercises-2.html#cb95-32" tabindex="-1"></a></span>
-<span id="cb95-33"><a href="exercises-2.html#cb95-33" tabindex="-1"></a><span class="co"># Exercise 2</span></span>
-<span id="cb95-34"><a href="exercises-2.html#cb95-34" tabindex="-1"></a><span class="do">#####################</span></span>
-<span id="cb95-35"><a href="exercises-2.html#cb95-35" tabindex="-1"></a></span>
-<span id="cb95-36"><a href="exercises-2.html#cb95-36" tabindex="-1"></a></span>
-<span id="cb95-37"><a href="exercises-2.html#cb95-37" tabindex="-1"></a>prz <span class="ot">&lt;-</span> prz <span class="sc">%&gt;%</span></span>
-<span id="cb95-38"><a href="exercises-2.html#cb95-38" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
-<span id="cb95-39"><a href="exercises-2.html#cb95-39" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.democ =</span> <span class="fu">lag</span>(democ)) <span class="sc">%&gt;%</span></span>
-<span id="cb95-40"><a href="exercises-2.html#cb95-40" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb95-41"><a href="exercises-2.html#cb95-41" tabindex="-1"></a></span>
-<span id="cb95-42"><a href="exercises-2.html#cb95-42" tabindex="-1"></a></span>
-<span id="cb95-43"><a href="exercises-2.html#cb95-43" tabindex="-1"></a></span>
-<span id="cb95-44"><a href="exercises-2.html#cb95-44" tabindex="-1"></a>dynamic <span class="ot">&lt;-</span> <span class="fu">glm</span>(democ <span class="sc">~</span> g <span class="sc">+</span> gdpw <span class="sc">+</span> oil <span class="sc">+</span> l.democ, </span>
-<span id="cb95-45"><a href="exercises-2.html#cb95-45" tabindex="-1"></a>               <span class="at">data =</span> prz,</span>
-<span id="cb95-46"><a href="exercises-2.html#cb95-46" tabindex="-1"></a>               <span class="at">na.action =</span> na.exclude,</span>
-<span id="cb95-47"><a href="exercises-2.html#cb95-47" tabindex="-1"></a>               <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>)) </span>
-<span id="cb95-48"><a href="exercises-2.html#cb95-48" tabindex="-1"></a></span>
-<span id="cb95-49"><a href="exercises-2.html#cb95-49" tabindex="-1"></a></span>
-<span id="cb95-50"><a href="exercises-2.html#cb95-50" tabindex="-1"></a><span class="co"># Exercise 3</span></span>
-<span id="cb95-51"><a href="exercises-2.html#cb95-51" tabindex="-1"></a><span class="do">#####################</span></span>
-<span id="cb95-52"><a href="exercises-2.html#cb95-52" tabindex="-1"></a></span>
-<span id="cb95-53"><a href="exercises-2.html#cb95-53" tabindex="-1"></a>prz <span class="ot">&lt;-</span> prz <span class="sc">%&gt;%</span></span>
-<span id="cb95-54"><a href="exercises-2.html#cb95-54" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
-<span id="cb95-55"><a href="exercises-2.html#cb95-55" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.g =</span> <span class="fu">lag</span>(g)) <span class="sc">%&gt;%</span></span>
-<span id="cb95-56"><a href="exercises-2.html#cb95-56" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb95-57"><a href="exercises-2.html#cb95-57" tabindex="-1"></a></span>
-<span id="cb95-58"><a href="exercises-2.html#cb95-58" tabindex="-1"></a>prz <span class="ot">&lt;-</span> prz <span class="sc">%&gt;%</span></span>
-<span id="cb95-59"><a href="exercises-2.html#cb95-59" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
-<span id="cb95-60"><a href="exercises-2.html#cb95-60" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.gdpw =</span> <span class="fu">lag</span>(gdpw)) <span class="sc">%&gt;%</span></span>
-<span id="cb95-61"><a href="exercises-2.html#cb95-61" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb95-62"><a href="exercises-2.html#cb95-62" tabindex="-1"></a></span>
-<span id="cb95-63"><a href="exercises-2.html#cb95-63" tabindex="-1"></a>prz <span class="ot">&lt;-</span> prz <span class="sc">%&gt;%</span></span>
-<span id="cb95-64"><a href="exercises-2.html#cb95-64" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
-<span id="cb95-65"><a href="exercises-2.html#cb95-65" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.oil =</span> <span class="fu">lag</span>(oil)) <span class="sc">%&gt;%</span></span>
-<span id="cb95-66"><a href="exercises-2.html#cb95-66" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb95-67"><a href="exercises-2.html#cb95-67" tabindex="-1"></a></span>
-<span id="cb95-68"><a href="exercises-2.html#cb95-68" tabindex="-1"></a>prz_democ0 <span class="ot">&lt;-</span> <span class="fu">filter</span>(prz, l.democ<span class="sc">==</span><span class="dv">0</span>) </span>
-<span id="cb95-69"><a href="exercises-2.html#cb95-69" tabindex="-1"></a></span>
-<span id="cb95-70"><a href="exercises-2.html#cb95-70" tabindex="-1"></a>emergence <span class="ot">&lt;-</span> <span class="fu">glm</span>(democ <span class="sc">~</span> l.g <span class="sc">+</span> l.gdpw <span class="sc">+</span> l.oil, </span>
-<span id="cb95-71"><a href="exercises-2.html#cb95-71" tabindex="-1"></a>                 <span class="at">data =</span> prz_democ0,</span>
-<span id="cb95-72"><a href="exercises-2.html#cb95-72" tabindex="-1"></a>                 <span class="at">na.action =</span> na.exclude,</span>
-<span id="cb95-73"><a href="exercises-2.html#cb95-73" tabindex="-1"></a>                 <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span>
-<span id="cb95-74"><a href="exercises-2.html#cb95-74" tabindex="-1"></a></span>
-<span id="cb95-75"><a href="exercises-2.html#cb95-75" tabindex="-1"></a></span>
-<span id="cb95-76"><a href="exercises-2.html#cb95-76" tabindex="-1"></a><span class="co"># Exercise 4</span></span>
-<span id="cb95-77"><a href="exercises-2.html#cb95-77" tabindex="-1"></a><span class="do">#####################</span></span>
-<span id="cb95-78"><a href="exercises-2.html#cb95-78" tabindex="-1"></a></span>
-<span id="cb95-79"><a href="exercises-2.html#cb95-79" tabindex="-1"></a>prz_democ1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(prz, l.democ<span class="sc">==</span><span class="dv">1</span>)</span>
-<span id="cb95-80"><a href="exercises-2.html#cb95-80" tabindex="-1"></a></span>
-<span id="cb95-81"><a href="exercises-2.html#cb95-81" tabindex="-1"></a>survive <span class="ot">&lt;-</span> <span class="fu">glm</span>(democ <span class="sc">~</span> l.g <span class="sc">+</span> l.gdpw <span class="sc">+</span> l.oil, </span>
-<span id="cb95-82"><a href="exercises-2.html#cb95-82" tabindex="-1"></a>               <span class="at">data =</span> prz_democ1,</span>
-<span id="cb95-83"><a href="exercises-2.html#cb95-83" tabindex="-1"></a>               <span class="at">na.action =</span> na.exclude,</span>
-<span id="cb95-84"><a href="exercises-2.html#cb95-84" tabindex="-1"></a>               <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span>
-<span id="cb95-85"><a href="exercises-2.html#cb95-85" tabindex="-1"></a></span>
-<span id="cb95-86"><a href="exercises-2.html#cb95-86" tabindex="-1"></a></span>
-<span id="cb95-87"><a href="exercises-2.html#cb95-87" tabindex="-1"></a><span class="co"># Exercise 5</span></span>
-<span id="cb95-88"><a href="exercises-2.html#cb95-88" tabindex="-1"></a><span class="do">#####################</span></span>
-<span id="cb95-89"><a href="exercises-2.html#cb95-89" tabindex="-1"></a></span>
-<span id="cb95-90"><a href="exercises-2.html#cb95-90" tabindex="-1"></a>prz<span class="sc">$</span>l.democgdpw <span class="ot">&lt;-</span> prz<span class="sc">$</span>l.democ <span class="sc">*</span> prz<span class="sc">$</span>l.gdpw</span>
-<span id="cb95-91"><a href="exercises-2.html#cb95-91" tabindex="-1"></a>prz<span class="sc">$</span>l.democg <span class="ot">&lt;-</span> prz<span class="sc">$</span>l.democ <span class="sc">*</span> prz<span class="sc">$</span>l.g</span>
-<span id="cb95-92"><a href="exercises-2.html#cb95-92" tabindex="-1"></a>prz<span class="sc">$</span>l.democoil <span class="ot">&lt;-</span> prz<span class="sc">$</span>l.democ <span class="sc">*</span> prz<span class="sc">$</span>l.oil</span>
-<span id="cb95-93"><a href="exercises-2.html#cb95-93" tabindex="-1"></a></span>
-<span id="cb95-94"><a href="exercises-2.html#cb95-94" tabindex="-1"></a></span>
-<span id="cb95-95"><a href="exercises-2.html#cb95-95" tabindex="-1"></a>joint <span class="ot">&lt;-</span> <span class="fu">glm</span>(democ <span class="sc">~</span> l.g <span class="sc">+</span> l.gdpw <span class="sc">+</span> l.oil <span class="sc">+</span> l.democ <span class="sc">+</span> l.democg <span class="sc">+</span> l.democgdpw <span class="sc">+</span> l.democoil, </span>
-<span id="cb95-96"><a href="exercises-2.html#cb95-96" tabindex="-1"></a>             <span class="at">data =</span> prz,</span>
-<span id="cb95-97"><a href="exercises-2.html#cb95-97" tabindex="-1"></a>             <span class="at">na.action =</span> na.exclude,</span>
-<span id="cb95-98"><a href="exercises-2.html#cb95-98" tabindex="-1"></a>             <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span>
-<span id="cb95-99"><a href="exercises-2.html#cb95-99" tabindex="-1"></a></span>
-<span id="cb95-100"><a href="exercises-2.html#cb95-100" tabindex="-1"></a><span class="co"># Exercise 6</span></span>
-<span id="cb95-101"><a href="exercises-2.html#cb95-101" tabindex="-1"></a><span class="do">#####################</span></span>
-<span id="cb95-102"><a href="exercises-2.html#cb95-102" tabindex="-1"></a></span>
-<span id="cb95-103"><a href="exercises-2.html#cb95-103" tabindex="-1"></a><span class="fu">library</span>(pROC)</span>
-<span id="cb95-104"><a href="exercises-2.html#cb95-104" tabindex="-1"></a></span>
-<span id="cb95-105"><a href="exercises-2.html#cb95-105" tabindex="-1"></a><span class="co"># Democracy model: </span></span>
-<span id="cb95-106"><a href="exercises-2.html#cb95-106" tabindex="-1"></a></span>
-<span id="cb95-107"><a href="exercises-2.html#cb95-107" tabindex="-1"></a>prob_democracy <span class="ot">&lt;-</span> <span class="fu">predict</span>(democracy, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
-<span id="cb95-108"><a href="exercises-2.html#cb95-108" tabindex="-1"></a>prz<span class="sc">$</span>prob_democracy <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_democracy)</span>
-<span id="cb95-109"><a href="exercises-2.html#cb95-109" tabindex="-1"></a></span>
-<span id="cb95-110"><a href="exercises-2.html#cb95-110" tabindex="-1"></a>roc_democracy <span class="ot">&lt;-</span> <span class="fu">roc</span>(prz<span class="sc">$</span>democ, prz<span class="sc">$</span>prob_democracy)</span>
-<span id="cb95-111"><a href="exercises-2.html#cb95-111" tabindex="-1"></a></span>
-<span id="cb95-112"><a href="exercises-2.html#cb95-112" tabindex="-1"></a></span>
-<span id="cb95-113"><a href="exercises-2.html#cb95-113" tabindex="-1"></a><span class="co"># Dynamic Model</span></span>
-<span id="cb95-114"><a href="exercises-2.html#cb95-114" tabindex="-1"></a></span>
-<span id="cb95-115"><a href="exercises-2.html#cb95-115" tabindex="-1"></a>prob_dynamic <span class="ot">&lt;-</span> <span class="fu">predict</span>(dynamic, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
-<span id="cb95-116"><a href="exercises-2.html#cb95-116" tabindex="-1"></a>prz<span class="sc">$</span>prob_dynamic <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_dynamic)</span>
-<span id="cb95-117"><a href="exercises-2.html#cb95-117" tabindex="-1"></a></span>
-<span id="cb95-118"><a href="exercises-2.html#cb95-118" tabindex="-1"></a>roc_dynamic <span class="ot">&lt;-</span> <span class="fu">roc</span>(prz<span class="sc">$</span>democ, prz<span class="sc">$</span>prob_dynamic)</span>
-<span id="cb95-119"><a href="exercises-2.html#cb95-119" tabindex="-1"></a></span>
-<span id="cb95-120"><a href="exercises-2.html#cb95-120" tabindex="-1"></a><span class="co"># emergence model</span></span>
-<span id="cb95-121"><a href="exercises-2.html#cb95-121" tabindex="-1"></a>prob_emergence <span class="ot">&lt;-</span> <span class="fu">predict</span>(emergence, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
-<span id="cb95-122"><a href="exercises-2.html#cb95-122" tabindex="-1"></a>prz_democ0<span class="sc">$</span>prob_emergence <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_emergence)</span>
-<span id="cb95-123"><a href="exercises-2.html#cb95-123" tabindex="-1"></a></span>
-<span id="cb95-124"><a href="exercises-2.html#cb95-124" tabindex="-1"></a>roc_emergence <span class="ot">&lt;-</span> <span class="fu">roc</span>(prz_democ0<span class="sc">$</span>democ, prz_democ0<span class="sc">$</span>prob_emergence)</span>
-<span id="cb95-125"><a href="exercises-2.html#cb95-125" tabindex="-1"></a></span>
-<span id="cb95-126"><a href="exercises-2.html#cb95-126" tabindex="-1"></a></span>
-<span id="cb95-127"><a href="exercises-2.html#cb95-127" tabindex="-1"></a><span class="co"># survive model</span></span>
-<span id="cb95-128"><a href="exercises-2.html#cb95-128" tabindex="-1"></a></span>
-<span id="cb95-129"><a href="exercises-2.html#cb95-129" tabindex="-1"></a>prob_survive <span class="ot">&lt;-</span> <span class="fu">predict</span>(survive, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
-<span id="cb95-130"><a href="exercises-2.html#cb95-130" tabindex="-1"></a>prz_democ1<span class="sc">$</span>prob_survive <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_survive)</span>
-<span id="cb95-131"><a href="exercises-2.html#cb95-131" tabindex="-1"></a></span>
-<span id="cb95-132"><a href="exercises-2.html#cb95-132" tabindex="-1"></a>roc_survive <span class="ot">&lt;-</span> <span class="fu">roc</span>(prz_democ1<span class="sc">$</span>democ, prz_democ1<span class="sc">$</span>prob_survive)</span>
-<span id="cb95-133"><a href="exercises-2.html#cb95-133" tabindex="-1"></a></span>
-<span id="cb95-134"><a href="exercises-2.html#cb95-134" tabindex="-1"></a></span>
-<span id="cb95-135"><a href="exercises-2.html#cb95-135" tabindex="-1"></a></span>
-<span id="cb95-136"><a href="exercises-2.html#cb95-136" tabindex="-1"></a><span class="co"># Joint Model</span></span>
-<span id="cb95-137"><a href="exercises-2.html#cb95-137" tabindex="-1"></a></span>
-<span id="cb95-138"><a href="exercises-2.html#cb95-138" tabindex="-1"></a></span>
-<span id="cb95-139"><a href="exercises-2.html#cb95-139" tabindex="-1"></a>prob_joint <span class="ot">&lt;-</span> <span class="fu">predict</span>(joint, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
-<span id="cb95-140"><a href="exercises-2.html#cb95-140" tabindex="-1"></a>prz<span class="sc">$</span>prob_joint <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_joint)</span>
-<span id="cb95-141"><a href="exercises-2.html#cb95-141" tabindex="-1"></a></span>
-<span id="cb95-142"><a href="exercises-2.html#cb95-142" tabindex="-1"></a>roc_joint <span class="ot">&lt;-</span> <span class="fu">roc</span>(prz<span class="sc">$</span>democ, prz<span class="sc">$</span>prob_joint)</span>
-<span id="cb95-143"><a href="exercises-2.html#cb95-143" tabindex="-1"></a></span>
-<span id="cb95-144"><a href="exercises-2.html#cb95-144" tabindex="-1"></a></span>
-<span id="cb95-145"><a href="exercises-2.html#cb95-145" tabindex="-1"></a></span>
-<span id="cb95-146"><a href="exercises-2.html#cb95-146" tabindex="-1"></a></span>
-<span id="cb95-147"><a href="exercises-2.html#cb95-147" tabindex="-1"></a><span class="do">## `modelsummary`</span></span>
-<span id="cb95-148"><a href="exercises-2.html#cb95-148" tabindex="-1"></a></span>
-<span id="cb95-149"><a href="exercises-2.html#cb95-149" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb95-150"><a href="exercises-2.html#cb95-150" tabindex="-1"></a>  democracy, dynamic, emergence, survive, joint</span>
-<span id="cb95-151"><a href="exercises-2.html#cb95-151" tabindex="-1"></a>)</span>
-<span id="cb95-152"><a href="exercises-2.html#cb95-152" tabindex="-1"></a></span>
-<span id="cb95-153"><a href="exercises-2.html#cb95-153" tabindex="-1"></a>cm <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb95-154"><a href="exercises-2.html#cb95-154" tabindex="-1"></a><span class="st">&#39;g&#39;</span><span class="ot">=</span><span class="st">&quot;Growth rate&quot;</span>,</span>
-<span id="cb95-155"><a href="exercises-2.html#cb95-155" tabindex="-1"></a><span class="st">&#39;gdpw&#39;</span><span class="ot">=</span><span class="st">&quot;GDP per Worker&quot;</span>,</span>
-<span id="cb95-156"><a href="exercises-2.html#cb95-156" tabindex="-1"></a><span class="st">&#39;oil&#39;</span><span class="ot">=</span><span class="st">&quot;Oil Producer&quot;</span>,</span>
-<span id="cb95-157"><a href="exercises-2.html#cb95-157" tabindex="-1"></a><span class="st">&#39;l.g&#39;</span><span class="ot">=</span><span class="st">&quot;Lagged Growth rate&quot;</span>,</span>
-<span id="cb95-158"><a href="exercises-2.html#cb95-158" tabindex="-1"></a><span class="st">&#39;l.gdpw&#39;</span><span class="ot">=</span><span class="st">&quot;Lagged GDP per Worker&quot;</span>,</span>
-<span id="cb95-159"><a href="exercises-2.html#cb95-159" tabindex="-1"></a><span class="st">&#39;l.oil&#39;</span><span class="ot">=</span><span class="st">&quot;Lagged Oil Producer&quot;</span>,</span>
-<span id="cb95-160"><a href="exercises-2.html#cb95-160" tabindex="-1"></a><span class="st">&#39;(Intercept)&#39;</span> <span class="ot">=</span> <span class="st">&#39;Constant&#39;</span>)</span>
-<span id="cb95-161"><a href="exercises-2.html#cb95-161" tabindex="-1"></a></span>
-<span id="cb95-162"><a href="exercises-2.html#cb95-162" tabindex="-1"></a>rows <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb95-163"><a href="exercises-2.html#cb95-163" tabindex="-1"></a>  <span class="st">&#39;~term&#39;</span> <span class="ot">=</span> <span class="st">&#39;ROC Curve&#39;</span>,</span>
-<span id="cb95-164"><a href="exercises-2.html#cb95-164" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(1)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">auc</span>(roc_democracy),<span class="dv">2</span>),</span>
-<span id="cb95-165"><a href="exercises-2.html#cb95-165" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(2)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">auc</span>(roc_dynamic),<span class="dv">2</span>),</span>
-<span id="cb95-166"><a href="exercises-2.html#cb95-166" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(3)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">auc</span>(roc_emergence),<span class="dv">2</span>),</span>
-<span id="cb95-167"><a href="exercises-2.html#cb95-167" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(4)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">auc</span>(roc_survive),<span class="dv">2</span>),</span>
-<span id="cb95-168"><a href="exercises-2.html#cb95-168" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(5)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">auc</span>(roc_joint),<span class="dv">2</span>)</span>
-<span id="cb95-169"><a href="exercises-2.html#cb95-169" tabindex="-1"></a>)</span>
-<span id="cb95-170"><a href="exercises-2.html#cb95-170" tabindex="-1"></a></span>
-<span id="cb95-171"><a href="exercises-2.html#cb95-171" tabindex="-1"></a></span>
-<span id="cb95-172"><a href="exercises-2.html#cb95-172" tabindex="-1"></a><span class="fu">attr</span>(rows, <span class="st">&#39;position&#39;</span>) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>)</span>
-<span id="cb95-173"><a href="exercises-2.html#cb95-173" tabindex="-1"></a></span>
-<span id="cb95-174"><a href="exercises-2.html#cb95-174" tabindex="-1"></a></span>
-<span id="cb95-175"><a href="exercises-2.html#cb95-175" tabindex="-1"></a><span class="fu">modelsummary</span>(models, </span>
-<span id="cb95-176"><a href="exercises-2.html#cb95-176" tabindex="-1"></a>             <span class="at">gof_omit =</span> <span class="st">&#39;DF|Deviance|Log.Lik|F|AIC|BIC|RMSE&#39;</span>, </span>
-<span id="cb95-177"><a href="exercises-2.html#cb95-177" tabindex="-1"></a>             <span class="at">add_rows =</span> rows,</span>
-<span id="cb95-178"><a href="exercises-2.html#cb95-178" tabindex="-1"></a><span class="co">#            output = &quot;table.docx&quot;,</span></span>
-<span id="cb95-179"><a href="exercises-2.html#cb95-179" tabindex="-1"></a>             <span class="at">stars=</span><span class="cn">TRUE</span>,</span>
-<span id="cb95-180"><a href="exercises-2.html#cb95-180" tabindex="-1"></a>             <span class="at">coef_map =</span> cm)<span class="sc">|&gt;</span></span>
-<span id="cb95-181"><a href="exercises-2.html#cb95-181" tabindex="-1"></a>  <span class="fu">group_tt</span>(<span class="at">j =</span> <span class="fu">list</span>(<span class="st">&quot; &quot;</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">&quot;Dependent Variable:&lt;br&gt;Democracy&quot;</span> <span class="ot">=</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb95-182"><a href="exercises-2.html#cb95-182" tabindex="-1"></a>  <span class="fu">style_tt</span>(<span class="at">tabularray_inner =</span> <span class="st">&quot;columnsep=10pt&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="exercises-2.html#cb96-1" tabindex="-1"></a></span>
+<span id="cb96-2"><a href="exercises-2.html#cb96-2" tabindex="-1"></a><span class="co"># Set Working Directory</span></span>
+<span id="cb96-3"><a href="exercises-2.html#cb96-3" tabindex="-1"></a><span class="do">########################</span></span>
+<span id="cb96-4"><a href="exercises-2.html#cb96-4" tabindex="-1"></a></span>
+<span id="cb96-5"><a href="exercises-2.html#cb96-5" tabindex="-1"></a><span class="fu">setwd</span>()</span>
+<span id="cb96-6"><a href="exercises-2.html#cb96-6" tabindex="-1"></a></span>
+<span id="cb96-7"><a href="exercises-2.html#cb96-7" tabindex="-1"></a></span>
+<span id="cb96-8"><a href="exercises-2.html#cb96-8" tabindex="-1"></a><span class="co"># PACKAGES</span></span>
+<span id="cb96-9"><a href="exercises-2.html#cb96-9" tabindex="-1"></a><span class="do">############</span></span>
+<span id="cb96-10"><a href="exercises-2.html#cb96-10" tabindex="-1"></a></span>
+<span id="cb96-11"><a href="exercises-2.html#cb96-11" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb96-12"><a href="exercises-2.html#cb96-12" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb96-13"><a href="exercises-2.html#cb96-13" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span>
+<span id="cb96-14"><a href="exercises-2.html#cb96-14" tabindex="-1"></a></span>
+<span id="cb96-15"><a href="exercises-2.html#cb96-15" tabindex="-1"></a></span>
+<span id="cb96-16"><a href="exercises-2.html#cb96-16" tabindex="-1"></a><span class="co"># Import Data</span></span>
+<span id="cb96-17"><a href="exercises-2.html#cb96-17" tabindex="-1"></a><span class="do">#############</span></span>
+<span id="cb96-18"><a href="exercises-2.html#cb96-18" tabindex="-1"></a></span>
+<span id="cb96-19"><a href="exercises-2.html#cb96-19" tabindex="-1"></a>prz <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">&quot;prz.dta&quot;</span>)</span>
+<span id="cb96-20"><a href="exercises-2.html#cb96-20" tabindex="-1"></a></span>
+<span id="cb96-21"><a href="exercises-2.html#cb96-21" tabindex="-1"></a></span>
+<span id="cb96-22"><a href="exercises-2.html#cb96-22" tabindex="-1"></a></span>
+<span id="cb96-23"><a href="exercises-2.html#cb96-23" tabindex="-1"></a><span class="co"># Exercise 1</span></span>
+<span id="cb96-24"><a href="exercises-2.html#cb96-24" tabindex="-1"></a><span class="do">#####################</span></span>
+<span id="cb96-25"><a href="exercises-2.html#cb96-25" tabindex="-1"></a></span>
+<span id="cb96-26"><a href="exercises-2.html#cb96-26" tabindex="-1"></a></span>
+<span id="cb96-27"><a href="exercises-2.html#cb96-27" tabindex="-1"></a>democracy <span class="ot">&lt;-</span> <span class="fu">glm</span>(democ <span class="sc">~</span> g <span class="sc">+</span> gdpw <span class="sc">+</span> oil, </span>
+<span id="cb96-28"><a href="exercises-2.html#cb96-28" tabindex="-1"></a>                 <span class="at">data =</span> prz,</span>
+<span id="cb96-29"><a href="exercises-2.html#cb96-29" tabindex="-1"></a>                 <span class="at">na.action =</span> na.exclude,</span>
+<span id="cb96-30"><a href="exercises-2.html#cb96-30" tabindex="-1"></a>                 <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span>
+<span id="cb96-31"><a href="exercises-2.html#cb96-31" tabindex="-1"></a></span>
+<span id="cb96-32"><a href="exercises-2.html#cb96-32" tabindex="-1"></a></span>
+<span id="cb96-33"><a href="exercises-2.html#cb96-33" tabindex="-1"></a><span class="co"># Exercise 2</span></span>
+<span id="cb96-34"><a href="exercises-2.html#cb96-34" tabindex="-1"></a><span class="do">#####################</span></span>
+<span id="cb96-35"><a href="exercises-2.html#cb96-35" tabindex="-1"></a></span>
+<span id="cb96-36"><a href="exercises-2.html#cb96-36" tabindex="-1"></a></span>
+<span id="cb96-37"><a href="exercises-2.html#cb96-37" tabindex="-1"></a>prz <span class="ot">&lt;-</span> prz <span class="sc">%&gt;%</span></span>
+<span id="cb96-38"><a href="exercises-2.html#cb96-38" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
+<span id="cb96-39"><a href="exercises-2.html#cb96-39" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.democ =</span> <span class="fu">lag</span>(democ)) <span class="sc">%&gt;%</span></span>
+<span id="cb96-40"><a href="exercises-2.html#cb96-40" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb96-41"><a href="exercises-2.html#cb96-41" tabindex="-1"></a></span>
+<span id="cb96-42"><a href="exercises-2.html#cb96-42" tabindex="-1"></a></span>
+<span id="cb96-43"><a href="exercises-2.html#cb96-43" tabindex="-1"></a></span>
+<span id="cb96-44"><a href="exercises-2.html#cb96-44" tabindex="-1"></a>dynamic <span class="ot">&lt;-</span> <span class="fu">glm</span>(democ <span class="sc">~</span> g <span class="sc">+</span> gdpw <span class="sc">+</span> oil <span class="sc">+</span> l.democ, </span>
+<span id="cb96-45"><a href="exercises-2.html#cb96-45" tabindex="-1"></a>               <span class="at">data =</span> prz,</span>
+<span id="cb96-46"><a href="exercises-2.html#cb96-46" tabindex="-1"></a>               <span class="at">na.action =</span> na.exclude,</span>
+<span id="cb96-47"><a href="exercises-2.html#cb96-47" tabindex="-1"></a>               <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>)) </span>
+<span id="cb96-48"><a href="exercises-2.html#cb96-48" tabindex="-1"></a></span>
+<span id="cb96-49"><a href="exercises-2.html#cb96-49" tabindex="-1"></a></span>
+<span id="cb96-50"><a href="exercises-2.html#cb96-50" tabindex="-1"></a><span class="co"># Exercise 3</span></span>
+<span id="cb96-51"><a href="exercises-2.html#cb96-51" tabindex="-1"></a><span class="do">#####################</span></span>
+<span id="cb96-52"><a href="exercises-2.html#cb96-52" tabindex="-1"></a></span>
+<span id="cb96-53"><a href="exercises-2.html#cb96-53" tabindex="-1"></a>prz <span class="ot">&lt;-</span> prz <span class="sc">%&gt;%</span></span>
+<span id="cb96-54"><a href="exercises-2.html#cb96-54" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
+<span id="cb96-55"><a href="exercises-2.html#cb96-55" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.g =</span> <span class="fu">lag</span>(g)) <span class="sc">%&gt;%</span></span>
+<span id="cb96-56"><a href="exercises-2.html#cb96-56" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb96-57"><a href="exercises-2.html#cb96-57" tabindex="-1"></a></span>
+<span id="cb96-58"><a href="exercises-2.html#cb96-58" tabindex="-1"></a>prz <span class="ot">&lt;-</span> prz <span class="sc">%&gt;%</span></span>
+<span id="cb96-59"><a href="exercises-2.html#cb96-59" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
+<span id="cb96-60"><a href="exercises-2.html#cb96-60" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.gdpw =</span> <span class="fu">lag</span>(gdpw)) <span class="sc">%&gt;%</span></span>
+<span id="cb96-61"><a href="exercises-2.html#cb96-61" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb96-62"><a href="exercises-2.html#cb96-62" tabindex="-1"></a></span>
+<span id="cb96-63"><a href="exercises-2.html#cb96-63" tabindex="-1"></a>prz <span class="ot">&lt;-</span> prz <span class="sc">%&gt;%</span></span>
+<span id="cb96-64"><a href="exercises-2.html#cb96-64" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
+<span id="cb96-65"><a href="exercises-2.html#cb96-65" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.oil =</span> <span class="fu">lag</span>(oil)) <span class="sc">%&gt;%</span></span>
+<span id="cb96-66"><a href="exercises-2.html#cb96-66" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb96-67"><a href="exercises-2.html#cb96-67" tabindex="-1"></a></span>
+<span id="cb96-68"><a href="exercises-2.html#cb96-68" tabindex="-1"></a>prz_democ0 <span class="ot">&lt;-</span> <span class="fu">filter</span>(prz, l.democ<span class="sc">==</span><span class="dv">0</span>) </span>
+<span id="cb96-69"><a href="exercises-2.html#cb96-69" tabindex="-1"></a></span>
+<span id="cb96-70"><a href="exercises-2.html#cb96-70" tabindex="-1"></a>emergence <span class="ot">&lt;-</span> <span class="fu">glm</span>(democ <span class="sc">~</span> l.g <span class="sc">+</span> l.gdpw <span class="sc">+</span> l.oil, </span>
+<span id="cb96-71"><a href="exercises-2.html#cb96-71" tabindex="-1"></a>                 <span class="at">data =</span> prz_democ0,</span>
+<span id="cb96-72"><a href="exercises-2.html#cb96-72" tabindex="-1"></a>                 <span class="at">na.action =</span> na.exclude,</span>
+<span id="cb96-73"><a href="exercises-2.html#cb96-73" tabindex="-1"></a>                 <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span>
+<span id="cb96-74"><a href="exercises-2.html#cb96-74" tabindex="-1"></a></span>
+<span id="cb96-75"><a href="exercises-2.html#cb96-75" tabindex="-1"></a></span>
+<span id="cb96-76"><a href="exercises-2.html#cb96-76" tabindex="-1"></a><span class="co"># Exercise 4</span></span>
+<span id="cb96-77"><a href="exercises-2.html#cb96-77" tabindex="-1"></a><span class="do">#####################</span></span>
+<span id="cb96-78"><a href="exercises-2.html#cb96-78" tabindex="-1"></a></span>
+<span id="cb96-79"><a href="exercises-2.html#cb96-79" tabindex="-1"></a>prz_democ1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(prz, l.democ<span class="sc">==</span><span class="dv">1</span>)</span>
+<span id="cb96-80"><a href="exercises-2.html#cb96-80" tabindex="-1"></a></span>
+<span id="cb96-81"><a href="exercises-2.html#cb96-81" tabindex="-1"></a>survive <span class="ot">&lt;-</span> <span class="fu">glm</span>(democ <span class="sc">~</span> l.g <span class="sc">+</span> l.gdpw <span class="sc">+</span> l.oil, </span>
+<span id="cb96-82"><a href="exercises-2.html#cb96-82" tabindex="-1"></a>               <span class="at">data =</span> prz_democ1,</span>
+<span id="cb96-83"><a href="exercises-2.html#cb96-83" tabindex="-1"></a>               <span class="at">na.action =</span> na.exclude,</span>
+<span id="cb96-84"><a href="exercises-2.html#cb96-84" tabindex="-1"></a>               <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span>
+<span id="cb96-85"><a href="exercises-2.html#cb96-85" tabindex="-1"></a></span>
+<span id="cb96-86"><a href="exercises-2.html#cb96-86" tabindex="-1"></a></span>
+<span id="cb96-87"><a href="exercises-2.html#cb96-87" tabindex="-1"></a><span class="co"># Exercise 5</span></span>
+<span id="cb96-88"><a href="exercises-2.html#cb96-88" tabindex="-1"></a><span class="do">#####################</span></span>
+<span id="cb96-89"><a href="exercises-2.html#cb96-89" tabindex="-1"></a></span>
+<span id="cb96-90"><a href="exercises-2.html#cb96-90" tabindex="-1"></a>prz<span class="sc">$</span>l.democgdpw <span class="ot">&lt;-</span> prz<span class="sc">$</span>l.democ <span class="sc">*</span> prz<span class="sc">$</span>l.gdpw</span>
+<span id="cb96-91"><a href="exercises-2.html#cb96-91" tabindex="-1"></a>prz<span class="sc">$</span>l.democg <span class="ot">&lt;-</span> prz<span class="sc">$</span>l.democ <span class="sc">*</span> prz<span class="sc">$</span>l.g</span>
+<span id="cb96-92"><a href="exercises-2.html#cb96-92" tabindex="-1"></a>prz<span class="sc">$</span>l.democoil <span class="ot">&lt;-</span> prz<span class="sc">$</span>l.democ <span class="sc">*</span> prz<span class="sc">$</span>l.oil</span>
+<span id="cb96-93"><a href="exercises-2.html#cb96-93" tabindex="-1"></a></span>
+<span id="cb96-94"><a href="exercises-2.html#cb96-94" tabindex="-1"></a></span>
+<span id="cb96-95"><a href="exercises-2.html#cb96-95" tabindex="-1"></a>joint <span class="ot">&lt;-</span> <span class="fu">glm</span>(democ <span class="sc">~</span> l.g <span class="sc">+</span> l.gdpw <span class="sc">+</span> l.oil <span class="sc">+</span> l.democ <span class="sc">+</span> l.democg <span class="sc">+</span> l.democgdpw <span class="sc">+</span> l.democoil, </span>
+<span id="cb96-96"><a href="exercises-2.html#cb96-96" tabindex="-1"></a>             <span class="at">data =</span> prz,</span>
+<span id="cb96-97"><a href="exercises-2.html#cb96-97" tabindex="-1"></a>             <span class="at">na.action =</span> na.exclude,</span>
+<span id="cb96-98"><a href="exercises-2.html#cb96-98" tabindex="-1"></a>             <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span>
+<span id="cb96-99"><a href="exercises-2.html#cb96-99" tabindex="-1"></a></span>
+<span id="cb96-100"><a href="exercises-2.html#cb96-100" tabindex="-1"></a><span class="co"># Exercise 6</span></span>
+<span id="cb96-101"><a href="exercises-2.html#cb96-101" tabindex="-1"></a><span class="do">#####################</span></span>
+<span id="cb96-102"><a href="exercises-2.html#cb96-102" tabindex="-1"></a></span>
+<span id="cb96-103"><a href="exercises-2.html#cb96-103" tabindex="-1"></a><span class="fu">library</span>(pROC)</span>
+<span id="cb96-104"><a href="exercises-2.html#cb96-104" tabindex="-1"></a></span>
+<span id="cb96-105"><a href="exercises-2.html#cb96-105" tabindex="-1"></a><span class="co"># Democracy model: </span></span>
+<span id="cb96-106"><a href="exercises-2.html#cb96-106" tabindex="-1"></a></span>
+<span id="cb96-107"><a href="exercises-2.html#cb96-107" tabindex="-1"></a>prob_democracy <span class="ot">&lt;-</span> <span class="fu">predict</span>(democracy, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb96-108"><a href="exercises-2.html#cb96-108" tabindex="-1"></a>prz<span class="sc">$</span>prob_democracy <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_democracy)</span>
+<span id="cb96-109"><a href="exercises-2.html#cb96-109" tabindex="-1"></a></span>
+<span id="cb96-110"><a href="exercises-2.html#cb96-110" tabindex="-1"></a>roc_democracy <span class="ot">&lt;-</span> <span class="fu">roc</span>(prz<span class="sc">$</span>democ, prz<span class="sc">$</span>prob_democracy)</span>
+<span id="cb96-111"><a href="exercises-2.html#cb96-111" tabindex="-1"></a></span>
+<span id="cb96-112"><a href="exercises-2.html#cb96-112" tabindex="-1"></a></span>
+<span id="cb96-113"><a href="exercises-2.html#cb96-113" tabindex="-1"></a><span class="co"># Dynamic Model</span></span>
+<span id="cb96-114"><a href="exercises-2.html#cb96-114" tabindex="-1"></a></span>
+<span id="cb96-115"><a href="exercises-2.html#cb96-115" tabindex="-1"></a>prob_dynamic <span class="ot">&lt;-</span> <span class="fu">predict</span>(dynamic, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb96-116"><a href="exercises-2.html#cb96-116" tabindex="-1"></a>prz<span class="sc">$</span>prob_dynamic <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_dynamic)</span>
+<span id="cb96-117"><a href="exercises-2.html#cb96-117" tabindex="-1"></a></span>
+<span id="cb96-118"><a href="exercises-2.html#cb96-118" tabindex="-1"></a>roc_dynamic <span class="ot">&lt;-</span> <span class="fu">roc</span>(prz<span class="sc">$</span>democ, prz<span class="sc">$</span>prob_dynamic)</span>
+<span id="cb96-119"><a href="exercises-2.html#cb96-119" tabindex="-1"></a></span>
+<span id="cb96-120"><a href="exercises-2.html#cb96-120" tabindex="-1"></a><span class="co"># emergence model</span></span>
+<span id="cb96-121"><a href="exercises-2.html#cb96-121" tabindex="-1"></a>prob_emergence <span class="ot">&lt;-</span> <span class="fu">predict</span>(emergence, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb96-122"><a href="exercises-2.html#cb96-122" tabindex="-1"></a>prz_democ0<span class="sc">$</span>prob_emergence <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_emergence)</span>
+<span id="cb96-123"><a href="exercises-2.html#cb96-123" tabindex="-1"></a></span>
+<span id="cb96-124"><a href="exercises-2.html#cb96-124" tabindex="-1"></a>roc_emergence <span class="ot">&lt;-</span> <span class="fu">roc</span>(prz_democ0<span class="sc">$</span>democ, prz_democ0<span class="sc">$</span>prob_emergence)</span>
+<span id="cb96-125"><a href="exercises-2.html#cb96-125" tabindex="-1"></a></span>
+<span id="cb96-126"><a href="exercises-2.html#cb96-126" tabindex="-1"></a></span>
+<span id="cb96-127"><a href="exercises-2.html#cb96-127" tabindex="-1"></a><span class="co"># survive model</span></span>
+<span id="cb96-128"><a href="exercises-2.html#cb96-128" tabindex="-1"></a></span>
+<span id="cb96-129"><a href="exercises-2.html#cb96-129" tabindex="-1"></a>prob_survive <span class="ot">&lt;-</span> <span class="fu">predict</span>(survive, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb96-130"><a href="exercises-2.html#cb96-130" tabindex="-1"></a>prz_democ1<span class="sc">$</span>prob_survive <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_survive)</span>
+<span id="cb96-131"><a href="exercises-2.html#cb96-131" tabindex="-1"></a></span>
+<span id="cb96-132"><a href="exercises-2.html#cb96-132" tabindex="-1"></a>roc_survive <span class="ot">&lt;-</span> <span class="fu">roc</span>(prz_democ1<span class="sc">$</span>democ, prz_democ1<span class="sc">$</span>prob_survive)</span>
+<span id="cb96-133"><a href="exercises-2.html#cb96-133" tabindex="-1"></a></span>
+<span id="cb96-134"><a href="exercises-2.html#cb96-134" tabindex="-1"></a></span>
+<span id="cb96-135"><a href="exercises-2.html#cb96-135" tabindex="-1"></a></span>
+<span id="cb96-136"><a href="exercises-2.html#cb96-136" tabindex="-1"></a><span class="co"># Joint Model</span></span>
+<span id="cb96-137"><a href="exercises-2.html#cb96-137" tabindex="-1"></a></span>
+<span id="cb96-138"><a href="exercises-2.html#cb96-138" tabindex="-1"></a></span>
+<span id="cb96-139"><a href="exercises-2.html#cb96-139" tabindex="-1"></a>prob_joint <span class="ot">&lt;-</span> <span class="fu">predict</span>(joint, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<span id="cb96-140"><a href="exercises-2.html#cb96-140" tabindex="-1"></a>prz<span class="sc">$</span>prob_joint <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_joint)</span>
+<span id="cb96-141"><a href="exercises-2.html#cb96-141" tabindex="-1"></a></span>
+<span id="cb96-142"><a href="exercises-2.html#cb96-142" tabindex="-1"></a>roc_joint <span class="ot">&lt;-</span> <span class="fu">roc</span>(prz<span class="sc">$</span>democ, prz<span class="sc">$</span>prob_joint)</span>
+<span id="cb96-143"><a href="exercises-2.html#cb96-143" tabindex="-1"></a></span>
+<span id="cb96-144"><a href="exercises-2.html#cb96-144" tabindex="-1"></a></span>
+<span id="cb96-145"><a href="exercises-2.html#cb96-145" tabindex="-1"></a></span>
+<span id="cb96-146"><a href="exercises-2.html#cb96-146" tabindex="-1"></a></span>
+<span id="cb96-147"><a href="exercises-2.html#cb96-147" tabindex="-1"></a><span class="do">## `modelsummary`</span></span>
+<span id="cb96-148"><a href="exercises-2.html#cb96-148" tabindex="-1"></a></span>
+<span id="cb96-149"><a href="exercises-2.html#cb96-149" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb96-150"><a href="exercises-2.html#cb96-150" tabindex="-1"></a>  democracy, dynamic, emergence, survive, joint</span>
+<span id="cb96-151"><a href="exercises-2.html#cb96-151" tabindex="-1"></a>)</span>
+<span id="cb96-152"><a href="exercises-2.html#cb96-152" tabindex="-1"></a></span>
+<span id="cb96-153"><a href="exercises-2.html#cb96-153" tabindex="-1"></a>cm <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb96-154"><a href="exercises-2.html#cb96-154" tabindex="-1"></a><span class="st">&#39;g&#39;</span><span class="ot">=</span><span class="st">&quot;Growth rate&quot;</span>,</span>
+<span id="cb96-155"><a href="exercises-2.html#cb96-155" tabindex="-1"></a><span class="st">&#39;gdpw&#39;</span><span class="ot">=</span><span class="st">&quot;GDP per Worker&quot;</span>,</span>
+<span id="cb96-156"><a href="exercises-2.html#cb96-156" tabindex="-1"></a><span class="st">&#39;oil&#39;</span><span class="ot">=</span><span class="st">&quot;Oil Producer&quot;</span>,</span>
+<span id="cb96-157"><a href="exercises-2.html#cb96-157" tabindex="-1"></a><span class="st">&#39;l.g&#39;</span><span class="ot">=</span><span class="st">&quot;Lagged Growth rate&quot;</span>,</span>
+<span id="cb96-158"><a href="exercises-2.html#cb96-158" tabindex="-1"></a><span class="st">&#39;l.gdpw&#39;</span><span class="ot">=</span><span class="st">&quot;Lagged GDP per Worker&quot;</span>,</span>
+<span id="cb96-159"><a href="exercises-2.html#cb96-159" tabindex="-1"></a><span class="st">&#39;l.oil&#39;</span><span class="ot">=</span><span class="st">&quot;Lagged Oil Producer&quot;</span>,</span>
+<span id="cb96-160"><a href="exercises-2.html#cb96-160" tabindex="-1"></a><span class="st">&#39;(Intercept)&#39;</span> <span class="ot">=</span> <span class="st">&#39;Constant&#39;</span>)</span>
+<span id="cb96-161"><a href="exercises-2.html#cb96-161" tabindex="-1"></a></span>
+<span id="cb96-162"><a href="exercises-2.html#cb96-162" tabindex="-1"></a>rows <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb96-163"><a href="exercises-2.html#cb96-163" tabindex="-1"></a>  <span class="st">&#39;~term&#39;</span> <span class="ot">=</span> <span class="st">&#39;ROC Curve&#39;</span>,</span>
+<span id="cb96-164"><a href="exercises-2.html#cb96-164" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(1)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">auc</span>(roc_democracy),<span class="dv">2</span>),</span>
+<span id="cb96-165"><a href="exercises-2.html#cb96-165" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(2)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">auc</span>(roc_dynamic),<span class="dv">2</span>),</span>
+<span id="cb96-166"><a href="exercises-2.html#cb96-166" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(3)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">auc</span>(roc_emergence),<span class="dv">2</span>),</span>
+<span id="cb96-167"><a href="exercises-2.html#cb96-167" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(4)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">auc</span>(roc_survive),<span class="dv">2</span>),</span>
+<span id="cb96-168"><a href="exercises-2.html#cb96-168" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(5)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">auc</span>(roc_joint),<span class="dv">2</span>)</span>
+<span id="cb96-169"><a href="exercises-2.html#cb96-169" tabindex="-1"></a>)</span>
+<span id="cb96-170"><a href="exercises-2.html#cb96-170" tabindex="-1"></a></span>
+<span id="cb96-171"><a href="exercises-2.html#cb96-171" tabindex="-1"></a></span>
+<span id="cb96-172"><a href="exercises-2.html#cb96-172" tabindex="-1"></a><span class="fu">attr</span>(rows, <span class="st">&#39;position&#39;</span>) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>)</span>
+<span id="cb96-173"><a href="exercises-2.html#cb96-173" tabindex="-1"></a></span>
+<span id="cb96-174"><a href="exercises-2.html#cb96-174" tabindex="-1"></a></span>
+<span id="cb96-175"><a href="exercises-2.html#cb96-175" tabindex="-1"></a><span class="fu">modelsummary</span>(models, </span>
+<span id="cb96-176"><a href="exercises-2.html#cb96-176" tabindex="-1"></a>             <span class="at">gof_omit =</span> <span class="st">&#39;DF|Deviance|Log.Lik|F|AIC|BIC|RMSE&#39;</span>, </span>
+<span id="cb96-177"><a href="exercises-2.html#cb96-177" tabindex="-1"></a>             <span class="at">add_rows =</span> rows,</span>
+<span id="cb96-178"><a href="exercises-2.html#cb96-178" tabindex="-1"></a><span class="co">#            output = &quot;table.docx&quot;,</span></span>
+<span id="cb96-179"><a href="exercises-2.html#cb96-179" tabindex="-1"></a>             <span class="at">stars=</span><span class="cn">TRUE</span>,</span>
+<span id="cb96-180"><a href="exercises-2.html#cb96-180" tabindex="-1"></a>             <span class="at">coef_map =</span> cm)<span class="sc">|&gt;</span></span>
+<span id="cb96-181"><a href="exercises-2.html#cb96-181" tabindex="-1"></a>  <span class="fu">group_tt</span>(<span class="at">j =</span> <span class="fu">list</span>(<span class="st">&quot; &quot;</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">&quot;Dependent Variable:&lt;br&gt;Democracy&quot;</span> <span class="ot">=</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb96-182"><a href="exercises-2.html#cb96-182" tabindex="-1"></a>  <span class="fu">style_tt</span>(<span class="at">tabularray_inner =</span> <span class="st">&quot;columnsep=10pt&quot;</span>)</span></code></pre></div>
 </details>
 </div>
 <hr />
