@@ -340,6 +340,61 @@ code, kbd, samp {
 }
 
 /* ----------------------------------------
+   Output Chunks
+---------------------------------------- */
+
+
+pre:not(.sourceCode),
+pre:not(.sourceCode) > code {
+  background-color: #1d1f2b !important;
+  color: #d8dee9 !important;
+  font-family: 'Fira Mono', monospace !important;
+  font-size: 0.9rem !important;
+  line-height: 1.4 !important;
+  border: 2px solid #5a5f80 !important;
+  border-radius: 6px !important;
+  padding: 1em !important;
+  margin-top: 1.5em !important;
+  margin-bottom: 1.5em !important;
+  white-space: pre-wrap !important;
+  overflow-x: auto !important;
+  display: block !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Remove background/padding from wrappers of <pre><code> blocks */
+div.output, div.downlit, div.cell-output, div.cell-output-display, div.cell-output-stdout {
+  background-color: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Ensure pre/code inside those wrappers is fully styled */
+pre:not(.sourceCode),
+pre:not(.sourceCode) > code {
+  background-color: #1d1f2b !important;
+  color: #d8dee9 !important;
+  font-family: 'Fira Mono', monospace !important;
+  font-size: 0.9rem !important;
+  line-height: 1.4 !important;
+  border: 2px solid #5a5f80 !important;
+  border-radius: 6px !important;
+  padding: 1em !important;
+  margin-top: 1.5em !important;
+  margin-bottom: 1.5em !important;
+  white-space: pre-wrap !important;
+  overflow-x: auto !important;
+  display: block !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+
+
+/* ----------------------------------------
    Code Chunk Button
 ---------------------------------------- */
 
