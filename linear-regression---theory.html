@@ -15,8 +15,7 @@
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/Lexend-0.4.10/font.css" rel="stylesheet">
 <script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
-<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
@@ -140,15 +139,25 @@
 <p>YouTube link to follow</p>
 </div>
 <p>Regression is not only able to identify the direction of a relationship between an independent and a dependent variable, it is also able to quantify the size of the effect. Let us choose <code>Y</code> as our dependent variable, and <code>X</code> as our independent variable. We have some data which we are displaying in a scatter plot:</p>
-<div class="inline-figure"><img src="files/Week%202/scatter.png" style="width:50.0%"></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:scatter"></span>
+<img src="files/Week%202/scatter.png" alt="\label{fig:scatter}Scatter Plot" width="50%"><p class="caption">
+Figure 13: Scatter Plot
+</p>
+</div>
 <p>With a little goodwill we can already see that there is a positive relationship: as <code>X</code> increases, <code>Y</code> increases, as well. Now, imagine taking a ruler and trying to fit in a line that best describes the relationship depicted by these points. This will be our <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">regression line</a></span>.</p>
 <p>The position of a line in a coordinate system is usually described by two items: the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">intercept</a></span> with the Y-axis, and the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">slope</a></span> of the line. The slope is defined as rise over run, and indicates by how much Y increases (or decreases is the slope is negative) if we add an additional unit of X. In the notation which follows we will call the intercept <span class="math inline">\(\beta_{0}\)</span>, and the slope <span class="math inline">\(\beta_{1}\)</span>. It will be our task to estimate these values, also called <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">coefficients</a></span> You can see this depicted graphically here:</p>
-<div class="inline-figure"><img src="files/Week%202/regline.png" style="width:50.0%"></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:regline"></span>
+<img src="files/Week%202/regline.png" alt="\label{fig:regline}Regression Line" width="50%"><p class="caption">
+Figure 14: Regression Line
+</p>
+</div>
 <p>In the context of the module, we would for example have per capita GDP on the x-axis (independent variable), and Polity V measuring the level of democracy on the y-axis (dependent variable). This would look like this in the year 2015:</p>
 <div class="figure">
 <span style="display:block;" id="fig:unnamed-chunk-45"></span>
 <img src="images/Week%202/case.png" alt="\label{fig:modern}Democracy and Development in 2015" width="50%"><p class="caption">
-Figure 13: Democracy and Development in 2015
+Figure 15: Democracy and Development in 2015
 </p>
 </div>
 <div id="population" class="section level3 unnumbered">
@@ -160,7 +169,12 @@ E(Y|X_{i}) = \beta_{0} + \beta_{1} X_{i}
 \end{equation}\]</span></p>
 <p>Because we are dealing with the population, the line is the geometric locus of all the expected values of the dependent variable <code>Y</code>, given the values of the independent variables <code>X</code>, also known as the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">conditional expectation function</a></span> (which value of Y would we expect, on average, for a given Y?). This has to do with the approach to statistics that underpins this module: frequentist statistics (as opposed to Bayesian statistics). We are understanding all values to be “in the long run”, and if we sampled repeatedly from a population, then the expected value is the value we would, well, expect to see most often in the long run.</p>
 <p>The regression line is not intercepting with all observations. Only two are located on the line, and all others have a little distance between them and the PRF. These distances between <span class="math inline">\(E(Y|X_{i})\)</span> and <span class="math inline">\(Y_{i}\)</span> are called <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">error terms</a></span> and are denoted as <span class="math inline">\(\epsilon_{i}\)</span>.</p>
-<div class="inline-figure"><img src="files/Week%202/errors.png" style="width:50.0%"></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:errors"></span>
+<img src="files/Week%202/errors.png" alt="\label{fig:errors}Errors" width="50%"><p class="caption">
+Figure 16: Errors
+</p>
+</div>
 <p>To describe the observations <span class="math inline">\(Y_{i}\)</span> we therefore need to add the error terms to the PRF:</p>
 <p><span class="math display">\[\begin{equation}
 Y_{i} = \beta_{0} + \beta_{1} X_{i} + \epsilon_{i}
@@ -179,7 +193,12 @@ Y_{i} = \beta_{0} + \beta_{1} X_{i} + \epsilon_{i}
 Y_{i} = \hat{\beta}_{0} + \hat{\beta}_{1} X_{i} + \hat{\epsilon}_{i}
 \end{equation}\]</span></p>
 <p>These estimated error terms, <span class="math inline">\(\hat{\epsilon}_{i}\)</span>, are called <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">residuals</a></span>. The following graph visualises the relationship between an observation, the PRF, the SRF, the error terms, and the residuals.</p>
-<div class="inline-figure"><img src="files/Week%202/SRF_PRF.png" style="width:50.0%"></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:srfprf"></span>
+<img src="files/Week%202/SRF_PRF.png" alt="\label{fig:srfprf}Population vs. Sample Regression Function" width="50%"><p class="caption">
+Figure 17: Population vs. Sample Regression Function
+</p>
+</div>
 <hr>
 </div>
 </div>
@@ -188,7 +207,12 @@ Y_{i} = \hat{\beta}_{0} + \hat{\beta}_{1} X_{i} + \hat{\epsilon}_{i}
 </h2>
 <p>When you eye-balled the scatter plot at the start of this Chapter in order to fit a line through it, you have sub-consciously done so by minimising the distance between each of the observations and the line. Or put differently, you have tried to minimise the error term <span class="math inline">\(\hat{\epsilon}_{i}\)</span>. This is basically the intuition behind fitting the SRF mathematically, too. We try to minimise the sum of all error terms, so that all observations are as close to the regression line as possible. The only problem that we encounter when doing this is that these distances will always sum up to zero.</p>
 <p>But similar to calculating the standard deviation where the differences between the observations and the mean would sum up to zero (essentially we are doing the same thing here), we simply square those distances. So we are not minimising the sum of distances between observations and the regression line, but the sum of the <strong>squared</strong> distances between the observations and the regression line. Graphically, we would end up with little squares made out of each <span class="math inline">\(\hat{\epsilon}_{i}\)</span> which gives the the method its name: <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">Ordinary Least Squares</a></span> (OLS).</p>
-<div class="inline-figure"><img src="files/Week%202/OLS.png" style="width:50.0%"></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:ols"></span>
+<img src="files/Week%202/OLS.png" alt="\label{fig:ols}Ordinary Least Squares" width="50%"><p class="caption">
+Figure 18: Ordinary Least Squares
+</p>
+</div>
 <div class="video">
 <p><strong>Ordinary Least Squares (OLS)</strong></p>
 <p>YouTube link to follow</p>

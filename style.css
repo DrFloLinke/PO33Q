@@ -3,6 +3,7 @@
 ---------------------------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@350;500&display=swap');
 
+
 /* ----------------------------------------
    Base Styles
 ---------------------------------------- */
@@ -213,9 +214,9 @@ div.video {
   background: #767da2;
   color: #1d1f2b;
   border: 3px solid #767da2;
-  border-radius: 12px;
-  margin-bottom: 1em;
+  border-radius: 9px;
 }
+
 
 .flashcard {
   background: #4d146b;
@@ -238,3 +239,129 @@ div.video {
 }
 
 
+.figure,
+.inline-figure {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+  display: block;
+}
+
+.figure,
+.inline-figure {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 auto 1.5em auto !important; /* only bottom margin */
+  display: block;
+}
+
+
+/* Fix the text-align typo and force center */
+.figure,
+.inline-figure {
+  text-align: center !important;
+}
+
+/* Style caption nicely */
+
+.figure p.caption {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 2em;
+  font-style: italic;
+  color: #d1d4e0;
+  font-size: 0.9em;
+}
+
+
+
+/* ----------------------------------------
+   Inline Code
+---------------------------------------- */
+code, kbd, samp {
+  background-color: #1d1f2b !important;
+  color: #e1e2ea !important;
+  font-family: 'Fira Mono', monospace !important;
+  padding: 0.15em 0.15em;
+  font-size: 0.85em;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+
+/* ----------------------------------------
+   CODE CHUNKS
+---------------------------------------- */
+
+
+
+.sourceCode {
+  background-color: #1d1f2b !important;
+  color: #d8dee9 !important;
+  border-radius: 6px;
+  padding: 1em;
+  font-size: 0.9rem !important;
+  font-family: 'Fira Mono', monospace !important;
+  line-height: 1.4 !important;
+  white-space: pre-wrap !important;
+  overflow-x: auto !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  position: relative;
+  border: 2px solid #5a5f80;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.sourceCode * {
+  color: #d8dee9 !important;
+}
+
+
+.sourceCode pre,
+.sourceCode code {
+  background: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+.sourceCode > button {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  z-index: 10;
+}
+
+/* ----------------------------------------
+   Code Chunk Button
+---------------------------------------- */
+
+
+.sourceCode > button.btn-copy,
+.sourceCode > button.btn-copy {
+  background: white !important;
+  opacity: 1;
+  color: black !important;
+  outline: none;
+  box-shadow: none;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 0.3em 0.6em;
+  font-size: 0.75rem;
+}
+
+.sourceCode > button.btn-copy:hover,
+.sourceCode > button.btn-copy:focus {
+  background: white !important;
+  opacity: 1;
+  color: black !important;
+  outline: none;
+  box-shadow: none;
+}
