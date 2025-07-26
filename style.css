@@ -1,383 +1,152 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@350&display=swap');
+/* ----------------------------------------
+   Lexend Font Import
+---------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@350;500&display=swap');
 
-
-body {
+/* ----------------------------------------
+   Base Styles
+---------------------------------------- */
+body, .book, .content, .sidebar, .navbar {
   background-color: #1d1f2b !important;
   color: #e1e2ea !important;
+  font-family: 'Lexend', sans-serif !important;
+  font-weight: 350;
+}
+
+/* ----------------------------------------
+   Headings
+---------------------------------------- */
+h1 {
+  font-size: 48px;
+  font-family: 'Lexend', sans-serif;
+}
+
+h2, h3, h4 {
+  font-size: 24px;
+  font-family: 'Lexend', sans-serif;
 }
 
 
-.book .book-body .page-wrapper .page-inner section,
-.book .book-body,
-.book {
+/* ----------------------------------------
+   Sidebar / TOC
+---------------------------------------- */
+.sidebar {
   background-color: #1d1f2b !important;
   color: #e1e2ea !important;
+  font-family: 'Lexend', sans-serif;
 }
 
-.book .book-summary {
-  background-color: #1d1f2b !important;
-  color: #e1e2ea !important;
-}
-
-.book .book-body .page-wrapper .page-inner section {
-  color: #e1e2ea;
-}
-
-a {
+.sidebar ul li a {
   color: #b3b7cb !important;
-}
-
-/* 1. Keep your TOC links with their existing color */
-.book .book-summary ul.summary li a,
-.book .book-summary ul.summary li a:hover,
-.book .book-summary ul.summary li.active a,
-.book .book-summary ul.summary li.done > a,
-.book .book-summary ul.summary li a.gitbook-link {
-  color: #b3b7cb !important;  /* Your distinct TOC link color */
   text-decoration: none !important;
 }
 
-/* 2. Content links only — DO NOT affect .book-header */
-.book .book-body .page-inner a,
-.book .book-body .page-inner a:hover,
-.book .book-body .page-inner a:visited,
-.book .book-body .page-inner a:active {
-  color: #cd6118 !important;
-  text-decoration: none !important;
-}
-
-
-
-
-
-code, 
-.book .book-body code {
-  background-color: #1d1f2b !important;
-  color: #e1e2ea !important; /* match your text color */
-}
-
-pre, pre code {
-  background-color: #1d1f2b !important;
-  color: #e1e2ea !important;
-}
-
-table, th, td {
-  color: #e1e2ea !important;   /* match the rest of your body text */
-  background-color: #1d1f2b !important; /* match background */
-  border-color: #adbdd1 !important; /* optional: soft blue for border */
-}
-
-thead {
-  color: #e1e2ea !important;
-}
-
-caption {
-  color: #e1e2ea !important;
-}
-
-/*____font in menu____*/
-.book .book-summary ul.summary li, 
-.book .book-summary ul.summary li a, 
-.book .book-summary ul.summary li span,
-.book .book-summary ul.summary li.active a, 
-.book .book-summary ul.summary li.done > a, 
-.book .book-summary ul.summary li a:hover,
-.book .book-summary ul.summary li i.fa-check {
-  color: #e8f1f2;
-}
-
-/*____hover over menu____*/
-.book .book-summary ul.summary li a:hover {
+.sidebar ul li a:hover {
   background: #393A3B;
   text-decoration: none;
 }
 
-.book .book-body .book-summary ul.summary li a.gitbook-link {
-  color: #e9eef2;
+.sidebar ul li.active > a {
+  font-weight: 500;
+  color: #e8f1f2;
 }
 
-
-.book .book-summary ul.summary li.done i.fa-check
-{
-  display: none;
-}
-
-
-/*____Code Chunk Colour____*/
-
-pre {
-    border: 1px solid #676e98 !important;
-    border-color: #676e98 ;
-    page-break-inside: avoid;
-    font-size: 15px;
-    line-height: 1.6;
-    margin-bottom: 1.6em;
-    max-width: 100%;
-    overflow: auto;
-    padding: 1em 1.5em;
-    display: block;
-    word-wrap: break-word;
-}
-
-
-.sourceCode { color: #adbdd1 !important; } /* NormalTok*/
-.sourceCode .kw { color: #adbdd1 !important; } /* KeyWordTok*/
-.sourceCode .dt { color: #adbdd1!important; } /* Data Type Tok*/
-.sourceCode .dv, .sourceCode .bn, .sourceCode .fl { color: #adbdd1 !important; } /*DecValTok = dv, BaseNTok = bn, FloatTok = fl */
-.sourceCode .ch { color: #adbdd1 !important; } /*. CharTok*/
-.sourceCode .st { color: #adbdd1 !important; } /*.StringTok */
-.sourceCode .co { color: #adbdd1 !important; } /*.CommontTok */
-.sourceCode .ot { color: #adbdd1!important; } /*.OtherTok */
-.sourceCode .al { color: #BE531C !important; font-weight: bold; } /*.AlertTok */
-.sourceCode .fu { color: #adbdd1!important; } /*.FunctionTok  */
-.sourceCode .re { color: #adbdd1!important; } /*.RegionMarkerTok */
-.sourceCode .er { color: #adbdd1 !important; font-weight: bold; } /*.ErrorTok */
-
-
-
-/*____Table caption at bottom____*/
-table { caption-side: bottom }
-
-/*____Change fonts to Lexend___*/
-@font-face {
-  font-family: "Lexend";
-}
-
-
-
-h1 {
-  font-family: "Lexend";
-  font-size:   48px;
-}
-
-
-h2,h3,h4 {
-  font-family: "Lexend";
-  font-size:   24px;
-}
-
-.book.font-family-0 {
-  font-family: "Lexend";
-}
-
-.book.font-family-1 {
-  font-family: "Lexend";
-}
-
-.summary{
-font-family: "Lexend";
-}
-
-
-li.appendix span, li.part span { /* for TOC part names */
-  font-family: "Lexend";
+li.appendix span, li.part span {
+  font-family: 'Lexend', sans-serif;
   margin-top: 1.5em;
   opacity: 1 !important;
   text-transform: uppercase;
 }
 
 
-/*____Code Chunks____*/
-
-.sourceCode pre {
-  margin: 0 !important; /* makes space above and below symmetrical*/
-  font-size:   16px;
-  font-weight: normal;
+/* Darken the active highlight in the "On this page" TOC */
+.nav-link.active {
+  background-color: #44496f !important;  /* a darker shade you like */
+  color: #e1e2ea !important;             /* keep text readable */
+  font-weight: 600;
+  border-radius: 4px;                    /* optional rounded corners */
 }
 
-.sourceCode {
-  margin-bottom: 0.85em; /* adds same amount of margin as a <p> would */
+/* Sidebar links */
+
+.custom-sidebar-link {
+  margin-top: 1em;
+  text-align: left;
+  font-family: 'Lexend', sans-serif;
+}
+.custom-sidebar-link a {
+  color: #e1e2ea;
+  font-weight: 500;
+  text-decoration: none;
+}
+.custom-sidebar-link a:hover {
+  color: #cd6118;
 }
 
-/*____Center images____*/
+
+
+
+/* ----------------------------------------
+   Navbar
+---------------------------------------- */
+.navbar {
+  background-color: #1d1f2b !important;
+  color: #e1e2ea !important;
+}
+
+.navbar a {
+  color: #b3b7cb !important;
+  font-family: 'Lexend', sans-serif;
+  font-weight: 500;
+}
+
+/* ----------------------------------------
+   Links in Content
+---------------------------------------- */
+.content a,
+.content a:visited,
+.content a:hover,
+.content a:active {
+  color: #cd6118 !important;
+  text-decoration: none;
+}
+
+
+
+
+/* ----------------------------------------
+   Tables
+---------------------------------------- */
+table, th, td {
+  color: #e1e2ea !important;
+  background-color: #1d1f2b !important;
+  border-color: #adbdd1 !important;
+}
+
+thead, caption {
+  color: #e1e2ea !important;
+}
+
+table {
+  caption-side: bottom;
+}
+
+/* ----------------------------------------
+   Figures & Captions
+---------------------------------------- */
 img {
-    display: block;
-    margin: auto;
-    text-align: center;
+  display: block;
+  margin: auto;
+  text-align: center;
 }
 
-
-/*____Center captions____*/
 .caption {
-    width: --line-width;
-    text-align: center;
+  text-align: center;
 }
 
-
-/* -----------Sidebar div tips------------- */
-/* from r-pkgs.org*/
-
-div.bulb {
-  padding: 1em;
-  margin: 1em 0;
-  padding-left: 100px;
-  background-size: 70px;
-  background-repeat: no-repeat;
-  background-position: 15px center;
-  min-height: 110px;
-  color: #000000; /* change to black for contrast on white background */
-  background-color: #DFE3E7;
-
-  /* Borders */
-  border: 3px solid #2A415F;         /* base border all around */
-  border-top: 20px solid #2A415F;     /* thicker top */
-  border-left: 20px solid #2A415F;    /* thicker left */
-
-  background-image: url("files/bulb_black.png") !important;
-}
-
-.book .book-body .bulb code:not(pre code) {
-  background-color: #DFE3E7 !important;
-  color: #000000 !important;
-  font-size: 105%;
-}
-
-
-div.warning {
-  padding: 1em;
-  margin: 1em 0;
-  padding-left: 100px;
-  background-size: 70px;
-  background-repeat: no-repeat;
-  background-position: 15px center;
-  min-height: 110px;
-  color: #000000 !important; /* change to black for contrast on white background */
-  background-color: #F0E0E0;
-
-  /* Borders */
-  border: 3px solid #993333;         /* base border all around */
-  border-top: 20px solid #993333;     /* thicker top */
-  border-left: 20px solid #993333;    /* thicker left */
-
-  background-image: url("files/slip_black.png") !important;
-}
-
-
-div.stop {
-  padding: 1em;
-  margin: 1em 0;
-  padding-left: 100px;
-  background-size: 70px;
-  background-repeat: no-repeat;
-  background-position: 15px center;
-  min-height: 110px;
-  color: #000000; /* change to black for contrast on white background */
-  background-color: #F0E0E0;
-
-  /* Borders */
-  border: 3px solid #993333;         /* base border all around */
-  border-top: 20px solid #993333;     /* thicker top */
-  border-left: 20px solid #993333;    /* thicker left */
-
-  background-image: url("files/stop.png") !important;
-}
-
-div.puzzle {
-  padding: 1em;
-  margin: 1em 0;
-  padding-left: 100px;
-  background-size: 70px;
-  background-repeat: no-repeat;
-  background-position: 15px center;
-  min-height: 110px;
-  color: #000000; /* change to black for contrast on white background */
-  background-color: #E9E6ED;
-
-  /* Borders */
-  border: 3px solid #695887;         /* base border all around */
-  border-top: 20px solid #695887;     /* thicker top */
-  border-left: 20px solid #695887;    /* thicker left */
-
-  background-image: url("files/puzzle_black.png") !important;
-}
-  
-div.def {
-  padding: 1em;
-  margin: 1em 0;
-  padding-left: 100px;
-  background-size: 70px;
-  background-repeat: no-repeat;
-  background-position: 15px center;
-  min-height: 110px;
-  color: #000000; /* change to black for contrast on white background */
-  background-color: #FDF6E6;
-
-  /* Borders */
-  border: 3px solid #F2C55A;         /* base border all around */
-  border-top: 20px solid #F2C55A;     /* thicker top */
-  border-left: 20px solid #F2C55A;    /* thicker left */
-
-  background-image: url("files/pencil_black.png") !important;
-}
-  
-div.video {
-  padding: 1em;
-  margin: 1em 0;
-  padding-left: 100px;
-  background-size: 70px;
-  background-repeat: no-repeat;
-  background-position: 15px center;
-  min-height: 110px;
-  color: #000000; /* change to black for contrast on white background */
-  background-color: #F1F3F6;
-
-  /* Borders */
-  border: 3px solid #A4B1C1;         /* base border all around */
-  border-top: 20px solid #A4B1C1;     /* thicker top */
-  border-left: 20px solid #A4B1C1;    /* thicker left */
-
-  background-image: url("files/reel.png") !important;
-}
-
-
-
-.bluebox {
-  padding: 1em;
-  background: #1f3047;
-  color: white;
-  border: 3px solid #1f3047;
-  border-radius: 12px;
-}
-
-.baser {
-  padding: 1em;
-  background: #767da2;
-  color: #1d1f2b;
-  border: 3px solid #767da2;
-  border-radius: 12px;
-  margin-bottom: 1em;
-}
-
-.book .book-body .baser code:not(pre code) {
-  background-color: #767da2 !important;
-  color: #1d1f2b !important;
-  font-size: 105%;
-}
-
-
-.flashcard {
-  padding: 1em;
-  background: #4d146b;
-  color: #e1e2ea !important;
-  border: 3px solid #4d146b;
-  border-radius: 12px;
-  margin-bottom: 1em;
-}
-
-.book .book-body .flashcard a {
-  background-color: #4d146b !important;
-  color: #e57726 !important;
-}
-
-
-.flashcard * {
-  background: none;
-  color: #e1e2ea !important;
-  padding: 0;  /* remove inner padding */
-  margin: 0;   /* optional: remove inner margins too */
-}
-
-
+/* ----------------------------------------
+   Callout Blocks
+---------------------------------------- */
 div.bulb,
 div.warning,
 div.stop,
@@ -386,5 +155,86 @@ div.def,
 div.video,
 div.baser,
 div.flashcard {
+  padding: 1em;
+  margin: 1em 0;
+  padding-left: 100px;
+  background-size: 70px;
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  min-height: 110px;
   color: #000000 !important;
 }
+
+div.bulb {
+  background-color: #DFE3E7;
+  border: 3px solid #2A415F;
+  border-top: 20px solid #2A415F;
+  border-left: 20px solid #2A415F;
+  background-image: url("files/bulb_black.png") !important;
+}
+
+div.warning, div.stop {
+  background-color: #F0E0E0;
+  border: 3px solid #993333;
+  border-top: 20px solid #993333;
+  border-left: 20px solid #993333;
+  background-image: url("files/slip_black.png") !important;
+}
+
+div.stop {
+  background-image: url("files/stop.png") !important;
+}
+
+div.puzzle {
+  background-color: #E9E6ED;
+  border: 3px solid #695887;
+  border-top: 20px solid #695887;
+  border-left: 20px solid #695887;
+  background-image: url("files/puzzle_black.png") !important;
+}
+
+div.def {
+  background-color: #FDF6E6;
+  border: 3px solid #F2C55A;
+  border-top: 20px solid #F2C55A;
+  border-left: 20px solid #F2C55A;
+  background-image: url("files/pencil_black.png") !important;
+}
+
+div.video {
+  background-color: #F1F3F6;
+  border: 3px solid #A4B1C1;
+  border-top: 20px solid #A4B1C1;
+  border-left: 20px solid #A4B1C1;
+  background-image: url("files/reel.png") !important;
+}
+
+.baser {
+  background: #767da2;
+  color: #1d1f2b;
+  border: 3px solid #767da2;
+  border-radius: 12px;
+  margin-bottom: 1em;
+}
+
+.flashcard {
+  background: #4d146b;
+  color: #e1e2ea !important;
+  border: 3px solid #4d146b;
+  border-radius: 12px;
+  margin-bottom: 1em;
+}
+
+.flashcard * {
+  background: none;
+  color: #e1e2ea !important;
+  padding: 0;
+  margin: 0;
+}
+
+.flashcard a {
+  color: #e57726 !important;
+  background-color: #4d146b !important;
+}
+
+

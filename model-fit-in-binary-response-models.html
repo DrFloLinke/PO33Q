@@ -1,380 +1,138 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html lang="en">
 <head>
-
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Model Fit in Binary Response Models9 | main.knit</title>
-  <meta name="description" content="PO33Q: Determinants of Democracy - Analysing Emergence, Survival, and Fall " />
-  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
-
-  <meta property="og:title" content="Model Fit in Binary Response Models9 | main.knit" />
-  <meta property="og:type" content="book" />
-  
-  
-  
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Model Fit in Binary Response Models9 | main.knit" />
-  
-  
-  
-
-
-
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
-  
-<link rel="prev" href="markov-transition-models.html"/>
-<link rel="next" href="joint-estimation-of-emergence-and-survival.html"/>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
-
-
-
-
-
-
-<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
-<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
-<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
-
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Model Fit in Binary Response Models9 |  PO33Q: Determinants of Democracy –   Analysing Emergence, Survival, and Fall</title>
+<meta name="generator" content="bookdown 0.43 with bs4_book()">
+<meta property="og:title" content="Model Fit in Binary Response Models9 |  PO33Q: Determinants of Democracy –   Analysing Emergence, Survival, and Fall">
+<meta property="og:type" content="book">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Model Fit in Binary Response Models9 |  PO33Q: Determinants of Democracy –   Analysing Emergence, Survival, and Fall">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/Lexend-0.4.10/font.css" rel="stylesheet">
+<script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
-
-<style type="text/css">
-  
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-</style>
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
-
-<link rel="stylesheet" href="style.css" type="text/css" />
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+          margin-bottom: 0em;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+<meta name="description" content="How to Measure Model Fit There are quite a few model fit measures around for binary response models, such as pseudo R-Squared and the Akaike Information Criterion (AIC). What I am going to present...">
+<meta property="og:description" content="How to Measure Model Fit There are quite a few model fit measures around for binary response models, such as pseudo R-Squared and the Akaike Information Criterion (AIC). What I am going to present...">
+<meta name="twitter:description" content="How to Measure Model Fit There are quite a few model fit measures around for binary response models, such as pseudo R-Squared and the Akaike Information Criterion (AIC). What I am going to present...">
 </head>
+<body data-spy="scroll" data-target="#toc">
 
-<body>
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
-
-
-  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
-
-    <div class="book-summary">
-      <nav role="navigation">
-
-<ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
-<li class="chapter" data-level="" data-path="website-features.html"><a href="website-features.html"><i class="fa fa-check"></i>Website Features</a></li>
-<li class="chapter" data-level="" data-path="accessibility.html"><a href="accessibility.html"><i class="fa fa-check"></i>Accessibility</a></li>
-<li class="part"><span><b>Week 1</b></span></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i>Introduction to R</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#how-data-are-organised"><i class="fa fa-check"></i>How Data are organised</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-rstudio-installation"><i class="fa fa-check"></i>R &amp; RStudio – Installation</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r---getting-started"><i class="fa fa-check"></i>R - Getting Started</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rscript"><i class="fa fa-check"></i>RScript</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rscript-structure"><i class="fa fa-check"></i>RScript Structure</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#first-steps-in-r"><i class="fa fa-check"></i>First Steps in R</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-working-directory"><i class="fa fa-check"></i>The Working Directory</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-packages"><i class="fa fa-check"></i>R Packages</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#working-with-your-data-set"><i class="fa fa-check"></i>Working with Your Data Set</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#opening"><i class="fa fa-check"></i>Opening</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#viewing-the-data"><i class="fa fa-check"></i>Viewing the Data</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#variable-types-in-r"><i class="fa fa-check"></i>Variable Types in R</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#descriptive-statistics"><i class="fa fa-check"></i>Descriptive Statistics</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#data-manipulation"><i class="fa fa-check"></i>Data Manipulation</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#recoding"><i class="fa fa-check"></i>Recoding</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#saving"><i class="fa fa-check"></i>Saving</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-real-data-set"><i class="fa fa-check"></i>The Real Data Set</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#book-recommendations"><i class="fa fa-check"></i>Book Recommendations</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="homework-for-week-2.html"><a href="homework-for-week-2.html"><i class="fa fa-check"></i>Homework for Week 2</a></li>
-<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards.html"><a href="flashcards.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 2</b></span></li>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html"><i class="fa fa-check"></i>Principles of Statistical Inference</a>
-<ul>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#probability-distributions"><i class="fa fa-check"></i>Probability Distributions</a>
-<ul>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#sampling-distributions"><i class="fa fa-check"></i>Sampling Distributions</a></li>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#the-t-distribution"><i class="fa fa-check"></i>The t-Distribution</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#confidence-intervals"><i class="fa fa-check"></i>Confidence Intervals</a></li>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#tests-of-statistical-significance"><i class="fa fa-check"></i>Tests of Statistical Significance</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html"><i class="fa fa-check"></i>Linear Regression - Theory</a>
-<ul>
-<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#what-is-it"><i class="fa fa-check"></i>What is it?</a>
-<ul>
-<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#population"><i class="fa fa-check"></i>Population</a></li>
-<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#sample"><i class="fa fa-check"></i>Sample</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#ordinary-least-squares-ols"><i class="fa fa-check"></i>Ordinary Least Squares (OLS)</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html"><i class="fa fa-check"></i>Linear Regression – Application</a>
-<ul>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-basic-command"><i class="fa fa-check"></i>The Basic Command</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#interpreting-the-output"><i class="fa fa-check"></i>Interpreting the Output</a>
-<ul>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-number-of-observations"><i class="fa fa-check"></i>The Number of Observations</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-all-important-p-value-in-regression"><i class="fa fa-check"></i>The all-important p-value in Regression</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-intercept"><i class="fa fa-check"></i>The Intercept</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-slope-coefficient"><i class="fa fa-check"></i>The Slope Coefficient</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-goodness-of-fit-r-squared"><i class="fa fa-check"></i>The Goodness of Fit (R-Squared)</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#choosing-variables"><i class="fa fa-check"></i>Choosing Variables</a>
-<ul>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#can-i-choose-more-than-one-independent-variable"><i class="fa fa-check"></i>Can I choose more than one independent variable?</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#ceteris"><i class="fa fa-check"></i>Ceteris Paribus</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#parsimony"><i class="fa fa-check"></i>Parsimony</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#r-squared-again"><i class="fa fa-check"></i>R-Squared Again</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#limitations"><i class="fa fa-check"></i>Limitations</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#literature-recommendations"><i class="fa fa-check"></i>Literature Recommendations</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#important-disclaimer"><i class="fa fa-check"></i>Important Disclaimer</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="homework-for-week-3.html"><a href="homework-for-week-3.html"><i class="fa fa-check"></i>Homework for Week 3</a></li>
-<li class="chapter" data-level="" data-path="glossary-1.html"><a href="glossary-1.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-1.html"><a href="flashcards-1.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 3</b></span></li>
-<li class="chapter" data-level="" data-path="probit---theory.html"><a href="probit---theory.html"><i class="fa fa-check"></i>Probit - Theory</a>
-<ul>
-<li class="chapter" data-level="" data-path="probit---theory.html"><a href="probit---theory.html#probit---what-is-it"><i class="fa fa-check"></i>Probit - What is it?</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html"><i class="fa fa-check"></i>Probit – Application</a>
-<ul>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#the-command"><i class="fa fa-check"></i>The Command</a></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#the-coefficients"><i class="fa fa-check"></i>The Coefficients</a></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#pedicted-probabilities"><i class="fa fa-check"></i>Pedicted Probabilities</a>
-<ul>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#setting-the-x-values"><i class="fa fa-check"></i>Setting the x-values</a></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#predicting-the-probability"><i class="fa fa-check"></i>Predicting the Probability</a></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#all-predicted-probabilities"><i class="fa fa-check"></i>All Predicted Probabilities</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#how-to-report-results"><i class="fa fa-check"></i>How to Report Results</a>
-<ul>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#modelsummary"><i class="fa fa-check"></i><code>modelsummary</code></a></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#multiple-independent-variables"><i class="fa fa-check"></i>Multiple Independent Variables</a></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#predicting-the-probability-1"><i class="fa fa-check"></i>Predicting the Probability</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#literature-recommendations-1"><i class="fa fa-check"></i>Literature Recommendations</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i>Exercises</a></li>
-<li class="chapter" data-level="" data-path="homework-for-week-4.html"><a href="homework-for-week-4.html"><i class="fa fa-check"></i>Homework for Week 4</a></li>
-<li class="chapter" data-level="" data-path="glossary-2.html"><a href="glossary-2.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-2.html"><a href="flashcards-2.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 4</b></span></li>
-<li class="chapter" data-level="" data-path="missing-data.html"><a href="missing-data.html"><i class="fa fa-check"></i>Missing Data</a>
-<ul>
-<li class="chapter" data-level="" data-path="missing-data.html"><a href="missing-data.html#options-in-r"><i class="fa fa-check"></i>Options in R</a></li>
-<li class="chapter" data-level="" data-path="missing-data.html"><a href="missing-data.html#methodological-implications"><i class="fa fa-check"></i>Methodological Implications</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="model-building.html"><a href="model-building.html"><i class="fa fa-check"></i>Model Building</a>
-<ul>
-<li class="chapter" data-level="" data-path="model-building.html"><a href="model-building.html#control-variables"><i class="fa fa-check"></i>Control Variables</a></li>
-<li class="chapter" data-level="" data-path="model-building.html"><a href="model-building.html#literature-recommendations-2"><i class="fa fa-check"></i>Literature Recommendations</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="homework-for-week-5.html"><a href="homework-for-week-5.html"><i class="fa fa-check"></i>Homework for Week 5</a></li>
-<li class="chapter" data-level="" data-path="glossary-3.html"><a href="glossary-3.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-3.html"><a href="flashcards-3.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 5</b></span></li>
-<li class="chapter" data-level="" data-path="consolidation.html"><a href="consolidation.html"><i class="fa fa-check"></i>Consolidation</a>
-<ul>
-<li class="chapter" data-level="" data-path="consolidation.html"><a href="consolidation.html#the-world-value-survey"><i class="fa fa-check"></i>The World-Value Survey</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html"><i class="fa fa-check"></i>Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html#descriptives"><i class="fa fa-check"></i>Descriptives</a></li>
-<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html#linear-regression"><i class="fa fa-check"></i>Linear Regression</a></li>
-<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html#probit"><i class="fa fa-check"></i>Probit</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="homework-for-week-7.html"><a href="homework-for-week-7.html"><i class="fa fa-check"></i>Homework for Week 7</a></li>
-<li class="chapter" data-level="" data-path="glossary-4.html"><a href="glossary-4.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-4.html"><a href="flashcards-4.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 7</b></span></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html"><i class="fa fa-check"></i>Markov Transition Models</a>
-<ul>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#time-series-cross-sectional-data"><i class="fa fa-check"></i>Time Series, Cross-Sectional Data</a></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#what-are-markov-transition-models"><i class="fa fa-check"></i>What are Markov Transition Models?</a>
-<ul>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#conditional-probabilities"><i class="fa fa-check"></i>Conditional Probabilities</a></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#democratic-emergence"><i class="fa fa-check"></i>Democratic Emergence</a></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#lagging-the-independent-variables"><i class="fa fa-check"></i>Lagging the Independent Variables</a></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#subsetting-the-data-for-conditional-probabilities"><i class="fa fa-check"></i>Subsetting the Data for Conditional Probabilities</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#democratic-emergence-1"><i class="fa fa-check"></i>Democratic Emergence</a></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#democratic-survival"><i class="fa fa-check"></i>Democratic Survival</a></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#interpretation"><i class="fa fa-check"></i>Interpretation</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html"><i class="fa fa-check"></i>Model Fit in Binary Response Models</a>
-<ul>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#how-to-measure-model-fit"><i class="fa fa-check"></i>How to Measure Model Fit</a>
-<ul>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#what-is-it-1"><i class="fa fa-check"></i>What is it?</a></li>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#r"><i class="fa fa-check"></i>R</a></li>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#emergence-full-model"><i class="fa fa-check"></i>Emergence: Full Model</a></li>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#survival"><i class="fa fa-check"></i>Survival</a></li>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#survival-full-model"><i class="fa fa-check"></i>Survival: Full Model</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#including-roc-in-modelsummary"><i class="fa fa-check"></i>Including ROC in <code>modelsummary</code></a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html"><i class="fa fa-check"></i>Joint Estimation of Emergence and Survival</a>
-<ul>
-<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html#rationale"><i class="fa fa-check"></i>Rationale</a></li>
-<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html#example"><i class="fa fa-check"></i>Example</a></li>
-<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html#application-in-r"><i class="fa fa-check"></i>Application in R</a></li>
-<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html#literature-recommendations-3"><i class="fa fa-check"></i>Literature Recommendations</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i>Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html#the-data-set"><i class="fa fa-check"></i>The Data Set</a></li>
-<li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html#basics"><i class="fa fa-check"></i>Basics</a></li>
-<li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html#advanced"><i class="fa fa-check"></i>Advanced</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="homework-for-week-8.html"><a href="homework-for-week-8.html"><i class="fa fa-check"></i>Homework for Week 8</a></li>
-<li class="chapter" data-level="" data-path="glossary-5.html"><a href="glossary-5.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-5.html"><a href="flashcards-5.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Downloads</b></span></li>
-<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html"><i class="fa fa-check"></i>Downloads</a>
-<ul>
-<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html#documents"><i class="fa fa-check"></i>Documents</a></li>
-<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html#data-sets-in-alphabetical-order"><i class="fa fa-check"></i>Data Sets (in alphabetical order)</a></li>
-<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html#r-scripts"><i class="fa fa-check"></i>R Scripts</a></li>
-</ul></li>
-<li class="part"><span><b>Glossary</b></span></li>
-<li class="chapter" data-level="" data-path="glossary-6.html"><a href="glossary-6.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="part"><span><b>List of References</b></span></li>
-<li class="chapter" data-level="" data-path="list-of-references.html"><a href="list-of-references.html"><i class="fa fa-check"></i>List of References</a></li>
-</ul>
-
-      </nav>
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title=""><p><img src="images/Crest_white.png" width="75" style="display:block; margin:auto; margin-bottom:3em;"> PO33Q: Determinants of Democracy – <br> Analysing Emergence, Survival, and Fall</p></a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
 
-    <div class="book-body">
-      <div class="body-inner">
-        <div class="book-header" role="navigation">
-          <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><div class="line-block">PO33Q: Determinants of Democracy - <br>Analysing Emergence, Survival, and Fall <img align="right" src="images/Crest_white.png" width="75"></div></a>
-          </h1>
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="website-features.html">Website Features</a></li>
+<li><a class="" href="accessibility.html">Accessibility</a></li>
+<li class="book-part">Week 1</li>
+<li><a class="" href="introduction-to-r.html">Introduction to R</a></li>
+<li><a class="" href="homework-for-week-2.html">Homework for Week 2</a></li>
+<li><a class="" href="glossary.html">Glossary</a></li>
+<li><a class="" href="flashcards.html">Flashcards</a></li>
+<li class="book-part">Week 2</li>
+<li><a class="" href="principles-of-statistical-inference.html">Principles of Statistical Inference</a></li>
+<li><a class="" href="linear-regression---theory.html">Linear Regression - Theory</a></li>
+<li><a class="" href="linear-regression-application.html">Linear Regression – Application</a></li>
+<li><a class="" href="homework-for-week-3.html">Homework for Week 3</a></li>
+<li><a class="" href="glossary-1.html">Glossary</a></li>
+<li><a class="" href="flashcards-1.html">Flashcards</a></li>
+<li class="book-part">Week 3</li>
+<li><a class="" href="probit---theory.html">Probit - Theory</a></li>
+<li><a class="" href="probit-application.html">Probit – Application</a></li>
+<li><a class="" href="exercises.html">Exercises</a></li>
+<li><a class="" href="homework-for-week-4.html">Homework for Week 4</a></li>
+<li><a class="" href="glossary-2.html">Glossary</a></li>
+<li><a class="" href="flashcards-2.html">Flashcards</a></li>
+<li class="book-part">Week 4</li>
+<li><a class="" href="missing-data.html">Missing Data</a></li>
+<li><a class="" href="model-building.html">Model Building</a></li>
+<li><a class="" href="homework-for-week-5.html">Homework for Week 5</a></li>
+<li><a class="" href="glossary-3.html">Glossary</a></li>
+<li><a class="" href="flashcards-3.html">Flashcards</a></li>
+<li class="book-part">Week 5</li>
+<li><a class="" href="consolidation.html">Consolidation</a></li>
+<li><a class="" href="exercises-1.html">Exercises</a></li>
+<li><a class="" href="homework-for-week-7.html">Homework for Week 7</a></li>
+<li><a class="" href="glossary-4.html">Glossary</a></li>
+<li><a class="" href="flashcards-4.html">Flashcards</a></li>
+<li class="book-part">Week 7</li>
+<li><a class="" href="markov-transition-models.html">Markov Transition Models</a></li>
+<li><a class="active" href="model-fit-in-binary-response-models.html">Model Fit in Binary Response Models9</a></li>
+<li><a class="" href="joint-estimation-of-emergence-and-survival.html">Joint Estimation of Emergence and Survival</a></li>
+<li><a class="" href="exercises-2.html">Exercises</a></li>
+<li><a class="" href="homework-for-week-8.html">Homework for Week 8</a></li>
+<li><a class="" href="glossary-5.html">Glossary</a></li>
+<li><a class="" href="flashcards-5.html">Flashcards</a></li>
+<li class="book-part">Downloads</li>
+<li><a class="" href="downloads.html">Downloads</a></li>
+<li class="book-part">Glossary</li>
+<li><a class="" href="glossary-6.html">Glossary</a></li>
+<li class="book-part">List of References</li>
+<li><a class="" href="list-of-references.html">List of References</a></li>
+</ul>
+
+        <div class="book-extra">
+          
         </div>
-
-        <div class="page-wrapper" tabindex="-1" role="main">
-          <div class="page-inner">
-
-            <section class="normal" id="section-">
-<div id="model-fit-in-binary-response-models" class="section level1 unnumbered hasAnchor">
-<h1>Model Fit in Binary Response Models<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a><a href="model-fit-in-binary-response-models.html#model-fit-in-binary-response-models" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="how-to-measure-model-fit" class="section level2 unnumbered hasAnchor">
-<h2>How to Measure Model Fit<a href="model-fit-in-binary-response-models.html#how-to-measure-model-fit" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><script src="sidebar-link.js"></script><div id="model-fit-in-binary-response-models" class="section level1 unnumbered">
+<h1>Model Fit in Binary Response Models<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;This is a verbatim reproduction from &lt;span class="citation"&gt;Reiche (forthcoming)&lt;/span&gt;. The text is based on an explanatory video by &lt;a href="https://youtu.be/4jRBRDbJemM?si=jslp3Vwj3e6H2oSH"&gt;StatQuest with Josh Starmer&lt;/a&gt;. All figures are copyrighted.&lt;/p&gt;'><sup>9</sup></a><a class="anchor" aria-label="anchor" href="#model-fit-in-binary-response-models"><i class="fas fa-link"></i></a>
+</h1>
+<div id="how-to-measure-model-fit" class="section level2 unnumbered">
+<h2>How to Measure Model Fit<a class="anchor" aria-label="anchor" href="#how-to-measure-model-fit"><i class="fas fa-link"></i></a>
+</h2>
 <p>There are quite a few model fit measures around for binary response models, such as pseudo R-Squared and the Akaike Information Criterion (AIC). What I am going to present here, however, is the so-called ROC curve, as I personally really don’t like the aforementioned measures.</p>
-<div id="what-is-it-1" class="section level3 unnumbered hasAnchor">
-<h3>What is it?<a href="model-fit-in-binary-response-models.html#what-is-it-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="what-is-it-1" class="section level3 unnumbered">
+<h3>What is it?<a class="anchor" aria-label="anchor" href="#what-is-it-1"><i class="fas fa-link"></i></a>
+</h3>
 <div class="video">
 <p><strong>The ROC Curve</strong></p>
 <p>YouTube link to follow</p>
@@ -383,9 +141,9 @@ div.csl-indent {
 <p>Consider Figure <a href="model-fit-in-binary-response-models.html#fig:separation">23</a> a). On the x-axis you see eight observations, marked as coloured circles. Red circles represent countries which are dictatorships, and orange ones democracies. They are sorted by their respective level of per capita GDP. Now suppose that the displayed CDF is the results of a model we have estimated. With a cut off point <span class="math inline">\(\tau=0.5\)</span> we would correctly predict the group of four observations on the left to be dictatorships. They are True Negatives (TN). The group on the right would be correctly predicted as democracies, these are True Positives (TP). We have no incorrectly classified cases; our model has been able to separate cases perfectly. You can see this represented in the form of distributions in panel b).</p>
 <p> 
  </p>
-<div class="figure"><span style="display:block;" id="fig:separation"></span>
-<img src="files/Week%207/separate.png" alt="\label{fig:separation}Perfect Separation" width="85%" />
-<p class="caption">
+<div class="figure">
+<span style="display:block;" id="fig:separation"></span>
+<img src="files/Week%207/separate.png" alt="\label{fig:separation}Perfect Separation" width="85%"><p class="caption">
 Figure 23: Perfect Separation
 </p>
 </div>
@@ -394,9 +152,9 @@ Figure 23: Perfect Separation
 <p>As you well know by now, the real world is oddly deficient in achieving perfection such as this. We will observe both poor democracies, and rich dictatorships. This scenario is shown in Figure <a href="model-fit-in-binary-response-models.html#fig:overlap">24</a> a).</p>
 <p> 
  </p>
-<div class="figure"><span style="display:block;" id="fig:overlap"></span>
-<img src="files/Week%207/overlap.png" alt="\label{fig:overlap}Overlap" width="85%" />
-<p class="caption">
+<div class="figure">
+<span style="display:block;" id="fig:overlap"></span>
+<img src="files/Week%207/overlap.png" alt="\label{fig:overlap}Overlap" width="85%"><p class="caption">
 Figure 24: Overlap
 </p>
 </div>
@@ -405,9 +163,9 @@ Figure 24: Overlap
 <p>According to the CDF we would predict the poor democracy as a dictatorship. It would be a False Negative (FN). Conversely, we would predict the rich dictatorship as a democracy and would obtain a False Positive (FP). The distribution of cases in Figure <a href="model-fit-in-binary-response-models.html#fig:overlap">24</a> b) is not as clearly separated any more as in Figure <a href="model-fit-in-binary-response-models.html#fig:separation">23</a> b). Now they overlap, leading to incorrect classifications. These are marked accordingly in Figure <a href="model-fit-in-binary-response-models.html#fig:tntp1">25</a>. As we are no longer operating in a world in which we only have TNs and TPs, I think we can all agree that our model fit is no longer as good as in Figure <a href="model-fit-in-binary-response-models.html#fig:separation">23</a>.</p>
 <p> 
  </p>
-<div class="figure"><span style="display:block;" id="fig:tntp1"></span>
-<img src="files/Week%207/tntp1.png" alt="\label{fig:tntp1}False Negatives and False Positives" width="40%" />
-<p class="caption">
+<div class="figure">
+<span style="display:block;" id="fig:tntp1"></span>
+<img src="files/Week%207/tntp1.png" alt="\label{fig:tntp1}False Negatives and False Positives" width="40%"><p class="caption">
 Figure 25: False Negatives and False Positives
 </p>
 </div>
@@ -416,16 +174,16 @@ Figure 25: False Negatives and False Positives
 <p>But there is another issue: whilst setting <span class="math inline">\(\tau\)</span> at 0.5 makes intuitive sense, there is nothing preventing us from shifting <span class="math inline">\(\tau\)</span> around. Indeed, the number of FPs and FNs very much depends on where we place our cut-off point. For example, if we don’t want any FNs, then we just have to shift <span class="math inline">\(\tau\)</span> sufficiently downwards. Or if we want to avoid FPs we only need to move it far enough upwards. I have illustrated this in Figure <a href="model-fit-in-binary-response-models.html#fig:taushift">26</a> a) and b), respectively.</p>
 <p> 
  </p>
-<div class="figure"><span style="display:block;" id="fig:taushift"></span>
-<img src="files/Week%207/taushift.png" alt="\label{fig:taushift}Shifting $\tau$" width="85%" />
-<p class="caption">
+<div class="figure">
+<span style="display:block;" id="fig:taushift"></span>
+<img src="files/Week%207/taushift.png" alt="\label{fig:taushift}Shifting $\tau$" width="85%"><p class="caption">
 Figure 26: Shifting <span class="math inline">\(\tau\)</span>
 </p>
 </div>
 <p> 
  </p>
 <p>These are only three options of placing the threshold. But we have a total of eight observations which means that there are nine potential positions for the cut-off point with each leading to a different conclusion of how well our model fits the observed data. Let’s go through this more systematically and start by placing <span class="math inline">\(\tau\)</span> at the very bottom. Because the number of TNs, TPs, FNs, and FPs will only change at the “next” observation we only need to shift as many times as there are observations. For each shift we record the values of all four quantities in a crosstabulation which is displayed in the following table:</p>
-<table style="border-collapse: collapse; width: auto; margin-left: auto; margin-right: auto;">
+<div class="inline-table"><table style="border-collapse: collapse; width: auto; margin-left: auto; margin-right: auto;" class="table table-sm">
 <thead>
 <tr>
 <th style="padding: 6px;">
@@ -506,7 +264,7 @@ True Negative
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>These tables are useful in their own right, but since we will end up with as many of them as there are observations, this can quickly get very messy. There are only eight observations here, but imagine doing these for the <code>world</code> data set with 190 observationsWe therefore need to find a way to condense the information contained in each of the n confusion matrices into a single measure. If you look closely, you will see that TNs and FPs form a close relationship: if we shift up <span class="math inline">\(\tau\)</span> in Figure <a href="model-fit-in-binary-response-models.html#fig:taushift">26</a> a) we are reducing the number of FPs and obtain more TNs. As TPs relate in the same way to FNs, we can quantify their respective relationships in the following rates:</p>
 <p><span class="math display">\[\begin{equation}
 \text{False Positive Rate}=\text{Sensitivity}=\frac{\text{False Positives}}{\text{False Positives}+\text{True Negatives}}
@@ -519,9 +277,9 @@ True Negative
 <p>For our example the True Positive Rate (TPR) represents the proportion of correctly specified democracies. If we calculate these rates for each of our n confusion matrices, we are already reducing four quantities into two. Let’s do it. To provide a visual aid in this rather laborious process, I have created Figure <a href="model-fit-in-binary-response-models.html#fig:towardsroc">27</a> which depicts all eight shifts.</p>
 <p> 
  </p>
-<div class="figure"><span style="display:block;" id="fig:towardsroc"></span>
-<img src="files/Week%207/towardsroc.png" alt="\label{fig:towardsroc}Towards the ROC Curve" width="80%" />
-<p class="caption">
+<div class="figure">
+<span style="display:block;" id="fig:towardsroc"></span>
+<img src="files/Week%207/towardsroc.png" alt="\label{fig:towardsroc}Towards the ROC Curve" width="80%"><p class="caption">
 Figure 27: Towards the ROC Curve
 </p>
 </div>
@@ -530,7 +288,7 @@ Figure 27: Towards the ROC Curve
 <p>The following table displays the confusion matrix for each of the panels in Figure <a href="model-fit-in-binary-response-models.html#fig:towardsroc">27</a>, as well as the respective TPR and FPR (you are welcome).</p>
 <p> 
  </p>
-<table style="font-size:12px; margin-left:auto; margin-right:auto; border-collapse: collapse;">
+<div class="inline-table"><table style="font-size:12px; margin-left:auto; margin-right:auto; border-collapse: collapse;" class="table table-sm">
 <thead>
 <tr>
 <th style="padding-left:6px; padding-right:6px;">
@@ -1036,15 +794,14 @@ FPR=0
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p> 
  </p>
 <p>As we only need the TPRs and FPRs going forward, it makes sense to collect these in their own little table:</p>
 <p> 
  </p>
-<table style="font-size:13px; margin-left:auto; margin-right:auto; border-collapse: collapse; width: 6.5cm;">
-<thead>
-<tr>
+<div class="inline-table"><table style="font-size:13px; margin-left:auto; margin-right:auto; border-collapse: collapse; width: 6.5cm;" class="table table-sm">
+<thead><tr>
 <th style="text-align:center;">
 panel
 </th>
@@ -1054,8 +811,7 @@ TPR
 <th style="text-align:center;">
 FPR
 </th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr>
 <td style="text-align:center;">
@@ -1157,15 +913,15 @@ i
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p> 
  </p>
 <p>We are nearly there! The last step is to display all these values in the form of a curve with the TPR on the y-axis, and the FPR on the x-axis. You can see the result – the ROC curve – in Figure <a href="model-fit-in-binary-response-models.html#fig:rocman">28</a> a).</p>
 <p> 
  </p>
-<div class="figure"><span style="display:block;" id="fig:rocman"></span>
-<img src="files/Week%207/rocman.png" alt="\label{fig:rocman}ROC Curve" width="80%" />
-<p class="caption">
+<div class="figure">
+<span style="display:block;" id="fig:rocman"></span>
+<img src="files/Week%207/rocman.png" alt="\label{fig:rocman}ROC Curve" width="80%"><p class="caption">
 Figure 28: ROC Curve
 </p>
 </div>
@@ -1174,12 +930,14 @@ Figure 28: ROC Curve
 <p>Note that I have added a diagonal where TPR = FPR. This is sometimes described as a model without independent variables. I like to think of the line as the graphical point where our model would not be able to separate between the two categories, at all. The further the ROC curve is away from the diagonal, the better our model is at separating the two categories. But there are two sides to the diagonal. We want it to be above the diagonal, as here the model is predicting 0s as 0s and 1s as 1s. Underneath, the prediction is inverse and 0s are predicted as 1s, and 1s are predicted as 0s.</p>
 <p>To summarize the position of the curve into a numerical expression, the Area Under Curve (AUC) is used, as shown in Figure <a href="model-fit-in-binary-response-models.html#fig:rocman">28</a> b). If the area is 100% we are correctly predicting everything. At 50% the model is incapable of separation, and at 0% the model gets everything wrong. This is very useful to compare different models.</p>
 </div>
-<div id="r" class="section level3 unnumbered hasAnchor">
-<h3>R<a href="model-fit-in-binary-response-models.html#r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="r" class="section level3 unnumbered">
+<h3>R<a class="anchor" aria-label="anchor" href="#r"><i class="fas fa-link"></i></a>
+</h3>
 <p>How do you do all of this in R? Let’s start with the simple emergence model. In order to calculate a ROC curve, we need a new package, called <code>pROC</code>. Install it and load it.</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="model-fit-in-binary-response-models.html#cb75-1" tabindex="-1"></a><span class="fu">library</span>(pROC)</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://xrobin.github.io/pROC/">pROC</a></span><span class="op">)</span></span></code></pre></div>
 <p>To calculate the ROC curve, we need a few steps:</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="model-fit-in-binary-response-models.html#cb76-1" tabindex="-1"></a>prob_em <span class="ot">&lt;-</span> <span class="fu">predict</span>(emergence, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="model-fit-in-binary-response-models.html#cb76-1" tabindex="-1"></a>prob_em <span class="ot">&lt;-</span> <span class="fu">predict</span>(emergence, <span class="at">type=</span><span class="st">"response"</span>)</span>
 <span id="cb76-2"><a href="model-fit-in-binary-response-models.html#cb76-2" tabindex="-1"></a></span>
 <span id="cb76-3"><a href="model-fit-in-binary-response-models.html#cb76-3" tabindex="-1"></a>world_democ0<span class="sc">$</span>prob_em <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_em)</span>
 <span id="cb76-4"><a href="model-fit-in-binary-response-models.html#cb76-4" tabindex="-1"></a></span>
@@ -1191,14 +949,16 @@ Figure 28: ROC Curve
 <ul>
 <li>predict the probability of democratic emergence for each observation (country year) and store them in a new vector called <code>prob_em</code>.</li>
 <li>add the vector <code>prob_em</code> to the data frame <code>world_democ0</code>. In order to do this, we need to <code>unlist</code> the values in the <code>prob_em</code> vector.</li>
-<li>we then call the <code>roc</code> function inw hich we compare the predicted probabilities (<code>world_democ0$prob_em</code>) with the actual, observed regime type (<code>world_democ0$democracy</code>) and store the result in an object called <code>roc</code></li>
-<li>as a last step we calculate the area under the curve with the <code>auc()</code> function</li>
+<li>we then call the <code>roc</code> function inw hich we compare the predicted probabilities (<code>world_democ0$prob_em</code>) with the actual, observed regime type (<code>world_democ0$democracy</code>) and store the result in an object called <code>roc</code>
+</li>
+<li>as a last step we calculate the area under the curve with the <code><a href="https://rdrr.io/pkg/pROC/man/auc.html">auc()</a></code> function</li>
 </ul>
 <p>But we can also plot the ROC curve:</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="model-fit-in-binary-response-models.html#cb77-1" tabindex="-1"></a><span class="fu">plot</span>(roc1, <span class="at">print.auc=</span><span class="cn">TRUE</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">roc1</span>, print.auc<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span> </span></code></pre></div>
 <p> 
  </p>
-<p><img src="main_files/figure-html/unnamed-chunk-134-1.png" width="70%" /></p>
+<div class="inline-figure"><img src="main_files/figure-html/unnamed-chunk-134-1.png" width="70%"></div>
 <p> 
  </p>
 <div class="bulb">
@@ -1206,64 +966,71 @@ Figure 28: ROC Curve
 </div>
 <p>Let’s follow this procedure for the other models.</p>
 </div>
-<div id="emergence-full-model" class="section level3 unnumbered hasAnchor">
-<h3>Emergence: Full Model<a href="model-fit-in-binary-response-models.html#emergence-full-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="model-fit-in-binary-response-models.html#cb78-1" tabindex="-1"></a>prob_em_full <span class="ot">&lt;-</span> <span class="fu">predict</span>(emergence_full, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<div id="emergence-full-model" class="section level3 unnumbered">
+<h3>Emergence: Full Model<a class="anchor" aria-label="anchor" href="#emergence-full-model"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="model-fit-in-binary-response-models.html#cb78-1" tabindex="-1"></a>prob_em_full <span class="ot">&lt;-</span> <span class="fu">predict</span>(emergence_full, <span class="at">type=</span><span class="st">"response"</span>)</span>
 <span id="cb78-2"><a href="model-fit-in-binary-response-models.html#cb78-2" tabindex="-1"></a>world_democ0<span class="sc">$</span>prob_em_full <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_em_full)</span>
 <span id="cb78-3"><a href="model-fit-in-binary-response-models.html#cb78-3" tabindex="-1"></a></span>
 <span id="cb78-4"><a href="model-fit-in-binary-response-models.html#cb78-4" tabindex="-1"></a>roc2 <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ0<span class="sc">$</span>democracy, world_democ0<span class="sc">$</span>prob_em_full)</span>
 <span id="cb78-5"><a href="model-fit-in-binary-response-models.html#cb78-5" tabindex="-1"></a></span>
 <span id="cb78-6"><a href="model-fit-in-binary-response-models.html#cb78-6" tabindex="-1"></a><span class="fu">auc</span>(roc2)</span>
 <span id="cb78-7"><a href="model-fit-in-binary-response-models.html#cb78-7" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.596</span></span></code></pre></div>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="model-fit-in-binary-response-models.html#cb79-1" tabindex="-1"></a><span class="fu">plot</span>(roc2, <span class="at">print.auc=</span><span class="cn">TRUE</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">roc2</span>, print.auc<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span> </span></code></pre></div>
 <p> 
  </p>
-<p><img src="main_files/figure-html/unnamed-chunk-137-1.png" width="70%" /></p>
+<div class="inline-figure"><img src="main_files/figure-html/unnamed-chunk-137-1.png" width="70%"></div>
 <p> 
  </p>
 </div>
-<div id="survival" class="section level3 unnumbered hasAnchor">
-<h3>Survival<a href="model-fit-in-binary-response-models.html#survival" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="model-fit-in-binary-response-models.html#cb80-1" tabindex="-1"></a>prob_sur <span class="ot">&lt;-</span> <span class="fu">predict</span>(survival, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<div id="survival" class="section level3 unnumbered">
+<h3>Survival<a class="anchor" aria-label="anchor" href="#survival"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="model-fit-in-binary-response-models.html#cb80-1" tabindex="-1"></a>prob_sur <span class="ot">&lt;-</span> <span class="fu">predict</span>(survival, <span class="at">type=</span><span class="st">"response"</span>)</span>
 <span id="cb80-2"><a href="model-fit-in-binary-response-models.html#cb80-2" tabindex="-1"></a>world_democ1<span class="sc">$</span>prob_sur <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_sur)</span>
 <span id="cb80-3"><a href="model-fit-in-binary-response-models.html#cb80-3" tabindex="-1"></a></span>
 <span id="cb80-4"><a href="model-fit-in-binary-response-models.html#cb80-4" tabindex="-1"></a>roc3 <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ1<span class="sc">$</span>democracy, world_democ1<span class="sc">$</span>prob_sur)</span>
 <span id="cb80-5"><a href="model-fit-in-binary-response-models.html#cb80-5" tabindex="-1"></a></span>
 <span id="cb80-6"><a href="model-fit-in-binary-response-models.html#cb80-6" tabindex="-1"></a><span class="fu">auc</span>(roc3)</span>
 <span id="cb80-7"><a href="model-fit-in-binary-response-models.html#cb80-7" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.8357</span></span></code></pre></div>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="model-fit-in-binary-response-models.html#cb81-1" tabindex="-1"></a><span class="fu">plot</span>(roc3, <span class="at">print.auc=</span><span class="cn">TRUE</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">roc3</span>, print.auc<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span> </span></code></pre></div>
 <p> 
  </p>
-<p><img src="main_files/figure-html/unnamed-chunk-140-1.png" width="70%" /></p>
+<div class="inline-figure"><img src="main_files/figure-html/unnamed-chunk-140-1.png" width="70%"></div>
 <p> 
  </p>
 </div>
-<div id="survival-full-model" class="section level3 unnumbered hasAnchor">
-<h3>Survival: Full Model<a href="model-fit-in-binary-response-models.html#survival-full-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="model-fit-in-binary-response-models.html#cb82-1" tabindex="-1"></a>prob_sur_full <span class="ot">&lt;-</span> <span class="fu">predict</span>(survival_full, <span class="at">type=</span><span class="st">&quot;response&quot;</span>)</span>
+<div id="survival-full-model" class="section level3 unnumbered">
+<h3>Survival: Full Model<a class="anchor" aria-label="anchor" href="#survival-full-model"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="model-fit-in-binary-response-models.html#cb82-1" tabindex="-1"></a>prob_sur_full <span class="ot">&lt;-</span> <span class="fu">predict</span>(survival_full, <span class="at">type=</span><span class="st">"response"</span>)</span>
 <span id="cb82-2"><a href="model-fit-in-binary-response-models.html#cb82-2" tabindex="-1"></a>world_democ1<span class="sc">$</span>prob_sur_full <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_sur_full)</span>
 <span id="cb82-3"><a href="model-fit-in-binary-response-models.html#cb82-3" tabindex="-1"></a></span>
 <span id="cb82-4"><a href="model-fit-in-binary-response-models.html#cb82-4" tabindex="-1"></a>roc4 <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ1<span class="sc">$</span>democracy, world_democ1<span class="sc">$</span>prob_sur_full)</span>
 <span id="cb82-5"><a href="model-fit-in-binary-response-models.html#cb82-5" tabindex="-1"></a></span>
 <span id="cb82-6"><a href="model-fit-in-binary-response-models.html#cb82-6" tabindex="-1"></a><span class="fu">auc</span>(roc4)</span>
 <span id="cb82-7"><a href="model-fit-in-binary-response-models.html#cb82-7" tabindex="-1"></a>Area under the curve<span class="sc">:</span> <span class="fl">0.8224</span></span></code></pre></div>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="model-fit-in-binary-response-models.html#cb83-1" tabindex="-1"></a><span class="fu">plot</span>(roc4, <span class="at">print.auc=</span><span class="cn">TRUE</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">roc4</span>, print.auc<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span> </span></code></pre></div>
 <p> 
  </p>
-<p><img src="main_files/figure-html/unnamed-chunk-143-1.png" width="70%" /></p>
+<div class="inline-figure"><img src="main_files/figure-html/unnamed-chunk-143-1.png" width="70%"></div>
 <p> 
  </p>
 </div>
 </div>
-<div id="including-roc-in-modelsummary" class="section level2 unnumbered hasAnchor">
-<h2>Including ROC in <code>modelsummary</code><a href="model-fit-in-binary-response-models.html#including-roc-in-modelsummary" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="including-roc-in-modelsummary" class="section level2 unnumbered">
+<h2>Including ROC in <code>modelsummary</code><a class="anchor" aria-label="anchor" href="#including-roc-in-modelsummary"><i class="fas fa-link"></i></a>
+</h2>
 <p>When I introduced you to <code>modelsummary</code> in Week 3, I mentioned that we will be adding a model fit measure to the results table in Week 7. This model fit measure is the AUC. A properly formatted table summarising the results of all four models we have calculated would look like this:</p>
 <!-- preamble start -->
 
     <script>
 
-      function styleCell_rvy1rw8n7hlgydhd2ltv(i, j, css_id) {
-          var table = document.getElementById("tinytable_rvy1rw8n7hlgydhd2ltv");
+      function styleCell_pup9d1t4x4rup722n7xs(i, j, css_id) {
+          var table = document.getElementById("tinytable_pup9d1t4x4rup722n7xs");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -1273,7 +1040,7 @@ Figure 28: ROC Curve
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_rvy1rw8n7hlgydhd2ltv');
+        var table = document.getElementById('tinytable_pup9d1t4x4rup722n7xs');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -1281,8 +1048,8 @@ Figure 28: ROC Curve
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_rvy1rw8n7hlgydhd2ltv(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_rvy1rw8n7hlgydhd2ltv");
+      function spanCell_pup9d1t4x4rup722n7xs(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_pup9d1t4x4rup722n7xs");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -1312,299 +1079,277 @@ Figure 28: ROC Curve
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 1, j: 4 }, { i: 1, j: 3 },  ], css_id: 'tinytable_css_cfpbivh5pbrjwnda5tlg',}, 
-          { positions: [ { i: 0, j: 3 }, { i: 0, j: 2 }, { i: 0, j: 4 },  ], css_id: 'tinytable_css_z61mo7kpji00rx7n3qpt',}, 
-          { positions: [ { i: 12, j: 1 }, { i: 12, j: 4 }, { i: 12, j: 2 }, { i: 12, j: 3 },  ], css_id: 'tinytable_css_28n6mh17k5qo38snoox7',}, 
-          { positions: [ { i: 10, j: 3 }, { i: 10, j: 2 }, { i: 10, j: 4 }, { i: 10, j: 1 },  ], css_id: 'tinytable_css_zw9t4vqyggbkl5lt6kwa',}, 
-          { positions: [ { i: 4, j: 1 }, { i: 3, j: 1 }, { i: 8, j: 1 }, { i: 5, j: 1 }, { i: 7, j: 1 }, { i: 3, j: 2 }, { i: 9, j: 1 }, { i: 6, j: 1 }, { i: 11, j: 1 }, { i: 7, j: 2 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 11, j: 2 }, { i: 8, j: 2 }, { i: 9, j: 2 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 9, j: 3 }, { i: 5, j: 4 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 4, j: 4 }, { i: 9, j: 4 }, { i: 11, j: 3 }, { i: 3, j: 4 }, { i: 8, j: 4 }, { i: 6, j: 4 }, { i: 7, j: 4 }, { i: 11, j: 4 },  ], css_id: 'tinytable_css_fdj4ffyz59hdl3msmhyz',}, 
-          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_0warwpd9iqthdq5wvjsb',}, 
-          { positions: [ { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_tvipnlz9o5fbkj311vhm',}, 
-          { positions: [ { i: 2, j: 1 }, { i: 2, j: 2 }, { i: 2, j: 3 }, { i: 2, j: 4 },  ], css_id: 'tinytable_css_hdk2bzyg0fmrzwol8jfq',}, 
-          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_om4803nispbro5c6zbvd',}, 
-          { positions: [ { i: 10, j: 0 },  ], css_id: 'tinytable_css_e1aj54xx44fllbm37qv3',}, 
-          { positions: [ { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 11, j: 0 },  ], css_id: 'tinytable_css_p1s5cdocxcron9lo01fv',}, 
-          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_0oi1y2y6wssy3gusquiy',}, 
-          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_psm7yksdj3u9qjfo7l8x',}, 
-          { positions: [ { i: 2, j: 0 },  ], css_id: 'tinytable_css_898g5yeq3511zhefshld',}, 
+          { positions: [ { i: 1, j: 4 }, { i: 1, j: 3 },  ], css_id: 'tinytable_css_s9qvoa6mwvfl9edbfuz5',}, 
+          { positions: [ { i: 0, j: 3 }, { i: 0, j: 2 }, { i: 0, j: 4 },  ], css_id: 'tinytable_css_3srioocdg0ea4xcfd5ug',}, 
+          { positions: [ { i: 12, j: 1 }, { i: 12, j: 4 }, { i: 12, j: 2 }, { i: 12, j: 3 },  ], css_id: 'tinytable_css_i03drftz2fsnx350nwzt',}, 
+          { positions: [ { i: 10, j: 3 }, { i: 10, j: 2 }, { i: 10, j: 4 }, { i: 10, j: 1 },  ], css_id: 'tinytable_css_zs7zbwgr1l26g3scvh4i',}, 
+          { positions: [ { i: 4, j: 1 }, { i: 3, j: 1 }, { i: 8, j: 1 }, { i: 5, j: 1 }, { i: 7, j: 1 }, { i: 3, j: 2 }, { i: 9, j: 1 }, { i: 6, j: 1 }, { i: 11, j: 1 }, { i: 7, j: 2 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 11, j: 2 }, { i: 8, j: 2 }, { i: 9, j: 2 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 9, j: 3 }, { i: 5, j: 4 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 4, j: 4 }, { i: 9, j: 4 }, { i: 11, j: 3 }, { i: 3, j: 4 }, { i: 8, j: 4 }, { i: 6, j: 4 }, { i: 7, j: 4 }, { i: 11, j: 4 },  ], css_id: 'tinytable_css_yi1gdryzuocgr6x345i4',}, 
+          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_5n6a1xi7zqgwofspwtp7',}, 
+          { positions: [ { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_13gb4vq1xrg8tbizr3bh',}, 
+          { positions: [ { i: 2, j: 1 }, { i: 2, j: 2 }, { i: 2, j: 3 }, { i: 2, j: 4 },  ], css_id: 'tinytable_css_r3upaejvp44i7u9eu7hc',}, 
+          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_00ki2jvslste9xp0inyd',}, 
+          { positions: [ { i: 10, j: 0 },  ], css_id: 'tinytable_css_fu4pkjir87mt7s3rn3o8',}, 
+          { positions: [ { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 11, j: 0 },  ], css_id: 'tinytable_css_mxeat2harg76kcbt36uo',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_684gqe4ai82ishqoikbw',}, 
+          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_kat7uixkswdtcvl9etby',}, 
+          { positions: [ { i: 2, j: 0 },  ], css_id: 'tinytable_css_yv01jvy5co5zmxg0ryuv',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_rvy1rw8n7hlgydhd2ltv(cell.i, cell.j, group.css_id);
+                  styleCell_pup9d1t4x4rup722n7xs(cell.i, cell.j, group.css_id);
               });
           });
       });
-    </script>
-
-    <style>
+    </script><style>
       /* tinytable css entries after */
-      .table td.tinytable_css_cfpbivh5pbrjwnda5tlg, .table th.tinytable_css_cfpbivh5pbrjwnda5tlg { text-align: center; text-align: center; }
-      .table td.tinytable_css_z61mo7kpji00rx7n3qpt, .table th.tinytable_css_z61mo7kpji00rx7n3qpt { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_28n6mh17k5qo38snoox7, .table th.tinytable_css_28n6mh17k5qo38snoox7 { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_zw9t4vqyggbkl5lt6kwa, .table th.tinytable_css_zw9t4vqyggbkl5lt6kwa { text-align: center; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_fdj4ffyz59hdl3msmhyz, .table th.tinytable_css_fdj4ffyz59hdl3msmhyz { text-align: center; }
-      .table td.tinytable_css_0warwpd9iqthdq5wvjsb, .table th.tinytable_css_0warwpd9iqthdq5wvjsb { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_tvipnlz9o5fbkj311vhm, .table th.tinytable_css_tvipnlz9o5fbkj311vhm { text-align: center; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_hdk2bzyg0fmrzwol8jfq, .table th.tinytable_css_hdk2bzyg0fmrzwol8jfq { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_om4803nispbro5c6zbvd, .table th.tinytable_css_om4803nispbro5c6zbvd { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_e1aj54xx44fllbm37qv3, .table th.tinytable_css_e1aj54xx44fllbm37qv3 { text-align: left; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_p1s5cdocxcron9lo01fv, .table th.tinytable_css_p1s5cdocxcron9lo01fv { text-align: left; }
-      .table td.tinytable_css_0oi1y2y6wssy3gusquiy, .table th.tinytable_css_0oi1y2y6wssy3gusquiy { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_psm7yksdj3u9qjfo7l8x, .table th.tinytable_css_psm7yksdj3u9qjfo7l8x { text-align: left; text-align: center; }
-      .table td.tinytable_css_898g5yeq3511zhefshld, .table th.tinytable_css_898g5yeq3511zhefshld { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_s9qvoa6mwvfl9edbfuz5, .table th.tinytable_css_s9qvoa6mwvfl9edbfuz5 { text-align: center; text-align: center; }
+      .table td.tinytable_css_3srioocdg0ea4xcfd5ug, .table th.tinytable_css_3srioocdg0ea4xcfd5ug { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_i03drftz2fsnx350nwzt, .table th.tinytable_css_i03drftz2fsnx350nwzt { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_zs7zbwgr1l26g3scvh4i, .table th.tinytable_css_zs7zbwgr1l26g3scvh4i { text-align: center; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_yi1gdryzuocgr6x345i4, .table th.tinytable_css_yi1gdryzuocgr6x345i4 { text-align: center; }
+      .table td.tinytable_css_5n6a1xi7zqgwofspwtp7, .table th.tinytable_css_5n6a1xi7zqgwofspwtp7 { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_13gb4vq1xrg8tbizr3bh, .table th.tinytable_css_13gb4vq1xrg8tbizr3bh { text-align: center; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_r3upaejvp44i7u9eu7hc, .table th.tinytable_css_r3upaejvp44i7u9eu7hc { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_00ki2jvslste9xp0inyd, .table th.tinytable_css_00ki2jvslste9xp0inyd { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_fu4pkjir87mt7s3rn3o8, .table th.tinytable_css_fu4pkjir87mt7s3rn3o8 { text-align: left; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_mxeat2harg76kcbt36uo, .table th.tinytable_css_mxeat2harg76kcbt36uo { text-align: left; }
+      .table td.tinytable_css_684gqe4ai82ishqoikbw, .table th.tinytable_css_684gqe4ai82ishqoikbw { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_kat7uixkswdtcvl9etby, .table th.tinytable_css_kat7uixkswdtcvl9etby { text-align: left; text-align: center; }
+      .table td.tinytable_css_yv01jvy5co5zmxg0ryuv, .table th.tinytable_css_yv01jvy5co5zmxg0ryuv { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
     </style>
-    <div class="container">
-      <table class="table table-borderless" id="tinytable_rvy1rw8n7hlgydhd2ltv" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
-        <thead>
+<div class="container">
+      <div class="inline-table"><table class="table table-borderless" id="tinytable_pup9d1t4x4rup722n7xs" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+<thead>
 <tr>
-<th scope="col" align="center" colspan=1> </th>
-<th scope="col" align="center" colspan=4>Dependent Variable:<br>Democracy</th>
+<th scope="col" align="center" colspan="1"> </th>
+<th scope="col" align="center" colspan="4">Dependent Variable:<br>Democracy</th>
 </tr>
 <tr>
-<th scope="col" align="center" colspan=1> </th>
-<th scope="col" align="center" colspan=2>Emergence</th>
-<th scope="col" align="center" colspan=2>Survival</th>
+<th scope="col" align="center" colspan="1"> </th>
+<th scope="col" align="center" colspan="2">Emergence</th>
+<th scope="col" align="center" colspan="2">Survival</th>
 </tr>
-        <caption><span id="tab:emsur">Table 11: </span> Democratic Emergence and Survival</caption>
+<caption>
+<span id="tab:emsur">Table 11: </span> Democratic Emergence and Survival</caption>
               <tr>
-                <th scope="col"> </th>
+<th scope="col"> </th>
                 <th scope="col">Classical</th>
                 <th scope="col">New</th>
                 <th scope="col">Classical </th>
                 <th scope="col">New </th>
               </tr>
-        </thead>
-        <tfoot><tr><td colspan='5'>+ p < 0.1, * p < 0.05, ** p < 0.01, *** p < 0.001</td></tr></tfoot>
-        <tbody>
-                <tr>
-                  <td>per capita GDP (lagged)</td>
+</thead>
+<tfoot><tr><td colspan="5">+ p </td></tr></tfoot>
+<tbody>
+<tr>
+<td>per capita GDP (lagged)</td>
                   <td>-0.000*</td>
                   <td>-0.000**</td>
                   <td>0.000***</td>
                   <td>0.000**</td>
                 </tr>
-                <tr>
-                  <td></td>
+<tr>
+<td></td>
                   <td>(0.000)</td>
                   <td>(0.000)</td>
                   <td>(0.000)</td>
                   <td>(0.000)</td>
                 </tr>
-                <tr>
-                  <td>Life Expectancy (lagged)</td>
+<tr>
+<td>Life Expectancy (lagged)</td>
                   <td></td>
                   <td>0.015*</td>
                   <td></td>
                   <td>0.008</td>
                 </tr>
-                <tr>
-                  <td></td>
+<tr>
+<td></td>
                   <td></td>
                   <td>(0.007)</td>
                   <td></td>
                   <td>(0.011)</td>
                 </tr>
-                <tr>
-                  <td>Gross Primary Enrollment (lagged)</td>
+<tr>
+<td>Gross Primary Enrollment (lagged)</td>
                   <td></td>
                   <td>-0.001</td>
                   <td></td>
                   <td>0.005</td>
                 </tr>
-                <tr>
-                  <td></td>
+<tr>
+<td></td>
                   <td></td>
                   <td>(0.002)</td>
                   <td></td>
                   <td>(0.003)</td>
                 </tr>
-                <tr>
-                  <td>Intercept</td>
+<tr>
+<td>Intercept</td>
                   <td>-1.983***</td>
                   <td>-2.705***</td>
                   <td>1.637***</td>
                   <td>0.801</td>
                 </tr>
-                <tr>
-                  <td></td>
+<tr>
+<td></td>
                   <td>(0.047)</td>
                   <td>(0.339)</td>
                   <td>(0.076)</td>
                   <td>(0.584)</td>
                 </tr>
-                <tr>
-                  <td>ROC Curve</td>
+<tr>
+<td>ROC Curve</td>
                   <td>0.523</td>
                   <td>0.596</td>
                   <td>0.836</td>
                   <td>0.822</td>
                 </tr>
-                <tr>
-                  <td>Num.Obs.</td>
+<tr>
+<td>Num.Obs.</td>
                   <td>4652</td>
                   <td>3351</td>
                   <td>4616</td>
                   <td>3610</td>
                 </tr>
-        </tbody>
-      </table>
-    </div>
+</tbody>
+</table></div>
+</div>
 <!-- hack to avoid NA insertion in last line -->
 <p>How did I get this table? We start again by loading the packages <code>modelsummary</code> and <code>tinytable</code>.</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="model-fit-in-binary-response-models.html#cb84-1" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
-<span id="cb84-2"><a href="model-fit-in-binary-response-models.html#cb84-2" tabindex="-1"></a><span class="fu">library</span>(tinytable)</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://modelsummary.com">modelsummary</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://vincentarelbundock.github.io/tinytable/">tinytable</a></span><span class="op">)</span></span></code></pre></div>
 <p>Then we store our models in a list</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="model-fit-in-binary-response-models.html#cb85-1" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb85-2"><a href="model-fit-in-binary-response-models.html#cb85-2" tabindex="-1"></a>  <span class="st">&quot;Classical&quot;</span>    <span class="ot">=</span> emergence,</span>
-<span id="cb85-3"><a href="model-fit-in-binary-response-models.html#cb85-3" tabindex="-1"></a>  <span class="st">&quot;New&quot;</span>    <span class="ot">=</span> emergence_full,</span>
-<span id="cb85-4"><a href="model-fit-in-binary-response-models.html#cb85-4" tabindex="-1"></a>  <span class="st">&quot;Classical&quot;</span>    <span class="ot">=</span> survival,</span>
-<span id="cb85-5"><a href="model-fit-in-binary-response-models.html#cb85-5" tabindex="-1"></a>  <span class="st">&quot;New&quot;</span>    <span class="ot">=</span> survival_full</span>
-<span id="cb85-6"><a href="model-fit-in-binary-response-models.html#cb85-6" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">models</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>  <span class="st">"Classical"</span>    <span class="op">=</span> <span class="va">emergence</span>,</span>
+<span>  <span class="st">"New"</span>    <span class="op">=</span> <span class="va">emergence_full</span>,</span>
+<span>  <span class="st">"Classical"</span>    <span class="op">=</span> <span class="va">survival</span>,</span>
+<span>  <span class="st">"New"</span>    <span class="op">=</span> <span class="va">survival_full</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p>and create the coefficient map.</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="model-fit-in-binary-response-models.html#cb86-1" tabindex="-1"></a>cm <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;l.gdppc&#39;</span>    <span class="ot">=</span> <span class="st">&#39;per capita GDP (lagged)&#39;</span>,</span>
-<span id="cb86-2"><a href="model-fit-in-binary-response-models.html#cb86-2" tabindex="-1"></a>        <span class="st">&#39;l.life&#39;</span>    <span class="ot">=</span> <span class="st">&#39;Life Expectancy (lagged)&#39;</span>,</span>
-<span id="cb86-3"><a href="model-fit-in-binary-response-models.html#cb86-3" tabindex="-1"></a>        <span class="st">&#39;l.enrol_gross&#39;</span>    <span class="ot">=</span> <span class="st">&#39;Gross Primary Enrollment (lagged)&#39;</span>,</span>
-<span id="cb86-4"><a href="model-fit-in-binary-response-models.html#cb86-4" tabindex="-1"></a>        <span class="st">&#39;(Intercept)&#39;</span> <span class="ot">=</span> <span class="st">&#39;Intercept&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">cm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'l.gdppc'</span>    <span class="op">=</span> <span class="st">'per capita GDP (lagged)'</span>,</span>
+<span>        <span class="st">'l.life'</span>    <span class="op">=</span> <span class="st">'Life Expectancy (lagged)'</span>,</span>
+<span>        <span class="st">'l.enrol_gross'</span>    <span class="op">=</span> <span class="st">'Gross Primary Enrollment (lagged)'</span>,</span>
+<span>        <span class="st">'(Intercept)'</span> <span class="op">=</span> <span class="st">'Intercept'</span><span class="op">)</span></span></code></pre></div>
 <div class="warning">
 <p>Note that the variable names need to match exactly those in the model.</p>
 </div>
 <p>To get the ROC information into the table, we need to create a custom line. For this, we create a mini data frame whose structure corresponds to that of the table. Our table has five columns, and so we need to specify information for all five columns of our custom line:</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="model-fit-in-binary-response-models.html#cb87-1" tabindex="-1"></a>rows <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb87-2"><a href="model-fit-in-binary-response-models.html#cb87-2" tabindex="-1"></a>  <span class="st">&#39;~term&#39;</span> <span class="ot">=</span> <span class="st">&#39;ROC Curve&#39;</span>,</span>
-<span id="cb87-3"><a href="model-fit-in-binary-response-models.html#cb87-3" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(1)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">auc</span>(roc1),</span>
-<span id="cb87-4"><a href="model-fit-in-binary-response-models.html#cb87-4" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(2)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">auc</span>(roc2),</span>
-<span id="cb87-5"><a href="model-fit-in-binary-response-models.html#cb87-5" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(3)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">auc</span>(roc3),</span>
-<span id="cb87-6"><a href="model-fit-in-binary-response-models.html#cb87-6" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(4)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">auc</span>(roc4)</span>
-<span id="cb87-7"><a href="model-fit-in-binary-response-models.html#cb87-7" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">rows</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
+<span>  <span class="st">'~term'</span> <span class="op">=</span> <span class="st">'ROC Curve'</span>,</span>
+<span>  `~(1)` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/pROC/man/auc.html">auc</a></span><span class="op">(</span><span class="va">roc1</span><span class="op">)</span>,</span>
+<span>  `~(2)` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/pROC/man/auc.html">auc</a></span><span class="op">(</span><span class="va">roc2</span><span class="op">)</span>,</span>
+<span>  `~(3)` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/pROC/man/auc.html">auc</a></span><span class="op">(</span><span class="va">roc3</span><span class="op">)</span>,</span>
+<span>  `~(4)` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/pROC/man/auc.html">auc</a></span><span class="op">(</span><span class="va">roc4</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p><code>modelsummary</code> is very flexible when it comes to designing the layout of the final table, and we can place the custom row into the exact location we want. Here, it is the ninth row:</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="model-fit-in-binary-response-models.html#cb88-1" tabindex="-1"></a><span class="fu">attr</span>(rows, <span class="st">&#39;position&#39;</span>) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">9</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/attr.html">attr</a></span><span class="op">(</span><span class="va">rows</span>, <span class="st">'position'</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">9</span><span class="op">)</span></span></code></pre></div>
 <p>In a last step, we include the custom row in the actual <code>modelsummary</code> code. Note that I have added a header at the top which groups the emergence and survival models.</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="model-fit-in-binary-response-models.html#cb89-1" tabindex="-1"></a><span class="fu">modelsummary</span>(models,</span>
-<span id="cb89-2"><a href="model-fit-in-binary-response-models.html#cb89-2" tabindex="-1"></a>             <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb89-3"><a href="model-fit-in-binary-response-models.html#cb89-3" tabindex="-1"></a>             <span class="at">coef_map =</span> cm,</span>
-<span id="cb89-4"><a href="model-fit-in-binary-response-models.html#cb89-4" tabindex="-1"></a>             <span class="at">gof_omit =</span> <span class="st">&#39;AIC|BIC|Log.Lik|F|RMSE&#39;</span>,</span>
-<span id="cb89-5"><a href="model-fit-in-binary-response-models.html#cb89-5" tabindex="-1"></a>             <span class="at">add_rows =</span> rows)<span class="sc">|&gt;</span>                                 <span class="co"># this is the custom row</span></span>
-<span id="cb89-6"><a href="model-fit-in-binary-response-models.html#cb89-6" tabindex="-1"></a>  <span class="fu">group_tt</span>(<span class="at">j =</span> <span class="fu">list</span>(<span class="st">&quot;Emergence&quot;</span> <span class="ot">=</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>, <span class="st">&quot;Survival&quot;</span> <span class="ot">=</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>))<span class="sc">|&gt;</span>     <span class="co"># this creates the header</span></span>
-<span id="cb89-7"><a href="model-fit-in-binary-response-models.html#cb89-7" tabindex="-1"></a>  <span class="fu">group_tt</span>(<span class="at">j =</span> <span class="fu">list</span>(<span class="st">&quot;Dependent Variable: Democracy&quot;</span> <span class="ot">=</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>))     <span class="co"># this creates the top line</span></span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://modelsummary.com/man/modelsummary.html">modelsummary</a></span><span class="op">(</span><span class="va">models</span>,</span>
+<span>             stars <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>             coef_map <span class="op">=</span> <span class="va">cm</span>,</span>
+<span>             gof_omit <span class="op">=</span> <span class="st">'AIC|BIC|Log.Lik|F|RMSE'</span>,</span>
+<span>             add_rows <span class="op">=</span> <span class="va">rows</span><span class="op">)</span><span class="op">|&gt;</span>                                 <span class="co"># this is the custom row</span></span>
+<span>  <span class="fu"><a href="https://vincentarelbundock.github.io/tinytable/man/group_tt.html">group_tt</a></span><span class="op">(</span>j <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"Emergence"</span> <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">3</span>, <span class="st">"Survival"</span> <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span><span class="op">)</span><span class="op">|&gt;</span>     <span class="co"># this creates the header</span></span>
+<span>  <span class="fu"><a href="https://vincentarelbundock.github.io/tinytable/man/group_tt.html">group_tt</a></span><span class="op">(</span>j <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"Dependent Variable: Democracy"</span> <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span><span class="op">)</span>     <span class="co"># this creates the top line</span></span></code></pre></div>
 <div class="baser">
-<details>
-<summary>
+<details><summary>
 Full code you can adapt for the assessment
-</summary>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="model-fit-in-binary-response-models.html#cb90-1" tabindex="-1"></a><span class="co"># load packages</span></span>
-<span id="cb90-2"><a href="model-fit-in-binary-response-models.html#cb90-2" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
-<span id="cb90-3"><a href="model-fit-in-binary-response-models.html#cb90-3" tabindex="-1"></a><span class="fu">library</span>(tinytable)</span>
-<span id="cb90-4"><a href="model-fit-in-binary-response-models.html#cb90-4" tabindex="-1"></a></span>
-<span id="cb90-5"><a href="model-fit-in-binary-response-models.html#cb90-5" tabindex="-1"></a></span>
-<span id="cb90-6"><a href="model-fit-in-binary-response-models.html#cb90-6" tabindex="-1"></a><span class="co"># store models in a list</span></span>
-<span id="cb90-7"><a href="model-fit-in-binary-response-models.html#cb90-7" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb90-8"><a href="model-fit-in-binary-response-models.html#cb90-8" tabindex="-1"></a>  <span class="st">&quot;Classical&quot;</span>    <span class="ot">=</span> emergence,</span>
-<span id="cb90-9"><a href="model-fit-in-binary-response-models.html#cb90-9" tabindex="-1"></a>  <span class="st">&quot;New&quot;</span>    <span class="ot">=</span> emergence_full,</span>
-<span id="cb90-10"><a href="model-fit-in-binary-response-models.html#cb90-10" tabindex="-1"></a>  <span class="st">&quot;Classical&quot;</span>    <span class="ot">=</span> survival,</span>
-<span id="cb90-11"><a href="model-fit-in-binary-response-models.html#cb90-11" tabindex="-1"></a>  <span class="st">&quot;New&quot;</span>    <span class="ot">=</span> survival_full</span>
-<span id="cb90-12"><a href="model-fit-in-binary-response-models.html#cb90-12" tabindex="-1"></a>)</span>
-<span id="cb90-13"><a href="model-fit-in-binary-response-models.html#cb90-13" tabindex="-1"></a></span>
-<span id="cb90-14"><a href="model-fit-in-binary-response-models.html#cb90-14" tabindex="-1"></a><span class="co"># write the coefficient map</span></span>
-<span id="cb90-15"><a href="model-fit-in-binary-response-models.html#cb90-15" tabindex="-1"></a>cm <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;l.gdppc&#39;</span>    <span class="ot">=</span> <span class="st">&#39;per capita GDP (lagged)&#39;</span>,</span>
-<span id="cb90-16"><a href="model-fit-in-binary-response-models.html#cb90-16" tabindex="-1"></a>        <span class="st">&#39;l.life&#39;</span>    <span class="ot">=</span> <span class="st">&#39;Life Expectancy (lagged)&#39;</span>,</span>
-<span id="cb90-17"><a href="model-fit-in-binary-response-models.html#cb90-17" tabindex="-1"></a>        <span class="st">&#39;l.enrol_gross&#39;</span>    <span class="ot">=</span> <span class="st">&#39;Gross Primary Enrollment (lagged)&#39;</span>,</span>
-<span id="cb90-18"><a href="model-fit-in-binary-response-models.html#cb90-18" tabindex="-1"></a>        <span class="st">&#39;(Intercept)&#39;</span> <span class="ot">=</span> <span class="st">&#39;Intercept&#39;</span>)</span>
-<span id="cb90-19"><a href="model-fit-in-binary-response-models.html#cb90-19" tabindex="-1"></a></span>
-<span id="cb90-20"><a href="model-fit-in-binary-response-models.html#cb90-20" tabindex="-1"></a><span class="co"># create a mini dataset with the information on the ROC curves</span></span>
-<span id="cb90-21"><a href="model-fit-in-binary-response-models.html#cb90-21" tabindex="-1"></a>rows <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb90-22"><a href="model-fit-in-binary-response-models.html#cb90-22" tabindex="-1"></a>  <span class="st">&#39;~term&#39;</span> <span class="ot">=</span> <span class="st">&#39;ROC Curve&#39;</span>,</span>
-<span id="cb90-23"><a href="model-fit-in-binary-response-models.html#cb90-23" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(1)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">auc</span>(roc1),</span>
-<span id="cb90-24"><a href="model-fit-in-binary-response-models.html#cb90-24" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(2)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">auc</span>(roc2),</span>
-<span id="cb90-25"><a href="model-fit-in-binary-response-models.html#cb90-25" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(3)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">auc</span>(roc3),</span>
-<span id="cb90-26"><a href="model-fit-in-binary-response-models.html#cb90-26" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(4)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">auc</span>(roc4)</span>
-<span id="cb90-27"><a href="model-fit-in-binary-response-models.html#cb90-27" tabindex="-1"></a>)</span>
-<span id="cb90-28"><a href="model-fit-in-binary-response-models.html#cb90-28" tabindex="-1"></a></span>
-<span id="cb90-29"><a href="model-fit-in-binary-response-models.html#cb90-29" tabindex="-1"></a><span class="co"># place the custom row into position in the final table</span></span>
-<span id="cb90-30"><a href="model-fit-in-binary-response-models.html#cb90-30" tabindex="-1"></a><span class="fu">attr</span>(rows, <span class="st">&#39;position&#39;</span>) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">9</span>)</span>
-<span id="cb90-31"><a href="model-fit-in-binary-response-models.html#cb90-31" tabindex="-1"></a></span>
-<span id="cb90-32"><a href="model-fit-in-binary-response-models.html#cb90-32" tabindex="-1"></a><span class="co"># modelsummary code</span></span>
-<span id="cb90-33"><a href="model-fit-in-binary-response-models.html#cb90-33" tabindex="-1"></a><span class="fu">modelsummary</span>(models,</span>
-<span id="cb90-34"><a href="model-fit-in-binary-response-models.html#cb90-34" tabindex="-1"></a>             <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb90-35"><a href="model-fit-in-binary-response-models.html#cb90-35" tabindex="-1"></a>             <span class="at">coef_map =</span> cm,</span>
-<span id="cb90-36"><a href="model-fit-in-binary-response-models.html#cb90-36" tabindex="-1"></a>             <span class="at">gof_omit =</span> <span class="st">&#39;AIC|BIC|Log.Lik|F|RMSE&#39;</span>,</span>
-<span id="cb90-37"><a href="model-fit-in-binary-response-models.html#cb90-37" tabindex="-1"></a>             <span class="at">add_rows =</span> rows)<span class="sc">|&gt;</span>                                 <span class="co"># this is the custom row</span></span>
-<span id="cb90-38"><a href="model-fit-in-binary-response-models.html#cb90-38" tabindex="-1"></a>  <span class="fu">group_tt</span>(<span class="at">j =</span> <span class="fu">list</span>(<span class="st">&quot;Emergence&quot;</span> <span class="ot">=</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>, <span class="st">&quot;Survival&quot;</span> <span class="ot">=</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>))<span class="sc">|&gt;</span>     <span class="co"># this creates the header</span></span>
-<span id="cb90-39"><a href="model-fit-in-binary-response-models.html#cb90-39" tabindex="-1"></a>  <span class="fu">group_tt</span>(<span class="at">j =</span> <span class="fu">list</span>(<span class="st">&quot;Dependent Variable: Democracy&quot;</span> <span class="ot">=</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>))  <span class="co"># this creates the top line</span></span></code></pre></div>
+</summary><div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># load packages</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://modelsummary.com">modelsummary</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://vincentarelbundock.github.io/tinytable/">tinytable</a></span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># store models in a list</span></span>
+<span><span class="va">models</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>  <span class="st">"Classical"</span>    <span class="op">=</span> <span class="va">emergence</span>,</span>
+<span>  <span class="st">"New"</span>    <span class="op">=</span> <span class="va">emergence_full</span>,</span>
+<span>  <span class="st">"Classical"</span>    <span class="op">=</span> <span class="va">survival</span>,</span>
+<span>  <span class="st">"New"</span>    <span class="op">=</span> <span class="va">survival_full</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># write the coefficient map</span></span>
+<span><span class="va">cm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'l.gdppc'</span>    <span class="op">=</span> <span class="st">'per capita GDP (lagged)'</span>,</span>
+<span>        <span class="st">'l.life'</span>    <span class="op">=</span> <span class="st">'Life Expectancy (lagged)'</span>,</span>
+<span>        <span class="st">'l.enrol_gross'</span>    <span class="op">=</span> <span class="st">'Gross Primary Enrollment (lagged)'</span>,</span>
+<span>        <span class="st">'(Intercept)'</span> <span class="op">=</span> <span class="st">'Intercept'</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># create a mini dataset with the information on the ROC curves</span></span>
+<span><span class="va">rows</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
+<span>  <span class="st">'~term'</span> <span class="op">=</span> <span class="st">'ROC Curve'</span>,</span>
+<span>  `~(1)` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/pROC/man/auc.html">auc</a></span><span class="op">(</span><span class="va">roc1</span><span class="op">)</span>,</span>
+<span>  `~(2)` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/pROC/man/auc.html">auc</a></span><span class="op">(</span><span class="va">roc2</span><span class="op">)</span>,</span>
+<span>  `~(3)` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/pROC/man/auc.html">auc</a></span><span class="op">(</span><span class="va">roc3</span><span class="op">)</span>,</span>
+<span>  `~(4)` <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/pROC/man/auc.html">auc</a></span><span class="op">(</span><span class="va">roc4</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># place the custom row into position in the final table</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/attr.html">attr</a></span><span class="op">(</span><span class="va">rows</span>, <span class="st">'position'</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">9</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># modelsummary code</span></span>
+<span><span class="fu"><a href="https://modelsummary.com/man/modelsummary.html">modelsummary</a></span><span class="op">(</span><span class="va">models</span>,</span>
+<span>             stars <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>             coef_map <span class="op">=</span> <span class="va">cm</span>,</span>
+<span>             gof_omit <span class="op">=</span> <span class="st">'AIC|BIC|Log.Lik|F|RMSE'</span>,</span>
+<span>             add_rows <span class="op">=</span> <span class="va">rows</span><span class="op">)</span><span class="op">|&gt;</span>                                 <span class="co"># this is the custom row</span></span>
+<span>  <span class="fu"><a href="https://vincentarelbundock.github.io/tinytable/man/group_tt.html">group_tt</a></span><span class="op">(</span>j <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"Emergence"</span> <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">3</span>, <span class="st">"Survival"</span> <span class="op">=</span> <span class="fl">4</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span><span class="op">)</span><span class="op">|&gt;</span>     <span class="co"># this creates the header</span></span>
+<span>  <span class="fu"><a href="https://vincentarelbundock.github.io/tinytable/man/group_tt.html">group_tt</a></span><span class="op">(</span>j <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"Dependent Variable: Democracy"</span> <span class="op">=</span> <span class="fl">2</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span><span class="op">)</span>  <span class="co"># this creates the top line</span></span></code></pre></div>
 </details>
 </div>
 </div>
 </div>
-<div class="footnotes">
-<hr />
-<ol start="9">
-<li id="fn9"><p>This is a verbatim reproduction from <span class="citation">Reiche (forthcoming)</span>. The text is based on an explanatory video by <a href="https://youtu.be/4jRBRDbJemM?si=jslp3Vwj3e6H2oSH">StatQuest with Josh Starmer</a>. All figures are copyrighted.<a href="model-fit-in-binary-response-models.html#fnref9" class="footnote-back">↩︎</a></p></li>
-</ol>
+
+  <div class="chapter-nav">
+<div class="prev"><a href="markov-transition-models.html">Markov Transition Models</a></div>
+<div class="next"><a href="joint-estimation-of-emergence-and-survival.html">Joint Estimation of Emergence and Survival</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#model-fit-in-binary-response-models">Model Fit in Binary Response Models9</a></li>
+<li>
+<a class="nav-link" href="#how-to-measure-model-fit">How to Measure Model Fit</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#what-is-it-1">What is it?</a></li>
+<li><a class="nav-link" href="#r">R</a></li>
+<li><a class="nav-link" href="#emergence-full-model">Emergence: Full Model</a></li>
+<li><a class="nav-link" href="#survival">Survival</a></li>
+<li><a class="nav-link" href="#survival-full-model">Survival: Full Model</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#including-roc-in-modelsummary">Including ROC in modelsummary</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
 </div>
-            </section>
+    </nav>
+</div>
 
-          </div>
-        </div>
-      </div>
-<a href="markov-transition-models.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="joint-estimation-of-emergence-and-survival.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
-    </div>
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong><p><img src="images/Crest_white.png" width="75" style="display:block; margin:auto; margin-bottom:3em;"> PO33Q: Determinants of Democracy – <br> Analysing Emergence, Survival, and Fall</p></strong>" was written by </p>
+<p><strong>Dr Flo Reiche</strong> <br><strong>Department of Politics and International Studies</strong> <br><strong>University of Warwick</strong></p>. It was last built on 26 July, 2025.
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
-<script>
-gitbook.require(["gitbook"], function(gitbook) {
-gitbook.start({
-  "sharing": {
-    "github": false,
-    "facebook": true,
-    "twitter": true,
-    "linkedin": false,
-    "weibo": false,
-    "instapaper": false,
-    "vk": false,
-    "whatsapp": false,
-    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-  },
-  "fontsettings": {
-    "theme": "white",
-    "family": "sans",
-    "size": 2
-  },
-  "edit": {
-    "link": null,
-    "text": null
-  },
-  "history": {
-    "link": null,
-    "text": null
-  },
-  "view": {
-    "link": null,
-    "text": null
-  },
-  "download": null,
-  "search": {
-    "engine": "fuse",
-    "options": null
-  },
-  "toc": {
-    "collapse": "section"
-  },
-  "toc_depth": 2,
-  "keep_tex": true
-});
-});
-</script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -1616,7 +1361,22 @@ gitbook.start({
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
 </script>
 </body>
-
 </html>

@@ -1,414 +1,174 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html lang="en">
 <head>
-
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Linear Regression - Theory | main.knit</title>
-  <meta name="description" content="PO33Q: Determinants of Democracy - Analysing Emergence, Survival, and Fall " />
-  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
-
-  <meta property="og:title" content="Linear Regression - Theory | main.knit" />
-  <meta property="og:type" content="book" />
-  
-  
-  
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Linear Regression - Theory | main.knit" />
-  
-  
-  
-
-
-
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
-  
-<link rel="prev" href="principles-of-statistical-inference.html"/>
-<link rel="next" href="linear-regression-application.html"/>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
-
-
-
-
-
-
-<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
-<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
-<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
-
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Linear Regression - Theory |  PO33Q: Determinants of Democracy –   Analysing Emergence, Survival, and Fall</title>
+<meta name="generator" content="bookdown 0.43 with bs4_book()">
+<meta property="og:title" content="Linear Regression - Theory |  PO33Q: Determinants of Democracy –   Analysing Emergence, Survival, and Fall">
+<meta property="og:type" content="book">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linear Regression - Theory |  PO33Q: Determinants of Democracy –   Analysing Emergence, Survival, and Fall">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/Lexend-0.4.10/font.css" rel="stylesheet">
+<script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
-
-<style type="text/css">
-  
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-</style>
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
-
-<link rel="stylesheet" href="style.css" type="text/css" />
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+          margin-bottom: 0em;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+<meta name="description" content="Introduction Regression is the power house of the social sciences. It is widely applied and takes many different forms. In this Chapter we are going to explore the linear variant, estimated...">
+<meta property="og:description" content="Introduction Regression is the power house of the social sciences. It is widely applied and takes many different forms. In this Chapter we are going to explore the linear variant, estimated...">
+<meta name="twitter:description" content="Introduction Regression is the power house of the social sciences. It is widely applied and takes many different forms. In this Chapter we are going to explore the linear variant, estimated...">
 </head>
+<body data-spy="scroll" data-target="#toc">
 
-<body>
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
-
-
-  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
-
-    <div class="book-summary">
-      <nav role="navigation">
-
-<ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
-<li class="chapter" data-level="" data-path="website-features.html"><a href="website-features.html"><i class="fa fa-check"></i>Website Features</a></li>
-<li class="chapter" data-level="" data-path="accessibility.html"><a href="accessibility.html"><i class="fa fa-check"></i>Accessibility</a></li>
-<li class="part"><span><b>Week 1</b></span></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i>Introduction to R</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#how-data-are-organised"><i class="fa fa-check"></i>How Data are organised</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-rstudio-installation"><i class="fa fa-check"></i>R &amp; RStudio – Installation</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r---getting-started"><i class="fa fa-check"></i>R - Getting Started</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rscript"><i class="fa fa-check"></i>RScript</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rscript-structure"><i class="fa fa-check"></i>RScript Structure</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#first-steps-in-r"><i class="fa fa-check"></i>First Steps in R</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-working-directory"><i class="fa fa-check"></i>The Working Directory</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-packages"><i class="fa fa-check"></i>R Packages</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#working-with-your-data-set"><i class="fa fa-check"></i>Working with Your Data Set</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#opening"><i class="fa fa-check"></i>Opening</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#viewing-the-data"><i class="fa fa-check"></i>Viewing the Data</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#variable-types-in-r"><i class="fa fa-check"></i>Variable Types in R</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#descriptive-statistics"><i class="fa fa-check"></i>Descriptive Statistics</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#data-manipulation"><i class="fa fa-check"></i>Data Manipulation</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#recoding"><i class="fa fa-check"></i>Recoding</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#saving"><i class="fa fa-check"></i>Saving</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-real-data-set"><i class="fa fa-check"></i>The Real Data Set</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#book-recommendations"><i class="fa fa-check"></i>Book Recommendations</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="homework-for-week-2.html"><a href="homework-for-week-2.html"><i class="fa fa-check"></i>Homework for Week 2</a></li>
-<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards.html"><a href="flashcards.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 2</b></span></li>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html"><i class="fa fa-check"></i>Principles of Statistical Inference</a>
-<ul>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#probability-distributions"><i class="fa fa-check"></i>Probability Distributions</a>
-<ul>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#sampling-distributions"><i class="fa fa-check"></i>Sampling Distributions</a></li>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#the-t-distribution"><i class="fa fa-check"></i>The t-Distribution</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#confidence-intervals"><i class="fa fa-check"></i>Confidence Intervals</a></li>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#tests-of-statistical-significance"><i class="fa fa-check"></i>Tests of Statistical Significance</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html"><i class="fa fa-check"></i>Linear Regression - Theory</a>
-<ul>
-<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#what-is-it"><i class="fa fa-check"></i>What is it?</a>
-<ul>
-<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#population"><i class="fa fa-check"></i>Population</a></li>
-<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#sample"><i class="fa fa-check"></i>Sample</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#ordinary-least-squares-ols"><i class="fa fa-check"></i>Ordinary Least Squares (OLS)</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html"><i class="fa fa-check"></i>Linear Regression – Application</a>
-<ul>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-basic-command"><i class="fa fa-check"></i>The Basic Command</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#interpreting-the-output"><i class="fa fa-check"></i>Interpreting the Output</a>
-<ul>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-number-of-observations"><i class="fa fa-check"></i>The Number of Observations</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-all-important-p-value-in-regression"><i class="fa fa-check"></i>The all-important p-value in Regression</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-intercept"><i class="fa fa-check"></i>The Intercept</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-slope-coefficient"><i class="fa fa-check"></i>The Slope Coefficient</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-goodness-of-fit-r-squared"><i class="fa fa-check"></i>The Goodness of Fit (R-Squared)</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#choosing-variables"><i class="fa fa-check"></i>Choosing Variables</a>
-<ul>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#can-i-choose-more-than-one-independent-variable"><i class="fa fa-check"></i>Can I choose more than one independent variable?</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#ceteris"><i class="fa fa-check"></i>Ceteris Paribus</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#parsimony"><i class="fa fa-check"></i>Parsimony</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#r-squared-again"><i class="fa fa-check"></i>R-Squared Again</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#limitations"><i class="fa fa-check"></i>Limitations</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#literature-recommendations"><i class="fa fa-check"></i>Literature Recommendations</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#important-disclaimer"><i class="fa fa-check"></i>Important Disclaimer</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="homework-for-week-3.html"><a href="homework-for-week-3.html"><i class="fa fa-check"></i>Homework for Week 3</a></li>
-<li class="chapter" data-level="" data-path="glossary-1.html"><a href="glossary-1.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-1.html"><a href="flashcards-1.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 3</b></span></li>
-<li class="chapter" data-level="" data-path="probit---theory.html"><a href="probit---theory.html"><i class="fa fa-check"></i>Probit - Theory</a>
-<ul>
-<li class="chapter" data-level="" data-path="probit---theory.html"><a href="probit---theory.html#probit---what-is-it"><i class="fa fa-check"></i>Probit - What is it?</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html"><i class="fa fa-check"></i>Probit – Application</a>
-<ul>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#the-command"><i class="fa fa-check"></i>The Command</a></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#the-coefficients"><i class="fa fa-check"></i>The Coefficients</a></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#pedicted-probabilities"><i class="fa fa-check"></i>Pedicted Probabilities</a>
-<ul>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#setting-the-x-values"><i class="fa fa-check"></i>Setting the x-values</a></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#predicting-the-probability"><i class="fa fa-check"></i>Predicting the Probability</a></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#all-predicted-probabilities"><i class="fa fa-check"></i>All Predicted Probabilities</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#how-to-report-results"><i class="fa fa-check"></i>How to Report Results</a>
-<ul>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#modelsummary"><i class="fa fa-check"></i><code>modelsummary</code></a></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#multiple-independent-variables"><i class="fa fa-check"></i>Multiple Independent Variables</a></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#predicting-the-probability-1"><i class="fa fa-check"></i>Predicting the Probability</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#literature-recommendations-1"><i class="fa fa-check"></i>Literature Recommendations</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i>Exercises</a></li>
-<li class="chapter" data-level="" data-path="homework-for-week-4.html"><a href="homework-for-week-4.html"><i class="fa fa-check"></i>Homework for Week 4</a></li>
-<li class="chapter" data-level="" data-path="glossary-2.html"><a href="glossary-2.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-2.html"><a href="flashcards-2.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 4</b></span></li>
-<li class="chapter" data-level="" data-path="missing-data.html"><a href="missing-data.html"><i class="fa fa-check"></i>Missing Data</a>
-<ul>
-<li class="chapter" data-level="" data-path="missing-data.html"><a href="missing-data.html#options-in-r"><i class="fa fa-check"></i>Options in R</a></li>
-<li class="chapter" data-level="" data-path="missing-data.html"><a href="missing-data.html#methodological-implications"><i class="fa fa-check"></i>Methodological Implications</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="model-building.html"><a href="model-building.html"><i class="fa fa-check"></i>Model Building</a>
-<ul>
-<li class="chapter" data-level="" data-path="model-building.html"><a href="model-building.html#control-variables"><i class="fa fa-check"></i>Control Variables</a></li>
-<li class="chapter" data-level="" data-path="model-building.html"><a href="model-building.html#literature-recommendations-2"><i class="fa fa-check"></i>Literature Recommendations</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="homework-for-week-5.html"><a href="homework-for-week-5.html"><i class="fa fa-check"></i>Homework for Week 5</a></li>
-<li class="chapter" data-level="" data-path="glossary-3.html"><a href="glossary-3.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-3.html"><a href="flashcards-3.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 5</b></span></li>
-<li class="chapter" data-level="" data-path="consolidation.html"><a href="consolidation.html"><i class="fa fa-check"></i>Consolidation</a>
-<ul>
-<li class="chapter" data-level="" data-path="consolidation.html"><a href="consolidation.html#the-world-value-survey"><i class="fa fa-check"></i>The World-Value Survey</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html"><i class="fa fa-check"></i>Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html#descriptives"><i class="fa fa-check"></i>Descriptives</a></li>
-<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html#linear-regression"><i class="fa fa-check"></i>Linear Regression</a></li>
-<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html#probit"><i class="fa fa-check"></i>Probit</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="homework-for-week-7.html"><a href="homework-for-week-7.html"><i class="fa fa-check"></i>Homework for Week 7</a></li>
-<li class="chapter" data-level="" data-path="glossary-4.html"><a href="glossary-4.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-4.html"><a href="flashcards-4.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 7</b></span></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html"><i class="fa fa-check"></i>Markov Transition Models</a>
-<ul>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#time-series-cross-sectional-data"><i class="fa fa-check"></i>Time Series, Cross-Sectional Data</a></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#what-are-markov-transition-models"><i class="fa fa-check"></i>What are Markov Transition Models?</a>
-<ul>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#conditional-probabilities"><i class="fa fa-check"></i>Conditional Probabilities</a></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#democratic-emergence"><i class="fa fa-check"></i>Democratic Emergence</a></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#lagging-the-independent-variables"><i class="fa fa-check"></i>Lagging the Independent Variables</a></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#subsetting-the-data-for-conditional-probabilities"><i class="fa fa-check"></i>Subsetting the Data for Conditional Probabilities</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#democratic-emergence-1"><i class="fa fa-check"></i>Democratic Emergence</a></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#democratic-survival"><i class="fa fa-check"></i>Democratic Survival</a></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#interpretation"><i class="fa fa-check"></i>Interpretation</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html"><i class="fa fa-check"></i>Model Fit in Binary Response Models</a>
-<ul>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#how-to-measure-model-fit"><i class="fa fa-check"></i>How to Measure Model Fit</a>
-<ul>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#what-is-it-1"><i class="fa fa-check"></i>What is it?</a></li>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#r"><i class="fa fa-check"></i>R</a></li>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#emergence-full-model"><i class="fa fa-check"></i>Emergence: Full Model</a></li>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#survival"><i class="fa fa-check"></i>Survival</a></li>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#survival-full-model"><i class="fa fa-check"></i>Survival: Full Model</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#including-roc-in-modelsummary"><i class="fa fa-check"></i>Including ROC in <code>modelsummary</code></a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html"><i class="fa fa-check"></i>Joint Estimation of Emergence and Survival</a>
-<ul>
-<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html#rationale"><i class="fa fa-check"></i>Rationale</a></li>
-<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html#example"><i class="fa fa-check"></i>Example</a></li>
-<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html#application-in-r"><i class="fa fa-check"></i>Application in R</a></li>
-<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html#literature-recommendations-3"><i class="fa fa-check"></i>Literature Recommendations</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i>Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html#the-data-set"><i class="fa fa-check"></i>The Data Set</a></li>
-<li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html#basics"><i class="fa fa-check"></i>Basics</a></li>
-<li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html#advanced"><i class="fa fa-check"></i>Advanced</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="homework-for-week-8.html"><a href="homework-for-week-8.html"><i class="fa fa-check"></i>Homework for Week 8</a></li>
-<li class="chapter" data-level="" data-path="glossary-5.html"><a href="glossary-5.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-5.html"><a href="flashcards-5.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Downloads</b></span></li>
-<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html"><i class="fa fa-check"></i>Downloads</a>
-<ul>
-<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html#documents"><i class="fa fa-check"></i>Documents</a></li>
-<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html#data-sets-in-alphabetical-order"><i class="fa fa-check"></i>Data Sets (in alphabetical order)</a></li>
-<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html#r-scripts"><i class="fa fa-check"></i>R Scripts</a></li>
-</ul></li>
-<li class="part"><span><b>Glossary</b></span></li>
-<li class="chapter" data-level="" data-path="glossary-6.html"><a href="glossary-6.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="part"><span><b>List of References</b></span></li>
-<li class="chapter" data-level="" data-path="list-of-references.html"><a href="list-of-references.html"><i class="fa fa-check"></i>List of References</a></li>
-</ul>
-
-      </nav>
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title=""><p><img src="images/Crest_white.png" width="75" style="display:block; margin:auto; margin-bottom:3em;"> PO33Q: Determinants of Democracy – <br> Analysing Emergence, Survival, and Fall</p></a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
 
-    <div class="book-body">
-      <div class="body-inner">
-        <div class="book-header" role="navigation">
-          <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><div class="line-block">PO33Q: Determinants of Democracy - <br>Analysing Emergence, Survival, and Fall <img align="right" src="images/Crest_white.png" width="75"></div></a>
-          </h1>
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="website-features.html">Website Features</a></li>
+<li><a class="" href="accessibility.html">Accessibility</a></li>
+<li class="book-part">Week 1</li>
+<li><a class="" href="introduction-to-r.html">Introduction to R</a></li>
+<li><a class="" href="homework-for-week-2.html">Homework for Week 2</a></li>
+<li><a class="" href="glossary.html">Glossary</a></li>
+<li><a class="" href="flashcards.html">Flashcards</a></li>
+<li class="book-part">Week 2</li>
+<li><a class="" href="principles-of-statistical-inference.html">Principles of Statistical Inference</a></li>
+<li><a class="active" href="linear-regression---theory.html">Linear Regression - Theory</a></li>
+<li><a class="" href="linear-regression-application.html">Linear Regression – Application</a></li>
+<li><a class="" href="homework-for-week-3.html">Homework for Week 3</a></li>
+<li><a class="" href="glossary-1.html">Glossary</a></li>
+<li><a class="" href="flashcards-1.html">Flashcards</a></li>
+<li class="book-part">Week 3</li>
+<li><a class="" href="probit---theory.html">Probit - Theory</a></li>
+<li><a class="" href="probit-application.html">Probit – Application</a></li>
+<li><a class="" href="exercises.html">Exercises</a></li>
+<li><a class="" href="homework-for-week-4.html">Homework for Week 4</a></li>
+<li><a class="" href="glossary-2.html">Glossary</a></li>
+<li><a class="" href="flashcards-2.html">Flashcards</a></li>
+<li class="book-part">Week 4</li>
+<li><a class="" href="missing-data.html">Missing Data</a></li>
+<li><a class="" href="model-building.html">Model Building</a></li>
+<li><a class="" href="homework-for-week-5.html">Homework for Week 5</a></li>
+<li><a class="" href="glossary-3.html">Glossary</a></li>
+<li><a class="" href="flashcards-3.html">Flashcards</a></li>
+<li class="book-part">Week 5</li>
+<li><a class="" href="consolidation.html">Consolidation</a></li>
+<li><a class="" href="exercises-1.html">Exercises</a></li>
+<li><a class="" href="homework-for-week-7.html">Homework for Week 7</a></li>
+<li><a class="" href="glossary-4.html">Glossary</a></li>
+<li><a class="" href="flashcards-4.html">Flashcards</a></li>
+<li class="book-part">Week 7</li>
+<li><a class="" href="markov-transition-models.html">Markov Transition Models</a></li>
+<li><a class="" href="model-fit-in-binary-response-models.html">Model Fit in Binary Response Models9</a></li>
+<li><a class="" href="joint-estimation-of-emergence-and-survival.html">Joint Estimation of Emergence and Survival</a></li>
+<li><a class="" href="exercises-2.html">Exercises</a></li>
+<li><a class="" href="homework-for-week-8.html">Homework for Week 8</a></li>
+<li><a class="" href="glossary-5.html">Glossary</a></li>
+<li><a class="" href="flashcards-5.html">Flashcards</a></li>
+<li class="book-part">Downloads</li>
+<li><a class="" href="downloads.html">Downloads</a></li>
+<li class="book-part">Glossary</li>
+<li><a class="" href="glossary-6.html">Glossary</a></li>
+<li class="book-part">List of References</li>
+<li><a class="" href="list-of-references.html">List of References</a></li>
+</ul>
+
+        <div class="book-extra">
+          
         </div>
-
-        <div class="page-wrapper" tabindex="-1" role="main">
-          <div class="page-inner">
-
-            <section class="normal" id="section-">
-<div id="linear-regression---theory" class="section level1 unnumbered hasAnchor">
-<h1>Linear Regression - Theory<a href="linear-regression---theory.html#linear-regression---theory" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="introduction" class="section level2 unnumbered hasAnchor">
-<h2>Introduction<a href="linear-regression---theory.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">Regression</a></span> is the power house of the social sciences. It is widely applied and takes many different forms. In this Chapter we are going to explore the linear variant, estimated through a method called Ordinary Least Squares (OLS). This type of regression is used if our dependent variable is continuous. In Week 3 we will have a look at regression with a binary dependent variable and the calculation of the probability to fall into either of those two categories. But let’s first turn to linear regression.</p>
-<hr />
+      </nav>
 </div>
-<div id="what-is-it" class="section level2 unnumbered hasAnchor">
-<h2>What is it?<a href="linear-regression---theory.html#what-is-it" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><script src="sidebar-link.js"></script><div id="linear-regression---theory" class="section level1 unnumbered">
+<h1>Linear Regression - Theory<a class="anchor" aria-label="anchor" href="#linear-regression---theory"><i class="fas fa-link"></i></a>
+</h1>
+<div id="introduction" class="section level2 unnumbered">
+<h2>Introduction<a class="anchor" aria-label="anchor" href="#introduction"><i class="fas fa-link"></i></a>
+</h2>
+<p><span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">Regression</a></span> is the power house of the social sciences. It is widely applied and takes many different forms. In this Chapter we are going to explore the linear variant, estimated through a method called Ordinary Least Squares (OLS). This type of regression is used if our dependent variable is continuous. In Week 3 we will have a look at regression with a binary dependent variable and the calculation of the probability to fall into either of those two categories. But let’s first turn to linear regression.</p>
+<hr>
+</div>
+<div id="what-is-it" class="section level2 unnumbered">
+<h2>What is it?<a class="anchor" aria-label="anchor" href="#what-is-it"><i class="fas fa-link"></i></a>
+</h2>
 <div class="video">
 <p><strong>Regression - What is it?</strong></p>
 <p>YouTube link to follow</p>
 </div>
 <p>Regression is not only able to identify the direction of a relationship between an independent and a dependent variable, it is also able to quantify the size of the effect. Let us choose <code>Y</code> as our dependent variable, and <code>X</code> as our independent variable. We have some data which we are displaying in a scatter plot:</p>
-<p><img src="files/Week%202/scatter.png" style="width:50.0%" /></p>
+<div class="inline-figure"><img src="files/Week%202/scatter.png" style="width:50.0%"></div>
 <p>With a little goodwill we can already see that there is a positive relationship: as <code>X</code> increases, <code>Y</code> increases, as well. Now, imagine taking a ruler and trying to fit in a line that best describes the relationship depicted by these points. This will be our <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">regression line</a></span>.</p>
 <p>The position of a line in a coordinate system is usually described by two items: the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">intercept</a></span> with the Y-axis, and the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">slope</a></span> of the line. The slope is defined as rise over run, and indicates by how much Y increases (or decreases is the slope is negative) if we add an additional unit of X. In the notation which follows we will call the intercept <span class="math inline">\(\beta_{0}\)</span>, and the slope <span class="math inline">\(\beta_{1}\)</span>. It will be our task to estimate these values, also called <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">coefficients</a></span> You can see this depicted graphically here:</p>
-<p><img src="files/Week%202/regline.png" style="width:50.0%" /></p>
+<div class="inline-figure"><img src="files/Week%202/regline.png" style="width:50.0%"></div>
 <p>In the context of the module, we would for example have per capita GDP on the x-axis (independent variable), and Polity V measuring the level of democracy on the y-axis (dependent variable). This would look like this in the year 2015:</p>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-45"></span>
-<img src="images/Week%202/case.png" alt="\label{fig:modern}Democracy and Development in 2015" width="50%" />
-<p class="caption">
+<div class="figure">
+<span style="display:block;" id="fig:unnamed-chunk-45"></span>
+<img src="images/Week%202/case.png" alt="\label{fig:modern}Democracy and Development in 2015" width="50%"><p class="caption">
 Figure 13: Democracy and Development in 2015
 </p>
 </div>
-<div id="population" class="section level3 unnumbered hasAnchor">
-<h3>Population<a href="linear-regression---theory.html#population" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="population" class="section level3 unnumbered">
+<h3>Population<a class="anchor" aria-label="anchor" href="#population"><i class="fas fa-link"></i></a>
+</h3>
 <p>We will first assume here that we are dealing with the population and not a sample. The regression line we have just drawn would then be called the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">Population Regression Function</a></span> (PRF) and is written as follows:</p>
 <p><span class="math display">\[\begin{equation}
 E(Y|X_{i}) = \beta_{0} + \beta_{1} X_{i}
 \end{equation}\]</span></p>
 <p>Because we are dealing with the population, the line is the geometric locus of all the expected values of the dependent variable <code>Y</code>, given the values of the independent variables <code>X</code>, also known as the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">conditional expectation function</a></span> (which value of Y would we expect, on average, for a given Y?). This has to do with the approach to statistics that underpins this module: frequentist statistics (as opposed to Bayesian statistics). We are understanding all values to be “in the long run”, and if we sampled repeatedly from a population, then the expected value is the value we would, well, expect to see most often in the long run.</p>
 <p>The regression line is not intercepting with all observations. Only two are located on the line, and all others have a little distance between them and the PRF. These distances between <span class="math inline">\(E(Y|X_{i})\)</span> and <span class="math inline">\(Y_{i}\)</span> are called <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">error terms</a></span> and are denoted as <span class="math inline">\(\epsilon_{i}\)</span>.</p>
-<p><img src="files/Week%202/errors.png" style="width:50.0%" /></p>
+<div class="inline-figure"><img src="files/Week%202/errors.png" style="width:50.0%"></div>
 <p>To describe the observations <span class="math inline">\(Y_{i}\)</span> we therefore need to add the error terms to the PRF:</p>
 <p><span class="math display">\[\begin{equation}
 Y_{i} = \beta_{0} + \beta_{1} X_{i} + \epsilon_{i}
 \end{equation}\]</span></p>
 </div>
-<div id="sample" class="section level3 unnumbered hasAnchor">
-<h3>Sample<a href="linear-regression---theory.html#sample" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="sample" class="section level3 unnumbered">
+<h3>Sample<a class="anchor" aria-label="anchor" href="#sample"><i class="fas fa-link"></i></a>
+</h3>
 <p>In reality we hardly ever have the population in the social sciences, and we generally have to contend with a sample. Nonetheless, we can construct a regression line on the basis of the sample, the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">Sample Regression Function</a></span> (SRF). It is important to note that the nature of the regression line we derive from the sample will be different for every sample, as each sample will have other values in it. Rarely, the PRF is the same as the SRF - but we are always using the SRF to estimate the PRF.</p>
 <p>In order to flag this up in the notation we use to specify the SRF, we are using little hats over everything we estimate, like this:</p>
 <p><span class="math display">\[\begin{equation}
@@ -419,15 +179,16 @@ Y_{i} = \beta_{0} + \beta_{1} X_{i} + \epsilon_{i}
 Y_{i} = \hat{\beta}_{0} + \hat{\beta}_{1} X_{i} + \hat{\epsilon}_{i}
 \end{equation}\]</span></p>
 <p>These estimated error terms, <span class="math inline">\(\hat{\epsilon}_{i}\)</span>, are called <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">residuals</a></span>. The following graph visualises the relationship between an observation, the PRF, the SRF, the error terms, and the residuals.</p>
-<p><img src="files/Week%202/SRF_PRF.png" style="width:50.0%" /></p>
-<hr />
+<div class="inline-figure"><img src="files/Week%202/SRF_PRF.png" style="width:50.0%"></div>
+<hr>
 </div>
 </div>
-<div id="ordinary-least-squares-ols" class="section level2 unnumbered hasAnchor">
-<h2>Ordinary Least Squares (OLS)<a href="linear-regression---theory.html#ordinary-least-squares-ols" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ordinary-least-squares-ols" class="section level2 unnumbered">
+<h2>Ordinary Least Squares (OLS)<a class="anchor" aria-label="anchor" href="#ordinary-least-squares-ols"><i class="fas fa-link"></i></a>
+</h2>
 <p>When you eye-balled the scatter plot at the start of this Chapter in order to fit a line through it, you have sub-consciously done so by minimising the distance between each of the observations and the line. Or put differently, you have tried to minimise the error term <span class="math inline">\(\hat{\epsilon}_{i}\)</span>. This is basically the intuition behind fitting the SRF mathematically, too. We try to minimise the sum of all error terms, so that all observations are as close to the regression line as possible. The only problem that we encounter when doing this is that these distances will always sum up to zero.</p>
 <p>But similar to calculating the standard deviation where the differences between the observations and the mean would sum up to zero (essentially we are doing the same thing here), we simply square those distances. So we are not minimising the sum of distances between observations and the regression line, but the sum of the <strong>squared</strong> distances between the observations and the regression line. Graphically, we would end up with little squares made out of each <span class="math inline">\(\hat{\epsilon}_{i}\)</span> which gives the the method its name: <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">Ordinary Least Squares</a></span> (OLS).</p>
-<p><img src="files/Week%202/OLS.png" style="width:50.0%" /></p>
+<div class="inline-figure"><img src="files/Week%202/OLS.png" style="width:50.0%"></div>
 <div class="video">
 <p><strong>Ordinary Least Squares (OLS)</strong></p>
 <p>YouTube link to follow</p>
@@ -435,70 +196,47 @@ Y_{i} = \hat{\beta}_{0} + \hat{\beta}_{1} X_{i} + \hat{\epsilon}_{i}
 <p>We are now ready to apply this stuff to a PO33Q-related example!</p>
 </div>
 </div>
-            </section>
+  <div class="chapter-nav">
+<div class="prev"><a href="principles-of-statistical-inference.html">Principles of Statistical Inference</a></div>
+<div class="next"><a href="linear-regression-application.html">Linear Regression – Application</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#linear-regression---theory">Linear Regression - Theory</a></li>
+<li><a class="nav-link" href="#introduction">Introduction</a></li>
+<li>
+<a class="nav-link" href="#what-is-it">What is it?</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#population">Population</a></li>
+<li><a class="nav-link" href="#sample">Sample</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#ordinary-least-squares-ols">Ordinary Least Squares (OLS)</a></li>
+</ul>
 
-          </div>
-        </div>
-      </div>
-<a href="principles-of-statistical-inference.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="linear-regression-application.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
-    </div>
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong><p><img src="images/Crest_white.png" width="75" style="display:block; margin:auto; margin-bottom:3em;"> PO33Q: Determinants of Democracy – <br> Analysing Emergence, Survival, and Fall</p></strong>" was written by </p>
+<p><strong>Dr Flo Reiche</strong> <br><strong>Department of Politics and International Studies</strong> <br><strong>University of Warwick</strong></p>. It was last built on 26 July, 2025.
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
-<script>
-gitbook.require(["gitbook"], function(gitbook) {
-gitbook.start({
-  "sharing": {
-    "github": false,
-    "facebook": true,
-    "twitter": true,
-    "linkedin": false,
-    "weibo": false,
-    "instapaper": false,
-    "vk": false,
-    "whatsapp": false,
-    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-  },
-  "fontsettings": {
-    "theme": "white",
-    "family": "sans",
-    "size": 2
-  },
-  "edit": {
-    "link": null,
-    "text": null
-  },
-  "history": {
-    "link": null,
-    "text": null
-  },
-  "view": {
-    "link": null,
-    "text": null
-  },
-  "download": null,
-  "search": {
-    "engine": "fuse",
-    "options": null
-  },
-  "toc": {
-    "collapse": "section"
-  },
-  "toc_depth": 2,
-  "keep_tex": true
-});
-});
-</script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -510,7 +248,22 @@ gitbook.start({
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
 </script>
 </body>
-
 </html>

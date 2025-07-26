@@ -1,397 +1,154 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html lang="en">
 <head>
-
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Principles of Statistical Inference | main.knit</title>
-  <meta name="description" content="PO33Q: Determinants of Democracy - Analysing Emergence, Survival, and Fall " />
-  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
-
-  <meta property="og:title" content="Principles of Statistical Inference | main.knit" />
-  <meta property="og:type" content="book" />
-  
-  
-  
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Principles of Statistical Inference | main.knit" />
-  
-  
-  
-
-
-
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
-  
-<link rel="prev" href="flashcards.html"/>
-<link rel="next" href="linear-regression---theory.html"/>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
-
-
-
-
-
-
-<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
-<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
-<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
-
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Principles of Statistical Inference |  PO33Q: Determinants of Democracy –   Analysing Emergence, Survival, and Fall</title>
+<meta name="generator" content="bookdown 0.43 with bs4_book()">
+<meta property="og:title" content="Principles of Statistical Inference |  PO33Q: Determinants of Democracy –   Analysing Emergence, Survival, and Fall">
+<meta property="og:type" content="book">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Principles of Statistical Inference |  PO33Q: Determinants of Democracy –   Analysing Emergence, Survival, and Fall">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/Lexend-0.4.10/font.css" rel="stylesheet">
+<script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
-
-<style type="text/css">
-  
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-</style>
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
-
-<link rel="stylesheet" href="style.css" type="text/css" />
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+          margin-bottom: 0em;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+<meta name="description" content="Starting to write this, I am tackling the interesting task of condensing four weeks’ worth of material of my introductory quantitative module into a few paragraphs. But a brief overview of...">
+<meta property="og:description" content="Starting to write this, I am tackling the interesting task of condensing four weeks’ worth of material of my introductory quantitative module into a few paragraphs. But a brief overview of...">
+<meta name="twitter:description" content="Starting to write this, I am tackling the interesting task of condensing four weeks’ worth of material of my introductory quantitative module into a few paragraphs. But a brief overview of...">
 </head>
+<body data-spy="scroll" data-target="#toc">
 
-<body>
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
-
-
-  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
-
-    <div class="book-summary">
-      <nav role="navigation">
-
-<ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
-<li class="chapter" data-level="" data-path="website-features.html"><a href="website-features.html"><i class="fa fa-check"></i>Website Features</a></li>
-<li class="chapter" data-level="" data-path="accessibility.html"><a href="accessibility.html"><i class="fa fa-check"></i>Accessibility</a></li>
-<li class="part"><span><b>Week 1</b></span></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i>Introduction to R</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#how-data-are-organised"><i class="fa fa-check"></i>How Data are organised</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-rstudio-installation"><i class="fa fa-check"></i>R &amp; RStudio – Installation</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r---getting-started"><i class="fa fa-check"></i>R - Getting Started</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rscript"><i class="fa fa-check"></i>RScript</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rscript-structure"><i class="fa fa-check"></i>RScript Structure</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#first-steps-in-r"><i class="fa fa-check"></i>First Steps in R</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-working-directory"><i class="fa fa-check"></i>The Working Directory</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-packages"><i class="fa fa-check"></i>R Packages</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#working-with-your-data-set"><i class="fa fa-check"></i>Working with Your Data Set</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#opening"><i class="fa fa-check"></i>Opening</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#viewing-the-data"><i class="fa fa-check"></i>Viewing the Data</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#variable-types-in-r"><i class="fa fa-check"></i>Variable Types in R</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#descriptive-statistics"><i class="fa fa-check"></i>Descriptive Statistics</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#data-manipulation"><i class="fa fa-check"></i>Data Manipulation</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#recoding"><i class="fa fa-check"></i>Recoding</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#saving"><i class="fa fa-check"></i>Saving</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-real-data-set"><i class="fa fa-check"></i>The Real Data Set</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#book-recommendations"><i class="fa fa-check"></i>Book Recommendations</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="homework-for-week-2.html"><a href="homework-for-week-2.html"><i class="fa fa-check"></i>Homework for Week 2</a></li>
-<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards.html"><a href="flashcards.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 2</b></span></li>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html"><i class="fa fa-check"></i>Principles of Statistical Inference</a>
-<ul>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#probability-distributions"><i class="fa fa-check"></i>Probability Distributions</a>
-<ul>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#sampling-distributions"><i class="fa fa-check"></i>Sampling Distributions</a></li>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#the-t-distribution"><i class="fa fa-check"></i>The t-Distribution</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#confidence-intervals"><i class="fa fa-check"></i>Confidence Intervals</a></li>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#tests-of-statistical-significance"><i class="fa fa-check"></i>Tests of Statistical Significance</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html"><i class="fa fa-check"></i>Linear Regression - Theory</a>
-<ul>
-<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#what-is-it"><i class="fa fa-check"></i>What is it?</a>
-<ul>
-<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#population"><i class="fa fa-check"></i>Population</a></li>
-<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#sample"><i class="fa fa-check"></i>Sample</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#ordinary-least-squares-ols"><i class="fa fa-check"></i>Ordinary Least Squares (OLS)</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html"><i class="fa fa-check"></i>Linear Regression – Application</a>
-<ul>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-basic-command"><i class="fa fa-check"></i>The Basic Command</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#interpreting-the-output"><i class="fa fa-check"></i>Interpreting the Output</a>
-<ul>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-number-of-observations"><i class="fa fa-check"></i>The Number of Observations</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-all-important-p-value-in-regression"><i class="fa fa-check"></i>The all-important p-value in Regression</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-intercept"><i class="fa fa-check"></i>The Intercept</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-slope-coefficient"><i class="fa fa-check"></i>The Slope Coefficient</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-goodness-of-fit-r-squared"><i class="fa fa-check"></i>The Goodness of Fit (R-Squared)</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#choosing-variables"><i class="fa fa-check"></i>Choosing Variables</a>
-<ul>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#can-i-choose-more-than-one-independent-variable"><i class="fa fa-check"></i>Can I choose more than one independent variable?</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#ceteris"><i class="fa fa-check"></i>Ceteris Paribus</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#parsimony"><i class="fa fa-check"></i>Parsimony</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#r-squared-again"><i class="fa fa-check"></i>R-Squared Again</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#limitations"><i class="fa fa-check"></i>Limitations</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#literature-recommendations"><i class="fa fa-check"></i>Literature Recommendations</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#important-disclaimer"><i class="fa fa-check"></i>Important Disclaimer</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="homework-for-week-3.html"><a href="homework-for-week-3.html"><i class="fa fa-check"></i>Homework for Week 3</a></li>
-<li class="chapter" data-level="" data-path="glossary-1.html"><a href="glossary-1.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-1.html"><a href="flashcards-1.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 3</b></span></li>
-<li class="chapter" data-level="" data-path="probit---theory.html"><a href="probit---theory.html"><i class="fa fa-check"></i>Probit - Theory</a>
-<ul>
-<li class="chapter" data-level="" data-path="probit---theory.html"><a href="probit---theory.html#probit---what-is-it"><i class="fa fa-check"></i>Probit - What is it?</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html"><i class="fa fa-check"></i>Probit – Application</a>
-<ul>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#the-command"><i class="fa fa-check"></i>The Command</a></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#the-coefficients"><i class="fa fa-check"></i>The Coefficients</a></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#pedicted-probabilities"><i class="fa fa-check"></i>Pedicted Probabilities</a>
-<ul>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#setting-the-x-values"><i class="fa fa-check"></i>Setting the x-values</a></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#predicting-the-probability"><i class="fa fa-check"></i>Predicting the Probability</a></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#all-predicted-probabilities"><i class="fa fa-check"></i>All Predicted Probabilities</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#how-to-report-results"><i class="fa fa-check"></i>How to Report Results</a>
-<ul>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#modelsummary"><i class="fa fa-check"></i><code>modelsummary</code></a></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#multiple-independent-variables"><i class="fa fa-check"></i>Multiple Independent Variables</a></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#predicting-the-probability-1"><i class="fa fa-check"></i>Predicting the Probability</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#literature-recommendations-1"><i class="fa fa-check"></i>Literature Recommendations</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i>Exercises</a></li>
-<li class="chapter" data-level="" data-path="homework-for-week-4.html"><a href="homework-for-week-4.html"><i class="fa fa-check"></i>Homework for Week 4</a></li>
-<li class="chapter" data-level="" data-path="glossary-2.html"><a href="glossary-2.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-2.html"><a href="flashcards-2.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 4</b></span></li>
-<li class="chapter" data-level="" data-path="missing-data.html"><a href="missing-data.html"><i class="fa fa-check"></i>Missing Data</a>
-<ul>
-<li class="chapter" data-level="" data-path="missing-data.html"><a href="missing-data.html#options-in-r"><i class="fa fa-check"></i>Options in R</a></li>
-<li class="chapter" data-level="" data-path="missing-data.html"><a href="missing-data.html#methodological-implications"><i class="fa fa-check"></i>Methodological Implications</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="model-building.html"><a href="model-building.html"><i class="fa fa-check"></i>Model Building</a>
-<ul>
-<li class="chapter" data-level="" data-path="model-building.html"><a href="model-building.html#control-variables"><i class="fa fa-check"></i>Control Variables</a></li>
-<li class="chapter" data-level="" data-path="model-building.html"><a href="model-building.html#literature-recommendations-2"><i class="fa fa-check"></i>Literature Recommendations</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="homework-for-week-5.html"><a href="homework-for-week-5.html"><i class="fa fa-check"></i>Homework for Week 5</a></li>
-<li class="chapter" data-level="" data-path="glossary-3.html"><a href="glossary-3.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-3.html"><a href="flashcards-3.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 5</b></span></li>
-<li class="chapter" data-level="" data-path="consolidation.html"><a href="consolidation.html"><i class="fa fa-check"></i>Consolidation</a>
-<ul>
-<li class="chapter" data-level="" data-path="consolidation.html"><a href="consolidation.html#the-world-value-survey"><i class="fa fa-check"></i>The World-Value Survey</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html"><i class="fa fa-check"></i>Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html#descriptives"><i class="fa fa-check"></i>Descriptives</a></li>
-<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html#linear-regression"><i class="fa fa-check"></i>Linear Regression</a></li>
-<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html#probit"><i class="fa fa-check"></i>Probit</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="homework-for-week-7.html"><a href="homework-for-week-7.html"><i class="fa fa-check"></i>Homework for Week 7</a></li>
-<li class="chapter" data-level="" data-path="glossary-4.html"><a href="glossary-4.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-4.html"><a href="flashcards-4.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 7</b></span></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html"><i class="fa fa-check"></i>Markov Transition Models</a>
-<ul>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#time-series-cross-sectional-data"><i class="fa fa-check"></i>Time Series, Cross-Sectional Data</a></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#what-are-markov-transition-models"><i class="fa fa-check"></i>What are Markov Transition Models?</a>
-<ul>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#conditional-probabilities"><i class="fa fa-check"></i>Conditional Probabilities</a></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#democratic-emergence"><i class="fa fa-check"></i>Democratic Emergence</a></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#lagging-the-independent-variables"><i class="fa fa-check"></i>Lagging the Independent Variables</a></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#subsetting-the-data-for-conditional-probabilities"><i class="fa fa-check"></i>Subsetting the Data for Conditional Probabilities</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#democratic-emergence-1"><i class="fa fa-check"></i>Democratic Emergence</a></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#democratic-survival"><i class="fa fa-check"></i>Democratic Survival</a></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#interpretation"><i class="fa fa-check"></i>Interpretation</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html"><i class="fa fa-check"></i>Model Fit in Binary Response Models</a>
-<ul>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#how-to-measure-model-fit"><i class="fa fa-check"></i>How to Measure Model Fit</a>
-<ul>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#what-is-it-1"><i class="fa fa-check"></i>What is it?</a></li>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#r"><i class="fa fa-check"></i>R</a></li>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#emergence-full-model"><i class="fa fa-check"></i>Emergence: Full Model</a></li>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#survival"><i class="fa fa-check"></i>Survival</a></li>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#survival-full-model"><i class="fa fa-check"></i>Survival: Full Model</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#including-roc-in-modelsummary"><i class="fa fa-check"></i>Including ROC in <code>modelsummary</code></a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html"><i class="fa fa-check"></i>Joint Estimation of Emergence and Survival</a>
-<ul>
-<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html#rationale"><i class="fa fa-check"></i>Rationale</a></li>
-<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html#example"><i class="fa fa-check"></i>Example</a></li>
-<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html#application-in-r"><i class="fa fa-check"></i>Application in R</a></li>
-<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html#literature-recommendations-3"><i class="fa fa-check"></i>Literature Recommendations</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i>Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html#the-data-set"><i class="fa fa-check"></i>The Data Set</a></li>
-<li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html#basics"><i class="fa fa-check"></i>Basics</a></li>
-<li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html#advanced"><i class="fa fa-check"></i>Advanced</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="homework-for-week-8.html"><a href="homework-for-week-8.html"><i class="fa fa-check"></i>Homework for Week 8</a></li>
-<li class="chapter" data-level="" data-path="glossary-5.html"><a href="glossary-5.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-5.html"><a href="flashcards-5.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Downloads</b></span></li>
-<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html"><i class="fa fa-check"></i>Downloads</a>
-<ul>
-<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html#documents"><i class="fa fa-check"></i>Documents</a></li>
-<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html#data-sets-in-alphabetical-order"><i class="fa fa-check"></i>Data Sets (in alphabetical order)</a></li>
-<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html#r-scripts"><i class="fa fa-check"></i>R Scripts</a></li>
-</ul></li>
-<li class="part"><span><b>Glossary</b></span></li>
-<li class="chapter" data-level="" data-path="glossary-6.html"><a href="glossary-6.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="part"><span><b>List of References</b></span></li>
-<li class="chapter" data-level="" data-path="list-of-references.html"><a href="list-of-references.html"><i class="fa fa-check"></i>List of References</a></li>
-</ul>
-
-      </nav>
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title=""><p><img src="images/Crest_white.png" width="75" style="display:block; margin:auto; margin-bottom:3em;"> PO33Q: Determinants of Democracy – <br> Analysing Emergence, Survival, and Fall</p></a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
 
-    <div class="book-body">
-      <div class="body-inner">
-        <div class="book-header" role="navigation">
-          <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><div class="line-block">PO33Q: Determinants of Democracy - <br>Analysing Emergence, Survival, and Fall <img align="right" src="images/Crest_white.png" width="75"></div></a>
-          </h1>
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="website-features.html">Website Features</a></li>
+<li><a class="" href="accessibility.html">Accessibility</a></li>
+<li class="book-part">Week 1</li>
+<li><a class="" href="introduction-to-r.html">Introduction to R</a></li>
+<li><a class="" href="homework-for-week-2.html">Homework for Week 2</a></li>
+<li><a class="" href="glossary.html">Glossary</a></li>
+<li><a class="" href="flashcards.html">Flashcards</a></li>
+<li class="book-part">Week 2</li>
+<li><a class="active" href="principles-of-statistical-inference.html">Principles of Statistical Inference</a></li>
+<li><a class="" href="linear-regression---theory.html">Linear Regression - Theory</a></li>
+<li><a class="" href="linear-regression-application.html">Linear Regression – Application</a></li>
+<li><a class="" href="homework-for-week-3.html">Homework for Week 3</a></li>
+<li><a class="" href="glossary-1.html">Glossary</a></li>
+<li><a class="" href="flashcards-1.html">Flashcards</a></li>
+<li class="book-part">Week 3</li>
+<li><a class="" href="probit---theory.html">Probit - Theory</a></li>
+<li><a class="" href="probit-application.html">Probit – Application</a></li>
+<li><a class="" href="exercises.html">Exercises</a></li>
+<li><a class="" href="homework-for-week-4.html">Homework for Week 4</a></li>
+<li><a class="" href="glossary-2.html">Glossary</a></li>
+<li><a class="" href="flashcards-2.html">Flashcards</a></li>
+<li class="book-part">Week 4</li>
+<li><a class="" href="missing-data.html">Missing Data</a></li>
+<li><a class="" href="model-building.html">Model Building</a></li>
+<li><a class="" href="homework-for-week-5.html">Homework for Week 5</a></li>
+<li><a class="" href="glossary-3.html">Glossary</a></li>
+<li><a class="" href="flashcards-3.html">Flashcards</a></li>
+<li class="book-part">Week 5</li>
+<li><a class="" href="consolidation.html">Consolidation</a></li>
+<li><a class="" href="exercises-1.html">Exercises</a></li>
+<li><a class="" href="homework-for-week-7.html">Homework for Week 7</a></li>
+<li><a class="" href="glossary-4.html">Glossary</a></li>
+<li><a class="" href="flashcards-4.html">Flashcards</a></li>
+<li class="book-part">Week 7</li>
+<li><a class="" href="markov-transition-models.html">Markov Transition Models</a></li>
+<li><a class="" href="model-fit-in-binary-response-models.html">Model Fit in Binary Response Models9</a></li>
+<li><a class="" href="joint-estimation-of-emergence-and-survival.html">Joint Estimation of Emergence and Survival</a></li>
+<li><a class="" href="exercises-2.html">Exercises</a></li>
+<li><a class="" href="homework-for-week-8.html">Homework for Week 8</a></li>
+<li><a class="" href="glossary-5.html">Glossary</a></li>
+<li><a class="" href="flashcards-5.html">Flashcards</a></li>
+<li class="book-part">Downloads</li>
+<li><a class="" href="downloads.html">Downloads</a></li>
+<li class="book-part">Glossary</li>
+<li><a class="" href="glossary-6.html">Glossary</a></li>
+<li class="book-part">List of References</li>
+<li><a class="" href="list-of-references.html">List of References</a></li>
+</ul>
+
+        <div class="book-extra">
+          
         </div>
-
-        <div class="page-wrapper" tabindex="-1" role="main">
-          <div class="page-inner">
-
-            <section class="normal" id="section-">
-<div id="principles-of-statistical-inference" class="section level1 unnumbered hasAnchor">
-<h1>Principles of Statistical Inference<a href="principles-of-statistical-inference.html#principles-of-statistical-inference" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><script src="sidebar-link.js"></script><div id="principles-of-statistical-inference" class="section level1 unnumbered">
+<h1>Principles of Statistical Inference<a class="anchor" aria-label="anchor" href="#principles-of-statistical-inference"><i class="fas fa-link"></i></a>
+</h1>
 <p>Starting to write this, I am tackling the interesting task of condensing four weeks’ worth of material of my introductory quantitative module into a few paragraphs. But a brief overview of statistical inference and significance tests is essential for you to understand the interpretation of the methods we are going to explore. So let’s start with probability distributions.</p>
-<hr />
-<div id="probability-distributions" class="section level2 unnumbered hasAnchor">
-<h2>Probability Distributions<a href="principles-of-statistical-inference.html#probability-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<hr>
+<div id="probability-distributions" class="section level2 unnumbered">
+<h2>Probability Distributions<a class="anchor" aria-label="anchor" href="#probability-distributions"><i class="fas fa-link"></i></a>
+</h2>
 <p>The term <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">probability distribution</a></span> sounds fancy, but really only implies that we are assessing the relative frequency with which a particular value occurs. So, for example, if I have six History students on the module, and four PAIS students, then the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-1.html">probability</a></span> of being a PAIS student is 40%. For categorical data, such as this, we can assign a probability to each category. But for continuous variables, such as the Polity V score, or per capita GDP this no longer works. Instead, we assign probabilities to an interval of numbers. In the following graph, I am putting the values of such a continuous variable on the x-axis, and then draw a curve over this which indicates the probability distribution for these values.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:probability"></span>
-<img src="images/Week%202/prob1.png" alt="\label{fig:probability}Probability Distribution for a Continuous Variable" width="50%" />
-<p class="caption">
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:probability"></span>
+<img src="images/Week%202/prob1.png" alt="\label{fig:probability}Probability Distribution for a Continuous Variable" width="50%"><p class="caption">
 Figure 7: Probability Distribution for a Continuous Variable
 </p>
 </div>
 <p>In this graph, the values on the x-axis between alpha and beta have a probability of occurring that is equal to the orange area under the curve. This curve is bell-shaped, and symmetrical around the mean of the variable x, and is known as the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">normal distribution</a></span>. The beauty of this distribution is that the amount of probability that is contained in an interval around the mean depends solely on the number of standard deviations, denoted as <span class="math inline">\(\sigma\)</span>) of the variable x. So, for example, if I travel one standard deviation to the left and to the right from the mean, I will always have 68% of the area under the distribution in this interval.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:righttail"></span>
-<img src="images/Week%202/prob2.png" alt="\label{fig:righttail}Probability within one Standard Deviation" width="50%" />
-<p class="caption">
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:righttail"></span>
+<img src="images/Week%202/prob2.png" alt="\label{fig:righttail}Probability within one Standard Deviation" width="50%"><p class="caption">
 Figure 8: Probability within one Standard Deviation
 </p>
 </div>
 <p>For two standard deviations, this is equivalent to 96% and for three standard deviations 99.9%. Schematically this looks as follows:</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:normal"></span>
-<img src="images/Week%202/prob3.png" alt="\label{fig:normal}Probabilities under the Normal Distribution" width="50%" />
-<p class="caption">
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:normal"></span>
+<img src="images/Week%202/prob3.png" alt="\label{fig:normal}Probabilities under the Normal Distribution" width="50%"><p class="caption">
 Figure 9: Probabilities under the Normal Distribution
 </p>
 </div>
@@ -402,12 +159,13 @@ z=\frac{\text{Observation} - \text{Mean}}{\text{Standard Deviation}}
 \end{equation}\]</span></p>
 <p>In our case, z would be equal to 7/9, or 0.7777778. You can look this value up in a <a href="files/Downloads/Statistical%20Tables.pdf">z-table</a> which lists the right-tail probability for all conceivable values of z. For z=0.78 it returns a probability of 21.77%. With a mean of 63 and standard deviation of 9,the probability of scoring a First would be 21.77%.</p>
 <p>This all works fine, so long as we are dealing with the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">population</a></span>. Sadly, we rarely have access to the population in the social sciences, however. Surveys, for example, are usually conducted for a small representative sub-group of the population, a <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">sample</a></span>. So, how do we make statements about the population if we only have access to a sample? The answer is: with a sampling distribution.</p>
-<div id="sampling-distributions" class="section level3 unnumbered hasAnchor">
-<h3>Sampling Distributions<a href="principles-of-statistical-inference.html#sampling-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="sampling-distributions" class="section level3 unnumbered">
+<h3>Sampling Distributions<a class="anchor" aria-label="anchor" href="#sampling-distributions"><i class="fas fa-link"></i></a>
+</h3>
 <p>Whenever we draw a sample from a population, the values we draw will vary. Therefore, also the mean of these values will vary each time. Imagine I draw a sample of 5 students from a seminar group, time and time again, and each time calculate the average age of these 5 students. Sometimes the average will be high, sometimes it will be low, but – and here comes the magic – the vaue that will come up most often in these samples is the true mean of the population (all students in the seminar). We call this population value a <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">parameter</a></span>. If we arrange all of the sample means we have obtained from this process, these will form a distribution in their own right, the sampling distribution. This has the true population mean (let’s denote this as <span class="math inline">\(\mu\)</span>) in its centre. In Figure <a href="principles-of-statistical-inference.html#fig:sampling">10</a>, for example, I have simulated a population with a mean of zero, and have drawn 9000 samples from this population, each with 30 observations. As you can see, the distribution of means of each of these 9000 samples forms a normal distribution which has zero, the population mean, at its centre.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:sampling"></span>
-<img src="prob3.png" alt="\label{fig:sampling}Sampling Distribution" width="50%" />
-<p class="caption">
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:sampling"></span>
+<img src="prob3.png" alt="\label{fig:sampling}Sampling Distribution" width="50%"><p class="caption">
 Figure 10: Sampling Distribution
 </p>
 </div>
@@ -418,21 +176,23 @@ se=\frac{s}{\sqrt{n}}
 <p>where s is the sample standard deviation and n is the sample size.</p>
 <p>Using the sample standard deviation comes with the cost of having to deal with uncertainty, as this value will vary with each sample we draw. This forces us to abandon the normal distribution, and use the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">t-distribution</a></span> instead.</p>
 </div>
-<div id="the-t-distribution" class="section level3 unnumbered hasAnchor">
-<h3>The t-Distribution<a href="principles-of-statistical-inference.html#the-t-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="the-t-distribution" class="section level3 unnumbered">
+<h3>The t-Distribution<a class="anchor" aria-label="anchor" href="#the-t-distribution"><i class="fas fa-link"></i></a>
+</h3>
 <p>The t-distribution is also bell-shaped and symmetrical, centered around a fixed mean of zero. However, its shape is not static, but depends on the number of <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">degrees of freedom</a></span>. Degrees of freedom are constraints on the estimation process that reflect the number of independent pieces of information available. In our case, the constraint arises from estimating the population standard deviation <span class="math inline">\(\sigma\)</span> using the sample standard deviation, denoted as s. For a single sample, the degrees of freedom are defined as n-1, where n is the sample size. Depending on these degrees of freedom, the t-distribution becomes wider or narrower, expressing the uncertainty we are incurring from working with a sample. You can see in Figure <a href="#fig:t"><strong>??</strong></a> that with increasing sample size the t-distribution becomes narrower and narrower, until – for an infinite sample size – it is equivalent to the normal distribution again.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-40"></span>
-<img src="images/Week%202/tdis.png" alt="\label{fig:tdistribution}Comparison of t-Distributions" width="65%" />
-<p class="caption">
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-40"></span>
+<img src="images/Week%202/tdis.png" alt="\label{fig:tdistribution}Comparison of t-Distributions" width="65%"><p class="caption">
 Figure 11: Comparison of t-Distributions
 </p>
 </div>
 <p>With the help of the sampling distribution, we can now construct an interval of values within which we believe the true population parameter to fall with a certain probability. This interval is known as a <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">confidence interval</a></span>.</p>
-<hr />
+<hr>
 </div>
 </div>
-<div id="confidence-intervals" class="section level2 unnumbered hasAnchor">
-<h2>Confidence Intervals<a href="principles-of-statistical-inference.html#confidence-intervals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="confidence-intervals" class="section level2 unnumbered">
+<h2>Confidence Intervals<a class="anchor" aria-label="anchor" href="#confidence-intervals"><i class="fas fa-link"></i></a>
+</h2>
 <p>How do we construct confidence intervals? We start by setting the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">confidence level</a></span> — the proportion of confidence intervals, constructed from repeated random samples of the same population using the same method, that are expected to contain the true population parameter. It is denoted by <span class="math inline">\(1 - \alpha\)</span>, where <span class="math inline">\(\alpha\)</span> is the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">significance level</a></span>. For example, a 95% confidence level implies that 95% of such intervals would contain the true parameter in the long run.</p>
 <p>Because the interval is constructed from a sample, we use the sampling distribution of the sample mean. We place the sample mean at the center of this distribution and treat it as our point estimate of the unknown population mean. To establish an interval around this estimate corresponding to the desired confidence level, we determine how many standard errors we must move to the left and right. This number is the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">t-score</a></span>, which can be found using a <a href="files/Downloads/Statistical%20Tables.pdf">statistical table</a>.</p>
 <p>The appropriate t-score depends on the sample size (or the degrees of freedom, to be more precise). For smaller samples, the t-distribution is wider, so we need to travel further away from the mean to achieve the same level of confidence than we would with a larger sample and a narrower distribution. For example, to construct a 95% confidence interval, we would use a t-score of approximately 2.306 for a sample of 9, but only 2.045 for a sample of 30.</p>
@@ -447,12 +207,13 @@ se=\frac{s}{\sqrt{n}}= \frac{9}{\sqrt{15}} = 2.32379
 63- 2.145 \cdot 2.32379 \le \;\; &amp;\mu \; \le 63 + 2.145 \cdot 2.32379 \\\\
 58.01547 \le \;\; &amp;\mu \; \le 67.98453
 \end{align}\]</span></p>
-<p>where <span class="math inline">\(\bar{y}\)</span> is the average in the sample<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>.</p>
+<p>where <span class="math inline">\(\bar{y}\)</span> is the average in the sample<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;For the pedants: I am aware this should read &lt;span class="math inline"&gt;\(\bar{y} - t_{\alpha/2} \cdot se \le \mu \le \bar{y} - t_{\alpha/2} \cdot se\)&lt;/span&gt;, but I have left the subscripts out to make it less confusing here.&lt;/p&gt;'><sup>4</sup></a>.</p>
 <p>We will come back to confidence intervals in the context of regression analysis. Let us now look at significance tests.</p>
-<hr />
+<hr>
 </div>
-<div id="tests-of-statistical-significance" class="section level2 unnumbered hasAnchor">
-<h2>Tests of Statistical Significance<a href="principles-of-statistical-inference.html#tests-of-statistical-significance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="tests-of-statistical-significance" class="section level2 unnumbered">
+<h2>Tests of Statistical Significance<a class="anchor" aria-label="anchor" href="#tests-of-statistical-significance"><i class="fas fa-link"></i></a>
+</h2>
 <p>As you know from the lecture last week, in the social sciences we generally test whether we can explain behaviour or some kind of phenomenon through a particular theory. In practical terms this means that we distill the theory into testable statements, called hypotheses. Take this hypothesis, for example: The average level of democracy in the Middle East is different from that of Europe. In this statement, we are no longer interested in establishing an interval of numbers within which we believe the average level of democracy in the Middle East to fall, but we are comparing it with a particular value, or point: the level of democracy in Europe. This kind of assessment is called a <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">significance test</a></span>.</p>
 <p>Every significance test has two hypotheses, an alternative, and a null-hypothesis. The alternative hypothesis is the one I already stated:</p>
  
@@ -470,43 +231,42 @@ H<span class="math inline">\(_0\)</span>: The average level of democracy in the 
  </p>
 <p>The average Polity V score in the Middle East was -2.8 in 2015 with a standard deviation of 7.07 across 15 countries. The average Polity V score for Europe in the same year was 8.7.</p>
 <div class="baser">
-<details>
-<summary>
+<details><summary>
 How to obtain these values
-</summary>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="principles-of-statistical-inference.html#cb29-1" tabindex="-1"></a>me <span class="ot">&lt;-</span> <span class="fu">filter</span>(world, countrycode<span class="sc">==</span><span class="st">&quot;BHR&quot;</span> <span class="sc">|</span> <span class="co">#Bahrain</span></span>
-<span id="cb29-2"><a href="principles-of-statistical-inference.html#cb29-2" tabindex="-1"></a>                    countrycode<span class="sc">==</span><span class="st">&quot;CYP&quot;</span> <span class="sc">|</span> <span class="co">#Cyprus</span></span>
-<span id="cb29-3"><a href="principles-of-statistical-inference.html#cb29-3" tabindex="-1"></a>                    countrycode<span class="sc">==</span><span class="st">&quot;EGY&quot;</span> <span class="sc">|</span> <span class="co">#Egypt</span></span>
-<span id="cb29-4"><a href="principles-of-statistical-inference.html#cb29-4" tabindex="-1"></a>                    countrycode<span class="sc">==</span><span class="st">&quot;IRN&quot;</span> <span class="sc">|</span> <span class="co">#Iran</span></span>
-<span id="cb29-5"><a href="principles-of-statistical-inference.html#cb29-5" tabindex="-1"></a>                    countrycode<span class="sc">==</span><span class="st">&quot;IRQ&quot;</span> <span class="sc">|</span> <span class="co">#Iraq</span></span>
-<span id="cb29-6"><a href="principles-of-statistical-inference.html#cb29-6" tabindex="-1"></a>                    countrycode<span class="sc">==</span><span class="st">&quot;ISR&quot;</span> <span class="sc">|</span> <span class="co">#Israel</span></span>
-<span id="cb29-7"><a href="principles-of-statistical-inference.html#cb29-7" tabindex="-1"></a>                    countrycode<span class="sc">==</span><span class="st">&quot;JOR&quot;</span> <span class="sc">|</span> <span class="co">#Jordan</span></span>
-<span id="cb29-8"><a href="principles-of-statistical-inference.html#cb29-8" tabindex="-1"></a>                    countrycode<span class="sc">==</span><span class="st">&quot;KWT&quot;</span> <span class="sc">|</span> <span class="co">#Kuwait</span></span>
-<span id="cb29-9"><a href="principles-of-statistical-inference.html#cb29-9" tabindex="-1"></a>                    countrycode<span class="sc">==</span><span class="st">&quot;LBN&quot;</span> <span class="sc">|</span> <span class="co">#Lebanon</span></span>
-<span id="cb29-10"><a href="principles-of-statistical-inference.html#cb29-10" tabindex="-1"></a>                    countrycode<span class="sc">==</span><span class="st">&quot;OMN&quot;</span> <span class="sc">|</span> <span class="co">#Oman</span></span>
-<span id="cb29-11"><a href="principles-of-statistical-inference.html#cb29-11" tabindex="-1"></a>                    countrycode<span class="sc">==</span><span class="st">&quot;QAT&quot;</span> <span class="sc">|</span> <span class="co">#Qatar</span></span>
-<span id="cb29-12"><a href="principles-of-statistical-inference.html#cb29-12" tabindex="-1"></a>                    countrycode<span class="sc">==</span><span class="st">&quot;SAU&quot;</span> <span class="sc">|</span> <span class="co">#Saudi Arabia</span></span>
-<span id="cb29-13"><a href="principles-of-statistical-inference.html#cb29-13" tabindex="-1"></a>                    countrycode<span class="sc">==</span><span class="st">&quot;ARE&quot;</span> <span class="sc">|</span> <span class="co">#UAE</span></span>
-<span id="cb29-14"><a href="principles-of-statistical-inference.html#cb29-14" tabindex="-1"></a>                    countrycode<span class="sc">==</span><span class="st">&quot;YEM&quot;</span>   <span class="co">#Yemen</span></span>
-<span id="cb29-15"><a href="principles-of-statistical-inference.html#cb29-15" tabindex="-1"></a>             )</span>
-<span id="cb29-16"><a href="principles-of-statistical-inference.html#cb29-16" tabindex="-1"></a></span>
-<span id="cb29-17"><a href="principles-of-statistical-inference.html#cb29-17" tabindex="-1"></a>me_15 <span class="ot">&lt;-</span> <span class="fu">filter</span>(me, year<span class="sc">==</span><span class="dv">2015</span>)</span>
-<span id="cb29-18"><a href="principles-of-statistical-inference.html#cb29-18" tabindex="-1"></a><span class="fu">mean</span>(me_15<span class="sc">$</span>polity5)</span>
-<span id="cb29-19"><a href="principles-of-statistical-inference.html#cb29-19" tabindex="-1"></a><span class="fu">sd</span>(me_15<span class="sc">$</span>polity5)</span>
-<span id="cb29-20"><a href="principles-of-statistical-inference.html#cb29-20" tabindex="-1"></a></span>
-<span id="cb29-21"><a href="principles-of-statistical-inference.html#cb29-21" tabindex="-1"></a>world<span class="sc">$</span>un_region_name</span>
-<span id="cb29-22"><a href="principles-of-statistical-inference.html#cb29-22" tabindex="-1"></a></span>
-<span id="cb29-23"><a href="principles-of-statistical-inference.html#cb29-23" tabindex="-1"></a>europe <span class="ot">&lt;-</span> <span class="fu">filter</span>(world, un_region_name<span class="sc">==</span><span class="st">&quot;Southern Europe&quot;</span><span class="sc">|</span>  </span>
-<span id="cb29-24"><a href="principles-of-statistical-inference.html#cb29-24" tabindex="-1"></a>                   un_region_name<span class="sc">==</span><span class="st">&quot;Western Europe&quot;</span> <span class="sc">|</span> </span>
-<span id="cb29-25"><a href="principles-of-statistical-inference.html#cb29-25" tabindex="-1"></a>                   un_region_name<span class="sc">==</span><span class="st">&quot;Eastern Europe&quot;</span> <span class="sc">|</span></span>
-<span id="cb29-26"><a href="principles-of-statistical-inference.html#cb29-26" tabindex="-1"></a>                   un_region_name<span class="sc">==</span><span class="st">&quot;Northern Europe&quot;</span>)</span>
-<span id="cb29-27"><a href="principles-of-statistical-inference.html#cb29-27" tabindex="-1"></a></span>
-<span id="cb29-28"><a href="principles-of-statistical-inference.html#cb29-28" tabindex="-1"></a>europe_15 <span class="ot">&lt;-</span> <span class="fu">filter</span>(europe, year<span class="sc">==</span><span class="dv">2015</span>)          </span>
-<span id="cb29-29"><a href="principles-of-statistical-inference.html#cb29-29" tabindex="-1"></a><span class="fu">mean</span>(europe_15<span class="sc">$</span>polity5, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
-<span id="cb29-30"><a href="principles-of-statistical-inference.html#cb29-30" tabindex="-1"></a></span>
-<span id="cb29-31"><a href="principles-of-statistical-inference.html#cb29-31" tabindex="-1"></a></span>
-<span id="cb29-32"><a href="principles-of-statistical-inference.html#cb29-32" tabindex="-1"></a><span class="fu">t.test</span>(me_15<span class="sc">$</span>gdppc, <span class="at">mu=</span><span class="fl">8.7</span>,  </span>
-<span id="cb29-33"><a href="principles-of-statistical-inference.html#cb29-33" tabindex="-1"></a>       <span class="at">data=</span>me_15)</span></code></pre></div>
+</summary><div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">me</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">world</span>, <span class="va">countrycode</span><span class="op">==</span><span class="st">"BHR"</span> <span class="op">|</span> <span class="co">#Bahrain</span></span>
+<span>                    <span class="va">countrycode</span><span class="op">==</span><span class="st">"CYP"</span> <span class="op">|</span> <span class="co">#Cyprus</span></span>
+<span>                    <span class="va">countrycode</span><span class="op">==</span><span class="st">"EGY"</span> <span class="op">|</span> <span class="co">#Egypt</span></span>
+<span>                    <span class="va">countrycode</span><span class="op">==</span><span class="st">"IRN"</span> <span class="op">|</span> <span class="co">#Iran</span></span>
+<span>                    <span class="va">countrycode</span><span class="op">==</span><span class="st">"IRQ"</span> <span class="op">|</span> <span class="co">#Iraq</span></span>
+<span>                    <span class="va">countrycode</span><span class="op">==</span><span class="st">"ISR"</span> <span class="op">|</span> <span class="co">#Israel</span></span>
+<span>                    <span class="va">countrycode</span><span class="op">==</span><span class="st">"JOR"</span> <span class="op">|</span> <span class="co">#Jordan</span></span>
+<span>                    <span class="va">countrycode</span><span class="op">==</span><span class="st">"KWT"</span> <span class="op">|</span> <span class="co">#Kuwait</span></span>
+<span>                    <span class="va">countrycode</span><span class="op">==</span><span class="st">"LBN"</span> <span class="op">|</span> <span class="co">#Lebanon</span></span>
+<span>                    <span class="va">countrycode</span><span class="op">==</span><span class="st">"OMN"</span> <span class="op">|</span> <span class="co">#Oman</span></span>
+<span>                    <span class="va">countrycode</span><span class="op">==</span><span class="st">"QAT"</span> <span class="op">|</span> <span class="co">#Qatar</span></span>
+<span>                    <span class="va">countrycode</span><span class="op">==</span><span class="st">"SAU"</span> <span class="op">|</span> <span class="co">#Saudi Arabia</span></span>
+<span>                    <span class="va">countrycode</span><span class="op">==</span><span class="st">"ARE"</span> <span class="op">|</span> <span class="co">#UAE</span></span>
+<span>                    <span class="va">countrycode</span><span class="op">==</span><span class="st">"YEM"</span>   <span class="co">#Yemen</span></span>
+<span>             <span class="op">)</span></span>
+<span></span>
+<span><span class="va">me_15</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">me</span>, <span class="va">year</span><span class="op">==</span><span class="fl">2015</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">me_15</span><span class="op">$</span><span class="va">polity5</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">me_15</span><span class="op">$</span><span class="va">polity5</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">world</span><span class="op">$</span><span class="va">un_region_name</span></span>
+<span></span>
+<span><span class="va">europe</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">world</span>, <span class="va">un_region_name</span><span class="op">==</span><span class="st">"Southern Europe"</span><span class="op">|</span>  </span>
+<span>                   <span class="va">un_region_name</span><span class="op">==</span><span class="st">"Western Europe"</span> <span class="op">|</span> </span>
+<span>                   <span class="va">un_region_name</span><span class="op">==</span><span class="st">"Eastern Europe"</span> <span class="op">|</span></span>
+<span>                   <span class="va">un_region_name</span><span class="op">==</span><span class="st">"Northern Europe"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">europe_15</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">europe</span>, <span class="va">year</span><span class="op">==</span><span class="fl">2015</span><span class="op">)</span>          </span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">europe_15</span><span class="op">$</span><span class="va">polity5</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">me_15</span><span class="op">$</span><span class="va">gdppc</span>, mu<span class="op">=</span><span class="fl">8.7</span>,  </span>
+<span>       data<span class="op">=</span><span class="va">me_15</span><span class="op">)</span></span></code></pre></div>
 </details>
 </div>
 <p>In order to ascertain whether the observed value of -2.8 is statistically different from the null-hypothesis value, 8.7, we need to make a probability statement. To be precise, we need to quantify the probability of observing a value that is more extreme than than one we have already observed. If this probability is small, then the value we have can be regarded as highly unusual and we can conclude that it is statistically different from the null-hypothesis value. This probability of observing a value more extreme than the one we have is the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">p-value</a></span>.</p>
@@ -519,9 +279,9 @@ t = \frac{\bar{y} - \mu_{0}}{se}, \quad \text{where} \, se = \frac{s}{\sqrt{n}}
 t = \frac{-2.8 - 8.7}{1.826243} = -6.297081, \quad \text{where} \, se = \frac{7.07301}{\sqrt{15}}
 \end{equation}\]</span></p>
 <p>This places us quite far out into the tails of the t-distribution (see Figure <a href="#fig:p"><strong>??</strong></a>), and as such the probability remaining beyond this value is very, very small. The probability of observing a value more extreme is therefore low, we can regard our observed value of -2.8 as unusual and conclude the the average democracy level in the Middle East is statistically different from that of Europe. The precise p-value for this is 0.001283, well below our desired significance level of 5%.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:sigtest"></span>
-<img src="images/Week%202/sigtest.png" alt="\label{fig:p}The p-Value" width="50%" />
-<p class="caption">
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:sigtest"></span>
+<img src="images/Week%202/sigtest.png" alt="\label{fig:p}The p-Value" width="50%"><p class="caption">
 Figure 12: The p-Value
 </p>
 </div>
@@ -529,76 +289,48 @@ Figure 12: The p-Value
 <p>And with that, we are finally ready to turn our attention to the actual topic for today: linear regression.</p>
 </div>
 </div>
-<div class="footnotes">
-<hr />
-<ol start="4">
-<li id="fn4"><p>For the pedants: I am aware this should read <span class="math inline">\(\bar{y} - t_{\alpha/2} \cdot se \le \mu \le \bar{y} - t_{\alpha/2} \cdot se\)</span>, but I have left the subscripts out to make it less confusing here.<a href="principles-of-statistical-inference.html#fnref4" class="footnote-back">↩︎</a></p></li>
-</ol>
+
+  <div class="chapter-nav">
+<div class="prev"><a href="flashcards.html">Flashcards</a></div>
+<div class="next"><a href="linear-regression---theory.html">Linear Regression - Theory</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#principles-of-statistical-inference">Principles of Statistical Inference</a></li>
+<li>
+<a class="nav-link" href="#probability-distributions">Probability Distributions</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#sampling-distributions">Sampling Distributions</a></li>
+<li><a class="nav-link" href="#the-t-distribution">The t-Distribution</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#confidence-intervals">Confidence Intervals</a></li>
+<li><a class="nav-link" href="#tests-of-statistical-significance">Tests of Statistical Significance</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
 </div>
-            </section>
+    </nav>
+</div>
 
-          </div>
-        </div>
-      </div>
-<a href="flashcards.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="linear-regression---theory.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
-    </div>
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong><p><img src="images/Crest_white.png" width="75" style="display:block; margin:auto; margin-bottom:3em;"> PO33Q: Determinants of Democracy – <br> Analysing Emergence, Survival, and Fall</p></strong>" was written by </p>
+<p><strong>Dr Flo Reiche</strong> <br><strong>Department of Politics and International Studies</strong> <br><strong>University of Warwick</strong></p>. It was last built on 26 July, 2025.
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
-<script>
-gitbook.require(["gitbook"], function(gitbook) {
-gitbook.start({
-  "sharing": {
-    "github": false,
-    "facebook": true,
-    "twitter": true,
-    "linkedin": false,
-    "weibo": false,
-    "instapaper": false,
-    "vk": false,
-    "whatsapp": false,
-    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-  },
-  "fontsettings": {
-    "theme": "white",
-    "family": "sans",
-    "size": 2
-  },
-  "edit": {
-    "link": null,
-    "text": null
-  },
-  "history": {
-    "link": null,
-    "text": null
-  },
-  "view": {
-    "link": null,
-    "text": null
-  },
-  "download": null,
-  "search": {
-    "engine": "fuse",
-    "options": null
-  },
-  "toc": {
-    "collapse": "section"
-  },
-  "toc_depth": 2,
-  "keep_tex": true
-});
-});
-</script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -610,7 +342,22 @@ gitbook.start({
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
 </script>
 </body>
-
 </html>

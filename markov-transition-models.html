@@ -1,384 +1,140 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html lang="en">
 <head>
-
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Markov Transition Models | main.knit</title>
-  <meta name="description" content="PO33Q: Determinants of Democracy - Analysing Emergence, Survival, and Fall " />
-  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
-
-  <meta property="og:title" content="Markov Transition Models | main.knit" />
-  <meta property="og:type" content="book" />
-  
-  
-  
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Markov Transition Models | main.knit" />
-  
-  
-  
-
-
-
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
-  
-<link rel="prev" href="flashcards-4.html"/>
-<link rel="next" href="model-fit-in-binary-response-models.html"/>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
-
-
-
-
-
-
-<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
-<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
-<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
-
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Markov Transition Models |  PO33Q: Determinants of Democracy –   Analysing Emergence, Survival, and Fall</title>
+<meta name="generator" content="bookdown 0.43 with bs4_book()">
+<meta property="og:title" content="Markov Transition Models |  PO33Q: Determinants of Democracy –   Analysing Emergence, Survival, and Fall">
+<meta property="og:type" content="book">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Markov Transition Models |  PO33Q: Determinants of Democracy –   Analysing Emergence, Survival, and Fall">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/Lexend-0.4.10/font.css" rel="stylesheet">
+<script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
-
-<style type="text/css">
-  
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-</style>
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
-
-<link rel="stylesheet" href="style.css" type="text/css" />
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+          margin-bottom: 0em;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+<link rel="stylesheet" href="style.css">
+<meta name="description" content="Time Series, Cross-Sectional Data We are now entering the real world, as we will start to look at how characteristics vary, not only across different countries, but also across time. I have...">
+<meta property="og:description" content="Time Series, Cross-Sectional Data We are now entering the real world, as we will start to look at how characteristics vary, not only across different countries, but also across time. I have...">
+<meta name="twitter:description" content="Time Series, Cross-Sectional Data We are now entering the real world, as we will start to look at how characteristics vary, not only across different countries, but also across time. I have...">
 </head>
+<body data-spy="scroll" data-target="#toc">
 
-<body>
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
-
-
-  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
-
-    <div class="book-summary">
-      <nav role="navigation">
-
-<ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
-<li class="chapter" data-level="" data-path="website-features.html"><a href="website-features.html"><i class="fa fa-check"></i>Website Features</a></li>
-<li class="chapter" data-level="" data-path="accessibility.html"><a href="accessibility.html"><i class="fa fa-check"></i>Accessibility</a></li>
-<li class="part"><span><b>Week 1</b></span></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html"><i class="fa fa-check"></i>Introduction to R</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#how-data-are-organised"><i class="fa fa-check"></i>How Data are organised</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-rstudio-installation"><i class="fa fa-check"></i>R &amp; RStudio – Installation</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r---getting-started"><i class="fa fa-check"></i>R - Getting Started</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rscript"><i class="fa fa-check"></i>RScript</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#rscript-structure"><i class="fa fa-check"></i>RScript Structure</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#first-steps-in-r"><i class="fa fa-check"></i>First Steps in R</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-working-directory"><i class="fa fa-check"></i>The Working Directory</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#r-packages"><i class="fa fa-check"></i>R Packages</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#working-with-your-data-set"><i class="fa fa-check"></i>Working with Your Data Set</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#opening"><i class="fa fa-check"></i>Opening</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#viewing-the-data"><i class="fa fa-check"></i>Viewing the Data</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#variable-types-in-r"><i class="fa fa-check"></i>Variable Types in R</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#descriptive-statistics"><i class="fa fa-check"></i>Descriptive Statistics</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#data-manipulation"><i class="fa fa-check"></i>Data Manipulation</a>
-<ul>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#recoding"><i class="fa fa-check"></i>Recoding</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#saving"><i class="fa fa-check"></i>Saving</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#the-real-data-set"><i class="fa fa-check"></i>The Real Data Set</a></li>
-<li class="chapter" data-level="" data-path="introduction-to-r.html"><a href="introduction-to-r.html#book-recommendations"><i class="fa fa-check"></i>Book Recommendations</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="homework-for-week-2.html"><a href="homework-for-week-2.html"><i class="fa fa-check"></i>Homework for Week 2</a></li>
-<li class="chapter" data-level="" data-path="glossary.html"><a href="glossary.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards.html"><a href="flashcards.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 2</b></span></li>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html"><i class="fa fa-check"></i>Principles of Statistical Inference</a>
-<ul>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#probability-distributions"><i class="fa fa-check"></i>Probability Distributions</a>
-<ul>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#sampling-distributions"><i class="fa fa-check"></i>Sampling Distributions</a></li>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#the-t-distribution"><i class="fa fa-check"></i>The t-Distribution</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#confidence-intervals"><i class="fa fa-check"></i>Confidence Intervals</a></li>
-<li class="chapter" data-level="" data-path="principles-of-statistical-inference.html"><a href="principles-of-statistical-inference.html#tests-of-statistical-significance"><i class="fa fa-check"></i>Tests of Statistical Significance</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html"><i class="fa fa-check"></i>Linear Regression - Theory</a>
-<ul>
-<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#what-is-it"><i class="fa fa-check"></i>What is it?</a>
-<ul>
-<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#population"><i class="fa fa-check"></i>Population</a></li>
-<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#sample"><i class="fa fa-check"></i>Sample</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="linear-regression---theory.html"><a href="linear-regression---theory.html#ordinary-least-squares-ols"><i class="fa fa-check"></i>Ordinary Least Squares (OLS)</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html"><i class="fa fa-check"></i>Linear Regression – Application</a>
-<ul>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-basic-command"><i class="fa fa-check"></i>The Basic Command</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#interpreting-the-output"><i class="fa fa-check"></i>Interpreting the Output</a>
-<ul>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-number-of-observations"><i class="fa fa-check"></i>The Number of Observations</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-all-important-p-value-in-regression"><i class="fa fa-check"></i>The all-important p-value in Regression</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-intercept"><i class="fa fa-check"></i>The Intercept</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-slope-coefficient"><i class="fa fa-check"></i>The Slope Coefficient</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#the-goodness-of-fit-r-squared"><i class="fa fa-check"></i>The Goodness of Fit (R-Squared)</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#choosing-variables"><i class="fa fa-check"></i>Choosing Variables</a>
-<ul>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#can-i-choose-more-than-one-independent-variable"><i class="fa fa-check"></i>Can I choose more than one independent variable?</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#ceteris"><i class="fa fa-check"></i>Ceteris Paribus</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#parsimony"><i class="fa fa-check"></i>Parsimony</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#r-squared-again"><i class="fa fa-check"></i>R-Squared Again</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#limitations"><i class="fa fa-check"></i>Limitations</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#literature-recommendations"><i class="fa fa-check"></i>Literature Recommendations</a></li>
-<li class="chapter" data-level="" data-path="linear-regression-application.html"><a href="linear-regression-application.html#important-disclaimer"><i class="fa fa-check"></i>Important Disclaimer</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="homework-for-week-3.html"><a href="homework-for-week-3.html"><i class="fa fa-check"></i>Homework for Week 3</a></li>
-<li class="chapter" data-level="" data-path="glossary-1.html"><a href="glossary-1.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-1.html"><a href="flashcards-1.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 3</b></span></li>
-<li class="chapter" data-level="" data-path="probit---theory.html"><a href="probit---theory.html"><i class="fa fa-check"></i>Probit - Theory</a>
-<ul>
-<li class="chapter" data-level="" data-path="probit---theory.html"><a href="probit---theory.html#probit---what-is-it"><i class="fa fa-check"></i>Probit - What is it?</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html"><i class="fa fa-check"></i>Probit – Application</a>
-<ul>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#the-command"><i class="fa fa-check"></i>The Command</a></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#the-coefficients"><i class="fa fa-check"></i>The Coefficients</a></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#pedicted-probabilities"><i class="fa fa-check"></i>Pedicted Probabilities</a>
-<ul>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#setting-the-x-values"><i class="fa fa-check"></i>Setting the x-values</a></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#predicting-the-probability"><i class="fa fa-check"></i>Predicting the Probability</a></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#all-predicted-probabilities"><i class="fa fa-check"></i>All Predicted Probabilities</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#how-to-report-results"><i class="fa fa-check"></i>How to Report Results</a>
-<ul>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#modelsummary"><i class="fa fa-check"></i><code>modelsummary</code></a></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#multiple-independent-variables"><i class="fa fa-check"></i>Multiple Independent Variables</a></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#predicting-the-probability-1"><i class="fa fa-check"></i>Predicting the Probability</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="probit-application.html"><a href="probit-application.html#literature-recommendations-1"><i class="fa fa-check"></i>Literature Recommendations</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i>Exercises</a></li>
-<li class="chapter" data-level="" data-path="homework-for-week-4.html"><a href="homework-for-week-4.html"><i class="fa fa-check"></i>Homework for Week 4</a></li>
-<li class="chapter" data-level="" data-path="glossary-2.html"><a href="glossary-2.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-2.html"><a href="flashcards-2.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 4</b></span></li>
-<li class="chapter" data-level="" data-path="missing-data.html"><a href="missing-data.html"><i class="fa fa-check"></i>Missing Data</a>
-<ul>
-<li class="chapter" data-level="" data-path="missing-data.html"><a href="missing-data.html#options-in-r"><i class="fa fa-check"></i>Options in R</a></li>
-<li class="chapter" data-level="" data-path="missing-data.html"><a href="missing-data.html#methodological-implications"><i class="fa fa-check"></i>Methodological Implications</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="model-building.html"><a href="model-building.html"><i class="fa fa-check"></i>Model Building</a>
-<ul>
-<li class="chapter" data-level="" data-path="model-building.html"><a href="model-building.html#control-variables"><i class="fa fa-check"></i>Control Variables</a></li>
-<li class="chapter" data-level="" data-path="model-building.html"><a href="model-building.html#literature-recommendations-2"><i class="fa fa-check"></i>Literature Recommendations</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="homework-for-week-5.html"><a href="homework-for-week-5.html"><i class="fa fa-check"></i>Homework for Week 5</a></li>
-<li class="chapter" data-level="" data-path="glossary-3.html"><a href="glossary-3.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-3.html"><a href="flashcards-3.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 5</b></span></li>
-<li class="chapter" data-level="" data-path="consolidation.html"><a href="consolidation.html"><i class="fa fa-check"></i>Consolidation</a>
-<ul>
-<li class="chapter" data-level="" data-path="consolidation.html"><a href="consolidation.html#the-world-value-survey"><i class="fa fa-check"></i>The World-Value Survey</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html"><i class="fa fa-check"></i>Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html#descriptives"><i class="fa fa-check"></i>Descriptives</a></li>
-<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html#linear-regression"><i class="fa fa-check"></i>Linear Regression</a></li>
-<li class="chapter" data-level="" data-path="exercises-1.html"><a href="exercises-1.html#probit"><i class="fa fa-check"></i>Probit</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="homework-for-week-7.html"><a href="homework-for-week-7.html"><i class="fa fa-check"></i>Homework for Week 7</a></li>
-<li class="chapter" data-level="" data-path="glossary-4.html"><a href="glossary-4.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-4.html"><a href="flashcards-4.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Week 7</b></span></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html"><i class="fa fa-check"></i>Markov Transition Models</a>
-<ul>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#time-series-cross-sectional-data"><i class="fa fa-check"></i>Time Series, Cross-Sectional Data</a></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#what-are-markov-transition-models"><i class="fa fa-check"></i>What are Markov Transition Models?</a>
-<ul>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#conditional-probabilities"><i class="fa fa-check"></i>Conditional Probabilities</a></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#democratic-emergence"><i class="fa fa-check"></i>Democratic Emergence</a></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#lagging-the-independent-variables"><i class="fa fa-check"></i>Lagging the Independent Variables</a></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#subsetting-the-data-for-conditional-probabilities"><i class="fa fa-check"></i>Subsetting the Data for Conditional Probabilities</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#democratic-emergence-1"><i class="fa fa-check"></i>Democratic Emergence</a></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#democratic-survival"><i class="fa fa-check"></i>Democratic Survival</a></li>
-<li class="chapter" data-level="" data-path="markov-transition-models.html"><a href="markov-transition-models.html#interpretation"><i class="fa fa-check"></i>Interpretation</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html"><i class="fa fa-check"></i>Model Fit in Binary Response Models</a>
-<ul>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#how-to-measure-model-fit"><i class="fa fa-check"></i>How to Measure Model Fit</a>
-<ul>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#what-is-it-1"><i class="fa fa-check"></i>What is it?</a></li>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#r"><i class="fa fa-check"></i>R</a></li>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#emergence-full-model"><i class="fa fa-check"></i>Emergence: Full Model</a></li>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#survival"><i class="fa fa-check"></i>Survival</a></li>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#survival-full-model"><i class="fa fa-check"></i>Survival: Full Model</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="model-fit-in-binary-response-models.html"><a href="model-fit-in-binary-response-models.html#including-roc-in-modelsummary"><i class="fa fa-check"></i>Including ROC in <code>modelsummary</code></a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html"><i class="fa fa-check"></i>Joint Estimation of Emergence and Survival</a>
-<ul>
-<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html#rationale"><i class="fa fa-check"></i>Rationale</a></li>
-<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html#example"><i class="fa fa-check"></i>Example</a></li>
-<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html#application-in-r"><i class="fa fa-check"></i>Application in R</a></li>
-<li class="chapter" data-level="" data-path="joint-estimation-of-emergence-and-survival.html"><a href="joint-estimation-of-emergence-and-survival.html#literature-recommendations-3"><i class="fa fa-check"></i>Literature Recommendations</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i>Exercises</a>
-<ul>
-<li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html#the-data-set"><i class="fa fa-check"></i>The Data Set</a></li>
-<li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html#basics"><i class="fa fa-check"></i>Basics</a></li>
-<li class="chapter" data-level="" data-path="exercises-2.html"><a href="exercises-2.html#advanced"><i class="fa fa-check"></i>Advanced</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="homework-for-week-8.html"><a href="homework-for-week-8.html"><i class="fa fa-check"></i>Homework for Week 8</a></li>
-<li class="chapter" data-level="" data-path="glossary-5.html"><a href="glossary-5.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="chapter" data-level="" data-path="flashcards-5.html"><a href="flashcards-5.html"><i class="fa fa-check"></i>Flashcards</a></li>
-<li class="part"><span><b>Downloads</b></span></li>
-<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html"><i class="fa fa-check"></i>Downloads</a>
-<ul>
-<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html#documents"><i class="fa fa-check"></i>Documents</a></li>
-<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html#data-sets-in-alphabetical-order"><i class="fa fa-check"></i>Data Sets (in alphabetical order)</a></li>
-<li class="chapter" data-level="" data-path="downloads.html"><a href="downloads.html#r-scripts"><i class="fa fa-check"></i>R Scripts</a></li>
-</ul></li>
-<li class="part"><span><b>Glossary</b></span></li>
-<li class="chapter" data-level="" data-path="glossary-6.html"><a href="glossary-6.html"><i class="fa fa-check"></i>Glossary</a></li>
-<li class="part"><span><b>List of References</b></span></li>
-<li class="chapter" data-level="" data-path="list-of-references.html"><a href="list-of-references.html"><i class="fa fa-check"></i>List of References</a></li>
-</ul>
-
-      </nav>
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title=""><p><img src="images/Crest_white.png" width="75" style="display:block; margin:auto; margin-bottom:3em;"> PO33Q: Determinants of Democracy – <br> Analysing Emergence, Survival, and Fall</p></a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
 
-    <div class="book-body">
-      <div class="body-inner">
-        <div class="book-header" role="navigation">
-          <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><div class="line-block">PO33Q: Determinants of Democracy - <br>Analysing Emergence, Survival, and Fall <img align="right" src="images/Crest_white.png" width="75"></div></a>
-          </h1>
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="website-features.html">Website Features</a></li>
+<li><a class="" href="accessibility.html">Accessibility</a></li>
+<li class="book-part">Week 1</li>
+<li><a class="" href="introduction-to-r.html">Introduction to R</a></li>
+<li><a class="" href="homework-for-week-2.html">Homework for Week 2</a></li>
+<li><a class="" href="glossary.html">Glossary</a></li>
+<li><a class="" href="flashcards.html">Flashcards</a></li>
+<li class="book-part">Week 2</li>
+<li><a class="" href="principles-of-statistical-inference.html">Principles of Statistical Inference</a></li>
+<li><a class="" href="linear-regression---theory.html">Linear Regression - Theory</a></li>
+<li><a class="" href="linear-regression-application.html">Linear Regression – Application</a></li>
+<li><a class="" href="homework-for-week-3.html">Homework for Week 3</a></li>
+<li><a class="" href="glossary-1.html">Glossary</a></li>
+<li><a class="" href="flashcards-1.html">Flashcards</a></li>
+<li class="book-part">Week 3</li>
+<li><a class="" href="probit---theory.html">Probit - Theory</a></li>
+<li><a class="" href="probit-application.html">Probit – Application</a></li>
+<li><a class="" href="exercises.html">Exercises</a></li>
+<li><a class="" href="homework-for-week-4.html">Homework for Week 4</a></li>
+<li><a class="" href="glossary-2.html">Glossary</a></li>
+<li><a class="" href="flashcards-2.html">Flashcards</a></li>
+<li class="book-part">Week 4</li>
+<li><a class="" href="missing-data.html">Missing Data</a></li>
+<li><a class="" href="model-building.html">Model Building</a></li>
+<li><a class="" href="homework-for-week-5.html">Homework for Week 5</a></li>
+<li><a class="" href="glossary-3.html">Glossary</a></li>
+<li><a class="" href="flashcards-3.html">Flashcards</a></li>
+<li class="book-part">Week 5</li>
+<li><a class="" href="consolidation.html">Consolidation</a></li>
+<li><a class="" href="exercises-1.html">Exercises</a></li>
+<li><a class="" href="homework-for-week-7.html">Homework for Week 7</a></li>
+<li><a class="" href="glossary-4.html">Glossary</a></li>
+<li><a class="" href="flashcards-4.html">Flashcards</a></li>
+<li class="book-part">Week 7</li>
+<li><a class="active" href="markov-transition-models.html">Markov Transition Models</a></li>
+<li><a class="" href="model-fit-in-binary-response-models.html">Model Fit in Binary Response Models9</a></li>
+<li><a class="" href="joint-estimation-of-emergence-and-survival.html">Joint Estimation of Emergence and Survival</a></li>
+<li><a class="" href="exercises-2.html">Exercises</a></li>
+<li><a class="" href="homework-for-week-8.html">Homework for Week 8</a></li>
+<li><a class="" href="glossary-5.html">Glossary</a></li>
+<li><a class="" href="flashcards-5.html">Flashcards</a></li>
+<li class="book-part">Downloads</li>
+<li><a class="" href="downloads.html">Downloads</a></li>
+<li class="book-part">Glossary</li>
+<li><a class="" href="glossary-6.html">Glossary</a></li>
+<li class="book-part">List of References</li>
+<li><a class="" href="list-of-references.html">List of References</a></li>
+</ul>
+
+        <div class="book-extra">
+          
         </div>
-
-        <div class="page-wrapper" tabindex="-1" role="main">
-          <div class="page-inner">
-
-            <section class="normal" id="section-">
-<div id="markov-transition-models" class="section level1 unnumbered hasAnchor">
-<h1>Markov Transition Models<a href="markov-transition-models.html#markov-transition-models" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="time-series-cross-sectional-data" class="section level2 unnumbered hasAnchor">
-<h2>Time Series, Cross-Sectional Data<a href="markov-transition-models.html#time-series-cross-sectional-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><script src="sidebar-link.js"></script><div id="markov-transition-models" class="section level1 unnumbered">
+<h1>Markov Transition Models<a class="anchor" aria-label="anchor" href="#markov-transition-models"><i class="fas fa-link"></i></a>
+</h1>
+<div id="time-series-cross-sectional-data" class="section level2 unnumbered">
+<h2>Time Series, Cross-Sectional Data<a class="anchor" aria-label="anchor" href="#time-series-cross-sectional-data"><i class="fas fa-link"></i></a>
+</h2>
 <p>We are now entering the real world, as we will start to look at how characteristics vary, not only across different countries, but also across time. I have already presented the structure of time-series, cross-sectional (TSCS) data in Week 1, but to jog your memory, here it is again:</p>
-<table style="width:40%; color: black; margin-left: auto; margin-right: auto;" class="table">
+<div class="inline-table"><table style="width:40%; color: black; margin-left: auto; margin-right: auto;" class="table">
 <caption>
 <span id="tab:tscs7">Table 10: </span>Schematic: Time-Series, Cross-Sectional Data
 </caption>
-<thead>
-<tr>
+<thead><tr>
 <th style="text-align:left;">
 country
 </th>
@@ -388,8 +144,7 @@ year
 <th style="text-align:right;">
 literacy
 </th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr>
 <td style="text-align:left;">
@@ -480,15 +235,17 @@ B
 </td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>As you can see, each country has multiple observations, one for each year in which data have been observed. We will be using this information this week to calculate probabilities of regime transitions. For example, what is the probability of a country to transition from autocracy to democracy? As we only observe the regime type once for each year, this question alludes to the difference in regime type between two years in the same country. We will do this with a so-called Markov Transition Model.</p>
-<hr />
+<hr>
 </div>
-<div id="what-are-markov-transition-models" class="section level2 unnumbered hasAnchor">
-<h2>What are Markov Transition Models?<a href="markov-transition-models.html#what-are-markov-transition-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="what-are-markov-transition-models" class="section level2 unnumbered">
+<h2>What are Markov Transition Models?<a class="anchor" aria-label="anchor" href="#what-are-markov-transition-models"><i class="fas fa-link"></i></a>
+</h2>
 <p>A Markov Transition Model (MTM) models the probability of being a democracy in a particular year, <em>given</em> its regime type in the previous year. So, if we model the probability of a country to be a democracy this year, <em>given</em> that it was an autocracy in the previous year, we are modelling the probability of a transition from autocracy to democracy. Similarly, if we model the probability of a country to be a democracy this year, <em>given</em> that it was also a democracy in the previous year, we are modelling the probability of democratic survival. We can express these probabilities as so-called conditional probabilities.</p>
-<div id="conditional-probabilities" class="section level3 unnumbered hasAnchor">
-<h3>Conditional Probabilities<a href="markov-transition-models.html#conditional-probabilities" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="conditional-probabilities" class="section level3 unnumbered">
+<h3>Conditional Probabilities<a class="anchor" aria-label="anchor" href="#conditional-probabilities"><i class="fas fa-link"></i></a>
+</h3>
 <p>Conditional probabilities express what I have described before in a formal way. The conditional probability to model for democratic emergence is written as follows:</p>
 <p><span class="math display">\[\begin{equation}
 P(y_{i,t} = 1 | y_{i, t-1} = 0)
@@ -500,70 +257,81 @@ P(y_{i,t} = 1 | y_{i, t-1} = 1)
 <p>This reads: The probability of a country i to be a democracy (y=1) in year t, given that country i was also a democracy (y=1) in the previous year (t-1).</p>
 <p>We will now apply this knowledge to create a model in R which calculates these conditional probabilities. Let’s start with democratic emergence.</p>
 </div>
-<div id="democratic-emergence" class="section level3 unnumbered hasAnchor">
-<h3>Democratic Emergence<a href="markov-transition-models.html#democratic-emergence" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="democratic-emergence" class="section level3 unnumbered">
+<h3>Democratic Emergence<a class="anchor" aria-label="anchor" href="#democratic-emergence"><i class="fas fa-link"></i></a>
+</h3>
 <p>Democratic emergence is expressed as the probability of a country to be a democracy in year <span class="math inline">\(t\)</span>, given that it was a dictatorship in the previous year, <span class="math inline">\(t-1\)</span></p>
 <p><span class="math display">\[\begin{equation*}
 P(y_{i,t} = 1 | y_{i, t-1} = 0)
 \end{equation*}\]</span></p>
 <p>As a first step, we therefore need a variable that gives us the information which regime type each of our countries had in the previous year. We will use the <code>world</code> data set for this illustration.</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="markov-transition-models.html#cb64-1" tabindex="-1"></a>world <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;files/Week 7/world.csv&quot;</span>)</span>
-<span id="cb64-2"><a href="markov-transition-models.html#cb64-2" tabindex="-1"></a></span>
-<span id="cb64-3"><a href="markov-transition-models.html#cb64-3" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<p>We can now create the lagged democracy value. In order for R to know when a new country “starts”, we need to group observations by country first, and then lag the variable democracy. We do this with the intuitively called function <code>lag()</code>. We then ungroup the data again, as we have no need of the groups any more.</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="markov-transition-models.html#cb65-1" tabindex="-1"></a>world <span class="ot">&lt;-</span> world <span class="sc">%&gt;%</span></span>
-<span id="cb65-2"><a href="markov-transition-models.html#cb65-2" tabindex="-1"></a>  <span class="fu">group_by</span>(countrycode) <span class="sc">%&gt;%</span></span>
-<span id="cb65-3"><a href="markov-transition-models.html#cb65-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.democracy =</span> <span class="fu">lag</span>(democracy)) <span class="sc">%&gt;%</span></span>
-<span id="cb65-4"><a href="markov-transition-models.html#cb65-4" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">world</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"files/Week 7/world.csv"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code></pre></div>
+<p>We can now create the lagged democracy value. In order for R to know when a new country “starts”, we need to group observations by country first, and then lag the variable democracy. We do this with the intuitively called function <code><a href="https://dplyr.tidyverse.org/reference/lead-lag.html">lag()</a></code>. We then ungroup the data again, as we have no need of the groups any more.</p>
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">world</span> <span class="op">&lt;-</span> <span class="va">world</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">countrycode</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>l.democracy <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/lead-lag.html">lag</a></span><span class="op">(</span><span class="va">democracy</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>This creates a new variable <code>l.democracy</code> which gives us the information we were after: the regime type of the country in the previous year. Note that as the first observation for each country cannot be lagged, it creates as many missing values as we have countries in the data set. Perhaps this makes more sense with a visualisation:</p>
 <p> </p>
-<p><img src="files/Week%207/lag_schematic.png" width="65%" /></p>
+<div class="inline-figure"><img src="files/Week%207/lag_schematic.png" width="65%"></div>
 <p> </p>
 </div>
-<div id="lagging-the-independent-variables" class="section level3 unnumbered hasAnchor">
-<h3>Lagging the Independent Variables<a href="markov-transition-models.html#lagging-the-independent-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="lagging-the-independent-variables" class="section level3 unnumbered">
+<h3>Lagging the Independent Variables<a class="anchor" aria-label="anchor" href="#lagging-the-independent-variables"><i class="fas fa-link"></i></a>
+</h3>
 <p>So far, we have lagged the dependent variable, to run an MTM. This was a <em>methodological</em> necessity. But from a <em>substantive</em> point of view it makes sense to also lag our independent variables. It is reasonable to assume, that the regime type in year <span class="math inline">\(t\)</span> depends on the state of socio-economic development in the previous year, <span class="math inline">\(t-1\)</span>. It is rare that for example a recession hits, and the country immediately changes regime type. These things need time. And this is why we will now also lag the independent variables.</p>
 <p>This is the same procedure as before. For “per capita GDP” we call:</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="markov-transition-models.html#cb66-1" tabindex="-1"></a>world <span class="ot">&lt;-</span> world <span class="sc">%&gt;%</span></span>
-<span id="cb66-2"><a href="markov-transition-models.html#cb66-2" tabindex="-1"></a>  <span class="fu">group_by</span>(countrycode) <span class="sc">%&gt;%</span></span>
-<span id="cb66-3"><a href="markov-transition-models.html#cb66-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.gdppc =</span> <span class="fu">lag</span>(gdppc)) <span class="sc">%&gt;%</span></span>
-<span id="cb66-4"><a href="markov-transition-models.html#cb66-4" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">world</span> <span class="op">&lt;-</span> <span class="va">world</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">countrycode</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>l.gdppc <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/lead-lag.html">lag</a></span><span class="op">(</span><span class="va">gdppc</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>Let’s do the same for life expectancy:</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="markov-transition-models.html#cb67-1" tabindex="-1"></a>world <span class="ot">&lt;-</span> world <span class="sc">%&gt;%</span></span>
-<span id="cb67-2"><a href="markov-transition-models.html#cb67-2" tabindex="-1"></a>  <span class="fu">group_by</span>(countrycode) <span class="sc">%&gt;%</span></span>
-<span id="cb67-3"><a href="markov-transition-models.html#cb67-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.life =</span> <span class="fu">lag</span>(life)) <span class="sc">%&gt;%</span></span>
-<span id="cb67-4"><a href="markov-transition-models.html#cb67-4" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">world</span> <span class="op">&lt;-</span> <span class="va">world</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">countrycode</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>l.life <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/lead-lag.html">lag</a></span><span class="op">(</span><span class="va">life</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>and Primary gross enrolment rate:</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="markov-transition-models.html#cb68-1" tabindex="-1"></a>world <span class="ot">&lt;-</span> world <span class="sc">%&gt;%</span></span>
-<span id="cb68-2"><a href="markov-transition-models.html#cb68-2" tabindex="-1"></a>  <span class="fu">group_by</span>(countrycode) <span class="sc">%&gt;%</span></span>
-<span id="cb68-3"><a href="markov-transition-models.html#cb68-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.enrol_gross =</span> <span class="fu">lag</span>(enrol_gross)) <span class="sc">%&gt;%</span></span>
-<span id="cb68-4"><a href="markov-transition-models.html#cb68-4" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">world</span> <span class="op">&lt;-</span> <span class="va">world</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">countrycode</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>l.enrol_gross <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/lead-lag.html">lag</a></span><span class="op">(</span><span class="va">enrol_gross</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="bulb">
 <p>Remember when writing the assessment in general, and the methods section in particular, that lagging the independent variables is not a methodological consideration, but a substantive one. It has nothing to do with the Markov Transition Model itself.</p>
 </div>
 </div>
-<div id="subsetting-the-data-for-conditional-probabilities" class="section level3 unnumbered hasAnchor">
-<h3>Subsetting the Data for Conditional Probabilities<a href="markov-transition-models.html#subsetting-the-data-for-conditional-probabilities" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="subsetting-the-data-for-conditional-probabilities" class="section level3 unnumbered">
+<h3>Subsetting the Data for Conditional Probabilities<a class="anchor" aria-label="anchor" href="#subsetting-the-data-for-conditional-probabilities"><i class="fas fa-link"></i></a>
+</h3>
 <p>Recall that for democratic emergence we need all of those observations in which a country has been an autocracy in the previous year. We can select these in R by filtering the data:</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="markov-transition-models.html#cb69-1" tabindex="-1"></a>world_democ0 <span class="ot">&lt;-</span> <span class="fu">filter</span>(world, l.democracy<span class="sc">==</span><span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">world_democ0</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">world</span>, <span class="va">l.democracy</span><span class="op">==</span><span class="fl">0</span><span class="op">)</span></span></code></pre></div>
 <p>Whilst we are at it, we might as well also do this for democratic survival. Here we need all observations in which <code>l.democracy=1</code></p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="markov-transition-models.html#cb70-1" tabindex="-1"></a>world_democ1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(world, l.democracy<span class="sc">==</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">world_democ1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">world</span>, <span class="va">l.democracy</span><span class="op">==</span><span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 <p>And with that we are ready!</p>
-<hr />
+<hr>
 </div>
 </div>
-<div id="democratic-emergence-1" class="section level2 unnumbered hasAnchor">
-<h2>Democratic Emergence<a href="markov-transition-models.html#democratic-emergence-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="democratic-emergence-1" class="section level2 unnumbered">
+<h2>Democratic Emergence<a class="anchor" aria-label="anchor" href="#democratic-emergence-1"><i class="fas fa-link"></i></a>
+</h2>
 <p>Even though “Markov Transition Model” sounds very complicated, the code in R is actually no different from a “regular” probit model. The only difference is that we have selected a certain type of observations. For emergence we use the data frame <code>world_democ0</code>:</p>
 <div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="markov-transition-models.html#cb71-1" tabindex="-1"></a>emergence <span class="ot">&lt;-</span> <span class="fu">glm</span>(democracy <span class="sc">~</span> l.gdppc, </span>
 <span id="cb71-2"><a href="markov-transition-models.html#cb71-2" tabindex="-1"></a>                 <span class="at">data =</span> world_democ0, </span>
 <span id="cb71-3"><a href="markov-transition-models.html#cb71-3" tabindex="-1"></a>                 <span class="at">na.action =</span> na.exclude,</span>
-<span id="cb71-4"><a href="markov-transition-models.html#cb71-4" tabindex="-1"></a>                 <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span>
+<span id="cb71-4"><a href="markov-transition-models.html#cb71-4" tabindex="-1"></a>                 <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"probit"</span>))</span>
 <span id="cb71-5"><a href="markov-transition-models.html#cb71-5" tabindex="-1"></a></span>
 <span id="cb71-6"><a href="markov-transition-models.html#cb71-6" tabindex="-1"></a><span class="fu">summary</span>(emergence)</span>
 <span id="cb71-7"><a href="markov-transition-models.html#cb71-7" tabindex="-1"></a></span>
 <span id="cb71-8"><a href="markov-transition-models.html#cb71-8" tabindex="-1"></a>Call<span class="sc">:</span></span>
-<span id="cb71-9"><a href="markov-transition-models.html#cb71-9" tabindex="-1"></a><span class="fu">glm</span>(<span class="at">formula =</span> democracy <span class="sc">~</span> l.gdppc, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), </span>
+<span id="cb71-9"><a href="markov-transition-models.html#cb71-9" tabindex="-1"></a><span class="fu">glm</span>(<span class="at">formula =</span> democracy <span class="sc">~</span> l.gdppc, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"probit"</span>), </span>
 <span id="cb71-10"><a href="markov-transition-models.html#cb71-10" tabindex="-1"></a>    <span class="at">data =</span> world_democ0, <span class="at">na.action =</span> na.exclude)</span>
 <span id="cb71-11"><a href="markov-transition-models.html#cb71-11" tabindex="-1"></a></span>
 <span id="cb71-12"><a href="markov-transition-models.html#cb71-12" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
@@ -571,7 +339,7 @@ P(y_{i,t} = 1 | y_{i, t-1} = 0)
 <span id="cb71-14"><a href="markov-transition-models.html#cb71-14" tabindex="-1"></a>(Intercept) <span class="sc">-</span><span class="fl">1.983e+00</span>  <span class="fl">4.681e-02</span> <span class="sc">-</span><span class="fl">42.353</span>   <span class="sc">&lt;</span><span class="fl">2e-16</span> <span class="sc">**</span><span class="er">*</span></span>
 <span id="cb71-15"><a href="markov-transition-models.html#cb71-15" tabindex="-1"></a>l.gdppc     <span class="sc">-</span><span class="fl">2.366e-05</span>  <span class="fl">1.150e-05</span>  <span class="sc">-</span><span class="fl">2.057</span>   <span class="fl">0.0397</span> <span class="sc">*</span>  </span>
 <span id="cb71-16"><a href="markov-transition-models.html#cb71-16" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb71-17"><a href="markov-transition-models.html#cb71-17" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">&#39;***&#39;</span> <span class="fl">0.001</span> <span class="st">&#39;**&#39;</span> <span class="fl">0.01</span> <span class="st">&#39;*&#39;</span> <span class="fl">0.05</span> <span class="st">&#39;.&#39;</span> <span class="fl">0.1</span> <span class="st">&#39; &#39;</span> <span class="dv">1</span></span>
+<span id="cb71-17"><a href="markov-transition-models.html#cb71-17" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
 <span id="cb71-18"><a href="markov-transition-models.html#cb71-18" tabindex="-1"></a></span>
 <span id="cb71-19"><a href="markov-transition-models.html#cb71-19" tabindex="-1"></a>(Dispersion parameter <span class="cf">for</span> binomial family taken to be <span class="dv">1</span>)</span>
 <span id="cb71-20"><a href="markov-transition-models.html#cb71-20" tabindex="-1"></a></span>
@@ -581,17 +349,17 @@ P(y_{i,t} = 1 | y_{i, t-1} = 0)
 <span id="cb71-24"><a href="markov-transition-models.html#cb71-24" tabindex="-1"></a>AIC<span class="sc">:</span> <span class="fl">940.25</span></span>
 <span id="cb71-25"><a href="markov-transition-models.html#cb71-25" tabindex="-1"></a></span>
 <span id="cb71-26"><a href="markov-transition-models.html#cb71-26" tabindex="-1"></a>Number of Fisher Scoring iterations<span class="sc">:</span> <span class="dv">8</span></span></code></pre></div>
-<p>Once again, we can include multiple independent variables by connecting these with + in the <code>glm()</code> function:</p>
+<p>Once again, we can include multiple independent variables by connecting these with + in the <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code> function:</p>
 <div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="markov-transition-models.html#cb72-1" tabindex="-1"></a>emergence_full <span class="ot">&lt;-</span> <span class="fu">glm</span>(democracy <span class="sc">~</span> l.gdppc <span class="sc">+</span> l.life <span class="sc">+</span> </span>
 <span id="cb72-2"><a href="markov-transition-models.html#cb72-2" tabindex="-1"></a>                          l.enrol_gross, </span>
 <span id="cb72-3"><a href="markov-transition-models.html#cb72-3" tabindex="-1"></a>                      <span class="at">data =</span> world_democ0, </span>
 <span id="cb72-4"><a href="markov-transition-models.html#cb72-4" tabindex="-1"></a>                      <span class="at">na.action =</span> na.exclude,</span>
-<span id="cb72-5"><a href="markov-transition-models.html#cb72-5" tabindex="-1"></a>                      <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span>
+<span id="cb72-5"><a href="markov-transition-models.html#cb72-5" tabindex="-1"></a>                      <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"probit"</span>))</span>
 <span id="cb72-6"><a href="markov-transition-models.html#cb72-6" tabindex="-1"></a></span>
 <span id="cb72-7"><a href="markov-transition-models.html#cb72-7" tabindex="-1"></a><span class="fu">summary</span>(emergence_full)</span>
 <span id="cb72-8"><a href="markov-transition-models.html#cb72-8" tabindex="-1"></a></span>
 <span id="cb72-9"><a href="markov-transition-models.html#cb72-9" tabindex="-1"></a>Call<span class="sc">:</span></span>
-<span id="cb72-10"><a href="markov-transition-models.html#cb72-10" tabindex="-1"></a><span class="fu">glm</span>(<span class="at">formula =</span> democracy <span class="sc">~</span> l.gdppc <span class="sc">+</span> l.life <span class="sc">+</span> l.enrol_gross, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), </span>
+<span id="cb72-10"><a href="markov-transition-models.html#cb72-10" tabindex="-1"></a><span class="fu">glm</span>(<span class="at">formula =</span> democracy <span class="sc">~</span> l.gdppc <span class="sc">+</span> l.life <span class="sc">+</span> l.enrol_gross, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"probit"</span>), </span>
 <span id="cb72-11"><a href="markov-transition-models.html#cb72-11" tabindex="-1"></a>    <span class="at">data =</span> world_democ0, <span class="at">na.action =</span> na.exclude)</span>
 <span id="cb72-12"><a href="markov-transition-models.html#cb72-12" tabindex="-1"></a></span>
 <span id="cb72-13"><a href="markov-transition-models.html#cb72-13" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
@@ -601,7 +369,7 @@ P(y_{i,t} = 1 | y_{i, t-1} = 0)
 <span id="cb72-17"><a href="markov-transition-models.html#cb72-17" tabindex="-1"></a>l.life         <span class="fl">1.513e-02</span>  <span class="fl">6.998e-03</span>   <span class="fl">2.162</span>  <span class="fl">0.03060</span> <span class="sc">*</span>  </span>
 <span id="cb72-18"><a href="markov-transition-models.html#cb72-18" tabindex="-1"></a>l.enrol_gross <span class="sc">-</span><span class="fl">6.763e-04</span>  <span class="fl">2.318e-03</span>  <span class="sc">-</span><span class="fl">0.292</span>  <span class="fl">0.77043</span>    </span>
 <span id="cb72-19"><a href="markov-transition-models.html#cb72-19" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb72-20"><a href="markov-transition-models.html#cb72-20" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">&#39;***&#39;</span> <span class="fl">0.001</span> <span class="st">&#39;**&#39;</span> <span class="fl">0.01</span> <span class="st">&#39;*&#39;</span> <span class="fl">0.05</span> <span class="st">&#39;.&#39;</span> <span class="fl">0.1</span> <span class="st">&#39; &#39;</span> <span class="dv">1</span></span>
+<span id="cb72-20"><a href="markov-transition-models.html#cb72-20" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
 <span id="cb72-21"><a href="markov-transition-models.html#cb72-21" tabindex="-1"></a></span>
 <span id="cb72-22"><a href="markov-transition-models.html#cb72-22" tabindex="-1"></a>(Dispersion parameter <span class="cf">for</span> binomial family taken to be <span class="dv">1</span>)</span>
 <span id="cb72-23"><a href="markov-transition-models.html#cb72-23" tabindex="-1"></a></span>
@@ -611,10 +379,11 @@ P(y_{i,t} = 1 | y_{i, t-1} = 0)
 <span id="cb72-27"><a href="markov-transition-models.html#cb72-27" tabindex="-1"></a>AIC<span class="sc">:</span> <span class="fl">778.9</span></span>
 <span id="cb72-28"><a href="markov-transition-models.html#cb72-28" tabindex="-1"></a></span>
 <span id="cb72-29"><a href="markov-transition-models.html#cb72-29" tabindex="-1"></a>Number of Fisher Scoring iterations<span class="sc">:</span> <span class="dv">8</span></span></code></pre></div>
-<hr />
+<hr>
 </div>
-<div id="democratic-survival" class="section level2 unnumbered hasAnchor">
-<h2>Democratic Survival<a href="markov-transition-models.html#democratic-survival" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="democratic-survival" class="section level2 unnumbered">
+<h2>Democratic Survival<a class="anchor" aria-label="anchor" href="#democratic-survival"><i class="fas fa-link"></i></a>
+</h2>
 <p>Modelling democratic survival is easy now, as we have already completed all necessary preparations. To model</p>
 <p><span class="math display">\[\begin{equation*}
 P(y_{i,t} = 1 | y_{i, t-1} = 1)
@@ -623,12 +392,12 @@ P(y_{i,t} = 1 | y_{i, t-1} = 1)
 <div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="markov-transition-models.html#cb73-1" tabindex="-1"></a>survival <span class="ot">&lt;-</span> <span class="fu">glm</span>(democracy <span class="sc">~</span> l.gdppc,</span>
 <span id="cb73-2"><a href="markov-transition-models.html#cb73-2" tabindex="-1"></a>                <span class="at">data =</span> world_democ1, </span>
 <span id="cb73-3"><a href="markov-transition-models.html#cb73-3" tabindex="-1"></a>                <span class="at">na.action =</span> na.exclude,</span>
-<span id="cb73-4"><a href="markov-transition-models.html#cb73-4" tabindex="-1"></a>                <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span>
+<span id="cb73-4"><a href="markov-transition-models.html#cb73-4" tabindex="-1"></a>                <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"probit"</span>))</span>
 <span id="cb73-5"><a href="markov-transition-models.html#cb73-5" tabindex="-1"></a></span>
 <span id="cb73-6"><a href="markov-transition-models.html#cb73-6" tabindex="-1"></a><span class="fu">summary</span>(survival)</span>
 <span id="cb73-7"><a href="markov-transition-models.html#cb73-7" tabindex="-1"></a></span>
 <span id="cb73-8"><a href="markov-transition-models.html#cb73-8" tabindex="-1"></a>Call<span class="sc">:</span></span>
-<span id="cb73-9"><a href="markov-transition-models.html#cb73-9" tabindex="-1"></a><span class="fu">glm</span>(<span class="at">formula =</span> democracy <span class="sc">~</span> l.gdppc, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), </span>
+<span id="cb73-9"><a href="markov-transition-models.html#cb73-9" tabindex="-1"></a><span class="fu">glm</span>(<span class="at">formula =</span> democracy <span class="sc">~</span> l.gdppc, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"probit"</span>), </span>
 <span id="cb73-10"><a href="markov-transition-models.html#cb73-10" tabindex="-1"></a>    <span class="at">data =</span> world_democ1, <span class="at">na.action =</span> na.exclude)</span>
 <span id="cb73-11"><a href="markov-transition-models.html#cb73-11" tabindex="-1"></a></span>
 <span id="cb73-12"><a href="markov-transition-models.html#cb73-12" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
@@ -636,7 +405,7 @@ P(y_{i,t} = 1 | y_{i, t-1} = 1)
 <span id="cb73-14"><a href="markov-transition-models.html#cb73-14" tabindex="-1"></a>(Intercept) <span class="fl">1.637e+00</span>  <span class="fl">7.635e-02</span>  <span class="fl">21.434</span>  <span class="sc">&lt;</span> <span class="fl">2e-16</span> <span class="sc">**</span><span class="er">*</span></span>
 <span id="cb73-15"><a href="markov-transition-models.html#cb73-15" tabindex="-1"></a>l.gdppc     <span class="fl">1.898e-04</span>  <span class="fl">3.631e-05</span>   <span class="fl">5.229</span>  <span class="fl">1.7e-07</span> <span class="sc">**</span><span class="er">*</span></span>
 <span id="cb73-16"><a href="markov-transition-models.html#cb73-16" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb73-17"><a href="markov-transition-models.html#cb73-17" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">&#39;***&#39;</span> <span class="fl">0.001</span> <span class="st">&#39;**&#39;</span> <span class="fl">0.01</span> <span class="st">&#39;*&#39;</span> <span class="fl">0.05</span> <span class="st">&#39;.&#39;</span> <span class="fl">0.1</span> <span class="st">&#39; &#39;</span> <span class="dv">1</span></span>
+<span id="cb73-17"><a href="markov-transition-models.html#cb73-17" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
 <span id="cb73-18"><a href="markov-transition-models.html#cb73-18" tabindex="-1"></a></span>
 <span id="cb73-19"><a href="markov-transition-models.html#cb73-19" tabindex="-1"></a>(Dispersion parameter <span class="cf">for</span> binomial family taken to be <span class="dv">1</span>)</span>
 <span id="cb73-20"><a href="markov-transition-models.html#cb73-20" tabindex="-1"></a></span>
@@ -651,12 +420,12 @@ P(y_{i,t} = 1 | y_{i, t-1} = 1)
 <span id="cb74-2"><a href="markov-transition-models.html#cb74-2" tabindex="-1"></a>                         l.enrol_gross,</span>
 <span id="cb74-3"><a href="markov-transition-models.html#cb74-3" tabindex="-1"></a>                     <span class="at">data =</span> world_democ1, </span>
 <span id="cb74-4"><a href="markov-transition-models.html#cb74-4" tabindex="-1"></a>                     <span class="at">na.action =</span> na.exclude,</span>
-<span id="cb74-5"><a href="markov-transition-models.html#cb74-5" tabindex="-1"></a>                     <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>))</span>
+<span id="cb74-5"><a href="markov-transition-models.html#cb74-5" tabindex="-1"></a>                     <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"probit"</span>))</span>
 <span id="cb74-6"><a href="markov-transition-models.html#cb74-6" tabindex="-1"></a></span>
 <span id="cb74-7"><a href="markov-transition-models.html#cb74-7" tabindex="-1"></a><span class="fu">summary</span>(survival_full)</span>
 <span id="cb74-8"><a href="markov-transition-models.html#cb74-8" tabindex="-1"></a></span>
 <span id="cb74-9"><a href="markov-transition-models.html#cb74-9" tabindex="-1"></a>Call<span class="sc">:</span></span>
-<span id="cb74-10"><a href="markov-transition-models.html#cb74-10" tabindex="-1"></a><span class="fu">glm</span>(<span class="at">formula =</span> democracy <span class="sc">~</span> l.gdppc <span class="sc">+</span> l.life <span class="sc">+</span> l.enrol_gross, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&quot;probit&quot;</span>), </span>
+<span id="cb74-10"><a href="markov-transition-models.html#cb74-10" tabindex="-1"></a><span class="fu">glm</span>(<span class="at">formula =</span> democracy <span class="sc">~</span> l.gdppc <span class="sc">+</span> l.life <span class="sc">+</span> l.enrol_gross, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"probit"</span>), </span>
 <span id="cb74-11"><a href="markov-transition-models.html#cb74-11" tabindex="-1"></a>    <span class="at">data =</span> world_democ1, <span class="at">na.action =</span> na.exclude)</span>
 <span id="cb74-12"><a href="markov-transition-models.html#cb74-12" tabindex="-1"></a></span>
 <span id="cb74-13"><a href="markov-transition-models.html#cb74-13" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
@@ -666,7 +435,7 @@ P(y_{i,t} = 1 | y_{i, t-1} = 1)
 <span id="cb74-17"><a href="markov-transition-models.html#cb74-17" tabindex="-1"></a>l.life        <span class="fl">7.885e-03</span>  <span class="fl">1.114e-02</span>   <span class="fl">0.708</span>  <span class="fl">0.47900</span>   </span>
 <span id="cb74-18"><a href="markov-transition-models.html#cb74-18" tabindex="-1"></a>l.enrol_gross <span class="fl">4.559e-03</span>  <span class="fl">3.425e-03</span>   <span class="fl">1.331</span>  <span class="fl">0.18312</span>   </span>
 <span id="cb74-19"><a href="markov-transition-models.html#cb74-19" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb74-20"><a href="markov-transition-models.html#cb74-20" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">&#39;***&#39;</span> <span class="fl">0.001</span> <span class="st">&#39;**&#39;</span> <span class="fl">0.01</span> <span class="st">&#39;*&#39;</span> <span class="fl">0.05</span> <span class="st">&#39;.&#39;</span> <span class="fl">0.1</span> <span class="st">&#39; &#39;</span> <span class="dv">1</span></span>
+<span id="cb74-20"><a href="markov-transition-models.html#cb74-20" tabindex="-1"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span>
 <span id="cb74-21"><a href="markov-transition-models.html#cb74-21" tabindex="-1"></a></span>
 <span id="cb74-22"><a href="markov-transition-models.html#cb74-22" tabindex="-1"></a>(Dispersion parameter <span class="cf">for</span> binomial family taken to be <span class="dv">1</span>)</span>
 <span id="cb74-23"><a href="markov-transition-models.html#cb74-23" tabindex="-1"></a></span>
@@ -676,77 +445,59 @@ P(y_{i,t} = 1 | y_{i, t-1} = 1)
 <span id="cb74-27"><a href="markov-transition-models.html#cb74-27" tabindex="-1"></a>AIC<span class="sc">:</span> <span class="fl">440.91</span></span>
 <span id="cb74-28"><a href="markov-transition-models.html#cb74-28" tabindex="-1"></a></span>
 <span id="cb74-29"><a href="markov-transition-models.html#cb74-29" tabindex="-1"></a>Number of Fisher Scoring iterations<span class="sc">:</span> <span class="dv">11</span></span></code></pre></div>
-<hr />
+<hr>
 </div>
-<div id="interpretation" class="section level2 unnumbered hasAnchor">
-<h2>Interpretation<a href="markov-transition-models.html#interpretation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="interpretation" class="section level2 unnumbered">
+<h2>Interpretation<a class="anchor" aria-label="anchor" href="#interpretation"><i class="fas fa-link"></i></a>
+</h2>
 <p>The interpretation is analogous to a cross-sectional probit model we explored in Week 3. Just bear in mind that the predicted probabilities are all indicating the probability for democracy to emerge, or for democracy to survive.</p>
 </div>
 </div>
-            </section>
+  <div class="chapter-nav">
+<div class="prev"><a href="flashcards-4.html">Flashcards</a></div>
+<div class="next"><a href="model-fit-in-binary-response-models.html">Model Fit in Binary Response Models9</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#markov-transition-models">Markov Transition Models</a></li>
+<li><a class="nav-link" href="#time-series-cross-sectional-data">Time Series, Cross-Sectional Data</a></li>
+<li>
+<a class="nav-link" href="#what-are-markov-transition-models">What are Markov Transition Models?</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#conditional-probabilities">Conditional Probabilities</a></li>
+<li><a class="nav-link" href="#democratic-emergence">Democratic Emergence</a></li>
+<li><a class="nav-link" href="#lagging-the-independent-variables">Lagging the Independent Variables</a></li>
+<li><a class="nav-link" href="#subsetting-the-data-for-conditional-probabilities">Subsetting the Data for Conditional Probabilities</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#democratic-emergence-1">Democratic Emergence</a></li>
+<li><a class="nav-link" href="#democratic-survival">Democratic Survival</a></li>
+<li><a class="nav-link" href="#interpretation">Interpretation</a></li>
+</ul>
 
-          </div>
-        </div>
-      </div>
-<a href="flashcards-4.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="model-fit-in-binary-response-models.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
-    </div>
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong><p><img src="images/Crest_white.png" width="75" style="display:block; margin:auto; margin-bottom:3em;"> PO33Q: Determinants of Democracy – <br> Analysing Emergence, Survival, and Fall</p></strong>" was written by </p>
+<p><strong>Dr Flo Reiche</strong> <br><strong>Department of Politics and International Studies</strong> <br><strong>University of Warwick</strong></p>. It was last built on 26 July, 2025.
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
-<script>
-gitbook.require(["gitbook"], function(gitbook) {
-gitbook.start({
-  "sharing": {
-    "github": false,
-    "facebook": true,
-    "twitter": true,
-    "linkedin": false,
-    "weibo": false,
-    "instapaper": false,
-    "vk": false,
-    "whatsapp": false,
-    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-  },
-  "fontsettings": {
-    "theme": "white",
-    "family": "sans",
-    "size": 2
-  },
-  "edit": {
-    "link": null,
-    "text": null
-  },
-  "history": {
-    "link": null,
-    "text": null
-  },
-  "view": {
-    "link": null,
-    "text": null
-  },
-  "download": null,
-  "search": {
-    "engine": "fuse",
-    "options": null
-  },
-  "toc": {
-    "collapse": "section"
-  },
-  "toc_depth": 2,
-  "keep_tex": true
-});
-});
-</script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -758,7 +509,22 @@ gitbook.start({
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
 </script>
 </body>
-
 </html>
