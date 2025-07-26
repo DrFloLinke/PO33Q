@@ -133,21 +133,21 @@
 <p>The term <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">probability distribution</a></span> sounds fancy, but really only implies that we are assessing the relative frequency with which a particular value occurs. So, for example, if I have six History students on the module, and four PAIS students, then the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-1.html">probability</a></span> of being a PAIS student is 40%. For categorical data, such as this, we can assign a probability to each category. But for continuous variables, such as the Polity V score, or per capita GDP this no longer works. Instead, we assign probabilities to an interval of numbers. In the following graph, I am putting the values of such a continuous variable on the x-axis, and then draw a curve over this which indicates the probability distribution for these values.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:probability"></span>
-<img src="images/Week%202/prob1.png" alt="\label{fig:probability}Probability Distribution for a Continuous Variable" width="50%"><p class="caption">
+<img src="images/Week%202/prob1.png" alt="\label{fig:probability}Probability Distribution for a Continuous Variable" width="60%"><p class="caption">
 Figure 7: Probability Distribution for a Continuous Variable
 </p>
 </div>
 <p>In this graph, the values on the x-axis between alpha and beta have a probability of occurring that is equal to the orange area under the curve. This curve is bell-shaped, and symmetrical around the mean of the variable x, and is known as the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">normal distribution</a></span>. The beauty of this distribution is that the amount of probability that is contained in an interval around the mean depends solely on the number of standard deviations, denoted as <span class="math inline">\(\sigma\)</span>) of the variable x. So, for example, if I travel one standard deviation to the left and to the right from the mean, I will always have 68% of the area under the distribution in this interval.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:righttail"></span>
-<img src="images/Week%202/prob2.png" alt="\label{fig:righttail}Probability within one Standard Deviation" width="50%"><p class="caption">
+<img src="images/Week%202/prob2.png" alt="\label{fig:righttail}Probability within one Standard Deviation" width="60%"><p class="caption">
 Figure 8: Probability within one Standard Deviation
 </p>
 </div>
 <p>For two standard deviations, this is equivalent to 96% and for three standard deviations 99.9%. Schematically this looks as follows:</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:normal"></span>
-<img src="images/Week%202/prob3.png" alt="\label{fig:normal}Probabilities under the Normal Distribution" width="50%"><p class="caption">
+<img src="images/Week%202/prob3.png" alt="\label{fig:normal}Probabilities under the Normal Distribution" width="60%"><p class="caption">
 Figure 9: Probabilities under the Normal Distribution
 </p>
 </div>
@@ -164,7 +164,7 @@ z=\frac{\text{Observation} - \text{Mean}}{\text{Standard Deviation}}
 <p>Whenever we draw a sample from a population, the values we draw will vary. Therefore, also the mean of these values will vary each time. Imagine I draw a sample of 5 students from a seminar group, time and time again, and each time calculate the average age of these 5 students. Sometimes the average will be high, sometimes it will be low, but – and here comes the magic – the vaue that will come up most often in these samples is the true mean of the population (all students in the seminar). We call this population value a <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">parameter</a></span>. If we arrange all of the sample means we have obtained from this process, these will form a distribution in their own right, the sampling distribution. This has the true population mean (let’s denote this as <span class="math inline">\(\mu\)</span>) in its centre. In Figure <a href="principles-of-statistical-inference.html#fig:sampling">10</a>, for example, I have simulated a population with a mean of zero, and have drawn 9000 samples from this population, each with 30 observations. As you can see, the distribution of means of each of these 9000 samples forms a normal distribution which has zero, the population mean, at its centre.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:sampling"></span>
-<img src="prob3.png" alt="\label{fig:sampling}Sampling Distribution" width="50%"><p class="caption">
+<img src="prob3.png" alt="\label{fig:sampling}Sampling Distribution" width="75%"><p class="caption">
 Figure 10: Sampling Distribution
 </p>
 </div>
@@ -178,10 +178,10 @@ se=\frac{s}{\sqrt{n}}
 <div id="the-t-distribution" class="section level3 unnumbered">
 <h3>The t-Distribution<a class="anchor" aria-label="anchor" href="#the-t-distribution"><i class="fas fa-link"></i></a>
 </h3>
-<p>The t-distribution is also bell-shaped and symmetrical, centered around a fixed mean of zero. However, its shape is not static, but depends on the number of <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">degrees of freedom</a></span>. Degrees of freedom are constraints on the estimation process that reflect the number of independent pieces of information available. In our case, the constraint arises from estimating the population standard deviation <span class="math inline">\(\sigma\)</span> using the sample standard deviation, denoted as s. For a single sample, the degrees of freedom are defined as n-1, where n is the sample size. Depending on these degrees of freedom, the t-distribution becomes wider or narrower, expressing the uncertainty we are incurring from working with a sample. You can see in Figure <a href="#fig:t"><strong>??</strong></a> that with increasing sample size the t-distribution becomes narrower and narrower, until – for an infinite sample size – it is equivalent to the normal distribution again.</p>
+<p>The t-distribution is also bell-shaped and symmetrical, centered around a fixed mean of zero. However, its shape is not static, but depends on the number of <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">degrees of freedom</a></span>. Degrees of freedom are constraints on the estimation process that reflect the number of independent pieces of information available. In our case, the constraint arises from estimating the population standard deviation <span class="math inline">\(\sigma\)</span> using the sample standard deviation, denoted as s. For a single sample, the degrees of freedom are defined as n-1, where n is the sample size. Depending on these degrees of freedom, the t-distribution becomes wider or narrower, expressing the uncertainty we are incurring from working with a sample. You can see in Figure <a href="principles-of-statistical-inference.html#fig:t">11</a> that with increasing sample size the t-distribution becomes narrower and narrower, until – for an infinite sample size – it is equivalent to the normal distribution again.</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-40"></span>
-<img src="images/Week%202/tdis.png" alt="\label{fig:tdistribution}Comparison of t-Distributions" width="65%"><p class="caption">
+<span style="display:block;" id="fig:t"></span>
+<img src="images/Week%202/tdis.png" alt="\label{fig:t}Comparison of t-Distributions" width="85%"><p class="caption">
 Figure 11: Comparison of t-Distributions
 </p>
 </div>
@@ -277,10 +277,10 @@ t = \frac{\bar{y} - \mu_{0}}{se}, \quad \text{where} \, se = \frac{s}{\sqrt{n}}
 <p><span class="math display">\[\begin{equation}
 t = \frac{-2.8 - 8.7}{1.826243} = -6.297081, \quad \text{where} \, se = \frac{7.07301}{\sqrt{15}}
 \end{equation}\]</span></p>
-<p>This places us quite far out into the tails of the t-distribution (see Figure <a href="#fig:p"><strong>??</strong></a>), and as such the probability remaining beyond this value is very, very small. The probability of observing a value more extreme is therefore low, we can regard our observed value of -2.8 as unusual and conclude the the average democracy level in the Middle East is statistically different from that of Europe. The precise p-value for this is 0.001283, well below our desired significance level of 5%.</p>
+<p>This places us quite far out into the tails of the t-distribution (see Figure <a href="principles-of-statistical-inference.html#fig:p">12</a>), and as such the probability remaining beyond this value is very, very small. The probability of observing a value more extreme is therefore low, we can regard our observed value of -2.8 as unusual and conclude the the average democracy level in the Middle East is statistically different from that of Europe. The precise p-value for this is 0.001283, well below our desired significance level of 5%.</p>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:sigtest"></span>
-<img src="images/Week%202/sigtest.png" alt="\label{fig:p}The p-Value" width="50%"><p class="caption">
+<span style="display:block;" id="fig:p"></span>
+<img src="images/Week%202/sigtest.png" alt="\label{fig:p}The p-Value" width="70%"><p class="caption">
 Figure 12: The p-Value
 </p>
 </div>
