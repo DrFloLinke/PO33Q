@@ -366,25 +366,6 @@ code, kbd, samp {
 ---------------------------------------- */
 
 
-pre:not(.sourceCode),
-pre:not(.sourceCode) > code {
-  background-color: #1d1f2b !important;
-  color: #d8dee9 !important;
-  font-family: 'Fira Mono', monospace !important;
-  font-size: 0.9rem !important;
-  line-height: 1.4 !important;
-  border: 2px solid #5a5f80 !important;
-  border-radius: 6px !important;
-  padding: 1em !important;
-  margin-top: 1.5em !important;
-  margin-bottom: 1.5em !important;
-  white-space: pre-wrap !important;
-  overflow-x: auto !important;
-  display: block !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-}
-
 /* Remove background/padding from wrappers of <pre><code> blocks */
 div.output, div.downlit, div.cell-output, div.cell-output-display, div.cell-output-stdout {
   background-color: transparent !important;
@@ -394,26 +375,23 @@ div.output, div.downlit, div.cell-output, div.cell-output-display, div.cell-outp
   box-shadow: none !important;
 }
 
-/* Ensure pre/code inside those wrappers is fully styled */
-pre:not(.sourceCode),
-pre:not(.sourceCode) > code {
-  background-color: #1d1f2b !important;
-  color: #d8dee9 !important;
-  font-family: 'Fira Mono', monospace !important;
-  font-size: 0.9rem !important;
-  line-height: 1.4 !important;
-  border: 2px solid #5a5f80 !important;
-  border-radius: 6px !important;
-  padding: 1em !important;
-  margin-top: 1.5em !important;
-  margin-bottom: 1.5em !important;
-  white-space: pre-wrap !important;
-  overflow-x: auto !important;
-  display: block !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-}
 
+pre:not(.sourceCode) {
+  background: transparent !important;
+  margin: -0.5em 0 2.5em 0;
+  padding: 1em !important;
+  border: 2px solid #5a5f80;
+  border-radius: 6px;
+  font-size: 0.9rem !important;
+  font-family: 'Fira Mono', monospace !important;
+  line-height: 1.4 !important;
+  white-space: pre-wrap !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  overflow-x: auto !important;
+  position: relative;
+}
 
 
 /* ----------------------------------------
@@ -452,5 +430,8 @@ hr {
   border-top: 4px solid #5a5f80; /* adjust color */
   margin: 2em 0;
 }
+
+
+
 
 
