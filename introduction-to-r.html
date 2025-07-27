@@ -428,7 +428,7 @@ Figure 6: Distributions with different Standard Deviations
 <pre><code>[1] 21319.75</code></pre>
 <p>The variance is the squared standard deviation, but you can calculate it with its own command in R, too:</p>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">example</span><span class="op">$</span><span class="va">gdp</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">var</span><span class="op">(</span><span class="va">example</span><span class="op">$</span><span class="va">gdp</span><span class="op">)</span></span></code></pre></div>
 <pre><code>[1] 454531709</code></pre>
 <p>You can get information on the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary.html">quartiles</a></span> (these are also measures of spread), the mean, as well as the minimum and maximum of a variable through one, simple command:</p>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
@@ -483,6 +483,7 @@ Figure 6: Distributions with different Standard Deviations
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">world</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"Week 1/world.csv"</span><span class="op">)</span></span></code></pre></div>
 <p>The data are taken from <span class="citation">World Bank (2024)</span>, <span class="citation">Miller et al. (2022)</span>, and <span class="citation">Marshall &amp; Gurr (2020)</span>. Table <a href="introduction-to-r.html#tab:wdicode1">1</a> provides a full code book, but you can also download it <a href="files/Week%201/PO33Q_Codebook.pdf">in pdf format here</a>.</p>
+<div class="custom-html-table">
 <div class="inline-table"><table style="width:100%; color: black; margin-left: auto; margin-right: auto;" class="table">
 <caption>
 <span id="tab:wdicode1">Table 1: </span>WDI Codebook
@@ -810,11 +811,13 @@ Region on continent
 </tr>
 </tbody>
 </table></div>
+</div>
 <p>Again, let’s explore the data set through the <code><a href="https://tibble.tidyverse.org/reference/view.html">view()</a></code> function:</p>
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://tibble.tidyverse.org/reference/view.html">view</a></span><span class="op">(</span><span class="va">world</span><span class="op">)</span></span></code></pre></div>
 <p>Now, don’t panic. This data set is big, but you know the basic structure: country by year in rows, and the variables in the column. The value for the variable in a given country in a given year is in the meeting point between row and column.</p>
 <p>The data are (yes, the word “data” is plural) organised by country name in the first instance. So the first country you see is Afghanistan. There are multiple rows for Afghanistan, because each row gives you information about the value in a particular year (second column). This is repeated for every country in the world, leading to a total of 10,824 observations, to save you scrolling all the way down. Schematically, the structure of this data set looks as follows:</p>
+<div class="custom-html-table">
 <div class="inline-table"><table style="width:50%; color: black; margin-left: auto; margin-right: auto;" class="table">
 <caption>
 <span id="tab:tscs1">Table 2: </span>Schematic: Time-Series, Cross-Sectional Data
@@ -921,6 +924,7 @@ B
 </tr>
 </tbody>
 </table></div>
+</div>
 <p>When you look at the data set in R, you will see that not every box contains a value - this means that the data are missing for this particular country-year for that particular variable. This is an issue we will be discussing a later stage in more detail, but I can already say now, that this issue is more pronounced in developing countries than in developed ones, and that it often severely limits the variables you can include in the analysis.</p>
 <p>Let us conclude today with some more descriptive statistics to get used to entering and executing commands. Say, we want to find out the average GDP per capita of the UK since 1960 (which is when this data set begins, it ends in 2020). To do this, we first need to create a data frame which only contains data for GB. We call this process “subsetting”. The <code>filter</code> function comes out the <code>dplyr</code> package, and takes a particular data frame and filters all those observations which meet the condition specified. We will use this a lot on this module, and so it makes sense to remember this one well:</p>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">

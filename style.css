@@ -438,19 +438,54 @@ hr {
 
 /* ----------------------------------------
    No Borders in Tables
+   
+   apply with
+   <div class="custom-html-table">
+   ...table...
+   </div>
 ---------------------------------------- */
 
-table, th, td {
+/* Base: remove all borders */
+.custom-html-table table,
+.custom-html-table th,
+.custom-html-table td {
   border: none !important;
+  border-collapse: collapse;
 }
 
-.book .content table,
-.book .content table th,
-.book .content table td {
-  border: none !important;
+/* Top and bottom border: double line */
+.custom-html-table table {
+  border-top: 4px double #e1e2ea !important;
+  border-bottom: 4px double #e1e2ea !important;
+}
+
+/* Border under the header row only (single solid line) */
+.custom-html-table table thead tr {
+  border-bottom: 1.5px solid #e1e2ea !important;
+}
+
+.custom-html-table table thead th {
+  border-bottom: 1.5px solid #e1e2ea !important;
+}
+
+/* Center text and add small padding */
+.custom-html-table th,
+.custom-html-table td {
+  text-align: center;
+  padding: 0.2em 0.4em;
 }
 
 
+/* TOP-BOTTOMRULE Remove all borders except double top & bottom on table */
+.top-bottom-rule-only table,
+.top-bottom-rule-only th,
+.top-bottom-rule-only td {
+  border: none !important;
+  border-collapse: collapse;
+}
 
-
+.top-bottom-rule-only table {
+  border-top: 4px double #e1e2ea !important;
+  border-bottom: 4px double #e1e2ea !important;
+}
 
