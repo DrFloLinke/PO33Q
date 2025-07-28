@@ -141,7 +141,7 @@
 <p>Regression is not only able to identify the direction of a relationship between an independent and a dependent variable, it is also able to quantify the size of the effect. Let us choose <code>y</code> as our dependent variable, and <code>x</code> as our independent variable. We have some data which we are displaying in a scatter plot:</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:scatter"></span>
-<img src="files/Week%202/scatter.png" alt="\label{fig:scatter}Scatter Plot" width="50%"><p class="caption">
+<img src="files/Week%202/scatter.png" alt="\label{fig:scatter}Scatter Plot" width="65%"><p class="caption">
 Figure 13: Scatter Plot
 </p>
 </div>
@@ -149,14 +149,15 @@ Figure 13: Scatter Plot
 <p>The position of a line in a coordinate system is usually described by two items: the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">intercept</a></span> with the Y-axis, and the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">slope</a></span> of the line. The slope is defined as rise over run, and indicates by how much <span class="math inline">\(y\)</span> increases (or decreases is the slope is negative) if we add an additional unit of <span class="math inline">\(x\)</span>. In the notation which follows we will call the intercept <span class="math inline">\(\beta_{0}\)</span>, and the slope <span class="math inline">\(\beta_{1}\)</span>. It will be our task to estimate these values, also called <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">coefficients</a></span>. You can see this depicted graphically here:</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:regline"></span>
-<img src="files/Week%202/regline.png" alt="\label{fig:regline}Regression Line" width="50%"><p class="caption">
+<img src="files/Week%202/regline.png" alt="\label{fig:regline}Regression Line" width="65%"><p class="caption">
 Figure 14: Regression Line
 </p>
 </div>
 <p>In the context of the module, we would for example have per capita GDP on the x-axis (independent variable), and Polity V measuring the level of democracy on the y-axis (dependent variable). This would look like this in the year 2015:</p>
+<p> </p>
 <div class="figure">
 <span style="display:block;" id="fig:unnamed-chunk-44"></span>
-<img src="images/Week%202/case.png" alt="\label{fig:modern}Democracy and Development in 2015" width="50%"><p class="caption">
+<img src="images/Week%202/case.png" alt="\label{fig:modern}Democracy and Development in 2015" width="75%"><p class="caption">
 Figure 15: Democracy and Development in 2015
 </p>
 </div>
@@ -171,7 +172,7 @@ E(y|x_{i}) = \beta_{0} + \beta_{1} x_{i}
 <p>As you can see, the line is not intercepting with all observations – it only represents the conditional averages, after all. Only two observations are located on the line, and all others have a little distance between them and the PRF. These distances between <span class="math inline">\(E(y|x_{i})\)</span> and <span class="math inline">\(y_{i}\)</span> are called <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">error terms</a></span> and are denoted as <span class="math inline">\(\epsilon_{i}\)</span>.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:errors"></span>
-<img src="files/Week%202/errors.png" alt="\label{fig:errors}Errors" width="50%"><p class="caption">
+<img src="files/Week%202/errors.png" alt="\label{fig:errors}Errors" width="65%"><p class="caption">
 Figure 16: Errors
 </p>
 </div>
@@ -195,7 +196,7 @@ y_{i} = \hat{\beta}_{0} + \hat{\beta}_{1} x_{i} + \hat{\epsilon}_{i}
 <p>These estimated error terms, <span class="math inline">\(\hat{\epsilon}_{i}\)</span>, are called <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">residuals</a></span>. The following graph visualises the relationship between an observation, the PRF, the SRF, the error terms, and the residuals.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:srfprf"></span>
-<img src="files/Week%202/SRF_PRF.png" alt="\label{fig:srfprf}Population vs. Sample Regression Function" width="50%"><p class="caption">
+<img src="files/Week%202/SRF_PRF.png" alt="\label{fig:srfprf}Population vs. Sample Regression Function" width="65%"><p class="caption">
 Figure 17: Population vs. Sample Regression Function
 </p>
 </div>
@@ -209,7 +210,7 @@ Figure 17: Population vs. Sample Regression Function
 <p>But similar to calculating the standard deviation where the differences between the observations and the mean would sum up to zero (essentially we are doing the same thing here), we simply square those distances. So we are not minimising the sum of distances between observations and the regression line, but the sum of the <strong>squared</strong> distances between the observations and the regression line. Graphically, we would end up with little squares made out of each <span class="math inline">\(\hat{\epsilon}_{i}\)</span> which gives the the method its name: <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">Ordinary Least Squares</a></span> (OLS).</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:ols"></span>
-<img src="files/Week%202/OLS.png" alt="\label{fig:ols}Ordinary Least Squares" width="50%"><p class="caption">
+<img src="files/Week%202/OLS.png" alt="\label{fig:ols}Ordinary Least Squares" width="65%"><p class="caption">
 Figure 18: Ordinary Least Squares
 </p>
 </div>
