@@ -1030,12 +1030,13 @@ Figure 37: ROC Curve
 <h2>Including ROC in <code>modelsummary</code><a class="anchor" aria-label="anchor" href="#including-roc-in-modelsummary"><i class="fas fa-link"></i></a>
 </h2>
 <p>When I introduced you to <code>modelsummary</code> in Week 3, I mentioned that we will be adding a model fit measure to the results table in Week 7. This model fit measure is the AUC. A properly formatted table summarising the results of all four models we have calculated would look like this:</p>
+<p> </p>
 <!-- preamble start -->
 
     <script>
 
-      function styleCell_5pzomuvym1kg8nsza2kp(i, j, css_id) {
-          var table = document.getElementById("tinytable_5pzomuvym1kg8nsza2kp");
+      function styleCell_vdrunzg03raedb39qf5e(i, j, css_id) {
+          var table = document.getElementById("tinytable_vdrunzg03raedb39qf5e");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -1045,7 +1046,7 @@ Figure 37: ROC Curve
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_5pzomuvym1kg8nsza2kp');
+        var table = document.getElementById('tinytable_vdrunzg03raedb39qf5e');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -1053,8 +1054,8 @@ Figure 37: ROC Curve
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_5pzomuvym1kg8nsza2kp(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_5pzomuvym1kg8nsza2kp");
+      function spanCell_vdrunzg03raedb39qf5e(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_vdrunzg03raedb39qf5e");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -1084,48 +1085,48 @@ Figure 37: ROC Curve
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 1, j: 4 }, { i: 1, j: 3 },  ], css_id: 'tinytable_css_v1zszl695otvwhv70qv5',}, 
-          { positions: [ { i: 0, j: 3 }, { i: 0, j: 2 }, { i: 0, j: 4 },  ], css_id: 'tinytable_css_3mebasi100s8cm0tp657',}, 
-          { positions: [ { i: 12, j: 1 }, { i: 12, j: 4 }, { i: 12, j: 2 }, { i: 12, j: 3 },  ], css_id: 'tinytable_css_v4utw0qo6wjcpjle79ix',}, 
-          { positions: [ { i: 10, j: 3 }, { i: 10, j: 2 }, { i: 10, j: 4 }, { i: 10, j: 1 },  ], css_id: 'tinytable_css_6gvj8z5ou8psebur9gpm',}, 
-          { positions: [ { i: 4, j: 1 }, { i: 3, j: 1 }, { i: 8, j: 1 }, { i: 5, j: 1 }, { i: 7, j: 1 }, { i: 3, j: 2 }, { i: 9, j: 1 }, { i: 6, j: 1 }, { i: 11, j: 1 }, { i: 7, j: 2 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 11, j: 2 }, { i: 8, j: 2 }, { i: 9, j: 2 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 9, j: 3 }, { i: 5, j: 4 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 4, j: 4 }, { i: 9, j: 4 }, { i: 11, j: 3 }, { i: 3, j: 4 }, { i: 8, j: 4 }, { i: 6, j: 4 }, { i: 7, j: 4 }, { i: 11, j: 4 },  ], css_id: 'tinytable_css_95tv6s6cevqcausr4af2',}, 
-          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_bna7cod5h5bhs2syb9xf',}, 
-          { positions: [ { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_dl34uvmg01k3124h0izm',}, 
-          { positions: [ { i: 2, j: 1 }, { i: 2, j: 2 }, { i: 2, j: 3 }, { i: 2, j: 4 },  ], css_id: 'tinytable_css_f9yimwfo8enr0fbcji6i',}, 
-          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_3x67itor7zc3x925rugm',}, 
-          { positions: [ { i: 10, j: 0 },  ], css_id: 'tinytable_css_p1jzrzspzb10y3m32l7n',}, 
-          { positions: [ { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 11, j: 0 },  ], css_id: 'tinytable_css_wwkgdix9e8s02e5tnagt',}, 
-          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_zvo0m3i7cz37ke8x8iwq',}, 
-          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_yq395vuv2f4ngt85zksf',}, 
-          { positions: [ { i: 2, j: 0 },  ], css_id: 'tinytable_css_gjl3h660dyo1j124543u',}, 
+          { positions: [ { i: 1, j: 4 }, { i: 1, j: 3 },  ], css_id: 'tinytable_css_5j1ln0psnoloirqjpm84',}, 
+          { positions: [ { i: 0, j: 3 }, { i: 0, j: 2 }, { i: 0, j: 4 },  ], css_id: 'tinytable_css_f8c7yd3ujielwvbujtdr',}, 
+          { positions: [ { i: 12, j: 1 }, { i: 12, j: 4 }, { i: 12, j: 2 }, { i: 12, j: 3 },  ], css_id: 'tinytable_css_oo4dm6e8rocntz11qij0',}, 
+          { positions: [ { i: 10, j: 3 }, { i: 10, j: 2 }, { i: 10, j: 4 }, { i: 10, j: 1 },  ], css_id: 'tinytable_css_pmmyn3950enoq2t81gd5',}, 
+          { positions: [ { i: 4, j: 1 }, { i: 3, j: 1 }, { i: 8, j: 1 }, { i: 5, j: 1 }, { i: 7, j: 1 }, { i: 3, j: 2 }, { i: 9, j: 1 }, { i: 6, j: 1 }, { i: 11, j: 1 }, { i: 7, j: 2 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 11, j: 2 }, { i: 8, j: 2 }, { i: 9, j: 2 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 9, j: 3 }, { i: 5, j: 4 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 4, j: 4 }, { i: 9, j: 4 }, { i: 11, j: 3 }, { i: 3, j: 4 }, { i: 8, j: 4 }, { i: 6, j: 4 }, { i: 7, j: 4 }, { i: 11, j: 4 },  ], css_id: 'tinytable_css_1e7cfgd4h83oedmewq88',}, 
+          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_hnw301dup1lmnrk5s534',}, 
+          { positions: [ { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_diasu5itd6i9yt85nyrv',}, 
+          { positions: [ { i: 2, j: 1 }, { i: 2, j: 2 }, { i: 2, j: 3 }, { i: 2, j: 4 },  ], css_id: 'tinytable_css_2w6zwloyawlcb58p74nr',}, 
+          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_y05eh2f4h1geakpsqzz4',}, 
+          { positions: [ { i: 10, j: 0 },  ], css_id: 'tinytable_css_902tjsy3uywlnu2b8ztj',}, 
+          { positions: [ { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 11, j: 0 },  ], css_id: 'tinytable_css_5n2hll1hbpkaviel1wtc',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_nvj9ei24bpazpwax5u0x',}, 
+          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_dcx59gsy68jkyt874p61',}, 
+          { positions: [ { i: 2, j: 0 },  ], css_id: 'tinytable_css_3tdv3v4nblu3ojtgrzqk',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_5pzomuvym1kg8nsza2kp(cell.i, cell.j, group.css_id);
+                  styleCell_vdrunzg03raedb39qf5e(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><style>
       /* tinytable css entries after */
-      .table td.tinytable_css_v1zszl695otvwhv70qv5, .table th.tinytable_css_v1zszl695otvwhv70qv5 { text-align: center; text-align: center; }
-      .table td.tinytable_css_3mebasi100s8cm0tp657, .table th.tinytable_css_3mebasi100s8cm0tp657 { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_v4utw0qo6wjcpjle79ix, .table th.tinytable_css_v4utw0qo6wjcpjle79ix { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_6gvj8z5ou8psebur9gpm, .table th.tinytable_css_6gvj8z5ou8psebur9gpm { text-align: center; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_95tv6s6cevqcausr4af2, .table th.tinytable_css_95tv6s6cevqcausr4af2 { text-align: center; }
-      .table td.tinytable_css_bna7cod5h5bhs2syb9xf, .table th.tinytable_css_bna7cod5h5bhs2syb9xf { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_dl34uvmg01k3124h0izm, .table th.tinytable_css_dl34uvmg01k3124h0izm { text-align: center; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_f9yimwfo8enr0fbcji6i, .table th.tinytable_css_f9yimwfo8enr0fbcji6i { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_3x67itor7zc3x925rugm, .table th.tinytable_css_3x67itor7zc3x925rugm { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_p1jzrzspzb10y3m32l7n, .table th.tinytable_css_p1jzrzspzb10y3m32l7n { text-align: left; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_wwkgdix9e8s02e5tnagt, .table th.tinytable_css_wwkgdix9e8s02e5tnagt { text-align: left; }
-      .table td.tinytable_css_zvo0m3i7cz37ke8x8iwq, .table th.tinytable_css_zvo0m3i7cz37ke8x8iwq { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_yq395vuv2f4ngt85zksf, .table th.tinytable_css_yq395vuv2f4ngt85zksf { text-align: left; text-align: center; }
-      .table td.tinytable_css_gjl3h660dyo1j124543u, .table th.tinytable_css_gjl3h660dyo1j124543u { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_5j1ln0psnoloirqjpm84, .table th.tinytable_css_5j1ln0psnoloirqjpm84 { text-align: center; text-align: center; }
+      .table td.tinytable_css_f8c7yd3ujielwvbujtdr, .table th.tinytable_css_f8c7yd3ujielwvbujtdr { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_oo4dm6e8rocntz11qij0, .table th.tinytable_css_oo4dm6e8rocntz11qij0 { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_pmmyn3950enoq2t81gd5, .table th.tinytable_css_pmmyn3950enoq2t81gd5 { text-align: center; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_1e7cfgd4h83oedmewq88, .table th.tinytable_css_1e7cfgd4h83oedmewq88 { text-align: center; }
+      .table td.tinytable_css_hnw301dup1lmnrk5s534, .table th.tinytable_css_hnw301dup1lmnrk5s534 { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_diasu5itd6i9yt85nyrv, .table th.tinytable_css_diasu5itd6i9yt85nyrv { text-align: center; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_2w6zwloyawlcb58p74nr, .table th.tinytable_css_2w6zwloyawlcb58p74nr { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_y05eh2f4h1geakpsqzz4, .table th.tinytable_css_y05eh2f4h1geakpsqzz4 { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_902tjsy3uywlnu2b8ztj, .table th.tinytable_css_902tjsy3uywlnu2b8ztj { text-align: left; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_5n2hll1hbpkaviel1wtc, .table th.tinytable_css_5n2hll1hbpkaviel1wtc { text-align: left; }
+      .table td.tinytable_css_nvj9ei24bpazpwax5u0x, .table th.tinytable_css_nvj9ei24bpazpwax5u0x { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_dcx59gsy68jkyt874p61, .table th.tinytable_css_dcx59gsy68jkyt874p61 { text-align: left; text-align: center; }
+      .table td.tinytable_css_3tdv3v4nblu3ojtgrzqk, .table th.tinytable_css_3tdv3v4nblu3ojtgrzqk { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
     </style>
 <div class="container">
-      <div class="inline-table"><table class="table table-borderless" id="tinytable_5pzomuvym1kg8nsza2kp" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <div class="inline-table"><table class="table table-borderless" id="tinytable_vdrunzg03raedb39qf5e" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead>
 <tr>
 <th scope="col" align="center" colspan="1"> </th>
@@ -1222,6 +1223,7 @@ Figure 37: ROC Curve
 </table></div>
 </div>
 <!-- hack to avoid NA insertion in last line -->
+<p> </p>
 <p>How did I get this table? We start again by loading the packages <code>modelsummary</code> and <code>tinytable</code>.</p>
 <div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://modelsummary.com">modelsummary</a></span><span class="op">)</span></span>
