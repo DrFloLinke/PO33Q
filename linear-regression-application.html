@@ -211,25 +211,25 @@ Figure 19: Flat Regression Line
 <p>The line is perfectly flat (the slope coefficient is zero), intercepting the y-axis at the mean. It does so, because the regression line is the value of y we would expect on average for a given x. If this value does not vary, it has to be the average of y. If we now put a zero slope coefficient, such as the one for height, just in the more general form of <span class="math inline">\(\beta_{2}\)</span> in the centre of a normal distribution, it looks like this:</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:betanull"></span>
-<img src="images/Week%202/beta2_plot.png" alt="\label{fig:betanull}Null Hypothesis for $\beta_{2}$" width="50%"><p class="caption">
-Figure 20: Null Hypothesis for <span class="math inline">\(\beta_{2}\)</span>
+<img src="images/Week%202/beta2_plot.png" alt="\label{fig:betanull}Null Hypothesis for $\beta_{1}$" width="50%"><p class="caption">
+Figure 20: Null Hypothesis for <span class="math inline">\(\beta_{1}\)</span>
 </p>
 </div>
-<p>What we want to test now, with regression, is whether the slope coefficient R has calculated for us (let me denote the estimated value of <span class="math inline">\(\beta_{2}\)</span> as <span class="math inline">\(\hat{\beta_{2}}\)</span>), is far enough from this mean of zero, to say that we can be sure to say that there <em>is</em> a relationship.</p>
+<p>What we want to test now, with regression, is whether the slope coefficient R has calculated for us (let me denote the estimated value of <span class="math inline">\(\beta_{1}\)</span> as <span class="math inline">\(\hat{\beta_{1}}\)</span>), is far enough from this mean of zero, to say that we can be sure to say that there <em>is</em> a relationship.</p>
 <p>The statement that there <em>is</em> a relationship between the independent and the dependent variable, is called the alternative hypothesis. In our case the alternative hypothesis would read: “The level of per capita GDP influences the level of democracy in a country”.</p>
 <p>So how far away from the centre of zero do we have to go to say that there is indeed relationship, or put differently, that we have enough evidence to reject the null hypothesis? The standard in political science is that we need to have a 5% probability of finding a value more extreme than the one we have observed. Under the curve in the following graph, that is equal to the orange area on the right. And that is the p-value.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:pbeta"></span>
-<img src="images/Week%202/beta2_highlight.png" alt="\label{fig:pbeta}p-value for $\beta_{2}$" width="50%"><p class="caption">
-Figure 21: p-value for <span class="math inline">\(\beta_{2}\)</span>
+<img src="images/Week%202/beta2_highlight.png" alt="\label{fig:pbeta}p-value for $\beta_{1}$" width="50%"><p class="caption">
+Figure 21: p-value for <span class="math inline">\(\beta_{1}\)</span>
 </p>
 </div>
 <p>If this area is 5% or less, then we have observed a value for the slope coefficient which is so far away from our assumed mean of zero, that we have sufficient evidence to reject the null hypothesis.</p>
 <p>But now, you might say, a slope coefficient can also be negative – here we are only looking at the right hand-side, and therefore at the scenario in which a slope coefficient is positive. And you are right. The scatter plot could give us a negative line. So, if we want to move away far enough from the assumed mean of zero in the centre, we must do so in both directions, to the left and to the right. Now, we need a value that is so far out, that to either side of the distribution, 2.5% of the area are left under the curve (2.5% on the left plus 2.5% on the right make the overall 5% we are interested in). We call this a two-sided test, whereas the scenario above is a one-sided test. The p-values reported by R for the slope coefficients are always two-sided tests (unless we tell R not to, but we are not doing that on this module). This value gives us the area under the normal distribution to the left and the right beyond our observed value, as shown in this figure:</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:twobeta"></span>
-<img src="images/Week%202/beta2_twotail.png" alt="\label{fig:twobeta}Two-Sided Test for $\beta_{2}$" width="50%"><p class="caption">
-Figure 22: Two-Sided Test for <span class="math inline">\(\beta_{2}\)</span>
+<img src="images/Week%202/beta2_twotail.png" alt="\label{fig:twobeta}Two-Sided Test for $\beta_{1}$" width="50%"><p class="caption">
+Figure 22: Two-Sided Test for <span class="math inline">\(\beta_{1}\)</span>
 </p>
 </div>
 <p>The value we are looking at in R to determine the p-value, is in the column <span class="math inline">\(Pr(&gt;|t|)\)</span>.</p>
