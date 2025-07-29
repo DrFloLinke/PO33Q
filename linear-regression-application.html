@@ -158,23 +158,23 @@ lm(formula = polity5 ~ gdppc, data = europe_1994)
 
 Residuals:
     Min      1Q  Median      3Q     Max 
--9.5440 -0.3429  0.5504  1.5063  3.3264 
+-9.5657 -0.3115  0.6054  1.5330  3.3036 
 
 Coefficients:
              Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept) 6.095e+00  7.397e-01   8.240 7.57e-09 ***
-gdppc       1.386e-04  3.902e-05   3.551  0.00143 ** 
+(Intercept) 6.120e+00  7.785e-01   7.861 2.45e-08 ***
+gdppc       1.377e-04  4.036e-05   3.411  0.00212 ** 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 2.743 on 27 degrees of freedom
-  (12 observations deleted due to missingness)
-Multiple R-squared:  0.3183,    Adjusted R-squared:  0.2931 
-F-statistic: 12.61 on 1 and 27 DF,  p-value: 0.001433</code></pre>
+Residual standard error: 2.794 on 26 degrees of freedom
+  (10 observations deleted due to missingness)
+Multiple R-squared:  0.3092,    Adjusted R-squared:  0.2826 
+F-statistic: 11.64 on 1 and 26 DF,  p-value: 0.002123</code></pre>
 <p>We can extract the number of observations used for the estimation by calling:</p>
 <div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/nobs.html">nobs</a></span><span class="op">(</span><span class="va">reg_pol</span><span class="op">)</span></span></code></pre></div>
-<pre><code>[1] 29</code></pre>
+<pre><code>[1] 28</code></pre>
 <p>There is a lot of information in this, and I will take you through the output step by step now.</p>
 <hr>
 </div>
@@ -186,8 +186,8 @@ F-statistic: 12.61 on 1 and 27 DF,  p-value: 0.001433</code></pre>
 </h3>
 <div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/nobs.html">nobs</a></span><span class="op">(</span><span class="va">reg_pol</span><span class="op">)</span></span></code></pre></div>
-<pre><code>[1] 29</code></pre>
-<p>Let’s deal with the last step first. The number of observations is equal to the number of countries in this case. We have subset the data to the year 1994, and so we have 29 countries in the analysis. This seems trivial for now, but it will become important later on. Once observations are missing, R drops them from the analysis – especially in developing countries where data are often missing in large quantities this can lead to a rapid decimation in the number of observations. This in turn is problematic for the strength inference we can draw from the analysis.</p>
+<pre><code>[1] 28</code></pre>
+<p>Let’s deal with the last step first. The number of observations is equal to the number of countries in this case. We have subset the data to the year 1994, and so we have 28 countries in the analysis. This seems trivial for now, but it will become important later on. Once observations are missing, R drops them from the analysis – especially in developing countries where data are often missing in large quantities this can lead to a rapid decimation in the number of observations. This in turn is problematic for the strength inference we can draw from the analysis.</p>
 </div>
 <div id="the-all-important-p-value-in-regression" class="section level3 unnumbered">
 <h3>The all-important p-value in Regression<a class="anchor" aria-label="anchor" href="#the-all-important-p-value-in-regression"><i class="fas fa-link"></i></a>
@@ -234,7 +234,7 @@ Figure 22: Two-Sided Test for <span class="math inline">\(\beta_{2}\)</span>
 </div>
 <p>The value we are looking at in R to determine the p-value, is in the column <span class="math inline">\(Pr(&gt;|t|)\)</span>.</p>
 <div class="inline-figure"><img src="files/Week%202/pvalue.png" width="75%" style="display: block; margin: auto;"></div>
-<p>In order to satisfy the requirement of the p-value being 5% or less, this value needs to be smaller than 0.05. Otherwise, more than 5% area are left, and we are not certain enough that our value is far enough away from the zero mean in the centre to say that it is “statistically different” from it. When we look at the value for the slope coefficient <code>gdppc</code> here, 0.00143, this means that the areas on the left and the right are jointly 0.14% – small enough for us to be sure to have found a value that is far enough away from zero to claim that there is a relationship. We therefore reject the null hypothesis: we find evidence for a relationship between per capita GDP and Polity V in Europe in the year 1994 Again, if we want to visualise this, the actual p-value of <span class="math inline">\(0.00143\)</span> would look like this:</p>
+<p>In order to satisfy the requirement of the p-value being 5% or less, this value needs to be smaller than 0.05. Otherwise, more than 5% area are left, and we are not certain enough that our value is far enough away from the zero mean in the centre to say that it is “statistically different” from it. When we look at the value for the slope coefficient <code>gdppc</code> here, 0.00212, this means that the areas on the left and the right are jointly 0.21% – small enough for us to be sure to have found a value that is far enough away from zero to claim that there is a relationship. We therefore reject the null hypothesis: we find evidence for a relationship between per capita GDP and Polity V in Europe in the year 1994 Again, if we want to visualise this, the actual p-value of <span class="math inline">\(0.00212\)</span> would look like this:</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:empbeta"></span>
 <img src="images/Week%202/beta2_critical_bounds.png" alt="\label{fig:empbeta}Visualisation of p-value" width="50%"><p class="caption">
@@ -252,7 +252,7 @@ Figure 23: Visualisation of p-value
 <h3>The Slope Coefficient<a class="anchor" aria-label="anchor" href="#the-slope-coefficient"><i class="fas fa-link"></i></a>
 </h3>
 <div class="inline-figure"><img src="files/Week%202/slope.png" width="75%" style="display: block; margin: auto;"></div>
-<p>The slope coefficient is shown in the row depicting the name of the independent variable, here “gdp”, and again the column “Estimate”. Our slope here, is <span class="math inline">\(1.386e-04\)</span>. The <span class="math inline">\(e-4\)</span> means that we have to move the decimal point 4 units to the left, so written fully, this means <span class="math inline">\(0.0001386\)</span>. We interpret it as follows: for every additional unit of per capita GDP, measured in US$, the Polity V score increases by <span class="math inline">\(0.0001386\)</span>, on average. This seems very small, but when you consider the size of GDP per capita in many countries, it seems logical that this value is as small as it is. If the coefficient was negative, then this would mean that for for every additional unit of per capita GDP, measured in US$, the Polity V score would decrease by <span class="math inline">\(0.0001386\)</span>, on average.</p>
+<p>The slope coefficient is shown in the row depicting the name of the independent variable, here “gdp”, and again the column “Estimate”. Our slope here, is <span class="math inline">\(1.377e-04\)</span>. The <span class="math inline">\(e-4\)</span> means that we have to move the decimal point 4 units to the left, so written fully, this means <span class="math inline">\(0.0001377\)</span>. We interpret it as follows: for every additional unit of per capita GDP, measured in US$, the Polity V score increases by <span class="math inline">\(0.0001377\)</span>, on average. This seems very small, but when you consider the size of GDP per capita in many countries, it seems logical that this value is as small as it is. If the coefficient was negative, then this would mean that for for every additional unit of per capita GDP, measured in US$, the Polity V score would decrease by <span class="math inline">\(0.0001377\)</span>, on average.</p>
 <div class="bulb">
 <p><strong>Interpreting a coefficient</strong></p>
 <p>The order in which to interpret a coefficient is as follows:</p>
@@ -272,7 +272,7 @@ Figure 23: Visualisation of p-value
 <p>YouTube link to follow</p>
 </div>
 <p>As you have seen in the video, the goodness of fit is a measure to indicate how much of the variation in the dependent variable (democracy) the independent variable (per capita GDP) is explaining. For this, we take the ratio of the explained sum of squares over the total sum of squares. The resulting percentage is R<span class="math inline">\(^2\)</span>, also known as the
-<span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">coefficient of determination</a></span>. This number can also be found on the R output, and is in our case <span class="math inline">\(0.3183\)</span>, or 31.83%. This value is not too bad for a single variable! The maximum we can explain is of course 100% with an R-Squared value of 1.0, even though this is a dream never achieved empirically. But we are still quite some distance of this dream, and can probably do better. There surely must be factors other than per capita GDP that explain democracy in Europe in the year 1994</p>
+<span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">coefficient of determination</a></span>. This number can also be found on the R output, and is in our case <span class="math inline">\(0.3092\)</span>, or 30.92%. This value is not too bad for a single variable! The maximum we can explain is of course 100% with an R-Squared value of 1.0, even though this is a dream never achieved empirically. But we are still quite some distance of this dream, and can probably do better. There surely must be factors other than per capita GDP that explain democracy in Europe in the year 1994.</p>
 <hr>
 </div>
 </div>
@@ -294,32 +294,32 @@ lm(formula = polity5 ~ gdppc + enrol_gross, data = europe_1994)
 
 Residuals:
     Min      1Q  Median      3Q     Max 
--7.6721 -0.3790  0.2247  1.1557  2.9974 
+-7.6561 -0.3999  0.2543  1.2566  3.0044 
 
 Coefficients:
               Estimate Std. Error t value Pr(&gt;|t|)   
-(Intercept) -8.270e+00  6.209e+00  -1.332  0.19590   
-gdppc        1.126e-04  3.532e-05   3.188  0.00409 **
-enrol_gross  1.471e-01  6.138e-02   2.397  0.02507 * 
+(Intercept) -8.327e+00  6.458e+00  -1.290  0.21061   
+gdppc        1.129e-04  3.671e-05   3.076  0.00553 **
+enrol_gross  1.476e-01  6.352e-02   2.323  0.02979 * 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 2.368 on 23 degrees of freedom
-  (15 observations deleted due to missingness)
-Multiple R-squared:  0.432, Adjusted R-squared:  0.3826 
-F-statistic: 8.746 on 2 and 23 DF,  p-value: 0.001497</code></pre>
+Residual standard error: 2.421 on 22 degrees of freedom
+  (13 observations deleted due to missingness)
+Multiple R-squared:  0.4184,    Adjusted R-squared:  0.3655 
+F-statistic: 7.913 on 2 and 22 DF,  p-value: 0.002577</code></pre>
 <div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/nobs.html">nobs</a></span><span class="op">(</span><span class="va">reg_pol1</span><span class="op">)</span></span></code></pre></div>
-<pre><code>[1] 26</code></pre>
+<pre><code>[1] 25</code></pre>
 </div>
 <div id="ceteris" class="section level3 unnumbered">
 <h3>Ceteris Paribus<a class="anchor" aria-label="anchor" href="#ceteris"><i class="fas fa-link"></i></a>
 </h3>
-<p>Let us focus on the coefficient for gross primary school enrolment first. Its value is rounded <span class="math inline">\(1.471e-01\)</span>, or <span class="math inline">\(0.1471\)</span>, implying that for every additional percent of gross primary school enrolment, the Polity V score increases by <span class="math inline">\(0.1471\)</span> units on average. So far, so good, but as we have included other variables in the regression model, namely per capita GDP, we need to account for this fact in our interpretation. We do this by adding “all other things being equal” (Latin:
-<span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">ceteris paribus</a></span>) to this interpretation. What does this mean? It means, that if we take into account the level of per capita GDP, and hold this level constant, then for every additional percent of gross primary school enrolment the Polity V score increases by <span class="math inline">\(0.1471\)</span> units on average. As such, we force the regression model to isolate the effect of gross primary school enrolment, by including other possible explanatory factors, such as per capita GDP. You will sometimes read this in articles in the form of “controlling for”. As the percentage of gross primary school enrolment only explains the Polity V score partially now, the coefficients in a multiple regression model are also known as
+<p>Let us focus on the coefficient for gross primary school enrolment first. Its value is rounded <span class="math inline">\(1.476e-01\)</span>, or <span class="math inline">\(0.1476\)</span>, implying that for every additional percent of gross primary school enrolment, the Polity V score increases by <span class="math inline">\(0.1476\)</span> units on average. So far, so good, but as we have included other variables in the regression model, namely per capita GDP, we need to account for this fact in our interpretation. We do this by adding “all other things being equal” (Latin:
+<span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">ceteris paribus</a></span>) to this interpretation. What does this mean? It means, that if we take into account the level of per capita GDP, and hold this level constant, then for every additional percent of gross primary school enrolment the Polity V score increases by <span class="math inline">\(0.1476\)</span> units on average. As such, we force the regression model to isolate the effect of gross primary school enrolment, by including other possible explanatory factors, such as per capita GDP. You will sometimes read this in articles in the form of “controlling for”. As the percentage of gross primary school enrolment only explains the Polity V score partially now, the coefficients in a multiple regression model are also known as
 <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">partial slope coefficients</a></span>.</p>
 <p>To give you a different example: suppose we want to find out whether sex influences income. We could simply run a regression with income as the dependent variable, and sex as the independent variable. But we also know, that age influences income, as with increasing age people have more experience which is reflected in their salary. So even though we are not interested in the amount age influences income, we would include it in the regression model, so as to isolate the effect of the variable we are interested in: sex.</p>
-<p>Back to our modernisation example and school enrolment. The p-value for this coefficient is <span class="math inline">\(0.02507\)</span>, and therefore well below the required 5% threshold. We can conclude that the percentage of gross primary school enrolment influences the level of democracy in Europe in the year 1994. Per capita GDP remains significant.</p>
+<p>Back to our modernisation example and school enrolment. The p-value for this coefficient is <span class="math inline">\(0.02979\)</span>, and therefore well below the required 5% threshold. We can conclude that the percentage of gross primary school enrolment influences the level of democracy in Europe in the year 1994. Per capita GDP remains significant.</p>
 </div>
 <div id="parsimony" class="section level3 unnumbered">
 <h3>Parsimony<a class="anchor" aria-label="anchor" href="#parsimony"><i class="fas fa-link"></i></a>

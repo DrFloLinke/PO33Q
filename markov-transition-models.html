@@ -338,17 +338,17 @@ glm(formula = democracy ~ l.gdppc, family = binomial(link = "probit"),
 
 Coefficients:
               Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept) -1.983e+00  4.681e-02 -42.353   &lt;2e-16 ***
-l.gdppc     -2.366e-05  1.150e-05  -2.057   0.0397 *  
+(Intercept) -1.977e+00  4.668e-02 -42.360   &lt;2e-16 ***
+l.gdppc     -2.413e-05  1.158e-05  -2.084   0.0372 *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 942.81  on 4651  degrees of freedom
-Residual deviance: 936.25  on 4650  degrees of freedom
-  (923 observations deleted due to missingness)
-AIC: 940.25
+    Null deviance: 950.50  on 4651  degrees of freedom
+Residual deviance: 943.72  on 4650  degrees of freedom
+  (725 observations deleted due to missingness)
+AIC: 947.72
 
 Number of Fisher Scoring iterations: 8</code></pre>
 <p>Once again, we can include multiple independent variables by connecting these with + in the <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code> function:</p>
@@ -367,19 +367,19 @@ glm(formula = democracy ~ l.gdppc + l.life + l.enrol_gross, family = binomial(li
 
 Coefficients:
                 Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)   -2.705e+00  3.389e-01  -7.981 1.45e-15 ***
-l.gdppc       -5.129e-05  1.971e-05  -2.602  0.00926 ** 
-l.life         1.513e-02  6.998e-03   2.162  0.03060 *  
-l.enrol_gross -6.763e-04  2.318e-03  -0.292  0.77043    
+(Intercept)   -2.717e+00  3.383e-01  -8.030 9.74e-16 ***
+l.gdppc       -5.247e-05  1.991e-05  -2.635  0.00841 ** 
+l.life         1.529e-02  6.975e-03   2.192  0.02840 *  
+l.enrol_gross -5.761e-04  2.309e-03  -0.249  0.80300    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 785.16  on 3350  degrees of freedom
-Residual deviance: 770.90  on 3347  degrees of freedom
-  (2224 observations deleted due to missingness)
-AIC: 778.9
+    Null deviance: 792.47  on 3350  degrees of freedom
+Residual deviance: 777.66  on 3347  degrees of freedom
+  (2026 observations deleted due to missingness)
+AIC: 785.66
 
 Number of Fisher Scoring iterations: 8</code></pre>
 <hr>
@@ -406,17 +406,17 @@ glm(formula = democracy ~ l.gdppc, family = binomial(link = "probit"),
 
 Coefficients:
              Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept) 1.637e+00  7.635e-02  21.434  &lt; 2e-16 ***
-l.gdppc     1.898e-04  3.631e-05   5.229  1.7e-07 ***
+(Intercept) 1.629e+00  7.591e-02  21.456  &lt; 2e-16 ***
+l.gdppc     1.893e-04  3.608e-05   5.245 1.56e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 717.00  on 4615  degrees of freedom
-Residual deviance: 620.53  on 4614  degrees of freedom
-  (333 observations deleted due to missingness)
-AIC: 624.53
+    Null deviance: 724.54  on 4588  degrees of freedom
+Residual deviance: 626.75  on 4587  degrees of freedom
+  (162 observations deleted due to missingness)
+AIC: 630.75
 
 Number of Fisher Scoring iterations: 11</code></pre>
 <p>And again with all independent variables:</p>
@@ -435,19 +435,19 @@ glm(formula = democracy ~ l.gdppc + l.life + l.enrol_gross, family = binomial(li
 
 Coefficients:
                Estimate Std. Error z value Pr(&gt;|z|)   
-(Intercept)   8.010e-01  5.838e-01   1.372  0.17002   
-l.gdppc       1.178e-04  3.769e-05   3.126  0.00177 **
-l.life        7.885e-03  1.114e-02   0.708  0.47900   
-l.enrol_gross 4.559e-03  3.425e-03   1.331  0.18312   
+(Intercept)   8.272e-01  5.861e-01   1.411  0.15814   
+l.gdppc       1.178e-04  3.745e-05   3.144  0.00166 **
+l.life        7.210e-03  1.122e-02   0.642  0.52056   
+l.enrol_gross 4.698e-03  3.437e-03   1.367  0.17167   
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 501.47  on 3609  degrees of freedom
-Residual deviance: 432.91  on 3606  degrees of freedom
-  (1339 observations deleted due to missingness)
-AIC: 440.91
+    Null deviance: 500.81  on 3584  degrees of freedom
+Residual deviance: 432.34  on 3581  degrees of freedom
+  (1166 observations deleted due to missingness)
+AIC: 440.34
 
 Number of Fisher Scoring iterations: 11</code></pre>
 <hr>

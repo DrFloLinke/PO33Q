@@ -211,19 +211,19 @@ glm(formula = democracy ~ gdppc + l.democracy + gdppc_l.democracy,
 
 Coefficients:
                     Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)       -1.986e+00  4.682e-02 -42.410  &lt; 2e-16 ***
-gdppc             -2.250e-05  1.103e-05  -2.039   0.0414 *  
-l.democracy        3.530e+00  9.268e-02  38.090  &lt; 2e-16 ***
-gdppc_l.democracy  2.691e-04  4.532e-05   5.937  2.9e-09 ***
+(Intercept)       -1.981e+00  4.666e-02 -42.454  &lt; 2e-16 ***
+gdppc             -2.268e-05  1.103e-05  -2.056   0.0398 *  
+l.democracy        3.594e+00  8.959e-02  40.117  &lt; 2e-16 ***
+gdppc_l.democracy  2.123e-04  3.727e-05   5.697 1.22e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 12903.6  on 9307  degrees of freedom
-Residual deviance:  1542.1  on 9304  degrees of freedom
-  (1516 observations deleted due to missingness)
-AIC: 1550.1
+    Null deviance: 12862  on 9277  degrees of freedom
+Residual deviance:  1569  on 9274  degrees of freedom
+  (1150 observations deleted due to missingness)
+AIC: 1577
 
 Number of Fisher Scoring iterations: 11</code></pre>
 <p>For democratic emergence, we can report the Intercept <code>(Intercept)</code> and the slope coefficient <code>gdppc</code> straight away as -1.986 and -0.0000225, respectively. The slope coefficient is significant, as the p-value is <span class="math inline">\(&lt;0.05\)</span>. This is in line with the findings from estimating emergence separately. For democratic survival, we need to take the sum of <code>(Intercept)</code> and <code>l.democracy</code> to obtain the intercept, and <code>gdppc</code> and <code>gdppc_l.democracy</code> to obtain the slope coefficient. This calculation will yield the same coefficients as the two-stepped analysis.</p>
@@ -235,7 +235,7 @@ Number of Fisher Scoring iterations: 11</code></pre>
 <pre><code>Wald test for gdppc gdppc_l.democracy
  in glm(formula = democracy ~ gdppc + l.democracy + gdppc_l.democracy, 
     family = binomial(link = "probit"), data = world, na.action = na.exclude)
-F =  17.81152  on  2  and  9304  df: p= 1.9025e-08 </code></pre>
+F =  16.30128  on  2  and  9274  df: p= 8.5676e-08 </code></pre>
 <p>With 1.9025e-08 we can reject the null hypothesis, and conclude that jointly, the slope coefficients are different from zero, and as such that per capita GDP explains democratic survival.</p>
 <hr>
 </div>

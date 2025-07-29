@@ -903,7 +903,7 @@ Figure 37: ROC Curve
 <span><span class="va">roc1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pROC/man/roc.html">roc</a></span><span class="op">(</span><span class="va">world_democ0</span><span class="op">$</span><span class="va">democracy</span>, <span class="va">world_democ0</span><span class="op">$</span><span class="va">prob_em</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/pROC/man/auc.html">auc</a></span><span class="op">(</span><span class="va">roc1</span><span class="op">)</span></span></code></pre></div>
-<pre><code>Area under the curve: 0.5234</code></pre>
+<pre><code>Area under the curve: 0.5227</code></pre>
 <p>What does each line do?</p>
 <ul>
 <li>predict the probability of democratic emergence for each observation (country year) and store them in a new vector called <code>prob_em</code>.</li>
@@ -935,7 +935,7 @@ Figure 37: ROC Curve
 <span><span class="va">roc2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pROC/man/roc.html">roc</a></span><span class="op">(</span><span class="va">world_democ0</span><span class="op">$</span><span class="va">democracy</span>, <span class="va">world_democ0</span><span class="op">$</span><span class="va">prob_em_full</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/pROC/man/auc.html">auc</a></span><span class="op">(</span><span class="va">roc2</span><span class="op">)</span></span></code></pre></div>
-<pre><code>Area under the curve: 0.596</code></pre>
+<pre><code>Area under the curve: 0.5982</code></pre>
 <div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">roc2</span>, print.auc<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span> </span></code></pre></div>
 <p> 
@@ -954,7 +954,7 @@ Figure 37: ROC Curve
 <span><span class="va">roc3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pROC/man/roc.html">roc</a></span><span class="op">(</span><span class="va">world_democ1</span><span class="op">$</span><span class="va">democracy</span>, <span class="va">world_democ1</span><span class="op">$</span><span class="va">prob_sur</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/pROC/man/auc.html">auc</a></span><span class="op">(</span><span class="va">roc3</span><span class="op">)</span></span></code></pre></div>
-<pre><code>Area under the curve: 0.8357</code></pre>
+<pre><code>Area under the curve: 0.8341</code></pre>
 <div class="sourceCode" id="cb118"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">roc3</span>, print.auc<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span> </span></code></pre></div>
 <p> 
@@ -973,7 +973,7 @@ Figure 37: ROC Curve
 <span><span class="va">roc4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pROC/man/roc.html">roc</a></span><span class="op">(</span><span class="va">world_democ1</span><span class="op">$</span><span class="va">democracy</span>, <span class="va">world_democ1</span><span class="op">$</span><span class="va">prob_sur_full</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/pROC/man/auc.html">auc</a></span><span class="op">(</span><span class="va">roc4</span><span class="op">)</span></span></code></pre></div>
-<pre><code>Area under the curve: 0.8224</code></pre>
+<pre><code>Area under the curve: 0.8215</code></pre>
 <div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">roc4</span>, print.auc<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span> </span></code></pre></div>
 <p> 
@@ -992,8 +992,8 @@ Figure 37: ROC Curve
 
     <script>
 
-      function styleCell_6c07h81899659hij44qc(i, j, css_id) {
-          var table = document.getElementById("tinytable_6c07h81899659hij44qc");
+      function styleCell_07fmpa4u8m0ye0co5fd9(i, j, css_id) {
+          var table = document.getElementById("tinytable_07fmpa4u8m0ye0co5fd9");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -1003,7 +1003,7 @@ Figure 37: ROC Curve
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_6c07h81899659hij44qc');
+        var table = document.getElementById('tinytable_07fmpa4u8m0ye0co5fd9');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -1011,8 +1011,8 @@ Figure 37: ROC Curve
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_6c07h81899659hij44qc(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_6c07h81899659hij44qc");
+      function spanCell_07fmpa4u8m0ye0co5fd9(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_07fmpa4u8m0ye0co5fd9");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -1042,48 +1042,48 @@ Figure 37: ROC Curve
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 1, j: 4 }, { i: 1, j: 3 },  ], css_id: 'tinytable_css_16ho7gsa324zk6ud3b3o',}, 
-          { positions: [ { i: 0, j: 3 }, { i: 0, j: 2 }, { i: 0, j: 4 },  ], css_id: 'tinytable_css_523fdowc4327spapkair',}, 
-          { positions: [ { i: 12, j: 1 }, { i: 12, j: 4 }, { i: 12, j: 2 }, { i: 12, j: 3 },  ], css_id: 'tinytable_css_cohxofbshur6yip41jpt',}, 
-          { positions: [ { i: 10, j: 3 }, { i: 10, j: 2 }, { i: 10, j: 4 }, { i: 10, j: 1 },  ], css_id: 'tinytable_css_aiktvbiy0tk8rqu4336x',}, 
-          { positions: [ { i: 4, j: 1 }, { i: 3, j: 1 }, { i: 8, j: 1 }, { i: 5, j: 1 }, { i: 7, j: 1 }, { i: 3, j: 2 }, { i: 9, j: 1 }, { i: 6, j: 1 }, { i: 11, j: 1 }, { i: 7, j: 2 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 11, j: 2 }, { i: 8, j: 2 }, { i: 9, j: 2 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 9, j: 3 }, { i: 5, j: 4 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 4, j: 4 }, { i: 9, j: 4 }, { i: 11, j: 3 }, { i: 3, j: 4 }, { i: 8, j: 4 }, { i: 6, j: 4 }, { i: 7, j: 4 }, { i: 11, j: 4 },  ], css_id: 'tinytable_css_haeqq7fogpp0zpx89mnp',}, 
-          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_aakia0ptuv8q9654eqzt',}, 
-          { positions: [ { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_2kqsp8j0eltim26r1vhk',}, 
-          { positions: [ { i: 2, j: 1 }, { i: 2, j: 2 }, { i: 2, j: 3 }, { i: 2, j: 4 },  ], css_id: 'tinytable_css_e3qw7fajox7skjbol1xy',}, 
-          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_4bwn751a73spn29gtvip',}, 
-          { positions: [ { i: 10, j: 0 },  ], css_id: 'tinytable_css_ufpn42gg9ol8cyqiqfxv',}, 
-          { positions: [ { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 11, j: 0 },  ], css_id: 'tinytable_css_s12nj4cx5lp3zzq90e0a',}, 
-          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_cebzw5xoe4y1frkk8jcr',}, 
-          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_o7u0rk90gcoeijrrexoj',}, 
-          { positions: [ { i: 2, j: 0 },  ], css_id: 'tinytable_css_7k0m7nbzuie7lyy5b015',}, 
+          { positions: [ { i: 1, j: 4 }, { i: 1, j: 3 },  ], css_id: 'tinytable_css_tf6fwh5wzcayz1vjbl88',}, 
+          { positions: [ { i: 0, j: 3 }, { i: 0, j: 2 }, { i: 0, j: 4 },  ], css_id: 'tinytable_css_eq5cpjsjr72gz1cm23y2',}, 
+          { positions: [ { i: 12, j: 1 }, { i: 12, j: 4 }, { i: 12, j: 2 }, { i: 12, j: 3 },  ], css_id: 'tinytable_css_o17pwylemm4447o58ovv',}, 
+          { positions: [ { i: 10, j: 3 }, { i: 10, j: 2 }, { i: 10, j: 4 }, { i: 10, j: 1 },  ], css_id: 'tinytable_css_dacrwvyz0ud6kjnmw3hr',}, 
+          { positions: [ { i: 4, j: 1 }, { i: 3, j: 1 }, { i: 8, j: 1 }, { i: 5, j: 1 }, { i: 7, j: 1 }, { i: 3, j: 2 }, { i: 9, j: 1 }, { i: 6, j: 1 }, { i: 11, j: 1 }, { i: 7, j: 2 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 11, j: 2 }, { i: 8, j: 2 }, { i: 9, j: 2 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 9, j: 3 }, { i: 5, j: 4 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 4, j: 4 }, { i: 9, j: 4 }, { i: 11, j: 3 }, { i: 3, j: 4 }, { i: 8, j: 4 }, { i: 6, j: 4 }, { i: 7, j: 4 }, { i: 11, j: 4 },  ], css_id: 'tinytable_css_6t2yenalq37j0o7hm757',}, 
+          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_s0mlitafcf1a3pau2e00',}, 
+          { positions: [ { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_uu3a94mtrdkhwk24b2uj',}, 
+          { positions: [ { i: 2, j: 1 }, { i: 2, j: 2 }, { i: 2, j: 3 }, { i: 2, j: 4 },  ], css_id: 'tinytable_css_lff27u3446l3aubjsmnh',}, 
+          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_b1t95xne4ixu0l0izgqb',}, 
+          { positions: [ { i: 10, j: 0 },  ], css_id: 'tinytable_css_s7tdhj3zlm1bm1io7ax5',}, 
+          { positions: [ { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 11, j: 0 },  ], css_id: 'tinytable_css_pssf8r7rhl0m8tjpftdw',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_r4xi43kunv3gg5t4g5zb',}, 
+          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_we4tou8rsit4w6uidcm3',}, 
+          { positions: [ { i: 2, j: 0 },  ], css_id: 'tinytable_css_mge20tow7xp4778310dd',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_6c07h81899659hij44qc(cell.i, cell.j, group.css_id);
+                  styleCell_07fmpa4u8m0ye0co5fd9(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><style>
       /* tinytable css entries after */
-      .table td.tinytable_css_16ho7gsa324zk6ud3b3o, .table th.tinytable_css_16ho7gsa324zk6ud3b3o { text-align: center; text-align: center; }
-      .table td.tinytable_css_523fdowc4327spapkair, .table th.tinytable_css_523fdowc4327spapkair { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_cohxofbshur6yip41jpt, .table th.tinytable_css_cohxofbshur6yip41jpt { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_aiktvbiy0tk8rqu4336x, .table th.tinytable_css_aiktvbiy0tk8rqu4336x { text-align: center; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_haeqq7fogpp0zpx89mnp, .table th.tinytable_css_haeqq7fogpp0zpx89mnp { text-align: center; }
-      .table td.tinytable_css_aakia0ptuv8q9654eqzt, .table th.tinytable_css_aakia0ptuv8q9654eqzt { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_2kqsp8j0eltim26r1vhk, .table th.tinytable_css_2kqsp8j0eltim26r1vhk { text-align: center; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_e3qw7fajox7skjbol1xy, .table th.tinytable_css_e3qw7fajox7skjbol1xy { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_4bwn751a73spn29gtvip, .table th.tinytable_css_4bwn751a73spn29gtvip { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_ufpn42gg9ol8cyqiqfxv, .table th.tinytable_css_ufpn42gg9ol8cyqiqfxv { text-align: left; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_s12nj4cx5lp3zzq90e0a, .table th.tinytable_css_s12nj4cx5lp3zzq90e0a { text-align: left; }
-      .table td.tinytable_css_cebzw5xoe4y1frkk8jcr, .table th.tinytable_css_cebzw5xoe4y1frkk8jcr { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_o7u0rk90gcoeijrrexoj, .table th.tinytable_css_o7u0rk90gcoeijrrexoj { text-align: left; text-align: center; }
-      .table td.tinytable_css_7k0m7nbzuie7lyy5b015, .table th.tinytable_css_7k0m7nbzuie7lyy5b015 { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_tf6fwh5wzcayz1vjbl88, .table th.tinytable_css_tf6fwh5wzcayz1vjbl88 { text-align: center; text-align: center; }
+      .table td.tinytable_css_eq5cpjsjr72gz1cm23y2, .table th.tinytable_css_eq5cpjsjr72gz1cm23y2 { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_o17pwylemm4447o58ovv, .table th.tinytable_css_o17pwylemm4447o58ovv { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_dacrwvyz0ud6kjnmw3hr, .table th.tinytable_css_dacrwvyz0ud6kjnmw3hr { text-align: center; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_6t2yenalq37j0o7hm757, .table th.tinytable_css_6t2yenalq37j0o7hm757 { text-align: center; }
+      .table td.tinytable_css_s0mlitafcf1a3pau2e00, .table th.tinytable_css_s0mlitafcf1a3pau2e00 { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_uu3a94mtrdkhwk24b2uj, .table th.tinytable_css_uu3a94mtrdkhwk24b2uj { text-align: center; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_lff27u3446l3aubjsmnh, .table th.tinytable_css_lff27u3446l3aubjsmnh { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_b1t95xne4ixu0l0izgqb, .table th.tinytable_css_b1t95xne4ixu0l0izgqb { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_s7tdhj3zlm1bm1io7ax5, .table th.tinytable_css_s7tdhj3zlm1bm1io7ax5 { text-align: left; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_pssf8r7rhl0m8tjpftdw, .table th.tinytable_css_pssf8r7rhl0m8tjpftdw { text-align: left; }
+      .table td.tinytable_css_r4xi43kunv3gg5t4g5zb, .table th.tinytable_css_r4xi43kunv3gg5t4g5zb { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_we4tou8rsit4w6uidcm3, .table th.tinytable_css_we4tou8rsit4w6uidcm3 { text-align: left; text-align: center; }
+      .table td.tinytable_css_mge20tow7xp4778310dd, .table th.tinytable_css_mge20tow7xp4778310dd { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
     </style>
 <div class="container">
-      <div class="inline-table"><table class="table table-borderless" id="tinytable_6c07h81899659hij44qc" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <div class="inline-table"><table class="table table-borderless" id="tinytable_07fmpa4u8m0ye0co5fd9" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead>
 <tr>
 <th scope="col" align="center" colspan="1"> </th>
@@ -1125,7 +1125,7 @@ Figure 37: ROC Curve
                   <td></td>
                   <td>0.015*</td>
                   <td></td>
-                  <td>0.008</td>
+                  <td>0.007</td>
                 </tr>
 <tr>
 <td></td>
@@ -1150,31 +1150,31 @@ Figure 37: ROC Curve
                 </tr>
 <tr>
 <td>Intercept</td>
-                  <td>-1.983***</td>
-                  <td>-2.705***</td>
-                  <td>1.637***</td>
-                  <td>0.801</td>
+                  <td>-1.977***</td>
+                  <td>-2.717***</td>
+                  <td>1.629***</td>
+                  <td>0.827</td>
                 </tr>
 <tr>
 <td></td>
                   <td>(0.047)</td>
-                  <td>(0.339)</td>
+                  <td>(0.338)</td>
                   <td>(0.076)</td>
-                  <td>(0.584)</td>
+                  <td>(0.586)</td>
                 </tr>
 <tr>
 <td>ROC Curve</td>
                   <td>0.523</td>
-                  <td>0.596</td>
-                  <td>0.836</td>
-                  <td>0.822</td>
+                  <td>0.598</td>
+                  <td>0.834</td>
+                  <td>0.821</td>
                 </tr>
 <tr>
 <td>Num.Obs.</td>
                   <td>4652</td>
                   <td>3351</td>
-                  <td>4616</td>
-                  <td>3610</td>
+                  <td>4589</td>
+                  <td>3585</td>
                 </tr>
 </tbody>
 </table></div>
