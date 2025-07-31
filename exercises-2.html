@@ -508,7 +508,24 @@ ROC
 </div>
 </div>
 
-  <div class="chapter-nav">
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll(".delayed-download");
+
+    buttons.forEach(function (btn) {
+      const releaseDate = new Date(btn.dataset.date);
+      const now = new Date();
+
+      if (now >= releaseDate) {
+        btn.classList.remove("disabled");
+        btn.setAttribute("aria-disabled", "false");
+        btn.setAttribute("href", btn.dataset.path);
+        btn.setAttribute("download", btn.dataset.path.split('/').pop());
+        btn.innerHTML = btn.dataset.label || "📄 Download Document";
+      }
+    });
+  });
+</script><div class="chapter-nav">
 <div class="prev"><a href="joint-estimation-of-emergence-and-survival.html">Joint Estimation of Emergence and Survival</a></div>
 <div class="next"><a href="homework-for-week-8.html">Homework for Week 8</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
@@ -535,7 +552,7 @@ ROC
 
   <div class="col-12 col-md-6 mt-3">
     <p>"<strong><p><img src="images/Crest_white.png" width="75" style="display:block; margin:auto; margin-bottom:3em;"> PO33Q: Determinants of Democracy – <br> Analysing Emergence, Survival, and Fall</p></strong>" was written by </p>
-<p><strong>Dr Flo Reiche</strong> <br><strong>Department of Politics and International Studies</strong> <br><strong>University of Warwick</strong></p>. It was last built on 29 July, 2025.
+<p><strong>Dr Flo Reiche</strong> <br><strong>Department of Politics and International Studies</strong> <br><strong>University of Warwick</strong></p>. It was last built on 31 July, 2025.
   </div>
 
   <div class="col-12 col-md-6 mt-3">
