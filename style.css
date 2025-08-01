@@ -503,7 +503,10 @@ a.btn-primary {
   background-color: #e57726;
   border-color: #e57726;
   color: #000;
-  margin-top: 0.75rem;    /* adds space above */
+  margin-top: 0.75rem;
+  display: inline-block;
+  text-align: left; /* ensures text aligns left inside button */
+  padding: 0.5em 1em; /* optional, for spacing */
 }
 
 a.btn-primary:hover {
@@ -512,24 +515,31 @@ a.btn-primary:hover {
   color: #000;
 }
 
+a.btn-primary .btn-content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  text-align: left;
+}
+
 .icon-img {
   width: 1em;
   height: 1em;
   margin-right: 0.4em;
-  vertical-align: middle; 
-  display: inline;        
+  vertical-align: middle;
+  display: inline-block;
 }
 
 /* muted gray for disabled state */
-
 a.btn-primary.disabled,
 a.btn-primary[aria-disabled="true"] {
-  background-color: #cb7334;   
-  border-color: #cb7334;          
-  color: #4d4d4d;         
-  pointer-events: none;        /* prevent clicks */
+  background-color: #cb7334;
+  border-color: #cb7334;
+  color: #4d4d4d;
+  pointer-events: none;
   cursor: not-allowed;
   opacity: 0.85;
   text-decoration: none;
-  margin-top: 0.75rem;      
+  margin-top: 0.75rem;
 }
