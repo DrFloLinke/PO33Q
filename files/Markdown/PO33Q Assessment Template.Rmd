@@ -39,6 +39,7 @@ header-includes:
 ---
 
 \thispagestyle{empty}
+
 ```{=latex}
 \begin{tikzpicture}[remember picture,overlay]
   \draw[line width=1pt]
@@ -46,6 +47,7 @@ header-includes:
     ($(current page.south east)+(-18mm,18mm)$);
 \end{tikzpicture}
 ```
+
 \vfill
 \begin{center}
 \includegraphics[width=0.25\textwidth]{Warwick.png}
@@ -53,6 +55,7 @@ header-includes:
 \vspace{1cm}
 
 \newpage
+
 ```{=latex}
 \pagenumbering{roman}
 \setcounter{tocdepth}{4}
@@ -67,33 +70,30 @@ header-includes:
 \pagenumbering{arabic}
 \setcounter{page}{1}
 
-
 # Introduction
 
-- State the puzzle and the resulting research question
-- Outline the plan of the study
-- State the main findings
-
+-   State the puzzle and the resulting research question
+-   Outline the plan of the study
+-   State the main findings
 
 # Literature Review & Theory
 
-- Review the relevant literature
-- You can cite something like this: \citep{prz:2000}
-- Deduct the gap you are filling
-- Explain the causal chain of your theory
-
+-   Review the relevant literature
+-   You can cite something like this: \citep{prz:2000}
+-   Deduct the gap you are filling
+-   Explain the causal chain of your theory
 
 # Hypotheses
 
-- State the hypotheses you are testing:
-  - H$_1$: 
-  - H$_2$: 
+-   State the hypotheses you are testing:
+    -   H$_1$:
+    -   H$_2$:
 
 # Conceptualisation & Measurement
 
-- State the concepts
-- Choose appropriate measures
-- Feel free to present this in a table like Table \ref{tbl:conceptualisation} to supplement the text. But bear in mind that this adds to the word count proportional to the amount of space it occupies. This is why I have decreased the font size in the table itself. 
+-   State the concepts
+-   Choose appropriate measures
+-   Feel free to present this in a table like Table \ref{tbl:conceptualisation} to supplement the text. But bear in mind that this adds to the word count proportional to the amount of space it occupies. This is why I have decreased the font size in the table itself.
 
 \begin{table}[h]
 \fontsize{8}{10}\selectfont
@@ -101,7 +101,7 @@ header-includes:
 \begin{tabular}{lll}
         &  \\[-1.8ex] \specialrule{.08em}{.05em}{.17em}\hline
         &  \\[-1.4ex]
-Concept                 &  Attribute                        &   Variable                        \\
+Concept               &  Attribute             &   Variable                     \\
 
 \hline
         &  \\[-1.2ex]
@@ -109,21 +109,21 @@ Concept                 &  Attribute                        &   Variable        
 \multicolumn{2}{l}{\textbf{Dependent Variable}}     &                           \\
 
 \addlinespace
-Democracy       &   Participation     &   \citet{boix:2022}  \\
-                &   Contestation      &                   \\
+Democracy             &   Participation     &   \citet{boix:2022}               \\
+                      &   Contestation      &                                   \\
 
 \addlinespace
 \addlinespace
 
-\multicolumn{2}{l}{\textbf{Independent Variables}}          &                           \\
+\multicolumn{2}{l}{\textbf{Independent Variables}}  &                           \\
 
 \addlinespace
-Economic Development  &     Wealth    & per capita GDP    \\
-                      &     Growth    & per capita GDP growth \\
+Economic Development  &     Wealth          & per capita GDP                    \\
+                      &     Growth          & per capita GDP growth             \\
 \addlinespace
-Social Development    &     Health    & life expectancy at birth \\
-                      &     Education & primary school enrolment \\
-                      &     Urbanisation  & \% of population living in cities \\
+Social Development    &     Health          & life expectancy at birth          \\
+                      &     Education       & primary school enrolment          \\
+                      &     Urbanisation    & \% of population living in cities \\
 \hline\specialrule{.08em}{.17em}{.05em}
 & \\[-1.8ex] 
 \end{tabular}
@@ -131,21 +131,20 @@ Social Development    &     Health    & life expectancy at birth \\
 \label{tbl:conceptualisation}
 \end{table}
 
-
-
 # Data & Methodology
 
-- Outline the data used for analysis
-- Explain the Markov Transition Model and why it is suitable for your analysis
+-   Outline the data used for analysis
+-   Explain the Markov Transition Model and why it is suitable for your analysis
 
 # Analysis
 
-- Test the hypotheses
-- Explain what the results mean for the hypotheses
-- Answer your research question
-- You probably won't have to include a figure, but just in case, this is how it would work:
+-   Test the hypotheses
+-   Explain what the results mean for the hypotheses
+-   Answer your research question
+-   You probably won't have to include a figure, but just in case, this is how it would work:
 
 \FloatBarrier
+
 ```{r message=F, warning=F, echo=F, out.width='30%',fig.align='center',  fig.cap="\\label{fig:normal}Standard Normal Distribution"}
 library(tidyverse)
 x=seq(-3,3,length=200)
@@ -157,29 +156,23 @@ ggplot(normaldata, aes(x=x, y = y)) +
   geom_density(stat="identity") +
   theme_classic() 
 ```
+
 \FloatBarrier
 
 As we can see in Figure \ref{fig:normal}...
 
-
-
 # Discussion
 
-- Discuss reasons why you have obtained your results
-  - Why might coefficients be insignificant?
-  - What alternative explanations are there?
-- Relate your findings to the existing literature
- 
+-   Discuss reasons why you have obtained your results
+    -   Why might coefficients be insignificant?
+    -   What alternative explanations are there?
+-   Relate your findings to the existing literature
 
 # Conclusion
 
-- State what the study has done
-- State the main findings
-- Answer your research question
-
-
-
-
+-   State what the study has done
+-   State the main findings
+-   Answer your research question
 
 \newpage
 
@@ -191,7 +184,7 @@ As we can see in Figure \ref{fig:normal}...
 
 \newpage
 
-# Appendix {-}
+# Appendix {.unnumbered}
 
 ```{r eval=FALSE}
 # here goes all of your Rscript
