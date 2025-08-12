@@ -4,14 +4,19 @@ title: |
   |
   |
   | Summative Assessment
-  | PO33Q: Determinants of Democracy
+  |
+  | PO33Q: Determinants of Democracy --
+  | Analysing Emergence, Survival, and Fall
 subtitle: |
     |
     |
     | Word Count: XXX
     | Word Count for Figures: XXX
+    | Total Word Count: XXX
 author: "u1234567"
-date: 'Submitted on `r format(Sys.Date(), "%d %B, %Y")`'
+date: |
+      |
+      | Submitted on `r format(Sys.Date(), "%d %B, %Y")`
 output: 
   pdf_document:
     latex_engine: lualatex
@@ -19,17 +24,33 @@ output:
     toc: no
     number_sections: false
 header-includes:  
-  - \usepackage[style=apa,backend=biber,natbib=true]{biblatex}
-  - \addbibresource{referencesPO33Q.bib}
+  - \usepackage[style=apa,backend=biber,natbib=true]{biblatex} # sets the bib style
+  - \addbibresource{referencesPO33Q.bib} # this is the .bib resource file
   - \renewcommand{\familydefault}{\sfdefault} # makes the font sans serif
   - \usepackage{booktabs} # for tables
+  - \usepackage{tikz} # for the box on the cover page
+  - \usetikzlibrary{calc} # for the box on the cover page
+  - \usepackage{placeins} # set barriers within which figures are placed
+  - \usepackage{needspace} # the remainder forces page breaks if
+  - \usepackage{etoolbox}  # too little space remains after a (sub-)section heading
+  - \preto{\section}{\par\Needspace*{7\baselineskip}}
+  - \preto{\subsection}{\par\Needspace*{6\baselineskip}}
+  - \preto{\subsubsection}{\par\Needspace*{5\baselineskip}}
 ---
 
 \thispagestyle{empty}
+```{=latex}
+\begin{tikzpicture}[remember picture,overlay]
+  \draw[line width=1pt]
+    ($(current page.north west)+(18mm,-18mm)$) rectangle
+    ($(current page.south east)+(-18mm,18mm)$);
+\end{tikzpicture}
+```
 \vfill
 \begin{center}
 \includegraphics[width=0.25\textwidth]{Warwick.png}
 \end{center}
+\vspace{1cm}
 
 \newpage
 ```{=latex}
@@ -46,22 +67,40 @@ header-includes:
 \pagenumbering{arabic}
 \setcounter{page}{1}
 
+
 # Introduction
 
-# Literature Review / Theory
+- State the puzzle and the resulting research question
+- Outline the plan of the study
+- State the main findings
 
-Text \citep{prz:2000}
+
+# Literature Review & Theory
+
+- Review the relevant literature
+- You can cite something like this: \citep{prz:2000}
+- Deduct the gap you are filling
+- Explain the causal chain of your theory
+
 
 # Hypotheses
 
-# Conceptualisation and Measurement
+- State the hypotheses you are testing:
+  - H$_1$: 
+  - H$_2$: 
+
+# Conceptualisation & Measurement
+
+- State the concepts
+- Choose appropriate measures
+- Feel free to present this in a table like Table \ref{tbl:conceptualisation} to supplement the text. But bear in mind that this adds to the word count proportional to the amount of space it occupies. This is why I have decreased the font size in the table itself. 
 
 \begin{table}[h]
 \fontsize{8}{10}\selectfont
 \centering
 \begin{tabular}{lll}
-        &  \\[-1.8ex] \toprule\hline
-        &  \\[-1.8ex]
+        &  \\[-1.8ex] \specialrule{.08em}{.05em}{.17em}\hline
+        &  \\[-1.4ex]
 Concept                 &  Attribute                        &   Variable                        \\
 
 \hline
@@ -70,7 +109,7 @@ Concept                 &  Attribute                        &   Variable        
 \multicolumn{2}{l}{\textbf{Dependent Variable}}     &                           \\
 
 \addlinespace
-Democracy       &   Participation     &   \citep{boix:2022}  \\
+Democracy       &   Participation     &   \citet{boix:2022}  \\
                 &   Contestation      &                   \\
 
 \addlinespace
@@ -85,17 +124,29 @@ Economic Development  &     Wealth    & per capita GDP    \\
 Social Development    &     Health    & life expectancy at birth \\
                       &     Education & primary school enrolment \\
                       &     Urbanisation  & \% of population living in cities \\
-\hline\bottomrule
+\hline\specialrule{.08em}{.17em}{.05em}
 & \\[-1.8ex] 
 \end{tabular}
 \caption{Conceptualisation and Mesasurement}
+\label{tbl:conceptualisation}
 \end{table}
+
+
 
 # Data & Methodology
 
+- Outline the data used for analysis
+- Explain the Markov Transition Model and why it is suitable for your analysis
+
 # Analysis
 
-```{r message=F, warning=F, echo=F, out.width='30%',fig.align='center', fig.cap="\\label{fig:normal}Standard Normal Distribution"}
+- Test the hypotheses
+- Explain what the results mean for the hypotheses
+- Answer your research question
+- You probably won't have to include a figure, but just in case, this is how it would work:
+
+\FloatBarrier
+```{r message=F, warning=F, echo=F, out.width='30%',fig.align='center',  fig.cap="\\label{fig:normal}Standard Normal Distribution"}
 library(tidyverse)
 x=seq(-3,3,length=200)
 y=dnorm(x, mean = 0, sd = 1)
@@ -106,14 +157,29 @@ ggplot(normaldata, aes(x=x, y = y)) +
   geom_density(stat="identity") +
   theme_classic() 
 ```
+\FloatBarrier
 
 As we can see in Figure \ref{fig:normal}...
 
+
+
 # Discussion
 
-
+- Discuss reasons why you have obtained your results
+  - Why might coefficients be insignificant?
+  - What alternative explanations are there?
+- Relate your findings to the existing literature
+ 
 
 # Conclusion
+
+- State what the study has done
+- State the main findings
+- Answer your research question
+
+
+
+
 
 \newpage
 
@@ -125,7 +191,7 @@ As we can see in Figure \ref{fig:normal}...
 
 \newpage
 
-# Appendix I {.unnumbered}
+# Appendix {-}
 
 ```{r eval=FALSE}
 # here goes all of your Rscript
