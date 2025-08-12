@@ -149,18 +149,25 @@
 <li>Text</li>
 <li>Code Chunks</li>
 </ul>
-<p>I will go through these in turn now. To follow along, I recommend you download the <a href="files/Markdown/PO33Q%20Assessment%20Template.Rmd">Assessment Template</a> in which most of the below is already implemented. Once you open this Rmd file in R Studio, you will obtain a few more options in the task bar at the top which will allow you to turn this raw file into a pdf. More on this below, under “Knitting”.</p>
+<p>I will go through these in turn now. To follow along, I recommend you download the <a href="files/Markdown/PO33Q%20Assessment%20Template.Rmd">Assessment Template</a> in which all of the below is already implemented. Don’t do anything with it, yet. But whilst you are reading what I am discussing here, try to match it to what you see in the Rmd file.</p>
+<p>Once you open the essay template in R Studio, you will obtain a few more options in the task bar at the top which will allow you to turn this raw file into a pdf. More on this below, under “Knitting”.</p>
 <div class="inline-figure"><img src="files/Markdown/visual.png" width="60%"></div>
+<p>It is possible that R will ask you to install the <code>markdown</code> package. Please do so, and also allow the installation of any dependencies if prompted.</p>
 <div id="yaml" class="section level3 unnumbered">
 <h3>YAML<a class="anchor" aria-label="anchor" href="#yaml"><i class="fas fa-link"></i></a>
 </h3>
-<p>YAML is an acronym for “Yet Another Markup Language”. This section of the document contains the settings for the entire document, such as the title, information about the bibliography (see below), and additional packages we might need to load. To make your life a little easier, I will provide you with a template for the assessment further below.</p>
+<p>YAML is an acronym for “Yet Another Markup Language”. This section of the document contains the settings for the entire document, such as the title, information about the bibliography (see below), and additional packages we might need to load. The YAML is gated by three horizontal dashes at the top and at the bottom. In the template, there is some more formatting going on outside of the YAML and finishes at line 70.</p>
 </div>
 <div id="text" class="section level3 unnumbered">
 <h3>Text<a class="anchor" aria-label="anchor" href="#text"><i class="fas fa-link"></i></a>
 </h3>
-<p>Then follows the text which you can basically type as you always would. In order to use the familiar text formatting icons to set text as a heading, or in bold, change the font size, etc. you can switch the R Markdown editor to “Visual” at the top. By default, this is set to “Source” where markdown would expect code to achieve all of these formatting operations.</p>
+<p>Then, in line 71, follows the text which you can basically type as you always would. In order to use the familiar text formatting icons to set text as a heading, or in bold, change the font size, etc. you can switch the R Markdown editor to “Visual” at the top. By default, this is set to “Source” where markdown would expect code to achieve all of these formatting operations.</p>
 <div class="inline-figure"><img src="files/Markdown/visual1.png" width="60%"></div>
+<p>Once you activate it, this task bar will appear at the top of the Rmd file:</p>
+<div class="inline-figure"><img src="files/Markdown/wysiwyg.png" width="60%"></div>
+<div class="warning">
+<p>When you structure your document, it is essential that you format headings as such in the document and don’t just make the font larger. Otherwise, the automated table of contents will not work.</p>
+</div>
 <p>The visual editing bar will also allow you to include external pictures (external in the sense that you are not creating them in R whilst creating the document). For this purpose, click on the image icon in the visual editing bar, and a new window will pop up. Under the tab “Image” you can select the image from a file in your computer. Be sure to add a caption in this tab, as well. This will be printed underneath the image in your pdf. Then click the tab “Attributes”, and in the box “ID” enter a unique identifier for the image you are inserting. I usually use “fig” for figure, a colon, and then the name of the figure:</p>
 <div class="inline-figure"><img src="files/Markdown/labelpic.png" width="40%"></div>
 <p>Once you have done that, click OK, and the image will appear where you have placed it. Because you created a caption and a label, you can now refer to this picture in the text, using the <code>\ref{}</code> function. When you write</p>
@@ -205,7 +212,7 @@ modelsummary()
 <p>A <strong>bibliography</strong> lists all sources you have consulted for a project regardless of whether they are cited in the text, whereas a <strong>list of references</strong> only lists what has been cited in the text.</p>
 <p><strong>Warning:</strong></p>
 <p>The <a href="https://warwick.ac.uk/fac/soc/pais/currentstudents/undergraduate/handbook/coursework/#bibliography">PAIS UG Handbook</a> wants you to produce a list of references, but calls it a bibliography 🙄. Please produce a list of references, and call it a list of references in this assessment. You know better now.</p>
-This list of references must:
+<p>This list of references must:</p>
 <ul>
 <li>
 be organised alphabetically by surname of author
@@ -238,62 +245,38 @@ consistently formatted
 </div>
 <div class="custom-html-table">
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th>
-Input
-</th>
-<th>
-Output
-</th>
+<colgroup>
+<col width="45%">
+<col width="54%">
+</colgroup>
+<thead><tr class="header">
+<th>Input</th>
+<th>Output</th>
 </tr></thead>
 <tbody>
-<tr>
-<td>
-<code>\citep{prz:2000}</code>
-</td>
-<td>
-(Przeworski et al., 2000)
-</td>
+<tr class="odd">
+<td><code>\citep{prz:2000}</code></td>
+<td>(Przeworski et al., 2000)</td>
 </tr>
-<tr>
-<td>
-<code>\citep[p. 20]{prz:2000}</code>
-</td>
-<td>
-(Przeworski et al., 2000, p. 20)
-</td>
+<tr class="even">
+<td><code>\citep[p. 20]{prz:2000}</code></td>
+<td>(Przeworski et al., 2000, p. 20)</td>
 </tr>
-<tr>
-<td>
-<code>\citep[see][p. 20]{prz:2000}</code>
-</td>
-<td>
-(see Przeworski et al., 2000, p. 20)
-</td>
+<tr class="odd">
+<td><code>\citep[see][p. 20]{prz:2000}</code></td>
+<td>(see Przeworski et al., 2000, p. 20)</td>
 </tr>
-<tr>
-<td>
-<code>\citet{prz:2000}</code>
-</td>
-<td>
-Przeworski et al. (2000)
-</td>
+<tr class="even">
+<td><code>\citet{prz:2000}</code></td>
+<td>Przeworski et al. (2000)</td>
 </tr>
-<tr>
-<td>
-<code>\citet[p. 20]{prz:2000}</code>
-</td>
-<td>
-Przeworski et al. (2000, p. 20)
-</td>
+<tr class="odd">
+<td><code>\citet[p. 20]{prz:2000}</code></td>
+<td>Przeworski et al. (2000, p. 20)</td>
 </tr>
-<tr>
-<td>
-<code>\citet[see][p. 20]{prz:2000}</code>
-</td>
-<td>
-see Przeworski et al. (2000, p. 20)
-</td>
+<tr class="even">
+<td><code>\citet[see][p. 20]{prz:2000}</code></td>
+<td>see Przeworski et al. (2000, p. 20)</td>
 </tr>
 </tbody>
 </table></div>
