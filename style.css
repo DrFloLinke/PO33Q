@@ -59,20 +59,33 @@ h2, h3, h4 {
   color: #e8f1f2;
 }
 
-li.appendix span, li.part span {
+
+/* Left sidebar TOC: PART and (if present) APPENDIX dividers */
+.book-toc li.book-part,
+.book-toc li.appendix {
   font-family: 'Lexend', sans-serif;
-  margin-top: 1.5em;
+  margin-top: 2.0em;
   opacity: 1 !important;
   text-transform: uppercase;
+  color: #cb7334 !important; 
+}
+
+/* Uppercase the very top "Table of contents" heading in bs4_book */
+header.sidebar.sidebar-book nav[aria-label="Table of contents"] > h2 {
+  font-family: 'Lexend', sans-serif;
+  text-transform: uppercase !important;
+  opacity: 1 !important;
+  margin-top: 2.0em;
+  color: #cb7334 !important;
 }
 
 
 /* Darken the active highlight in the "On this page" TOC */
 .nav-link.active {
-  background-color: #44496f !important;  /* a darker shade you like */
-  color: #e1e2ea !important;             /* keep text readable */
+  background-color: #44496f !important;  /* a darker shade*/
+  color: #e1e2ea !important;            
   font-weight: 600;
-  border-radius: 4px;                    /* optional rounded corners */
+  border-radius: 4px;                    
 }
 
 /* Sidebar links */
