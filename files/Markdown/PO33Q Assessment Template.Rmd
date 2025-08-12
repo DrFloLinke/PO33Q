@@ -1,0 +1,133 @@
+---
+title: |
+  | \includegraphics[width=0.2\textwidth]{Crest.png}
+  |
+  |
+  | Summative Assessment
+  | PO33Q: Determinants of Democracy
+subtitle: |
+    |
+    |
+    | Word Count: XXX
+    | Word Count for Figures: XXX
+author: "u1234567"
+date: 'Submitted on `r format(Sys.Date(), "%d %B, %Y")`'
+output: 
+  pdf_document:
+    latex_engine: lualatex
+    citation_package: biblatex
+    toc: no
+    number_sections: false
+header-includes:  
+  - \usepackage[style=apa,backend=biber,natbib=true]{biblatex}
+  - \addbibresource{referencesPO33Q.bib}
+  - \renewcommand{\familydefault}{\sfdefault} # makes the font sans serif
+  - \usepackage{booktabs} # for tables
+---
+
+\thispagestyle{empty}
+\vfill
+\hfill \includegraphics[width=0.2\textwidth]{Warwick.png}
+
+\newpage
+```{=latex}
+\pagenumbering{roman}
+\setcounter{tocdepth}{4}
+\tableofcontents
+```
+
+\newpage
+
+\listoffigures
+\listoftables
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+# Introduction
+
+# Literature Review / Theory
+
+Text \citep{prz:2000}
+
+# Hypotheses
+
+# Conceptualisation and Measurement
+
+\begin{table}[h]
+\fontsize{8}{10}\selectfont
+\centering
+\begin{tabular}{lll}
+        &  \\[-1.8ex] \toprule\hline
+        &  \\[-1.8ex]
+Concept                 &  Attribute                        &   Variable                        \\
+
+\hline
+        &  \\[-1.2ex]
+
+\multicolumn{2}{l}{\textbf{Dependent Variable}}     &                           \\
+
+\addlinespace
+Democracy       &   Participation     &   \citep{boix:2022}  \\
+                &   Contestation      &                   \\
+
+\addlinespace
+\addlinespace
+
+\multicolumn{2}{l}{\textbf{Independent Variables}}          &                           \\
+
+\addlinespace
+Economic Development  &     Wealth    & per capita GDP    \\
+                      &     Growth    & per capita GDP growth \\
+\addlinespace
+Social Development    &     Health    & life expectancy at birth \\
+                      &     Education & primary school enrolment \\
+                      &     Urbanisation  & \% of population living in cities \\
+\hline\bottomrule
+& \\[-1.8ex] 
+\end{tabular}
+\caption{Conceptualisation and Mesasurement}
+\end{table}
+
+# Data & Methodology
+
+# Analysis
+
+```{r message=F, warning=F, echo=F, out.width='30%',fig.align='center', fig.cap="\\label{fig:normal}Standard Normal Distribution"}
+library(tidyverse)
+x=seq(-3,3,length=200)
+y=dnorm(x, mean = 0, sd = 1)
+
+normaldata <- data.frame(x,y)
+
+ggplot(normaldata, aes(x=x, y = y)) + 
+  geom_density(stat="identity") +
+  theme_classic() 
+```
+
+As we can see in Figure \ref{fig:normal}...
+
+# Discussion
+
+
+
+# Conclusion
+
+\newpage
+
+```{=latex}
+\clearpage
+\printbibliography[heading=bibintoc,title={List of References}]
+\let\printbibliography\relax
+```
+
+\newpage
+
+# Appendix I {.unnumbered}
+
+```{r eval=FALSE}
+# here goes all of your Rscript
+
+x <- 1:10
+mean(x)
+```
