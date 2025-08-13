@@ -627,11 +627,30 @@ a.btn-primary[aria-disabled="true"] {
 }
 
 
-/* Keep book title in orange on mobile */
+/* --- Keep book title orange on mobile & avoid over-targeting --- */
 @media (max-width: 991.98px) {
+  /* Only color TOC links that live inside the nav list */
+  #toc nav a,
+  header.sidebar.sidebar-book nav a {
+    color: #b3b7cb !important;
+    text-decoration: none !important;
+  }
+  #toc nav a:hover,
+  header.sidebar.sidebar-book nav a:hover {
+    background: #393A3B !important;
+    color: #e1e2ea !important;
+  }
+
+  /* Force the book title (brand) to stay orange */
+  header.sidebar.sidebar-book .book-brand,
+  header.sidebar.sidebar-book .book-brand a,
   header.sidebar.sidebar-book .book-title,
-  header.sidebar.sidebar-book .book-title a {
+  header.sidebar.sidebar-book .book-title a,
+  header.sidebar.sidebar-book .sidebar-book-title,
+  header.sidebar.sidebar-book .sidebar-book-title a,
+  .navbar .navbar-brand,
+  .navbar .navbar-brand:focus,
+  .navbar .navbar-brand:hover {
     color: #cb7334 !important;
-    font-weight: 500;
   }
 }
