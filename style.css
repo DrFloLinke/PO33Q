@@ -566,3 +566,62 @@ a.btn-primary[aria-disabled="true"] {
   text-decoration: none;
   margin-top: 0.75rem;
 }
+
+
+/* ----------------------------------------
+   Display on mobiles
+---------------------------------------- */
+
+/* --- Mobile TOC / Navbar dropdown (bs4_book) --- */
+@media (max-width: 991.98px) {
+  /* Collapsible TOC panel (id is #toc in bs4_book) */
+  #toc,
+  #toc.collapse,
+  #toc.collapse.show,
+  .sidebar .collapse,
+  .sidebar .collapse.show,
+  header.sidebar.sidebar-book,
+  header.sidebar.sidebar-book nav[aria-label="Table of contents"] {
+    background-color: #1d1f2b !important;
+    color: #e1e2ea !important;
+  }
+
+  /* Links inside the mobile TOC */
+  #toc a,
+  header.sidebar.sidebar-book a {
+    color: #b3b7cb !important;
+    text-decoration: none !important;
+  }
+  #toc a:hover,
+  header.sidebar.sidebar-book a:hover {
+    background: #393A3B !important;
+    color: #e1e2ea !important;
+  }
+}
+
+/* When TOC is rendered as a navbar dropdown on small screens */
+.navbar .dropdown-menu {
+  background-color: #1d1f2b !important;
+  color: #e1e2ea !important;
+  border-color: #5a5f80 !important;
+}
+.navbar .dropdown-item {
+  color: #b3b7cb !important;
+}
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:focus {
+  background-color: #393A3B !important;
+  color: #e1e2ea !important;
+}
+.navbar .dropdown-item.active,
+.navbar .dropdown-item:active {
+  background-color: #44496f !important;
+  color: #e1e2ea !important;
+}
+
+/* Ensure the "Table of contents" toggle button matches the theme */
+.navbar .nav-link.dropdown-toggle,
+.navbar .navbar-toggler {
+  color: #b3b7cb !important;
+  border-color: #5a5f80 !important;
+}
