@@ -587,17 +587,18 @@ a.btn-primary[aria-disabled="true"] {
   }
 
   /* Links inside the mobile TOC */
-  #toc a,
-  header.sidebar.sidebar-book a {
-    color: #b3b7cb !important;
-    text-decoration: none !important;
-  }
-  #toc a:hover,
-  header.sidebar.sidebar-book a:hover {
-    background: #393A3B !important;
-    color: #e1e2ea !important;
-  }
+/* Links inside the mobile TOC - scoped to nav only */
+#toc nav a,
+header.sidebar.sidebar-book nav a {
+  color: #b3b7cb !important;
+  text-decoration: none !important;
 }
+#toc nav a:hover,
+header.sidebar.sidebar-book nav a:hover {
+  background: #393A3B !important;
+  color: #e1e2ea !important;
+}
+
 
 /* When TOC is rendered as a navbar dropdown on small screens */
 .navbar .dropdown-menu {
@@ -627,34 +628,25 @@ a.btn-primary[aria-disabled="true"] {
 }
 
 
-/* --- Keep book title orange on mobile & avoid over-targeting --- */
+/* --- FINAL mobile fix: keep TOC links blue, book title orange --- */
 @media (max-width: 991.98px) {
-  /* Only color TOC links that live inside the nav list */
+  /* 1) Scope blue to TOC links only (sidebar nav + dropdown menu) */
+  header.sidebar.sidebar-book nav a,
   #toc nav a,
-  header.sidebar.sidebar-book nav a {
+  .navbar .dropdown-menu .dropdown-item {
     color: #b3b7cb !important;
-    text-decoration: none !important;
-  }
-  #toc nav a:hover,
-  header.sidebar.sidebar-book nav a:hover {
-    background: #393A3B !important;
-    color: #e1e2ea !important;
   }
 
-  /* Force the book title (brand) to stay orange */
-  header.sidebar.sidebar-book .book-brand,
-  header.sidebar.sidebar-book .book-brand a,
-  header.sidebar.sidebar-book .book-title,
+  /* 2) Force the book title/brand back to orange (higher specificity) */
+  header.sidebar.sidebar-book h1.book-title a,
   header.sidebar.sidebar-book .book-title a,
-  header.sidebar.sidebar-book .sidebar-book-title,
-  header.sidebar.sidebar-book .sidebar-book-title a,
+  header.sidebar.sidebar-book .book-brand a,
+  header.sidebar.sidebar-book .brand a,
   .navbar .navbar-brand,
-  .navbar .navbar-brand:focus,
-  .navbar .navbar-brand:hover {
+  .navbar .navbar-brand:link,
+  .navbar .navbar-brand:visited,
+  .navbar .navbar-brand:hover,
+  .navbar .navbar-brand:focus {
     color: #cb7334 !important;
   }
-}
-
-@media (max-width: 991.98px) {
-  header.sidebar.sidebar-book .book-brand * { color: #cb7334 !important; }
 }
