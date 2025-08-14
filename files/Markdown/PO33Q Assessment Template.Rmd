@@ -41,7 +41,7 @@ header-includes:
   - \renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}    # …subsections
   - \renewcommand{\cftsubsubsecleader}{\cftdotfill{\cftdotsep}} # …subsubsections
   - \PassOptionsToPackage{table}{xcolor}  # xcolor for setting grey background
-  - \definecolor{lightgray}{HTML}{e6e6e6} # choose grey for background
+  - \definecolor{lightgray}{HTML}{f0f0f0} # choose grey for background
   - \pagecolor{lightgray}                 # set background color
   - \usepackage{makecell}  # allow line breaks in modelsummary
   - \usepackage{setspace}  # allow onehalfspacing
@@ -175,6 +175,23 @@ Social Development    &     Health    & life expectancy at birth \\
 
 - Outline the data used for analysis
 - Explain the Markov Transition Model and why it is suitable for your analysis
+- In case you want to include the conditional probabilities:
+
+Emergence:
+
+\begin{equation}\label{eq:emergence}
+P(y_{i,t} = 1 | y_{i, t-1} = 0)
+\end{equation}
+	
+Survival:
+
+\begin{equation}\label{eq:survival}
+P(y_{i,t} = 1 | y_{i, t-1} = 1)
+\end{equation}
+
+
+To model democratic emergence we apply the conditional probability shown in Equation \ref{eq:emergence}...
+
 
 # Analysis
 
