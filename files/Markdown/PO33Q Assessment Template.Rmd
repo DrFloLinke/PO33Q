@@ -40,9 +40,10 @@ header-includes:
   - \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} # force dots for sections
   - \renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}    # …subsections
   - \renewcommand{\cftsubsubsecleader}{\cftdotfill{\cftdotsep}} # …subsubsections
-  - \usepackage[HTML]{xcolor}
+  - \PassOptionsToPackage{table}{xcolor}  # xcolor for setting grey background
   - \definecolor{lightgray}{HTML}{e6e6e6} # choose grey for background
   - \pagecolor{lightgray}                 # set background color
+  - \usepackage{makecell, graphicx}  # allow line breaks in modelsummary
   - \usepackage{setspace}  # allow onehalfspacing
   - \usepackage{needspace} # the remainder forces page breaks if
   - \usepackage{etoolbox}  # too little space remains after a (sub-)section heading
@@ -50,6 +51,27 @@ header-includes:
   - \preto{\subsection}{\par\Needspace*{6\baselineskip}}
   - \preto{\subsubsection}{\par\Needspace*{5\baselineskip}}
 ---
+
+```{r setup, include=FALSE}
+# global options for code chunks
+knitr::opts_chunk$set(
+  echo = FALSE, warning = FALSE, message = FALSE, error = FALSE, collapse = TRUE)
+
+# control the placing of captions and resizing
+options("tinytable_theme_placement_latex_float" = "H",
+        tinytable_theme_resize_direction = "both")
+```
+
+```{=latex}
+\DefTblrTemplate{firsthead,middlehead,lasthead}{default}{}
+\DefTblrTemplate{firstfoot,middlefoot}{default}{}
+\DefTblrTemplate{lastfoot}{default}% 
+{
+  \UseTblrTemplate{note}{default}
+  \UseTblrTemplate{caption}{default}
+}
+```
+
 
 \thispagestyle{empty}
 ```{=latex}
@@ -111,7 +133,7 @@ header-includes:
 - Feel free to present this in a table like Table \ref{tbl:conceptualisation} to supplement the text. But bear in mind that this adds to the word count proportional to the amount of space it occupies. This is why I have decreased the font size in the table itself. 
 
 \FloatBarrier
-\begin{table}[!h]
+\begin{table}
 \fontsize{8}{10}\selectfont
 \centering
 \begin{tabular}{lll}
@@ -176,6 +198,51 @@ ggplot(normaldata, aes(x=x, y = y)) +
 \FloatBarrier
 
 As we can see in Figure \ref{fig:normal}...
+
+Here is a \texttt{modesummary} example:
+
+```{r}
+# Load packages
+library(modelsummary)
+library(tinytable)
+library(carData) # this is just a sample data set for illustration here
+
+# Data
+data("Prestige", package = "carData")
+
+# Three regression models
+m1 <- lm(prestige ~ education, data = Prestige)
+m2 <- lm(prestige ~ income + type, data = Prestige)
+m3 <- lm(prestige ~ education + income, data = Prestige)
+
+# Create a list for models
+
+models <- list(
+  "(1)" = m1,
+  "(2)" = m2,
+  "(3)" = m3
+)
+
+# Coefficient map: named vector where names = original terms, values = display labels
+cm <- c(
+  "(Intercept)" = "Constant",
+  "education"   = "Years of Education",
+  "income"      = "Average Income"
+)
+
+# Create the modelsummary table
+modelsummary(models, 
+             title = 'Regression Models',
+             gof_omit = 'DF|Deviance|Log.Lik|F|AIC|BIC|RMSE', 
+             stars=TRUE,
+             coef_map = cm)|>
+  group_tt(j = list("\\makecell{Dependent Variable:\\\\Prestige Score for Occupation}" = 2:4))|> 
+  theme_tt("resize", width = 0.5)|>  # resize the table as % of text width
+  style_tt(tabularray_outer = "label={tab:regression}") # add label for cross ref
+
+```
+
+In Table \ref{tab:regression}, the coefficient for...
 
 
 
