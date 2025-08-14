@@ -1,24 +1,5 @@
 ---
-title: |
-  | \includegraphics[width=0.15\textwidth]{Crest.png}
-  |
-  |
-  | Summative Assessment
-  |
-  | PO33Q: Determinants of Democracy --
-  | Analysing Emergence, Survival, and Fall
-author: "u1234567"
-date: |
-  \parbox{\textwidth}{
-    \begin{center}
-    Submitted on `r format(Sys.Date(), "%d %B, %Y")`\\[5em]
-    \begin{tabular}{@{}l@{}}
-    Word Count: XXX \\
-    Word Count for Figures \& Tables: XXX \\
-    Total Word Count: XXX
-    \end{tabular}
-    \end{center}
-  }
+title: ""
 output: 
   pdf_document:
     latex_engine: lualatex
@@ -26,7 +7,31 @@ output:
     toc: no
     number_sections: false
 fontsize: 12pt
-header-includes:  
+header-includes:    
+  - \usepackage{graphicx}
+  - |
+    \newcommand*{\titleGM}{%
+    \begingroup
+    \thispagestyle{empty}
+    {\centering\includegraphics[width=0.175\linewidth]{Crest.png}\\[3\baselineskip]}
+    \hbox{%
+      \hspace*{0.075\textwidth}%
+      \rule{1.5pt}{0.6\textheight}%
+      \hspace*{0.05\textwidth}%
+      \parbox[b][0.6\textheight]{0.85\textwidth}{%
+        \vspace{3\baselineskip} % <<< move text down relative to top of rule
+        {\noindent\LARGE\bfseries PO33Q - Determinants of Democracy:\\Analysing Emergence, Survival, and Fall\\}\\[1\baselineskip]
+        {\noindent\large\bfseries Summative Assessment\\}\\[2\baselineskip]
+        {\large \textit{\textbf{Warwick ID:} u1234567}}\\
+        \vfill
+        {\large Number of Words: XXXX}\\
+        {\large Words for Figures and Tables: XXXX}\\
+        {\large Total Number of Words: XXXX}\\[\baselineskip]
+      }%
+    }%
+    \vfill
+    \hfill \includegraphics[width=0.25\textwidth]{Warwick.png}
+    \endgroup}
   - \usepackage[style=apa,backend=biber,natbib=true]{biblatex} # sets the bib style
   - \addbibresource{referencesPO33Q.bib} # this is the .bib resource file
   - \renewcommand{\familydefault}{\sfdefault} # makes the font sans serif
@@ -74,18 +79,11 @@ options("tinytable_theme_placement_latex_float" = "H",
 
 
 \thispagestyle{empty}
+
 ```{=latex}
-\begin{tikzpicture}[remember picture,overlay]
-  \draw[line width=1pt]
-    ($(current page.north west)+(18mm,-18mm)$) rectangle
-    ($(current page.south east)+(-18mm,18mm)$);
-\end{tikzpicture}
+\titleGM
+\clearpage
 ```
-\vfill
-\begin{center}
-\includegraphics[width=0.25\textwidth]{Warwick.png}
-\end{center}
-\vspace{1cm}
 
 \newpage
 
