@@ -9,35 +9,41 @@ output:
 fontsize: 12pt
 header-includes:    
   - \usepackage{graphicx}
+  - \usepackage{tikz}     # for the box on the cover page
+  - \usetikzlibrary{calc} # for the box on the cover page
   - |
     \newcommand*{\titleGM}{%
-    \begingroup
-    \thispagestyle{empty}
+      \begingroup
+      \thispagestyle{empty}
       \begin{center}
         \vspace*{2\baselineskip}
         \includegraphics[width=0.175\linewidth]{Crest.png}\\[4\baselineskip]
       \end{center}
-    \hbox{%
-      \hspace*{0.105\textwidth}%
-      \parbox[b][0.6\textheight]{0.85\textwidth}{%
-        {\noindent\LARGE\bfseries PO33Q - Determinants of Democracy:\\Analysing Emergence, Survival, and Fall\\}\\[1\baselineskip]
-        {\noindent\Large\bfseries Summative Assessment\\}\\[2\baselineskip]
-        {\large \textit{\textbf{Warwick ID:} u1234567}}\\
-        \vfill
-        {\large Number of Words: XXXX}\\
-        {\large Words for Figures and Tables: XXXX}\\
-        {\large Total Number of Words: XXXX}\\[3\baselineskip]
+      \hbox{%
+        \hspace*{0.105\textwidth}%
+        \parbox[b][0.6\textheight]{0.85\textwidth}{%
+          {\noindent\LARGE\bfseries PO33Q - Determinants of Democracy:\\Analysing Emergence, Survival, and Fall\\}\\[1\baselineskip]
+          {\noindent\Large\bfseries Summative Assessment\\}\\[2\baselineskip]
+          {\large \textit{\textbf{Warwick ID:} u1234567}}\\
+          \vfill
+          {\large Number of Words: XXXX}\\
+          {\large Words for Figures and Tables: XXXX}\\
+          {\large Total Number of Words: XXXX}\\[3\baselineskip]
+        }%
       }%
-    }%
-    \vfill
-    \hfill \includegraphics[width=0.25\textwidth]{Warwick.png}
-    \endgroup}
+      \vfill
+      \hfill \includegraphics[width=0.25\textwidth]{Warwick.png}
+      \begin{tikzpicture}[remember picture,overlay]
+        \draw[line width=1pt]
+          ($(current page.north west)+(18mm,-18mm)$) rectangle
+          ($(current page.south east)+(-18mm,18mm)$);
+      \end{tikzpicture}
+      \endgroup
+    }
   - \usepackage[style=apa,backend=biber,natbib=true]{biblatex} # sets the bib style
   - \addbibresource{referencesPO33Q.bib} # this is the .bib resource file
   - \renewcommand{\familydefault}{\sfdefault} # makes the font sans serif
   - \usepackage{booktabs} # for tables
-  - \usepackage{tikz} # for the box on the cover page
-  - \usetikzlibrary{calc} # for the box on the cover page
   - \usepackage{placeins} # set barriers within which figures are placed
   - \renewcommand{\contentsname}{Table of Contents} # Change toc title
   - \usepackage{tocloft}                            # For dotted leaders control
@@ -81,11 +87,6 @@ options("tinytable_theme_placement_latex_float" = "H",
 \thispagestyle{empty}
 
 ```{=latex}
-\begin{tikzpicture}[remember picture,overlay]
-  \draw[line width=1pt]
-    ($(current page.north west)+(18mm,-18mm)$) rectangle
-    ($(current page.south east)+(-18mm,18mm)$);
-\end{tikzpicture}
 \titleGM
 \clearpage
 ```
