@@ -43,7 +43,7 @@ header-includes:
   - \PassOptionsToPackage{table}{xcolor}  # xcolor for setting grey background
   - \definecolor{lightgray}{HTML}{e6e6e6} # choose grey for background
   - \pagecolor{lightgray}                 # set background color
-  - \usepackage{makecell, graphicx}  # allow line breaks in modelsummary
+  - \usepackage{makecell}  # allow line breaks in modelsummary
   - \usepackage{setspace}  # allow onehalfspacing
   - \usepackage{needspace} # the remainder forces page breaks if
   - \usepackage{etoolbox}  # too little space remains after a (sub-)section heading
@@ -274,9 +274,12 @@ In Table \ref{tab:regression}, the coefficient for...
 
 \newpage
 
-# Appendix {-}
+```{=latex}
+\appendix
+\section{Appendix}
+```
 
-```{r eval=FALSE}
+```{r echo=TRUE, eval=FALSE}
 # here goes all of your Rscript
 
 x <- 1:10
