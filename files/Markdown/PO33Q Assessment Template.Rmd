@@ -13,20 +13,20 @@ header-includes:
     \newcommand*{\titleGM}{%
     \begingroup
     \thispagestyle{empty}
-    {\centering\includegraphics[width=0.175\linewidth]{Crest.png}\\[3\baselineskip]}
+      \begin{center}
+        \vspace*{2\baselineskip}
+        \includegraphics[width=0.175\linewidth]{Crest.png}\\[4\baselineskip]
+      \end{center}
     \hbox{%
-      \hspace*{0.075\textwidth}%
-      \rule{1.5pt}{0.6\textheight}%
-      \hspace*{0.05\textwidth}%
+      \hspace*{0.105\textwidth}%
       \parbox[b][0.6\textheight]{0.85\textwidth}{%
-        \vspace{3\baselineskip} % <<< move text down relative to top of rule
         {\noindent\LARGE\bfseries PO33Q - Determinants of Democracy:\\Analysing Emergence, Survival, and Fall\\}\\[1\baselineskip]
         {\noindent\Large\bfseries Summative Assessment\\}\\[2\baselineskip]
         {\large \textit{\textbf{Warwick ID:} u1234567}}\\
         \vfill
         {\large Number of Words: XXXX}\\
         {\large Words for Figures and Tables: XXXX}\\
-        {\large Total Number of Words: XXXX}\\[\baselineskip]
+        {\large Total Number of Words: XXXX}\\[3\baselineskip]
       }%
     }%
     \vfill
@@ -81,6 +81,11 @@ options("tinytable_theme_placement_latex_float" = "H",
 \thispagestyle{empty}
 
 ```{=latex}
+\begin{tikzpicture}[remember picture,overlay]
+  \draw[line width=1pt]
+    ($(current page.north west)+(18mm,-18mm)$) rectangle
+    ($(current page.south east)+(-18mm,18mm)$);
+\end{tikzpicture}
 \titleGM
 \clearpage
 ```
