@@ -445,15 +445,16 @@ a.btn-primary.disabled, a.btn-primary[aria-disabled="true"], .btn.btn-primary.di
 /* ----------------------------------------
    Mobile
 ---------------------------------------- */
+/* Force dark navbar + collapsed panel on mobile */
 @media (max-width: 991.98px) {
-  .quarto-sidebar, #quarto-sidebar, nav#TOC {
+  header.navbar, .navbar, .navbar .container-fluid {
     background-color: var(--bg) !important;
-    color: var(--fg) !important;
   }
-
-  nav#TOC a { color: var(--muted) !important; text-decoration: none !important; }
-  nav#TOC a:hover { background: var(--hover) !important; color: var(--fg) !important; }
-
+  .navbar-collapse,
+  .navbar-collapse.collapse,
+  .navbar-collapse.show {
+    background-color: var(--bg) !important;
+  }
   .navbar .dropdown-menu {
     background-color: var(--bg) !important;
     color: var(--fg) !important;
@@ -461,16 +462,44 @@ a.btn-primary.disabled, a.btn-primary[aria-disabled="true"], .btn.btn-primary.di
   }
   .navbar .dropdown-item { color: var(--muted) !important; }
   .navbar .dropdown-item:hover,
-  .navbar .dropdown-item:focus { background-color: var(--hover) !important; color: var(--fg) !important; }
-  .navbar .dropdown-item.active,
-  .navbar .dropdown-item:active { background-color: var(--panel) !important; color: var(--fg) !important; }
-
-  .navbar .nav-link.dropdown-toggle,
-  .navbar .navbar-toggler {
-    color: var(--muted) !important;
-    border-color: var(--panel-2) !important;
+  .navbar .dropdown-item:focus {
+    background-color: var(--hover) !important;
+    color: var(--fg) !important;
   }
+  .navbar .nav-link { color: var(--muted) !important; }
+  .navbar .nav-link:hover { color: var(--fg) !important; background: var(--hover) !important; }
 }
+
+/* Quarto/Headroom sometimes makes the navbar transparent at the very top */
+.headroom--top .navbar,
+.headroom--unpinned .navbar,
+.headroom--pinned .navbar {
+  background-color: var(--bg) !important;
+}
+
+/* Make sure Bootstrap variables play nice (helps in some themes) */
+:root {
+  --bs-body-bg: var(--bg);
+  --bs-body-color: var(--fg);
+  --bs-navbar-color: var(--muted);
+  --bs-navbar-hover-color: var(--fg);
+  --bs-navbar-brand-color: var(--muted);
+  --bs-navbar-brand-hover-color: var(--fg);
+  --bs-dropdown-bg: var(--bg);
+  --bs-dropdown-link-color: var(--muted);
+  --bs-dropdown-link-hover-bg: var(--hover);
+  --bs-dropdown-link-hover-color: var(--fg);
+  --bs-border-color: var(--panel-2);
+}
+
+/* Toggler (hamburger) visibility on dark background */
+.navbar-toggler { border-color: var(--panel-2) !important; }
+.navbar-dark .navbar-toggler-icon,
+.navbar .navbar-toggler-icon {
+  /* light hamburger bars */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(225,226,234,1)' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+
 
 
 /* ----------------------------------------
