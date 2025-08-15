@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Dr Flo Reiche">
 
-<title> PO33Q: Determinants of Democracy –   Analysing Emergence, Survival, and Fall – PO33Q: Determinants of Democracy</title>
+<title>Markdown – PO33Q: Determinants of Democracy</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -31,7 +50,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01-PO33Q.html" rel="next">
+<link href="./12-Downloads.html" rel="next">
+<link href="./10-PO33Q.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -84,7 +104,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-title">Preface</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-Markdown.html"><span class="chapter-title">Markdown</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -114,7 +134,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Preface</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -164,7 +184,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11-Markdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Markdown</span></a>
+  <a href="./11-Markdown.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Markdown</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -192,9 +212,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
-  <li><a href="#website-features" id="toc-website-features" class="nav-link" data-scroll-target="#website-features">Website Features</a></li>
-  <li><a href="#accessibility" id="toc-accessibility" class="nav-link" data-scroll-target="#accessibility">Accessibility</a></li>
+  <li><a href="#professional-writing-in-political-science" id="toc-professional-writing-in-political-science" class="nav-link active" data-scroll-target="#professional-writing-in-political-science">Professional Writing in Political Science</a></li>
+  <li><a href="#introduction-to-markdown" id="toc-introduction-to-markdown" class="nav-link" data-scroll-target="#introduction-to-markdown">Introduction to Markdown</a>
+  <ul class="collapse">
+  <li><a href="#yaml" id="toc-yaml" class="nav-link" data-scroll-target="#yaml">YAML</a></li>
+  <li><a href="#text" id="toc-text" class="nav-link" data-scroll-target="#text">Text</a></li>
+  <li><a href="#code-chunks" id="toc-code-chunks" class="nav-link" data-scroll-target="#code-chunks">Code Chunks</a></li>
+  <li><a href="#list-of-references" id="toc-list-of-references" class="nav-link" data-scroll-target="#list-of-references">List of References</a></li>
+  <li><a href="#knitting" id="toc-knitting" class="nav-link" data-scroll-target="#knitting">Knitting</a></li>
+  </ul></li>
+  <li><a href="#assessment-template" id="toc-assessment-template" class="nav-link" data-scroll-target="#assessment-template">Assessment Template</a>
+  <ul class="collapse">
+  <li><a href="#the-template-explained" id="toc-the-template-explained" class="nav-link" data-scroll-target="#the-template-explained">The Template Explained</a></li>
+  <li><a href="#assessment-submission" id="toc-assessment-submission" class="nav-link" data-scroll-target="#assessment-submission">Assessment Submission</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -203,27 +234,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><p><img src="images/Crest_white.png" width="75" style="display:block; margin:auto; margin-bottom:3em;"> PO33Q: Determinants of Democracy – <br> Analysing Emergence, Survival, and Fall</p></h1>
+<h1 class="title"><span class="chapter-title">Markdown</span></h1>
 </div>
 
 
-<div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Author</div>
-  <div class="quarto-title-meta-heading">Affiliation</div>
-  
-    <div class="quarto-title-meta-contents">
-    <p class="author">Dr Flo Reiche </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            Department of Politics and International Studies, University of Warwick
-          </p>
-      </div>
-  </div>
 
 <div class="quarto-title-meta">
 
-      
+    
   
     
   </div>
@@ -233,67 +251,281 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<style>
-/* Re-enable title block on this page only */
-header#title-block-header, .quarto-title-block { display: block !important; }
-
-/* index page only (because it's inline here) */
-.quarto-title-block { 
-  background: transparent !important;
-  padding: 1rem 0 !important;
-  border: 0 !important;
-}
-/* hide the large title text but keep meta (author/affiliation) */
-.quarto-title-block .quarto-title h1.title { 
-  display: none !important; 
-}
-/* center the meta nicely */
-.quarto-title-block .quarto-title-meta {
-  display: flex !important;
-  justify-content: center !important;
-  text-align: center !important;
-  gap: .75rem;
-}
-</style>
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p style="text-align: center;">
-<b>!!! site still under construction !!!</b>
-</p>
-<p>Never before has the world witnessed such a high proportion of democracies. But what makes them emerge? How do democracies sustain themselves? What makes some countries such persistent dictatorships? These questions have attracted a huge body of literature in Comparative Politics and make for fascinating empirical research projects. This module will provide you with the statistical tools necessary for such investigations, and thus allow you not only to interpret and critique existing studies in this field but also to research these questions yourself. With no prior knowledge in statistical analysis necessary, we will use real-world data sets and explore the aforementioned questions through the methods of linear and logistic regression, as well as survival analysis.</p>
-<p>This online companion has two purposes: (1) it introduces you to the quantitative methods element of the module, and (2) it provides you with some exercises that we will be working through in the seminars each week. We start with an introduction to R in Week 1, and then move closer and closer to the method you will be using in the final assessment of this module: a Markov Transition Model. As such, the module also follows the methodological evolution that the democratisation literature in general, and the modernisation literature in particular have traversed since the 1950s: from linear regression to a time-series probability model.</p>
-<p>PO33Q is my flagship module and has been lauded by the external examiner as the best of its kind she had seen. A lot of work and love has gone into this module, and I hope you will enjoy taking it as much as I enjoy teaching it.</p>
-<div style="text-align: left; margin-top: 0.5em; margin-bottom: 1em;">
-<p><img src="files/signature_white.png" width="200" style="display: inline-block; margin-bottom: 0.5em;"> <span style="font-size: 28px; font-weight: bold; color: #e1e2ea;"><br></span></p>
-</div>
+<section id="professional-writing-in-political-science" class="level1 unnumbered">
+<h1 class="unnumbered">Professional Writing in Political Science</h1>
+<p>Before I even start this section, please read <a href="https://stimson.web.unc.edu/wp-content/uploads/sites/9919/2018/02/Writing.pdf">Professional Writing in Political Science: A Highly opinionated Essay</a> by James A. Stimson. It captures a lot of the things I talk about in the seminars in a much better and more eloquent way. Admittedly, the article is aimed at postgraduates and faculty members, but the principles outlined do apply generally to writing a good research project. And this is, after all, what I am asking you to do on this module.</p>
 </section>
-<section id="website-features" class="level1 unnumbered">
-<h1 class="unnumbered">Website Features</h1>
-<p>You will find embedded in the text five different types of boxes which serve different purposes:</p>
-<div class="def">
-<p>These boxes contain important definitions relating to the methods we explore in this companion. You can also click on <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/full-glossary.html">glossary entries</a></span> in the text to take you to the relevant glossary section of the companion.</p>
-</div>
-<div class="bulb">
-<p>Some explanations that will hopefully make your work with this webpage or learning the material itself easier.</p>
-</div>
-<div class="video">
-<p>To support you in learning the material we cover in this online companion, I have recorded videos for some central terms and topics.</p>
-</div>
-<div class="puzzle">
-<p>A brief question which tests your understanding of the previous material.</p>
+<section id="introduction-to-markdown" class="level1 unnumbered">
+<h1 class="unnumbered">Introduction to Markdown</h1>
+<p>Stimson rejects Word and other similarly inclined word processing programs, as they are unable to achieve the standard required in professional academic writing. In the context of tables, for example, Stimson writes</p>
+<blockquote class="blockquote">
+<p>You are a professional author. Learn to use the tools of authorship or choose a profession for which you are better suited.</p>
+</blockquote>
+<p>I agree. And I wish more people, students and faculty members alike, would take note of this. The good news for you is that we will be using R on this module, and amongst the many other millions of things that this program enables us to do, it provides an interface to write with Markdown.</p>
+<p>Writing your assessment in R Markdown has some very notable benefits, such as great formatting, the seamless integration of graphs and results tables you will produce for your assessment, and a semi-automatic list of references.</p>
+<div style="height:1em;">
+
 </div>
 <div class="warning">
-<p>Here you need to be careful when working with R to avoid problems.</p>
+<p>If you are already rather overwhelmed by the quantitative component of the module, then please leave this page now. I am NOT expecting you to write this assessment in R Markdown, and you will not be marked any differently for presentation if you decide to write this in MS Word.</p>
+<p>Please do have a look at the <a href="files/Markdown/PO33Q-Assessment-Template.pdf">Essay Template</a>, however, as it is a good benchmark for formatting your assessment wherever you write it. It also contains pointers as to what each section of the assessment should cover.</p>
+</div>
+<div style="height:1em;">
+
+</div>
+<p>So, what is R Markdown?</p>
+<blockquote class="blockquote">
+<p>R Markdown provides an unified authoring framework for data science, combining your code, its results, and your prose commentary. R Markdown documents are fully reproducible and support dozens of output formats, like PDFs, Word files, slideshows, and more.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+</blockquote>
+<p>When we use Markdown in R, the document will have essentially three parts:</p>
+<ul>
+<li>YAML</li>
+<li>Text</li>
+<li>Code Chunks</li>
+</ul>
+<p>I will go through these in turn now. To follow along, I recommend you download the <a href="files/Markdown/PO33Q Assessment Template.Rmd">Assessment Template</a> in which all of the below is already implemented. Once you open it, delete the first line (empty space), so that the three dashes are on line one. Otherwise, don’t do anything with it, yet. But whilst you are reading what I am discussing here, try to match it to what you see in the Rmd file. If you want to jump ahead and render it into a pdf, please follow the instructions in the <a href="https://drfloreiche.github.io/PO33Q/assessment-template.html">template section</a>.</p>
+<p>Once you open the essay template in R Studio, you will obtain a few more options in the task bar at the top which will allow you to turn this raw file into a pdf. More on this below, under “Knitting”.</p>
+<div style="height:1em;">
+
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="files/Markdown/visual.png" class="img-fluid figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div style="height:1em;">
+
+</div>
+<p>It is possible that R will ask you to install the <code>markdown</code> package. Please do so, and also allow the installation of any dependencies if prompted.</p>
+<section id="yaml" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="yaml">YAML</h3>
+<p>YAML is an acronym for “Yet Another Markup Language”. This section of the document contains the settings for the entire document, such as the title, information about the bibliography (see below), and additional packages we might need to load. The YAML is gated by three horizontal dashes at the top and at the bottom. In the template, there is some more formatting going on outside of the YAML and finishes at line 109.</p>
+</section>
+<section id="text" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="text">Text</h3>
+<p>Then, in line 112, follows the text which you can basically type as you always would. In order to use the familiar text formatting icons that turn text into headings, or into bold, change the font size, etc. you can switch the R Markdown editor to “Visual” at the top. By default, this is set to “Source” where markdown would expect code to achieve all of these formatting operations.</p>
+<div style="height:1em;">
+
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="files/Markdown/visual1.png" class="img-fluid figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div style="height:1em;">
+
+</div>
+<p>Once you activate it, this task bar will appear at the top of the Rmd file:</p>
+<div style="height:1em;">
+
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="files/Markdown/wysiwyg.png" class="img-fluid figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div style="height:1em;">
+
+</div>
+<div class="warning">
+<p>When you structure your document, it is essential that you format headings as such in the document and don’t just make the font larger. Otherwise, the automated table of contents will not work.</p>
+<p><img src="files/Markdown/headings.png" alt="Warwick logo" style="width:40%; height:auto;"></p>
+</div>
+<p>The visual editing bar will also allow you to include external pictures (external in the sense that you are not creating them in R whilst creating the document). For this purpose, click on the image icon in the visual editing bar, and a new window will pop up. Under the tab “Image” you can select the image from a file in your computer. Be sure to add a caption in this tab, as well. This will be printed underneath the image in your pdf. Then click the tab “Attributes”, and in the box “ID” enter a unique identifier for the image you are inserting. I usually use “fig” for figure, a colon, and then the name of the figure:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="files/Markdown/labelpic.png" class="img-fluid figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Once you have done that, click OK, and the image will appear where you have placed it. Because you created a caption and a label, you can now refer to this picture in the text, using the <code>\ref{}</code> function. When you write</p>
+<p><code>As we can see in Figure \ref{fig:distribution} ...</code>,</p>
+<p>R will insert a cross reference which will get updated automatically when you render the document. This has the advantage that you will never have to say “the figure below” or the “figure above”. This is both imprecise and dangerous, as the position of the figure might change as you write your assessment.</p>
+<p>You can also set beautiful equations in markdown. Unless you really want to explain what conditional probabilities are in the the methods section of your assessment, I don’t think you will have to use this feature, however.</p>
+</section>
+<section id="code-chunks" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="code-chunks">Code Chunks</h3>
+<p>Without writing your assessment in markdown, you will have to copy and paste the <code>modelsummary</code> table into your assessment document. This is not only extra work, but also invites human error. Because every time you change your models you also have to do that copy and paste job again.</p>
+<p>When you are writing your assessment in Markdown directly, you can seamlessly include your analysis into the document you are writing. You can hide all of the ugly code, and just show the beautiful <code>modelsummary</code> table at the end. How do you do that? To get started, please switch from the “Visual” mode back to “Source”. You can return to “Visual” editing mode once you are done with this.</p>
+<p>Now, all you need to do is to insert a code chunk like this where you want the results table to appear in your document:</p>
+<pre><code>```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+# set your wd
+setwd()
+
+# load packages
+library(modelsummary)
+library(tinytable)
+
+# load data
+
+# carry out the analysis
+
+# write the modelsummary code
+modelsummary()
+
+```
+</code></pre>
+<p>It is important that none of the code in this mini-script produces any visible output (everything needs to be carried out quietly and would not produce output in the console if executed from an R Script), as these results will otherwise appear in the final document. Almost needless to say: the data set you are analysing will also have to be present in the same folder as the Rmd file<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
+<div class="bulb">
+<p>As a first step, use a regular RScript to carry out the analysis, as you can execute commands, and play around with this more easily (rather than knitting the entire thing every time).</p>
+<p>Once you are happy with the output, create the chunk in the .Rmd file and copy/paste your code.</p>
 </div>
 </section>
-<section id="accessibility" class="level1 unnumbered">
-<h1 class="unnumbered">Accessibility</h1>
-<p>The companion uses the font “<a href="https://fonts.google.com/specimen/Lexend">Lexend</a>”. Lexend fonts are intended to reduce visual stress and so improve reading performance. Initially they were designed with dyslexia and struggling readers in mind, but Bonnie Shaver-Troup, creator of the Lexend project, soon found out that these fonts are also great for everyone else.</p>
-<p>Code is displayed in <a href="https://www.recursive.design/">Recursive Mono</a>. The font’s characters share the same width for clear legibility and perfect alignment. This is particularly helpful for use in programming and data-heavy design tasks, but also allows for creative possibilities in display typography.</p>
-<p>The companion also uses a dark mode theme. For many users, including some neurodivergent individuals, dark mode can reduce eye strain and enhance focus by minimising visual overstimulation.</p>
-<p>Whilst I recognise that mobile phones play an essential part in all our daily lives, please note that this companion is optimised for display on tablets, laptops, and desktop computers.</p>
+<section id="list-of-references" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="list-of-references">List of References</h3>
+<p>OK, the biggest selling point of this is probably that Markdown will auto-generate a complete list of references by pressing a button. By the way, do you know what the difference is between a bibliography and a list of references?</p>
+<div class="def">
+<p>A <strong>bibliography</strong> lists all sources you have consulted for a project regardless of whether they are cited in the text, whereas a <strong>list of references</strong> only lists what has been cited in the text.</p>
+<p><strong>Warning:</strong></p>
+<p>The <a href="https://warwick.ac.uk/fac/soc/pais/currentstudents/undergraduate/handbook/coursework/#bibliography">PAIS UG Handbook</a> wants you to produce a list of references, but calls it a bibliography 🙄. Please produce a list of references, and call it a list of references in this assessment. You know better now.</p>
+<p>This list of references must:</p>
+<ul>
+<li>
+be organised alphabetically by surname of author
+</li>
+<li>
+not be in bullet points
+</li>
+<li>
+consistently formatted
+</li>
+</ul>
+</div>
+<p>I wrote earlier that this is <strong>semi</strong>-automatic, because – as you will have come to realise by now – there is no free lunch. The process requires a little preparation, and I am afraid some in-text code.</p>
+<p>First, you need to create a separate file in which all of the sources you wish to cite are hosted – a so called .bib file. I am providing the <a href="files/Markdown/referencesPO33Q.bib">full .bib file for PO33Q</a>, in the hope that it covers some sources you may wish to cite already. You can open this file in R Studio. As you will see, the structure of each entry depends on the type of document you are citing: a book, an article in a journal, or a website, for example. Here is an entry for a book:</p>
+<div style="height:1em;">
+
+</div>
+<pre><code>
+@Book{prz:2000,
+  author    = {Adam Przeworski and Michael E. Alvarez and Jos\'e A. Cheibub and Fernando Limongi},
+  publisher = {Cambridge: Cambridge University Press},
+  title     = {{Democracy and Development - Political Institutions and Well-Being in the World, 1950-1990}},
+  year      = {2000},
+  doi       = {10.1017/CBO9780511804946},
+}
+</code></pre>
+<p>In this entry, <code>prz:2000</code> is called the citation key. This is what you will use in the Rmd file. For example when you type <code>\citep{prz:2000}</code> this will be shown as <span class="citation" data-cites="prz:2000">(Przeworski et al., 2000)</span> in the final document. In the template, I have enabled the following styles for including a reference in the text:</p>
+<div style="height:1em;">
+
+</div>
+<div class="custom-html-table">
+<div style="width:75%; margin:auto;">
+<table class="table">
+<colgroup>
+<col style="width: 45%">
+<col style="width: 54%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Input</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>\citep{prz:2000}</code></td>
+<td>(Przeworski et al., 2000)</td>
+</tr>
+<tr class="even">
+<td><code>\citep[p. 20]{prz:2000}</code></td>
+<td>(Przeworski et al., 2000, p.&nbsp;20)</td>
+</tr>
+<tr class="odd">
+<td><code>\citep[see][p. 20]{prz:2000}</code></td>
+<td>(see Przeworski et al., 2000, p.&nbsp;20)</td>
+</tr>
+<tr class="even">
+<td><code>\citet{prz:2000}</code></td>
+<td>Przeworski et al.&nbsp;(2000)</td>
+</tr>
+<tr class="odd">
+<td><code>\citet[p. 20]{prz:2000}</code></td>
+<td>Przeworski et al.&nbsp;(2000, p.&nbsp;20)</td>
+</tr>
+<tr class="even">
+<td><code>\citet[see][p. 20]{prz:2000}</code></td>
+<td>see Przeworski et al.&nbsp;(2000, p.&nbsp;20)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div style="height:1em;">
+
+</div>
+<p>When you render the document, markdown will automatically put a list of references together and place it where it belongs. But how do you render the document?</p>
+</section>
+<section id="knitting" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="knitting">Knitting</h2>
+<p>To convert the Rmd file to a pdf, you will have to “knit” the Rmd file. An icon with a ball of wool is located in the task bar at the top whenever you have an Rmd file open. Click it to start the conversion.</p>
+<div class="warning">
+<p>When there is a mistake in your Rmd file, such as an unbalanced bracket in a code chunk, for example, R will not render the pdf. Therefore, knit your document regularly, so that you can trace the error more easily.</p>
+</div>
+</section>
+</section>
+<section id="assessment-template" class="level1 unnumbered">
+<h1 class="unnumbered">Assessment Template</h1>
+<p>In order to make your life as easy as possible, I have put together an Assessment Template in the form of an Rmd file that you can knit in R. You can download this <a href="files/Markdown/PO33Q Assessment Template.Rmd">here</a>. In order to knit this document, you need to remove the first empty line from the Rmd file (so that the three dashes are in line 1), and place the following files in the same folder as the Rmd file:</p>
+<ul>
+<li><a href="files/Markdown/Crest.png">Warwick Crest</a> for the title page.</li>
+<li><a href="files/Markdown/Warwick.png">Warwick Text</a> for the title page.</li>
+<li><a href="files/Markdown/referencesPO33Q.bib">referencesPO33Q.bib</a> which contains all entries for the complete <a href="files/Downloads/PO33Q_Bibliography.pdf">bibliography</a> of the module.</li>
+</ul>
+<p>Render / knit this document without making any changes to ensure this works. It should look like <a href="files/Markdown/PO33Q-Assessment-Template.pdf">this</a>. Then you can start writing your assessment. Again, render/knit the document often, so that you can locate a potential mistake more easily should you receive an error message.</p>
+<section id="the-template-explained" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="the-template-explained">The Template Explained</h2>
+<p>There is quite a bit of formatting going on in the Rmd file, and this is what all of this code achieves:</p>
+<ul>
+<li>Light grey background to improve readability (a little present to myself for marking)</li>
+<li>Font size 12, one-half spacing</li>
+<li>Font: CMU sans serif for legibility</li>
+<li>Title page with module name, your registration number, submission date, and word count. No page number.</li>
+<li>Page numbering in Roman numerals for table of contents, list of figures, and list of tables</li>
+<li>Table of contents, list of figures, and list of tables are automatic</li>
+<li>Page numbering in Arabic numerals from the start of the text</li>
+<li>All captions are placed beneath figures and tables</li>
+<li>Fully adjustable size of <code>modelsummary</code> table (controlled via percentage of text width), so you can control the number of words the table “costs”</li>
+<li>Automatic page break if there are fewer than seven lines after a (sub-)section heading</li>
+<li>Automatic List of References, formatted in APA (American Psychological Association) style</li>
+<li>Appendix after the List of References</li>
+<li>Code chunks are set by default not to show the code in the rendered file. Messages, warnings, and errors are suppressed</li>
+</ul>
+</section>
+<section id="assessment-submission" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="assessment-submission">Assessment Submission</h2>
+<p>When it comes to submitting your assessment, please only submit the rendered pdf, and NOT the Rmd file. This will not be accepted by Tabula. If you wish to use Markdown on modules other than those taught by me, then please consult the module director whether they are happy to accept submissions in pdf format.</p>
+<p>Please ensure that you have copied and pasted your complete RScript into the Appendix section of the template. By complete I mean a script that takes you (or anybody else) from loading the original data sets I provide to the output you include in the report you submit on Tabula. The script should be properly annotated to make your work reproducible and easy to follow.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-prz:2000" class="csl-entry" role="listitem">
+Przeworski, A., Alvarez, M. E., Cheibub, J. A., &amp; Limongi, F. (2000). <em><span class="nocase">Democracy and Development - Political Institutions and Well-Being in the World, 1950-1990</span></em>. Cambridge: Cambridge University Press. <a href="https://doi.org/10.1017/CBO9780511804946">https://doi.org/10.1017/CBO9780511804946</a>
+</div>
+</div>
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p><a href="https://r4ds.had.co.nz/r-markdown.html" class="uri">https://r4ds.had.co.nz/r-markdown.html</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>You can create absolute and relative file paths to other locations, but let’s not over-complicate things here.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -900,10 +1132,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./10-PO33Q.html" class="pagination-link" aria-label="Week 10">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Week 10</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-PO33Q.html" class="pagination-link" aria-label="Week 1">
-        <span class="nav-page-text"><span class="chapter-title">Week 1</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./12-Downloads.html" class="pagination-link" aria-label="Downloads">
+        <span class="nav-page-text"><span class="chapter-title">Downloads</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
