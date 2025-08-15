@@ -396,14 +396,14 @@ Probit - Theory &amp; Application
 </section>
 <section id="probit---theory" class="level1 unnumbered">
 <h1 class="unnumbered">Probit - Theory</h1>
-<p>Last week, we encountered linear regression analysis which allowed us to quantify the amount and direction of one or more independent variables on a continuous dependent variable. I already mentioned there, that there is also a type of a regression which can deal with a binary, or <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">dichotomous</a></span> dependent variable. This is usually a yes/no scenario, such as democracy / autocracy, war / peace, trade agreement / no trade agreement, … You get the picture. Many problems or questions in political science have binary outcomes, and so you are about to learn a very important and useful method to answer research questions. As in the previous Chapter, I will take you through some theory first, and then we are applying the theory to an empirical example.</p>
+<p>Last week, we encountered linear regression analysis which allowed us to quantify the amount and direction of one or more independent variables on a continuous dependent variable. I already mentioned there, that there is also a type of a regression which can deal with a binary, or <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/13-Glossary.html">dichotomous</a></span> dependent variable. This is usually a yes/no scenario, such as democracy / autocracy, war / peace, trade agreement / no trade agreement, … You get the picture. Many problems or questions in political science have binary outcomes, and so you are about to learn a very important and useful method to answer research questions. As in the previous Chapter, I will take you through some theory first, and then we are applying the theory to an empirical example.</p>
 <div class="video">
 <p><strong>Probit - What is it?</strong></p>
 <p>YouTube link to follow</p>
 </div>
 <section id="probit---what-is-it" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="probit---what-is-it">Probit - What is it?</h2>
-<p>A question we can all relate to is whether to go out tonight, or not. The “propensity to go out” is not directly observable, and so we call this a <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">latent variable</a></span>. You can imagine this running from minus infinity to plus infinity, and at some point on this continuum you are making the decision to go out. Let’s call this point tau (<span class="math inline">\(\tau\)</span>). Graphically, this would look like this:</p>
+<p>A question we can all relate to is whether to go out tonight, or not. The “propensity to go out” is not directly observable, and so we call this a <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/13-Glossary.html">latent variable</a></span>. You can imagine this running from minus infinity to plus infinity, and at some point on this continuum you are making the decision to go out. Let’s call this point tau (<span class="math inline">\(\tau\)</span>). Graphically, this would look like this:</p>
 <p>&nbsp; &nbsp;</p>
 <div id="fig-latent" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -433,7 +433,7 @@ Figure&nbsp;2: Towards the Cumulative Density Function, adapted from <span class
 </div>
 <p>&nbsp; &nbsp;</p>
 <p>The probability of going out is coloured in in grey. As you can see, even at budget <span class="math inline">\(x_{1}\)</span>, some area of the distribution has slipped over the cut-off point, <span class="math inline">\(\tau\)</span>. As the budget increases, more and more probability slides over the threshold <span class="math inline">\(\tau\)</span>, until we reach the magical point of <span class="math inline">\(x_{5}\)</span> where the probability is 50%. From there on, the amount of probability sliding over <span class="math inline">\(\tau\)</span> is steadily decreasing, because of the shape of the normal distribution.</p>
-<p>We can depict the amount of probability (or the size of the grey area) for each <span class="math inline">\(x_{i}\)</span> in a separate graph which is called the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">Cumulative Probability Density Function</a></span>, or short CDF:</p>
+<p>We can depict the amount of probability (or the size of the grey area) for each <span class="math inline">\(x_{i}\)</span> in a separate graph which is called the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/13-Glossary.html">Cumulative Probability Density Function</a></span>, or short CDF:</p>
 <p>&nbsp; &nbsp;</p>
 <div id="fig-cdf" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -472,7 +472,7 @@ Figure&nbsp;4: Marginal Effect under the Cumulative Density Function
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">data =</span> dataframe, </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"probit"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><code>glm</code> stands for “<span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">Generalised Linear Model</a></span>”. We then specify a model in the same way as last week, stating the dependent variable first, followed by a tilde and then the independent variable(s). We complete the command by naming the data frame we wish to use and selecting the model type, in our case it is a probit model which is binomial (our dependent variable only has two possible outcomes).</p>
+<p><code>glm</code> stands for “<span class="gls"><a href="https://drfloreiche.github.io/PO33Q/13-Glossary.html">Generalised Linear Model</a></span>”. We then specify a model in the same way as last week, stating the dependent variable first, followed by a tilde and then the independent variable(s). We complete the command by naming the data frame we wish to use and selecting the model type, in our case it is a probit model which is binomial (our dependent variable only has two possible outcomes).</p>
 <p>Once again, let us do a specific example with the data set “Europe” in the year 2000. First set the working directory for today’s seminar:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"~/Warwick/Modules/PO33Q/Week 3"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -540,7 +540,7 @@ Figure&nbsp;5: Marginal Effects for Life Expectancy on the Probability of Democr
 </figure>
 </div>
 <p>&nbsp; &nbsp;</p>
-<p>What we therefore need to do in the world of probit, is to evaluate the probability at individual values of <span class="math inline">\(x_{i}\)</span>, or put differently, assess how much of the bell-shaped curve has slid across our cut-off point <span class="math inline">\(\tau\)</span> (tau) at a particular point <span class="math inline">\(x_{i}\)</span>. And this brings us to <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary-2.html">predicted probabilities</a></span>.</p>
+<p>What we therefore need to do in the world of probit, is to evaluate the probability at individual values of <span class="math inline">\(x_{i}\)</span>, or put differently, assess how much of the bell-shaped curve has slid across our cut-off point <span class="math inline">\(\tau\)</span> (tau) at a particular point <span class="math inline">\(x_{i}\)</span>. And this brings us to <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/13-Glossary.html">predicted probabilities</a></span>.</p>
 </section>
 <section id="predicted-probabilities" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="predicted-probabilities">Predicted Probabilities</h2>
@@ -685,8 +685,8 @@ Number of Fisher Scoring iterations: 5</code></pre>
 
     <script>
 
-      function styleCell_w302hp0kq9p0bdbvwh9v(i, j, css_id) {
-          var table = document.getElementById("tinytable_w302hp0kq9p0bdbvwh9v");
+      function styleCell_e2lbi0efdvytlsz5aqh9(i, j, css_id) {
+          var table = document.getElementById("tinytable_e2lbi0efdvytlsz5aqh9");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -696,7 +696,7 @@ Number of Fisher Scoring iterations: 5</code></pre>
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_w302hp0kq9p0bdbvwh9v');
+        var table = document.getElementById('tinytable_e2lbi0efdvytlsz5aqh9');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -704,8 +704,8 @@ Number of Fisher Scoring iterations: 5</code></pre>
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_w302hp0kq9p0bdbvwh9v(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_w302hp0kq9p0bdbvwh9v");
+      function spanCell_e2lbi0efdvytlsz5aqh9(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_e2lbi0efdvytlsz5aqh9");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -735,20 +735,20 @@ Number of Fisher Scoring iterations: 5</code></pre>
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 5, j: 1 },  ], css_id: 'tinytable_css_w6syrncka8o7rbtop9mt',}, 
-          { positions: [ { i: 2, j: 1 }, { i: 3, j: 1 }, { i: 4, j: 1 },  ], css_id: 'tinytable_css_3ewht728iygfy5vwit7l',}, 
-          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_lbuaw2zej8xsrgh2rn4p',}, 
-          { positions: [ { i: 1, j: 1 },  ], css_id: 'tinytable_css_p2qce00ivyxy7vbf8x9n',}, 
-          { positions: [ { i: 5, j: 0 },  ], css_id: 'tinytable_css_kdps4wlac6omxhusijtt',}, 
-          { positions: [ { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 },  ], css_id: 'tinytable_css_caom80il2dfx1cnnv6lu',}, 
-          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_rleurwq82v3tbsfdog96',}, 
-          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_diktdd8qj3z9yndh5z2k',}, 
+          { positions: [ { i: 5, j: 1 },  ], css_id: 'tinytable_css_0d11c21rajs53n8ei7x7',}, 
+          { positions: [ { i: 2, j: 1 }, { i: 3, j: 1 }, { i: 4, j: 1 },  ], css_id: 'tinytable_css_dpoyc6da6jrqdps9nua5',}, 
+          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_twmo4637nl9y5l19mjz2',}, 
+          { positions: [ { i: 1, j: 1 },  ], css_id: 'tinytable_css_qkhq99lz8ugd197iiy8s',}, 
+          { positions: [ { i: 5, j: 0 },  ], css_id: 'tinytable_css_g8b2x68lvzrdy9zlcxcz',}, 
+          { positions: [ { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 },  ], css_id: 'tinytable_css_cqj7mno2n21otq2j3bxd',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_d7jjcxix0t86q2bll26z',}, 
+          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_10wq4n7u8slexmwumln2',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_w302hp0kq9p0bdbvwh9v(cell.i, cell.j, group.css_id);
+                  styleCell_e2lbi0efdvytlsz5aqh9(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -756,17 +756,17 @@ Number of Fisher Scoring iterations: 5</code></pre>
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_w6syrncka8o7rbtop9mt, .table th.tinytable_css_w6syrncka8o7rbtop9mt { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_3ewht728iygfy5vwit7l, .table th.tinytable_css_3ewht728iygfy5vwit7l { text-align: center; }
-      .table td.tinytable_css_lbuaw2zej8xsrgh2rn4p, .table th.tinytable_css_lbuaw2zej8xsrgh2rn4p { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_p2qce00ivyxy7vbf8x9n, .table th.tinytable_css_p2qce00ivyxy7vbf8x9n { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_kdps4wlac6omxhusijtt, .table th.tinytable_css_kdps4wlac6omxhusijtt { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_caom80il2dfx1cnnv6lu, .table th.tinytable_css_caom80il2dfx1cnnv6lu { text-align: left; }
-      .table td.tinytable_css_rleurwq82v3tbsfdog96, .table th.tinytable_css_rleurwq82v3tbsfdog96 { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_diktdd8qj3z9yndh5z2k, .table th.tinytable_css_diktdd8qj3z9yndh5z2k { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_0d11c21rajs53n8ei7x7, .table th.tinytable_css_0d11c21rajs53n8ei7x7 { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_dpoyc6da6jrqdps9nua5, .table th.tinytable_css_dpoyc6da6jrqdps9nua5 { text-align: center; }
+      .table td.tinytable_css_twmo4637nl9y5l19mjz2, .table th.tinytable_css_twmo4637nl9y5l19mjz2 { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_qkhq99lz8ugd197iiy8s, .table th.tinytable_css_qkhq99lz8ugd197iiy8s { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_g8b2x68lvzrdy9zlcxcz, .table th.tinytable_css_g8b2x68lvzrdy9zlcxcz { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_cqj7mno2n21otq2j3bxd, .table th.tinytable_css_cqj7mno2n21otq2j3bxd { text-align: left; }
+      .table td.tinytable_css_d7jjcxix0t86q2bll26z, .table th.tinytable_css_d7jjcxix0t86q2bll26z { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_10wq4n7u8slexmwumln2, .table th.tinytable_css_10wq4n7u8slexmwumln2 { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_w302hp0kq9p0bdbvwh9v" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_e2lbi0efdvytlsz5aqh9" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
 <tr>
 <th scope="col" align="center" colspan="1"> </th>
@@ -870,8 +870,8 @@ Table&nbsp;1: Influence of per capita GDP on Democracy
 
     <script>
 
-      function styleCell_vfunt6zfho1zqjjna0fl(i, j, css_id) {
-          var table = document.getElementById("tinytable_vfunt6zfho1zqjjna0fl");
+      function styleCell_i7ablpq5c65lnug9tvfn(i, j, css_id) {
+          var table = document.getElementById("tinytable_i7ablpq5c65lnug9tvfn");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -881,7 +881,7 @@ Table&nbsp;1: Influence of per capita GDP on Democracy
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_vfunt6zfho1zqjjna0fl');
+        var table = document.getElementById('tinytable_i7ablpq5c65lnug9tvfn');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -889,8 +889,8 @@ Table&nbsp;1: Influence of per capita GDP on Democracy
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_vfunt6zfho1zqjjna0fl(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_vfunt6zfho1zqjjna0fl");
+      function spanCell_i7ablpq5c65lnug9tvfn(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_i7ablpq5c65lnug9tvfn");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -920,20 +920,20 @@ Table&nbsp;1: Influence of per capita GDP on Democracy
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 5, j: 1 },  ], css_id: 'tinytable_css_oibhem8z0dpwlc9uj1ev',}, 
-          { positions: [ { i: 2, j: 1 }, { i: 3, j: 1 }, { i: 4, j: 1 },  ], css_id: 'tinytable_css_b2pb8evy28l9u9fwmz4m',}, 
-          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_dksna1rvpbok681yaq8j',}, 
-          { positions: [ { i: 1, j: 1 },  ], css_id: 'tinytable_css_kzr5aogtlnrtuhywcxvc',}, 
-          { positions: [ { i: 5, j: 0 },  ], css_id: 'tinytable_css_leh25f1huo4maxwruowp',}, 
-          { positions: [ { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 },  ], css_id: 'tinytable_css_i51u9xge9rm9o0g9j9zd',}, 
-          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_ax3wza83jo71z9pkhuxp',}, 
-          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_44qqtimskf8i6h06avqd',}, 
+          { positions: [ { i: 5, j: 1 },  ], css_id: 'tinytable_css_o7jlw3dcb554zgv3gaps',}, 
+          { positions: [ { i: 2, j: 1 }, { i: 3, j: 1 }, { i: 4, j: 1 },  ], css_id: 'tinytable_css_zh433bp5b05kfek0s88a',}, 
+          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_mnp71vw04uwdyln3mqoo',}, 
+          { positions: [ { i: 1, j: 1 },  ], css_id: 'tinytable_css_bj6i3m5nwi9xx65qt8rm',}, 
+          { positions: [ { i: 5, j: 0 },  ], css_id: 'tinytable_css_md9puguei5a40pwxzu18',}, 
+          { positions: [ { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 },  ], css_id: 'tinytable_css_j9e7efgc778agn2ymd5v',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_yc1ge8vahtoaifinpnth',}, 
+          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_um3dhyhw9v0bmzdt5akg',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_vfunt6zfho1zqjjna0fl(cell.i, cell.j, group.css_id);
+                  styleCell_i7ablpq5c65lnug9tvfn(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -941,17 +941,17 @@ Table&nbsp;1: Influence of per capita GDP on Democracy
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_oibhem8z0dpwlc9uj1ev, .table th.tinytable_css_oibhem8z0dpwlc9uj1ev { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_b2pb8evy28l9u9fwmz4m, .table th.tinytable_css_b2pb8evy28l9u9fwmz4m { text-align: center; }
-      .table td.tinytable_css_dksna1rvpbok681yaq8j, .table th.tinytable_css_dksna1rvpbok681yaq8j { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_kzr5aogtlnrtuhywcxvc, .table th.tinytable_css_kzr5aogtlnrtuhywcxvc { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_leh25f1huo4maxwruowp, .table th.tinytable_css_leh25f1huo4maxwruowp { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_i51u9xge9rm9o0g9j9zd, .table th.tinytable_css_i51u9xge9rm9o0g9j9zd { text-align: left; }
-      .table td.tinytable_css_ax3wza83jo71z9pkhuxp, .table th.tinytable_css_ax3wza83jo71z9pkhuxp { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_44qqtimskf8i6h06avqd, .table th.tinytable_css_44qqtimskf8i6h06avqd { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_o7jlw3dcb554zgv3gaps, .table th.tinytable_css_o7jlw3dcb554zgv3gaps { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_zh433bp5b05kfek0s88a, .table th.tinytable_css_zh433bp5b05kfek0s88a { text-align: center; }
+      .table td.tinytable_css_mnp71vw04uwdyln3mqoo, .table th.tinytable_css_mnp71vw04uwdyln3mqoo { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_bj6i3m5nwi9xx65qt8rm, .table th.tinytable_css_bj6i3m5nwi9xx65qt8rm { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_md9puguei5a40pwxzu18, .table th.tinytable_css_md9puguei5a40pwxzu18 { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_j9e7efgc778agn2ymd5v, .table th.tinytable_css_j9e7efgc778agn2ymd5v { text-align: left; }
+      .table td.tinytable_css_yc1ge8vahtoaifinpnth, .table th.tinytable_css_yc1ge8vahtoaifinpnth { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_um3dhyhw9v0bmzdt5akg, .table th.tinytable_css_um3dhyhw9v0bmzdt5akg { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_vfunt6zfho1zqjjna0fl" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_i7ablpq5c65lnug9tvfn" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
 <tr>
 <th scope="col" align="center" colspan="1"> </th>

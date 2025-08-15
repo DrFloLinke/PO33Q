@@ -383,7 +383,7 @@ Introduction to R
 <h1 class="unnumbered">Introduction to R</h1>
 <section id="how-data-are-organised" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="how-data-are-organised">How Data are organised</h2>
-<p>I have put a little sample <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary.html">data set</a></span> together for you which you can see here:</p>
+<p>I have put a little sample <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/13-Glossary.html">data set</a></span> together for you which you can see here:</p>
 <div id="fig-excel" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-excel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -394,8 +394,8 @@ Figure&nbsp;1: Sample Data Set
 </figcaption>
 </figure>
 </div>
-<p>Data such as these are known as <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary.html">secondary data</a></span>, as they have been collected by somebody else. In this case by the World Bank. The data presented here are also known as <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary.html">cross-sectional data</a></span>, as they look at different units (here countries) at a single point in time. I will introduce you to time-series data in Week 7.</p>
-<p>Each column represents a <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary.html">variable</a></span>, the first one country names, and the second per capita GDP in 2015. Each row represents an observation, in our case an individual country. The meeting point between the variable and the observation is a particular value. So for example, in <a href="#fig-excel" class="quarto-xref">Figure&nbsp;<span>1</span></a> the GDP (second column) of the third country (row) is $ 5792 (cell). You see in the first row the names of the variables. Always make these short and sweet, but especially telling. Don’t go for something like “x4_st”, or “fubar”, as nobody (including yourself after a little while) will have any clue what this is.</p>
+<p>Data such as these are known as <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/13-Glossary.html">secondary data</a></span>, as they have been collected by somebody else. In this case by the World Bank. The data presented here are also known as <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/13-Glossary.html">cross-sectional data</a></span>, as they look at different units (here countries) at a single point in time. I will introduce you to time-series data in Week 7.</p>
+<p>Each column represents a <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/13-Glossary.html">variable</a></span>, the first one country names, and the second per capita GDP in 2015. Each row represents an observation, in our case an individual country. The meeting point between the variable and the observation is a particular value. So for example, in <a href="#fig-excel" class="quarto-xref">Figure&nbsp;<span>1</span></a> the GDP (second column) of the third country (row) is $ 5792 (cell). You see in the first row the names of the variables. Always make these short and sweet, but especially telling. Don’t go for something like “x4_st”, or “fubar”, as nobody (including yourself after a little while) will have any clue what this is.</p>
 </section>
 <section id="r-rstudio-installation" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="r-rstudio-installation">R &amp; RStudio – Installation</h2>
@@ -622,14 +622,14 @@ Figure&nbsp;5: Folder Structure
 <h3 class="unnumbered anchored" data-anchor-id="variable-types-in-r">Variable Types in R</h3>
 <p>You have seen in the output of the <code>str()</code> command that R distinguishes between a number of different variable types. Here is a broad overview of the variable types, so that you know which descriptive statistics you can calculate, or into which variable type you need to recode (next step) to achieve what you want. There are two general types:</p>
 <ol type="1">
-<li><code>numeric</code> – numbers, <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary.html">continuous</a></span></li>
+<li><code>numeric</code> – numbers, <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/13-Glossary.html">continuous</a></span></li>
 <li><code>character</code> (also called string) – letters</li>
 </ol>
 <p>Within <code>numeric</code> we can distinguish between the following:</p>
 <ul>
-<li><code>factor</code> - nominal variable, <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary.html">categorical</a></span></li>
-<li><code>ordered factor</code> - ordinal variable, <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary.html">categorical</a></span></li>
-<li><code>integer</code> - numeric, but only “whole” numbers (<span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary.html">discrete</a></span>)</li>
+<li><code>factor</code> - nominal variable, <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/13-Glossary.html">categorical</a></span></li>
+<li><code>ordered factor</code> - ordinal variable, <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/13-Glossary.html">categorical</a></span></li>
+<li><code>integer</code> - numeric, but only “whole” numbers (<span class="gls"><a href="https://drfloreiche.github.io/PO33Q/13-Glossary.html">discrete</a></span>)</li>
 <li><code>numeric</code> - any number (interval or ratio scales)</li>
 </ul>
 <div class="puzzle">
@@ -638,14 +638,14 @@ Figure&nbsp;5: Folder Structure
 </section>
 <section id="descriptive-statistics" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="descriptive-statistics">Descriptive Statistics</h3>
-<p>Quite a large number of <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary.html">descriptive statistics</a></span> can be calculated. For example:</p>
+<p>Quite a large number of <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/13-Glossary.html">descriptive statistics</a></span> can be calculated. For example:</p>
 <ul>
-<li><span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary.html">Mean</a></span></li>
-<li><span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary.html">Median</a></span></li>
-<li><span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary.html">Mode</a></span></li>
-<li><span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary.html">Range</a></span></li>
-<li><span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary.html">Standard Deviation</a></span></li>
-<li><span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary.html">Variance</a></span></li>
+<li><span class="gls"><a href="https://drfloreiche.github.io/PO33Q/13-Glossary.html">Mean</a></span></li>
+<li><span class="gls"><a href="https://drfloreiche.github.io/PO33Q/13-Glossary.html">Median</a></span></li>
+<li><span class="gls"><a href="https://drfloreiche.github.io/PO33Q/13-Glossary.html">Mode</a></span></li>
+<li><span class="gls"><a href="https://drfloreiche.github.io/PO33Q/13-Glossary.html">Range</a></span></li>
+<li><span class="gls"><a href="https://drfloreiche.github.io/PO33Q/13-Glossary.html">Standard Deviation</a></span></li>
+<li><span class="gls"><a href="https://drfloreiche.github.io/PO33Q/13-Glossary.html">Variance</a></span></li>
 </ul>
 <div class="video">
 <p><strong>Calculating a Mean</strong></p>
@@ -713,7 +713,7 @@ Figure&nbsp;6: Distributions with different Standard Deviations
 <pre><code>[1] 454531709</code></pre>
 </div>
 </div>
-<p>You can get information on the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/glossary.html">quartiles</a></span> (these are also measures of spread), the mean, as well as the minimum and maximum of a variable through one, simple command:</p>
+<p>You can get information on the <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/13-Glossary.html">quartiles</a></span> (these are also measures of spread), the mean, as well as the minimum and maximum of a variable through one, simple command:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(example<span class="sc">$</span>gdp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
