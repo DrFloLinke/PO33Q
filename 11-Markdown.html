@@ -391,7 +391,7 @@ modelsummary()
 <div class="def">
 <p>A <strong>bibliography</strong> lists all sources you have consulted for a project regardless of whether they are cited in the text, whereas a <strong>list of references</strong> only lists what has been cited in the text.</p>
 <p><strong>Warning:</strong></p>
-<p>The <a href="https://warwick.ac.uk/fac/soc/pais/currentstudents/undergraduate/handbook/coursework/#bibliography">PAIS UG Handbook</a> wants you to produce a list of references, but calls it a bibliography 🙄. Please produce a list of references, and call it a list of references in this assessment. You know better now.</p>
+<p>The <a href="https://warwick.ac.uk/fac/soc/pais/currentstudents/undergraduate/handbook/coursework/#bibliography">PAIS UG Handbook</a> wants you to produce a list of references, but calls it a bibliography 🙄. Please produce a list of references, and call it “List of References” in this assessment. You know better now.</p>
 <p>This list of references must:</p>
 <ul>
 <li>
@@ -403,10 +403,13 @@ not be in bullet points
 <li>
 consistently formatted
 </li>
+<li>
+preferably APA styled, but I’m not too precious as long as it’s consistent
+</li>
 </ul>
 </div>
-<p>I wrote earlier that this is <strong>semi</strong>-automatic, because – as you will have come to realise by now – there is no free lunch. The process requires a little preparation, and I am afraid some in-text code.</p>
-<p>First, you need to create a separate file in which all of the sources you wish to cite are hosted – a so called .bib file. I am providing the <a href="files/Markdown/referencesPO33Q.bib">full .bib file for PO33Q</a>, in the hope that it covers some sources you may wish to cite already. You can open this file in R Studio. As you will see, the structure of each entry depends on the type of document you are citing: a book, an article in a journal, or a website, for example. Here is an entry for a book:</p>
+<p>I wrote earlier that generating the list of references is <strong>semi</strong>-automatic, because – as you will have come to realise by now – there is no such thing as a free lunch. The process requires a little preparation, and I am afraid some in-text code.</p>
+<p>First, you need to create a separate file in which all of the sources you wish to cite are hosted – a so called .bib file. You can download the <a href="files/Markdown/referencesPO33Q.bib">full .bib file for PO33Q</a>, in the hope that it already covers some sources you may wish to cite in your assessment. You can open this file in R Studio. As you will see, the structure of each entry depends on the type of document you are citing: a book, an article in a journal, or a website, for example. Here is an entry for a book:</p>
 <div style="height:1em;">
 
 </div>
@@ -468,7 +471,7 @@ consistently formatted
 <div style="height:1em;">
 
 </div>
-<p>When you render the document, markdown will automatically put a list of references together and place it where it belongs. But how do you render the document?</p>
+<p>When you render the essay template, markdown will automatically put a list of references together and place it where it belongs<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. But how do you render the document?</p>
 </section>
 <section id="knitting" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="knitting">Knitting</h2>
@@ -486,7 +489,7 @@ consistently formatted
 <li><a href="files/Markdown/Warwick.png">Warwick Text</a> for the title page.</li>
 <li><a href="files/Markdown/referencesPO33Q.bib">referencesPO33Q.bib</a> which contains all entries for the complete <a href="files/Downloads/PO33Q_Bibliography.pdf">bibliography</a> of the module.</li>
 </ul>
-<p>Render / knit this document without making any changes to ensure this works. It should look like <a href="files/Markdown/PO33Q-Assessment-Template.pdf">this</a>. Then you can start writing your assessment. Again, render/knit the document often, so that you can locate a potential mistake more easily should you receive an error message.</p>
+<p>Render / knit this document without making any changes to ensure this works. It should look like <a href="files/Markdown/PO33Q-Assessment-Template.pdf">this</a>. Then you can start writing your assessment. Again, let me encourage you to render/knit the document often, so that you can locate a potential mistake more easily should you receive an error message.</p>
 <section id="the-template-explained" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="the-template-explained">The Template Explained</h2>
 <p>There is quite a bit of formatting going on in the Rmd file, and this is what all of this code achieves:</p>
@@ -524,6 +527,7 @@ Przeworski, A., Alvarez, M. E., Cheibub, J. A., &amp; Limongi, F. (2000). <em><s
 <ol>
 <li id="fn1"><p><a href="https://r4ds.had.co.nz/r-markdown.html" class="uri">https://r4ds.had.co.nz/r-markdown.html</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>You can create absolute and relative file paths to other locations, but let’s not over-complicate things here.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Otherwise, this will be placed into the document as the very last thing, but because you have an appendix, I needed to overrule this behaviour in the template.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
