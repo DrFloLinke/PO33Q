@@ -308,7 +308,8 @@ code, kbd, samp {
 /* ----------------------------------------
    Code blocks + copy button
 ---------------------------------------- */
-div.sourceCode, pre.sourceCode {
+div.sourceCode,
+pre.sourceCode {
   background-color: var(--bg) !important;
   color: #d8dee9 !important;
   border-radius: 6px;
@@ -321,32 +322,50 @@ div.sourceCode, pre.sourceCode {
   width: 100% !important;
   max-width: 100% !important;
   box-sizing: border-box !important;
-  position: relative;
+  position: relative;             /* needed for absolute button */
   border: 2px solid var(--panel-2);
   margin-top: 1.5em;
   margin-bottom: 1.5em;
+  min-height: 2.2em;              /* just enough to fit one-line code + button */
 }
-div.sourceCode * { color: #d8dee9 !important; }
-div.sourceCode pre, div.sourceCode code { background: transparent !important; margin: 0 !important; padding: 0 !important; border: none !important; }
+
+div.sourceCode * {
+  color: #d8dee9 !important;
+}
+
+div.sourceCode pre,
+div.sourceCode code {
+  background: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
 
 /* Quarto copy button */
-.code-copy-button,
-div.sourceCode > button.code-copy-button {
+div.sourceCode > button.code-copy-button,
+.code-copy-button {
   position: absolute;
-  top: 0.5em;
+   top: 0.05em;                     /* nudge closer to top */
   right: 0.5em;
   background: white !important;
   opacity: 1;
   color: black !important;
   outline: none;
   box-shadow: none;
-  border-radius: 4px;
+  border-radius: 3px;
   border: 1px solid #ccc;
-  padding: 0.3em 0.6em;
-  font-size: 0.75rem;
+  padding: 0.2em 0.4em;           /* smaller padding so button looks lighter */
+  font-size: 0.7rem;              /* slightly smaller text/icon */
+  line-height: 1;                 
 }
-.code-copy-button:hover,
-.code-copy-button:focus { background: white !important; color: black !important; }
+
+div.sourceCode > button.code-copy-button:hover,
+div.sourceCode > button.code-copy-button:focus {
+  background: white !important;
+  color: black !important;
+}
+
+
 
 /* ----------------------------------------
    Outputs
@@ -379,10 +398,7 @@ pre:not(.sourceCode) {
   position: relative;
 }
 
-/* ----------------------------------------
-   HR
----------------------------------------- */
-hr { border: none; border-top: 4px solid var(--panel-2); margin: 2em 0; }
+
 
 /* ----------------------------------------
    Tables
@@ -561,3 +577,10 @@ header.navbar,
 
 
 
+/* Put this AFTER the global main a rule */
+main .gls a,
+main .gls a:visited,
+main .gls a:hover,
+main .gls a:active {
+  color: #77a0d4 !important;
+}
