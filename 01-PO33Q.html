@@ -129,6 +129,35 @@ div.csl-indent {
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -1075,139 +1104,141 @@ Table&nbsp;2: Schematic: Time-Series, Cross-Sectional Data
 <h1 class="unnumbered">Glossary</h1>
 <p>&nbsp;</p>
 <div class="glossary-table">
-<div class="cell">
-<div id="tbl-glossary1" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<div class="cell" data-tbl-colwidths="[25,75]">
+<div id="tbl-glossary1" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[25,75]">
 <figure class="quarto-float quarto-float-tbl figure">
 <div aria-describedby="tbl-glossary1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="table do-not-create-environment cell table-sm table-striped small" data-quarto-postprocess="true">
+<table class="cell table table-sm table-striped small">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Term</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Description</th>
+<th style="text-align: left;">Term</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left; min-width: 1.25in;"></td>
+<td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td style="text-align: left; min-width: 1.25in;">analysis</td>
+<td style="text-align: left;">analysis</td>
 <td style="text-align: left;">A detailed evaluation of data to discover their structure and relevant information to answer a research question</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left; min-width: 1.25in;">categorical</td>
+<td style="text-align: left;">categorical</td>
 <td style="text-align: left;">Describing the qualitative categories of a characteristic, for example different religions</td>
 </tr>
 <tr class="even">
-<td style="text-align: left; min-width: 1.25in;">conceptualization</td>
-<td style="text-align: left;">Formulating a systematized concept through reasoning about the background concept, in light of the goals of research [@adcock:2001, p. 531]</td>
+<td style="text-align: left;">conceptualization</td>
+<td style="text-align: left;">Formulating a systematized concept through reasoning about the background concept, in light of the goals of research <span class="citation" data-cites="adcock:2001">(Adcock &amp; Collier, 2001, p. 531)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left; min-width: 1.25in;">continuous</td>
+<td style="text-align: left;">continuous</td>
 <td style="text-align: left;">Can assume any value within defined measurement boundaries</td>
 </tr>
 <tr class="even">
-<td style="text-align: left; min-width: 1.25in;">cross-sectional data</td>
-<td style="text-align: left;">Look at different units (or cross-sections) $i$ at a single point in time</td>
+<td style="text-align: left;">cross-sectional data</td>
+<td style="text-align: left;">Look at different units (or cross-sections) <span class="math inline">\(i\)</span> at a single point in time</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left; min-width: 1.25in;">data</td>
-<td style="text-align: left;">Derives from the Latin \enquote{datum} which means \enquote{given}. For our purposes it is a collection of numbers (or quantities) for the purpose of analysis</td>
+<td style="text-align: left;">data</td>
+<td style="text-align: left;">Derives from the Latin which means . For our purposes it is a collection of numbers (or quantities) for the purpose of analysis</td>
 </tr>
 <tr class="even">
-<td style="text-align: left; min-width: 1.25in;">data set</td>
+<td style="text-align: left;">data set</td>
 <td style="text-align: left;">A collection of numerical values for individual observations, separated into distinctive variables</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left; min-width: 1.25in;">dependent variable</td>
+<td style="text-align: left;">dependent variable</td>
 <td style="text-align: left;">Is dependent through some statistical or stochastic process on the value of an independent variable</td>
 </tr>
 <tr class="even">
-<td style="text-align: left; min-width: 1.25in;">descriptive statistics</td>
+<td style="text-align: left;">descriptive statistics</td>
 <td style="text-align: left;">Summarise information about the centre and variability of a variable</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left; min-width: 1.25in;">discrete</td>
+<td style="text-align: left;">discrete</td>
 <td style="text-align: left;">The result of a counting process</td>
 </tr>
 <tr class="even">
-<td style="text-align: left; min-width: 1.25in;">discussion</td>
+<td style="text-align: left;">discussion</td>
 <td style="text-align: left;">The purpose of the discussion section in a research project is to interpret the results, explain their implications, compare them with existing literature, and highlight their significance, limitations, and potential for future research</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left; min-width: 1.25in;">hypothesis</td>
+<td style="text-align: left;">hypothesis</td>
 <td style="text-align: left;">In statistics, a hypothesis is a formal statement about a population parameter or relationship between variables. Hypotheses guide statistical tests to determine whether data support or refute them. The hypothesis suggesting an effect or difference is called the alternative hypothesis. The alternative hypothesis is always paired with a null-hypothesis, suggesting no effect or difference.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left; min-width: 1.25in;">independent variable</td>
-<td style="text-align: left;">Influences or helps us predict the level of a dependent variable. It is often treated as fixed, or "given" in statistical analysis, and is sometimes also called "explanatory variable"</td>
+<td style="text-align: left;">independent variable</td>
+<td style="text-align: left;">Influences or helps us predict the level of a dependent variable. It is often treated as fixed, or “given” in statistical analysis, and is sometimes also called “explanatory variable”</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left; min-width: 1.25in;">literature review</td>
+<td style="text-align: left;">literature review</td>
 <td style="text-align: left;">An analytical summary of the literature relating to a particular topic with the objective of identifying a gap and thus motivating a research question</td>
 </tr>
 <tr class="even">
-<td style="text-align: left; min-width: 1.25in;">mean</td>
+<td style="text-align: left;">mean</td>
 <td style="text-align: left;">Is equal to the sum of the observations divided by the number of observations</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left; min-width: 1.25in;">measurement</td>
+<td style="text-align: left;">measurement</td>
 <td style="text-align: left;">Refers to the selection of a measure or variable</td>
 </tr>
 <tr class="even">
-<td style="text-align: left; min-width: 1.25in;">median</td>
+<td style="text-align: left;">median</td>
 <td style="text-align: left;">Separates the lower half from the upper half of observations</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left; min-width: 1.25in;">method</td>
+<td style="text-align: left;">method</td>
 <td style="text-align: left;">A tool for systematic investigation</td>
 </tr>
 <tr class="even">
-<td style="text-align: left; min-width: 1.25in;">mode</td>
+<td style="text-align: left;">mode</td>
 <td style="text-align: left;">Is the most frequently occurring value</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left; min-width: 1.25in;">quartile</td>
+<td style="text-align: left;">quartile</td>
 <td style="text-align: left;">Divides ordered data into four equal parts and indicates the percentage of observations that falls into the respective quartile and below</td>
 </tr>
 <tr class="even">
-<td style="text-align: left; min-width: 1.25in;">range</td>
+<td style="text-align: left;">range</td>
 <td style="text-align: left;">The distance between the minimum and maximum values.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left; min-width: 1.25in;">research question</td>
+<td style="text-align: left;">research question</td>
 <td style="text-align: left;">A specific enquiry relating to a particular topic or subject. It forms the starting point of the research cycle</td>
 </tr>
 <tr class="even">
-<td style="text-align: left; min-width: 1.25in;">secondary data</td>
+<td style="text-align: left;">secondary data</td>
 <td style="text-align: left;">Secondary data are data which have been collected by somebody else</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left; min-width: 1.25in;">Social Sciences</td>
+<td style="text-align: left;">Social Sciences</td>
 <td style="text-align: left;">Are concerned with the study of society and seek to scientifically describe and explain the behaviour of actors</td>
 </tr>
 <tr class="even">
-<td style="text-align: left; min-width: 1.25in;">standard deviation</td>
-<td style="text-align: left;">The standard deviation s is defined as \begin{equation*}s=\sqrt{\frac{\text{sum of squared deviations}}{\text{sample size} -1}}=\sqrt{\frac{\Sigma(y_{i} - \bar{y})^2}{n-1}}\end{equation*}</td>
+<td style="text-align: left;">standard deviation</td>
+<td style="text-align: left;">The standard deviation s is defined as <span class="math display">\[\begin{equation*}s=\sqrt{\frac{\text{sum of squared deviations}}{\text{sample size} -1}}=\sqrt{\frac{\Sigma(y_{i} - \bar{y})^2}{n-1}}\end{equation*}\]</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left; min-width: 1.25in;">theory</td>
-<td style="text-align: left;">A formal set of ideas that is intended to explain why something happens or exists [@oxford]</td>
+<td style="text-align: left;">theory</td>
+<td style="text-align: left;">A formal set of ideas that is intended to explain why something happens or exists <span class="citation" data-cites="oxford">(Oxford Learner’s Dictionaries, n.d.)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left; min-width: 1.25in;">variable</td>
-<td style="text-align: left;">An element of a conceptual component which varies. We also call these "measures"</td>
+<td style="text-align: left;">variable</td>
+<td style="text-align: left;">An element of a conceptual component which varies. We also call these “measures”</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left; min-width: 1.25in;">variance</td>
+<td style="text-align: left;">variance</td>
 <td style="text-align: left;">Is equal to the squared standard deviation</td>
 </tr>
 </tbody>
 </table>
-
-
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-glossary1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1246,6 +1277,9 @@ The data are available as a <a href="files/excelfiles/PO33Q_Week 1_All.csv">.csv
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-adcock:2001" class="csl-entry" role="listitem">
+Adcock, R., &amp; Collier, D. (2001). <span class="nocase">Measurement Validity: A Shared Standard for Qualitative and Quantitative Research</span>. <em><span>American Political Science Review</span></em>, <em>95</em>(3), 529–546. <a href="https://doi.org/10.1017/S0003055401003100">https://doi.org/10.1017/S0003055401003100</a>
+</div>
 <div id="ref-fogarty:2023" class="csl-entry" role="listitem">
 Fogarty, B. J. (2023). <em><span>Quantitative Social Science Data With R</span></em> (Second Edition). Thousand Oaks, <span>CA</span>: Sage.
 </div>
@@ -1260,6 +1294,9 @@ Marshall, M. G., &amp; Gurr, T. R. (2020). <em><span class="nocase">Polity V Pro
 </div>
 <div id="ref-boix:2022" class="csl-entry" role="listitem">
 Miller, M., Boix, C., &amp; Rosato, S. (2022). <em><span class="nocase">Boix-Miller-Rosato Dichotomous Coding of Democracy, 1800-2020</span></em> (Version V1) [Data set]. Harvard Dataverse. <a href="https://doi.org/10.7910/DVN/FENWWR">https://doi.org/10.7910/DVN/FENWWR</a>
+</div>
+<div id="ref-oxford" class="csl-entry" role="listitem">
+Oxford Learner’s Dictionaries. (n.d.). <a href="https://www.oxfordlearnersdictionaries.com/">https://www.oxfordlearnersdictionaries.com/</a>
 </div>
 <div id="ref-stinerock:2022" class="csl-entry" role="listitem">
 Stinerock, R. (2022). <em><span class="nocase">Statistics with R – A Beginner’s Guide</span></em> (Second Edition). Thousand Oaks, <span>CA</span>: Sage.
