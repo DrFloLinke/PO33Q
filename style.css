@@ -114,22 +114,6 @@ nav#TOC .nav-link.active {
   border-radius: 4px;
 }
 
-/* ----------------------------------------
-   Navbar
----------------------------------------- */
-.navbar,
-.navbar-dark,
-.navbar-light {
-  background-color: var(--bg) !important;
-  color: var(--fg) !important;
-}
-.navbar a,
-.navbar .navbar-brand,
-.navbar .nav-link {
-  color: var(--muted) !important;
-  font-family: 'Lexend', sans-serif;
-  font-weight: 500;
-}
 
 /* ----------------------------------------
    Links in main content
@@ -140,6 +124,15 @@ main a:hover,
 main a:active {
   color: var(--accent) !important;
   text-decoration: none;
+}
+
+
+/* glossary entries */
+main .gls a,
+main .gls a:visited,
+main .gls a:hover,
+main .gls a:active {
+  color: #77a0d4 !important;
 }
 
 /* ----------------------------------------
@@ -593,12 +586,26 @@ header.navbar,
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(225,226,234,1)' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
 }
 
+/* ----------------------------------------
+   Navbar
+---------------------------------------- */
 
 
-/* Put this AFTER the global main a rule */
-main .gls a,
-main .gls a:visited,
-main .gls a:hover,
-main .gls a:active {
-  color: #77a0d4 !important;
+/* styles.css */
+.navbar, .navbar-dark, .navbar-light {
+  background-color: #22304a !important;
 }
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: #ffffff !important;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .nav-link.active {
+  color: #9bd1ff !important;
+}
+a { color: #0d6efd; }
+
+
+
+

@@ -1647,9 +1647,9 @@ Figure&nbsp;6: ROC Curve
 
     <script>
 
-      function styleCell_abxvtsdyz38xfpr8b3dg(i, j, css_id) {
-          var table = document.getElementById("tinytable_abxvtsdyz38xfpr8b3dg");
-          var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
+      function styleCell_2ftow3m9ysqkoi5poxvl(i, j, css_id) {
+          var table = document.getElementById("tinytable_2ftow3m9ysqkoi5poxvl");
+          var cell = table.querySelector(`[data-row="${i}"][data-col="${j}"]`);
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
               cell.classList.add(css_id);
@@ -1657,66 +1657,58 @@ Figure&nbsp;6: ROC Curve
               console.warn(`Cell at (${i}, ${j}) not found.`);
           }
       }
-      function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_abxvtsdyz38xfpr8b3dg');
-        var newRow = table.insertRow(i);
-        var newCell = newRow.insertCell(0);
-        newCell.setAttribute("colspan", colspan);
-        // newCell.innerText = content;
-        // this may be unsafe, but innerText does not interpret <br>
-        newCell.innerHTML = content;
-      }
-      function spanCell_abxvtsdyz38xfpr8b3dg(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_abxvtsdyz38xfpr8b3dg");
-        const targetRow = table.rows[i];
-        const targetCell = targetRow.cells[j];
+      function spanCell_2ftow3m9ysqkoi5poxvl(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_2ftow3m9ysqkoi5poxvl");
+        const targetCell = table.querySelector(`[data-row="${i}"][data-col="${j}"]`);
+        if (!targetCell) {
+          console.warn(`Cell at (${i}, ${j}) not found.`);
+        }
+
+        // Get all cells that need to be removed
+        const cellsToRemove = [];
         for (let r = 0; r < rowspan; r++) {
-          // Only start deleting cells to the right for the first row (r == 0)
-          if (r === 0) {
-            // Delete cells to the right of the target cell in the first row
-            for (let c = colspan - 1; c > 0; c--) {
-              if (table.rows[i + r].cells[j + c]) {
-                table.rows[i + r].deleteCell(j + c);
-              }
-            }
-          }
-          // For rows below the first, delete starting from the target column
-          if (r > 0) {
-            for (let c = colspan - 1; c >= 0; c--) {
-              if (table.rows[i + r] && table.rows[i + r].cells[j]) {
-                table.rows[i + r].deleteCell(j);
-              }
+          for (let c = 0; c < colspan; c++) {
+            if (r === 0 && c === 0) continue; // Skip the target cell
+            const cell = table.querySelector(`[data-row="${i + r}"][data-col="${j + c}"]`);
+            if (cell) {
+              cellsToRemove.push(cell);
             }
           }
         }
-        // Set rowspan and colspan of the target cell
-        targetCell.rowSpan = rowspan;
-        targetCell.colSpan = colspan;
+
+        // Remove all cells
+        cellsToRemove.forEach(cell => cell.remove());
+
+        // Set rowspan and colspan of the target cell if it exists
+        if (targetCell) {
+          targetCell.rowSpan = rowspan;
+          targetCell.colSpan = colspan;
+        }
       }
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 1, j: 4 }, { i: 1, j: 3 },  ], css_id: 'tinytable_css_erqhtnddbtbx5ui4v2w4',}, 
-          { positions: [ { i: 0, j: 3 }, { i: 0, j: 2 }, { i: 0, j: 4 },  ], css_id: 'tinytable_css_3e7t56fe3tdu8fd6nd5c',}, 
-          { positions: [ { i: 12, j: 1 }, { i: 12, j: 4 }, { i: 12, j: 2 }, { i: 12, j: 3 },  ], css_id: 'tinytable_css_j8jfhmcgthey9il4c5pe',}, 
-          { positions: [ { i: 10, j: 3 }, { i: 10, j: 2 }, { i: 10, j: 4 }, { i: 10, j: 1 },  ], css_id: 'tinytable_css_ia5n0h0t4tfkpjhj9x9d',}, 
-          { positions: [ { i: 4, j: 1 }, { i: 3, j: 1 }, { i: 8, j: 1 }, { i: 5, j: 1 }, { i: 7, j: 1 }, { i: 3, j: 2 }, { i: 9, j: 1 }, { i: 6, j: 1 }, { i: 11, j: 1 }, { i: 7, j: 2 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 11, j: 2 }, { i: 8, j: 2 }, { i: 9, j: 2 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 9, j: 3 }, { i: 5, j: 4 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 4, j: 4 }, { i: 9, j: 4 }, { i: 11, j: 3 }, { i: 3, j: 4 }, { i: 8, j: 4 }, { i: 6, j: 4 }, { i: 7, j: 4 }, { i: 11, j: 4 },  ], css_id: 'tinytable_css_cs59vapaqixk9ibp6q5e',}, 
-          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_pdf0t9eb94sd0e6fxt22',}, 
-          { positions: [ { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_vp8bi5lbwr69j75527nt',}, 
-          { positions: [ { i: 2, j: 1 }, { i: 2, j: 2 }, { i: 2, j: 3 }, { i: 2, j: 4 },  ], css_id: 'tinytable_css_c8jsntn0nuit6j0e4bgw',}, 
-          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_lavj7drzs8p6khh208p9',}, 
-          { positions: [ { i: 10, j: 0 },  ], css_id: 'tinytable_css_z5v9pymaetywfwjmxlcv',}, 
-          { positions: [ { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 11, j: 0 },  ], css_id: 'tinytable_css_194tirjjxot6nto3ae9p',}, 
-          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_9p02qzc118okoabrf10h',}, 
-          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_per7m5z6pb24ror2qi1u',}, 
-          { positions: [ { i: 2, j: 0 },  ], css_id: 'tinytable_css_6cri942bbkvpskqnhwq8',}, 
+          { positions: [ { i: '-1', j: 4 }, { i: '-1', j: 3 },  ], css_id: 'tinytable_css_64d7l7enofrgsxewzbzu',}, 
+          { positions: [ { i: '-2', j: 3 }, { i: '-2', j: 2 }, { i: '-2', j: 4 },  ], css_id: 'tinytable_css_hs4pyquqsas2p6z2fgp5',}, 
+          { positions: [ { i: '10', j: 1 }, { i: '10', j: 4 }, { i: '10', j: 2 }, { i: '10', j: 3 },  ], css_id: 'tinytable_css_d34993ortgjydmlf9lqt',}, 
+          { positions: [ { i: '8', j: 3 }, { i: '8', j: 2 }, { i: '8', j: 4 }, { i: '8', j: 1 },  ], css_id: 'tinytable_css_u368ovwsj5ajt58yfisu',}, 
+          { positions: [ { i: '2', j: 1 }, { i: '1', j: 1 }, { i: '6', j: 1 }, { i: '3', j: 1 }, { i: '5', j: 1 }, { i: '1', j: 2 }, { i: '7', j: 1 }, { i: '4', j: 1 }, { i: '9', j: 1 }, { i: '5', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '9', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '3', j: 3 }, { i: '4', j: 3 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '7', j: 3 }, { i: '3', j: 4 }, { i: '5', j: 3 }, { i: '6', j: 3 }, { i: '2', j: 4 }, { i: '7', j: 4 }, { i: '9', j: 3 }, { i: '1', j: 4 }, { i: '6', j: 4 }, { i: '4', j: 4 }, { i: '5', j: 4 }, { i: '9', j: 4 },  ], css_id: 'tinytable_css_9kvy9lrac426olsa0qsd',}, 
+          { positions: [ { i: '-2', j: 1 },  ], css_id: 'tinytable_css_qlh1dqut6hk4dlyzgj94',}, 
+          { positions: [ { i: '-1', j: 1 }, { i: '-1', j: 2 },  ], css_id: 'tinytable_css_gf7zoe172627tz9t1kje',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 },  ], css_id: 'tinytable_css_47kvb40jeid7yyxrxaiu',}, 
+          { positions: [ { i: '10', j: 0 },  ], css_id: 'tinytable_css_qj5eywmrod7pl6sb71sl',}, 
+          { positions: [ { i: '8', j: 0 },  ], css_id: 'tinytable_css_kg4daxo2hxe7z2d8ozfd',}, 
+          { positions: [ { i: '1', j: 0 }, { i: '2', j: 0 }, { i: '3', j: 0 }, { i: '4', j: 0 }, { i: '5', j: 0 }, { i: '6', j: 0 }, { i: '7', j: 0 }, { i: '9', j: 0 },  ], css_id: 'tinytable_css_4m9bzpulkhy1i2mk1a3w',}, 
+          { positions: [ { i: '-2', j: 0 },  ], css_id: 'tinytable_css_0ss516ac72apiqxrnayu',}, 
+          { positions: [ { i: '-1', j: 0 },  ], css_id: 'tinytable_css_f1mexau3b6cmhbae3zpk',}, 
+          { positions: [ { i: '0', j: 0 },  ], css_id: 'tinytable_css_xut62ud2vot5f065ypm4',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_abxvtsdyz38xfpr8b3dg(cell.i, cell.j, group.css_id);
+                  styleCell_2ftow3m9ysqkoi5poxvl(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1724,113 +1716,113 @@ Figure&nbsp;6: ROC Curve
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_erqhtnddbtbx5ui4v2w4, .table th.tinytable_css_erqhtnddbtbx5ui4v2w4 { text-align: center; text-align: center; }
-      .table td.tinytable_css_3e7t56fe3tdu8fd6nd5c, .table th.tinytable_css_3e7t56fe3tdu8fd6nd5c { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_j8jfhmcgthey9il4c5pe, .table th.tinytable_css_j8jfhmcgthey9il4c5pe { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_ia5n0h0t4tfkpjhj9x9d, .table th.tinytable_css_ia5n0h0t4tfkpjhj9x9d { text-align: center; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_cs59vapaqixk9ibp6q5e, .table th.tinytable_css_cs59vapaqixk9ibp6q5e { text-align: center; }
-      .table td.tinytable_css_pdf0t9eb94sd0e6fxt22, .table th.tinytable_css_pdf0t9eb94sd0e6fxt22 { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_vp8bi5lbwr69j75527nt, .table th.tinytable_css_vp8bi5lbwr69j75527nt { text-align: center; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_c8jsntn0nuit6j0e4bgw, .table th.tinytable_css_c8jsntn0nuit6j0e4bgw { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_lavj7drzs8p6khh208p9, .table th.tinytable_css_lavj7drzs8p6khh208p9 { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_z5v9pymaetywfwjmxlcv, .table th.tinytable_css_z5v9pymaetywfwjmxlcv { text-align: left; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_194tirjjxot6nto3ae9p, .table th.tinytable_css_194tirjjxot6nto3ae9p { text-align: left; }
-      .table td.tinytable_css_9p02qzc118okoabrf10h, .table th.tinytable_css_9p02qzc118okoabrf10h { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_per7m5z6pb24ror2qi1u, .table th.tinytable_css_per7m5z6pb24ror2qi1u { text-align: left; text-align: center; }
-      .table td.tinytable_css_6cri942bbkvpskqnhwq8, .table th.tinytable_css_6cri942bbkvpskqnhwq8 { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_64d7l7enofrgsxewzbzu, .table th.tinytable_css_64d7l7enofrgsxewzbzu { text-align: center; text-align: center; }
+      .table td.tinytable_css_hs4pyquqsas2p6z2fgp5, .table th.tinytable_css_hs4pyquqsas2p6z2fgp5 { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_d34993ortgjydmlf9lqt, .table th.tinytable_css_d34993ortgjydmlf9lqt { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_u368ovwsj5ajt58yfisu, .table th.tinytable_css_u368ovwsj5ajt58yfisu { text-align: center; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_9kvy9lrac426olsa0qsd, .table th.tinytable_css_9kvy9lrac426olsa0qsd { text-align: center; }
+      .table td.tinytable_css_qlh1dqut6hk4dlyzgj94, .table th.tinytable_css_qlh1dqut6hk4dlyzgj94 { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_gf7zoe172627tz9t1kje, .table th.tinytable_css_gf7zoe172627tz9t1kje { text-align: center; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_47kvb40jeid7yyxrxaiu, .table th.tinytable_css_47kvb40jeid7yyxrxaiu { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_qj5eywmrod7pl6sb71sl, .table th.tinytable_css_qj5eywmrod7pl6sb71sl { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_kg4daxo2hxe7z2d8ozfd, .table th.tinytable_css_kg4daxo2hxe7z2d8ozfd { text-align: left; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_4m9bzpulkhy1i2mk1a3w, .table th.tinytable_css_4m9bzpulkhy1i2mk1a3w { text-align: left; }
+      .table td.tinytable_css_0ss516ac72apiqxrnayu, .table th.tinytable_css_0ss516ac72apiqxrnayu { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_f1mexau3b6cmhbae3zpk, .table th.tinytable_css_f1mexau3b6cmhbae3zpk { text-align: left; text-align: center; }
+      .table td.tinytable_css_xut62ud2vot5f065ypm4, .table th.tinytable_css_xut62ud2vot5f065ypm4 { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_abxvtsdyz38xfpr8b3dg" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_2ftow3m9ysqkoi5poxvl" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
 <tr>
-<th scope="col" align="center" colspan="1"> </th>
-<th scope="col" align="center" colspan="4">Dependent Variable:<br>Democracy</th>
+<th scope="col" align="center" colspan="1" data-row="-2" data-col="0"> </th>
+<th scope="col" align="center" colspan="4" data-row="-2" data-col="1">Dependent Variable:<br>Democracy</th>
 </tr>
 <tr>
-<th scope="col" align="center" colspan="1"> </th>
-<th scope="col" align="center" colspan="2">Emergence</th>
-<th scope="col" align="center" colspan="2">Survival</th>
+<th scope="col" align="center" colspan="1" data-row="-1" data-col="0"> </th>
+<th scope="col" align="center" colspan="2" data-row="-1" data-col="1">Emergence</th>
+<th scope="col" align="center" colspan="2" data-row="-1" data-col="2">Survival</th>
 </tr>
         
               <tr>
-                <th scope="col"> </th>
-                <th scope="col">Classical</th>
-                <th scope="col">New</th>
-                <th scope="col">Classical </th>
-                <th scope="col">New </th>
+                <th scope="col" data-row="0" data-col="0"> </th>
+                <th scope="col" data-row="0" data-col="1">Classical</th>
+                <th scope="col" data-row="0" data-col="2">New</th>
+                <th scope="col" data-row="0" data-col="3">Classical </th>
+                <th scope="col" data-row="0" data-col="4">New </th>
               </tr>
         </thead>
         <tfoot><tr><td colspan="5">+ p &lt; 0.1, * p &lt; 0.1, ** p &lt; 0.05, *** p &lt; 0.01</td></tr></tfoot>
         <tbody>
                 <tr>
-                  <td>per capita GDP (lagged)</td>
-                  <td>-0.000*</td>
-                  <td>-0.000**</td>
-                  <td>0.000***</td>
-                  <td>0.000**</td>
+                  <td data-row="1" data-col="0">per capita GDP (lagged)</td>
+                  <td data-row="1" data-col="1">-0.000*</td>
+                  <td data-row="1" data-col="2">-0.000**</td>
+                  <td data-row="1" data-col="3">0.000***</td>
+                  <td data-row="1" data-col="4">0.000**</td>
                 </tr>
                 <tr>
-                  <td></td>
-                  <td>(0.000)</td>
-                  <td>(0.000)</td>
-                  <td>(0.000)</td>
-                  <td>(0.000)</td>
+                  <td data-row="2" data-col="0"></td>
+                  <td data-row="2" data-col="1">(0.000)</td>
+                  <td data-row="2" data-col="2">(0.000)</td>
+                  <td data-row="2" data-col="3">(0.000)</td>
+                  <td data-row="2" data-col="4">(0.000)</td>
                 </tr>
                 <tr>
-                  <td>Life Expectancy (lagged)</td>
-                  <td></td>
-                  <td>0.015*</td>
-                  <td></td>
-                  <td>0.007</td>
+                  <td data-row="3" data-col="0">Life Expectancy (lagged)</td>
+                  <td data-row="3" data-col="1"></td>
+                  <td data-row="3" data-col="2">0.015*</td>
+                  <td data-row="3" data-col="3"></td>
+                  <td data-row="3" data-col="4">0.007</td>
                 </tr>
                 <tr>
-                  <td></td>
-                  <td></td>
-                  <td>(0.007)</td>
-                  <td></td>
-                  <td>(0.011)</td>
+                  <td data-row="4" data-col="0"></td>
+                  <td data-row="4" data-col="1"></td>
+                  <td data-row="4" data-col="2">(0.007)</td>
+                  <td data-row="4" data-col="3"></td>
+                  <td data-row="4" data-col="4">(0.011)</td>
                 </tr>
                 <tr>
-                  <td>Gross Primary Enrollment (lagged)</td>
-                  <td></td>
-                  <td>-0.001</td>
-                  <td></td>
-                  <td>0.005</td>
+                  <td data-row="5" data-col="0">Gross Primary Enrollment (lagged)</td>
+                  <td data-row="5" data-col="1"></td>
+                  <td data-row="5" data-col="2">-0.001</td>
+                  <td data-row="5" data-col="3"></td>
+                  <td data-row="5" data-col="4">0.005</td>
                 </tr>
                 <tr>
-                  <td></td>
-                  <td></td>
-                  <td>(0.002)</td>
-                  <td></td>
-                  <td>(0.003)</td>
+                  <td data-row="6" data-col="0"></td>
+                  <td data-row="6" data-col="1"></td>
+                  <td data-row="6" data-col="2">(0.002)</td>
+                  <td data-row="6" data-col="3"></td>
+                  <td data-row="6" data-col="4">(0.003)</td>
                 </tr>
                 <tr>
-                  <td>Intercept</td>
-                  <td>-1.977***</td>
-                  <td>-2.717***</td>
-                  <td>1.629***</td>
-                  <td>0.827</td>
+                  <td data-row="7" data-col="0">Intercept</td>
+                  <td data-row="7" data-col="1">-1.977***</td>
+                  <td data-row="7" data-col="2">-2.717***</td>
+                  <td data-row="7" data-col="3">1.629***</td>
+                  <td data-row="7" data-col="4">0.827</td>
                 </tr>
                 <tr>
-                  <td></td>
-                  <td>(0.047)</td>
-                  <td>(0.338)</td>
-                  <td>(0.076)</td>
-                  <td>(0.586)</td>
+                  <td data-row="8" data-col="0"></td>
+                  <td data-row="8" data-col="1">(0.047)</td>
+                  <td data-row="8" data-col="2">(0.338)</td>
+                  <td data-row="8" data-col="3">(0.076)</td>
+                  <td data-row="8" data-col="4">(0.586)</td>
                 </tr>
                 <tr>
-                  <td>ROC Curve</td>
-                  <td>0.523</td>
-                  <td>0.598</td>
-                  <td>0.834</td>
-                  <td>0.821</td>
+                  <td data-row="9" data-col="0">ROC Curve</td>
+                  <td data-row="9" data-col="1">0.523</td>
+                  <td data-row="9" data-col="2">0.598</td>
+                  <td data-row="9" data-col="3">0.834</td>
+                  <td data-row="9" data-col="4">0.821</td>
                 </tr>
                 <tr>
-                  <td>Num.Obs.</td>
-                  <td>4652</td>
-                  <td>3351</td>
-                  <td>4589</td>
-                  <td>3585</td>
+                  <td data-row="10" data-col="0">Num.Obs.</td>
+                  <td data-row="10" data-col="1">4652</td>
+                  <td data-row="10" data-col="2">3351</td>
+                  <td data-row="10" data-col="3">4589</td>
+                  <td data-row="10" data-col="4">3585</td>
                 </tr>
         </tbody>
       </table>
