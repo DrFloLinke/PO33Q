@@ -586,3 +586,65 @@ header.navbar,
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(225,226,234,1)' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Compact top navbar */
+#quarto-header {
+  --nav-bg: #44496f;
+  --nav-fg: #d0d2e2;
+}
+
+#quarto-header .navbar {
+  padding: 0.25rem 0;
+  min-height: 44px;                 /* touch target */
+  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+  background: var(--nav-bg) !important;
+}
+
+/* brand + links share typography/colors */
+#quarto-header .navbar-brand,
+#quarto-header .navbar-nav .nav-link {
+  font-size: 0.95rem;
+  line-height: 1.1;
+  color: var(--nav-fg) !important;
+}
+
+#quarto-header .navbar .nav-link:hover,
+#quarto-header .navbar .nav-link:focus {
+  opacity: .85;
+}
+
+/* brand layout + logo size */
+#quarto-header .navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+#quarto-header .navbar-brand img {
+  height: 24px;
+  width: auto;
+}
+
+/* title tweaks (inherits color/size from .navbar-brand) */
+#quarto-header .navbar-brand .navbar-title {
+  margin: 0;
+  font-weight: 600;
+}
+
+#quarto-header .navbar-brand img { margin-right: .6rem; margin-left: .2rem; }
+
+

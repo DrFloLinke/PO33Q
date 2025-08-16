@@ -44,7 +44,6 @@ div.csl-indent {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -62,18 +61,17 @@ div.csl-indent {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-7c884608bb88d9d23eddf9360d6659a5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
     "/",
     "s"
   ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -97,10 +95,25 @@ div.csl-indent {
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./images/Crest_white.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">PO33Q - Determinants of Democracy</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -109,26 +122,13 @@ div.csl-indent {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-PO33Q.html"><span class="chapter-title">Week 4</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./"><img src="images/Crest_white.png" width="75" style="display:block; margin:auto; margin-bottom:3em;"> PO33Q: Determinants of Democracy – <br> Analysing Emergence, Survival, and Fall</a> 
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -766,8 +766,8 @@ Table&nbsp;3: What is left…
 
     <script>
 
-      function styleCell_6bb1ap27gck7gbo6syxh(i, j, css_id) {
-          var table = document.getElementById("tinytable_6bb1ap27gck7gbo6syxh");
+      function styleCell_k7z623f1n7ijlrjviore(i, j, css_id) {
+          var table = document.getElementById("tinytable_k7z623f1n7ijlrjviore");
           var cell = table.querySelector(`[data-row="${i}"][data-col="${j}"]`);
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -776,8 +776,8 @@ Table&nbsp;3: What is left…
               console.warn(`Cell at (${i}, ${j}) not found.`);
           }
       }
-      function spanCell_6bb1ap27gck7gbo6syxh(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_6bb1ap27gck7gbo6syxh");
+      function spanCell_k7z623f1n7ijlrjviore(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_k7z623f1n7ijlrjviore");
         const targetCell = table.querySelector(`[data-row="${i}"][data-col="${j}"]`);
         if (!targetCell) {
           console.warn(`Cell at (${i}, ${j}) not found.`);
@@ -808,21 +808,21 @@ Table&nbsp;3: What is left…
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '-1', j: 2 }, { i: '-1', j: 3 },  ], css_id: 'tinytable_css_d44phuarem7qp6y8blfd',}, 
-          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 }, { i: '6', j: 3 },  ], css_id: 'tinytable_css_gz32qak4svrh5buolnbw',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '2', j: 2 }, { i: '4', j: 2 }, { i: '1', j: 2 }, { i: '2', j: 3 }, { i: '3', j: 1 }, { i: '4', j: 3 }, { i: '5', j: 2 }, { i: '3', j: 2 }, { i: '1', j: 3 }, { i: '3', j: 3 }, { i: '5', j: 3 },  ], css_id: 'tinytable_css_ugiepzvs1lrgrarktpsv',}, 
-          { positions: [ { i: '-1', j: 1 },  ], css_id: 'tinytable_css_vghs4axcdxg6or7ucfi0',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 },  ], css_id: 'tinytable_css_5x2kag3v1mo3vtgzzxcr',}, 
-          { positions: [ { i: '6', j: 0 },  ], css_id: 'tinytable_css_0mdfdifw96ju81czmpbj',}, 
-          { positions: [ { i: '1', j: 0 }, { i: '2', j: 0 }, { i: '3', j: 0 }, { i: '4', j: 0 }, { i: '5', j: 0 },  ], css_id: 'tinytable_css_dupyfn03e6s05wjvawph',}, 
-          { positions: [ { i: '-1', j: 0 },  ], css_id: 'tinytable_css_o5vzctp6379hwyovqisn',}, 
-          { positions: [ { i: '0', j: 0 },  ], css_id: 'tinytable_css_9spcshs7oktev0dq8wa9',}, 
+          { positions: [ { i: '-1', j: 2 }, { i: '-1', j: 3 },  ], css_id: 'tinytable_css_r8z1n40rgjardwz9h52c',}, 
+          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 }, { i: '6', j: 3 },  ], css_id: 'tinytable_css_8ftmyfjslsqowd3qsf9j',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '2', j: 2 }, { i: '4', j: 2 }, { i: '1', j: 2 }, { i: '2', j: 3 }, { i: '3', j: 1 }, { i: '4', j: 3 }, { i: '5', j: 2 }, { i: '3', j: 2 }, { i: '1', j: 3 }, { i: '3', j: 3 }, { i: '5', j: 3 },  ], css_id: 'tinytable_css_luuopzyglnij9qzgbihk',}, 
+          { positions: [ { i: '-1', j: 1 },  ], css_id: 'tinytable_css_5o6x0zsnok67vr6p6vsl',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 },  ], css_id: 'tinytable_css_eirc8lyq53ghs78y84kp',}, 
+          { positions: [ { i: '6', j: 0 },  ], css_id: 'tinytable_css_pyauzy6smjn12k8imm2m',}, 
+          { positions: [ { i: '1', j: 0 }, { i: '2', j: 0 }, { i: '3', j: 0 }, { i: '4', j: 0 }, { i: '5', j: 0 },  ], css_id: 'tinytable_css_0h8iez333gxpfekodbi7',}, 
+          { positions: [ { i: '-1', j: 0 },  ], css_id: 'tinytable_css_epllgzmk2ywm4kt4cj19',}, 
+          { positions: [ { i: '0', j: 0 },  ], css_id: 'tinytable_css_y2bdfsqn4xbbxwe73hyx',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_6bb1ap27gck7gbo6syxh(cell.i, cell.j, group.css_id);
+                  styleCell_k7z623f1n7ijlrjviore(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -830,18 +830,18 @@ Table&nbsp;3: What is left…
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_d44phuarem7qp6y8blfd, .table th.tinytable_css_d44phuarem7qp6y8blfd { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_gz32qak4svrh5buolnbw, .table th.tinytable_css_gz32qak4svrh5buolnbw { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_ugiepzvs1lrgrarktpsv, .table th.tinytable_css_ugiepzvs1lrgrarktpsv { text-align: center; }
-      .table td.tinytable_css_vghs4axcdxg6or7ucfi0, .table th.tinytable_css_vghs4axcdxg6or7ucfi0 { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_5x2kag3v1mo3vtgzzxcr, .table th.tinytable_css_5x2kag3v1mo3vtgzzxcr { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_0mdfdifw96ju81czmpbj, .table th.tinytable_css_0mdfdifw96ju81czmpbj { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_dupyfn03e6s05wjvawph, .table th.tinytable_css_dupyfn03e6s05wjvawph { text-align: left; }
-      .table td.tinytable_css_o5vzctp6379hwyovqisn, .table th.tinytable_css_o5vzctp6379hwyovqisn { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_9spcshs7oktev0dq8wa9, .table th.tinytable_css_9spcshs7oktev0dq8wa9 { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_r8z1n40rgjardwz9h52c, .table th.tinytable_css_r8z1n40rgjardwz9h52c { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_8ftmyfjslsqowd3qsf9j, .table th.tinytable_css_8ftmyfjslsqowd3qsf9j { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_luuopzyglnij9qzgbihk, .table th.tinytable_css_luuopzyglnij9qzgbihk { text-align: center; }
+      .table td.tinytable_css_5o6x0zsnok67vr6p6vsl, .table th.tinytable_css_5o6x0zsnok67vr6p6vsl { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_eirc8lyq53ghs78y84kp, .table th.tinytable_css_eirc8lyq53ghs78y84kp { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_pyauzy6smjn12k8imm2m, .table th.tinytable_css_pyauzy6smjn12k8imm2m { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_0h8iez333gxpfekodbi7, .table th.tinytable_css_0h8iez333gxpfekodbi7 { text-align: left; }
+      .table td.tinytable_css_epllgzmk2ywm4kt4cj19, .table th.tinytable_css_epllgzmk2ywm4kt4cj19 { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_y2bdfsqn4xbbxwe73hyx, .table th.tinytable_css_y2bdfsqn4xbbxwe73hyx { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_6bb1ap27gck7gbo6syxh" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_k7z623f1n7ijlrjviore" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
 <tr>
 <th scope="col" align="center" colspan="1" data-row="-1" data-col="0"> </th>

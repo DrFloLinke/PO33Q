@@ -78,7 +78,6 @@ div.csl-indent {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -96,18 +95,17 @@ div.csl-indent {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-7c884608bb88d9d23eddf9360d6659a5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
     "/",
     "s"
   ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -160,10 +158,25 @@ window.Quarto = {
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./images/Crest_white.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">PO33Q - Determinants of Democracy</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -172,26 +185,13 @@ window.Quarto = {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-PO33Q.html"><span class="chapter-title">Week 3</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./"><img src="images/Crest_white.png" width="75" style="display:block; margin:auto; margin-bottom:3em;"> PO33Q: Determinants of Democracy – <br> Analysing Emergence, Survival, and Fall</a> 
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -678,8 +678,8 @@ Number of Fisher Scoring iterations: 5</code></pre>
 
     <script>
 
-      function styleCell_n8chhw2jm73zby9h4quv(i, j, css_id) {
-          var table = document.getElementById("tinytable_n8chhw2jm73zby9h4quv");
+      function styleCell_qtd7umwh4a0aeumq1x78(i, j, css_id) {
+          var table = document.getElementById("tinytable_qtd7umwh4a0aeumq1x78");
           var cell = table.querySelector(`[data-row="${i}"][data-col="${j}"]`);
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -688,8 +688,8 @@ Number of Fisher Scoring iterations: 5</code></pre>
               console.warn(`Cell at (${i}, ${j}) not found.`);
           }
       }
-      function spanCell_n8chhw2jm73zby9h4quv(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_n8chhw2jm73zby9h4quv");
+      function spanCell_qtd7umwh4a0aeumq1x78(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_qtd7umwh4a0aeumq1x78");
         const targetCell = table.querySelector(`[data-row="${i}"][data-col="${j}"]`);
         if (!targetCell) {
           console.warn(`Cell at (${i}, ${j}) not found.`);
@@ -720,20 +720,20 @@ Number of Fisher Scoring iterations: 5</code></pre>
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '4', j: 1 },  ], css_id: 'tinytable_css_bgdj9pif2xn8ndimcz9k',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 },  ], css_id: 'tinytable_css_5eo1nf5xgy6ykyjbv5wp',}, 
-          { positions: [ { i: '-1', j: 1 },  ], css_id: 'tinytable_css_gkgz2ihl8fipwi7i178r',}, 
-          { positions: [ { i: '0', j: 1 },  ], css_id: 'tinytable_css_nefb46syiuju4xkwcvdg',}, 
-          { positions: [ { i: '4', j: 0 },  ], css_id: 'tinytable_css_vbare82g8nuvmvl5n551',}, 
-          { positions: [ { i: '1', j: 0 }, { i: '2', j: 0 }, { i: '3', j: 0 },  ], css_id: 'tinytable_css_atd2bfyx9shu54m3w66h',}, 
-          { positions: [ { i: '-1', j: 0 },  ], css_id: 'tinytable_css_ma7lm65x9hpt66izorm7',}, 
-          { positions: [ { i: '0', j: 0 },  ], css_id: 'tinytable_css_onvocqfd3vap1em6yrru',}, 
+          { positions: [ { i: '4', j: 1 },  ], css_id: 'tinytable_css_9j9w4now6y5h05k4jj1y',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 },  ], css_id: 'tinytable_css_9djg8c2jljb2qn5x9gdu',}, 
+          { positions: [ { i: '-1', j: 1 },  ], css_id: 'tinytable_css_3slz04h9frlkj9ub32mx',}, 
+          { positions: [ { i: '0', j: 1 },  ], css_id: 'tinytable_css_dts3926au8amq1h9rxfy',}, 
+          { positions: [ { i: '4', j: 0 },  ], css_id: 'tinytable_css_rr5al2a6pmsstqn9oggg',}, 
+          { positions: [ { i: '1', j: 0 }, { i: '2', j: 0 }, { i: '3', j: 0 },  ], css_id: 'tinytable_css_w08gf617ac2l0e51ixsc',}, 
+          { positions: [ { i: '-1', j: 0 },  ], css_id: 'tinytable_css_9bztomhlveagcx4r3cht',}, 
+          { positions: [ { i: '0', j: 0 },  ], css_id: 'tinytable_css_mupyfiq8a6vd4sw4n0ng',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_n8chhw2jm73zby9h4quv(cell.i, cell.j, group.css_id);
+                  styleCell_qtd7umwh4a0aeumq1x78(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -741,17 +741,17 @@ Number of Fisher Scoring iterations: 5</code></pre>
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_bgdj9pif2xn8ndimcz9k, .table th.tinytable_css_bgdj9pif2xn8ndimcz9k { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_5eo1nf5xgy6ykyjbv5wp, .table th.tinytable_css_5eo1nf5xgy6ykyjbv5wp { text-align: center; }
-      .table td.tinytable_css_gkgz2ihl8fipwi7i178r, .table th.tinytable_css_gkgz2ihl8fipwi7i178r { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_nefb46syiuju4xkwcvdg, .table th.tinytable_css_nefb46syiuju4xkwcvdg { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_vbare82g8nuvmvl5n551, .table th.tinytable_css_vbare82g8nuvmvl5n551 { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_atd2bfyx9shu54m3w66h, .table th.tinytable_css_atd2bfyx9shu54m3w66h { text-align: left; }
-      .table td.tinytable_css_ma7lm65x9hpt66izorm7, .table th.tinytable_css_ma7lm65x9hpt66izorm7 { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_onvocqfd3vap1em6yrru, .table th.tinytable_css_onvocqfd3vap1em6yrru { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_9j9w4now6y5h05k4jj1y, .table th.tinytable_css_9j9w4now6y5h05k4jj1y { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_9djg8c2jljb2qn5x9gdu, .table th.tinytable_css_9djg8c2jljb2qn5x9gdu { text-align: center; }
+      .table td.tinytable_css_3slz04h9frlkj9ub32mx, .table th.tinytable_css_3slz04h9frlkj9ub32mx { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_dts3926au8amq1h9rxfy, .table th.tinytable_css_dts3926au8amq1h9rxfy { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_rr5al2a6pmsstqn9oggg, .table th.tinytable_css_rr5al2a6pmsstqn9oggg { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_w08gf617ac2l0e51ixsc, .table th.tinytable_css_w08gf617ac2l0e51ixsc { text-align: left; }
+      .table td.tinytable_css_9bztomhlveagcx4r3cht, .table th.tinytable_css_9bztomhlveagcx4r3cht { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_mupyfiq8a6vd4sw4n0ng, .table th.tinytable_css_mupyfiq8a6vd4sw4n0ng { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_n8chhw2jm73zby9h4quv" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_qtd7umwh4a0aeumq1x78" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
 <tr>
 <th scope="col" align="center" colspan="1" data-row="-1" data-col="0"> </th>
@@ -855,8 +855,8 @@ Table&nbsp;1: Influence of per capita GDP on Democracy
 
     <script>
 
-      function styleCell_n8hpz1cmzn60gpactmgq(i, j, css_id) {
-          var table = document.getElementById("tinytable_n8hpz1cmzn60gpactmgq");
+      function styleCell_8ovaxh7fhrtl9i5n8aq4(i, j, css_id) {
+          var table = document.getElementById("tinytable_8ovaxh7fhrtl9i5n8aq4");
           var cell = table.querySelector(`[data-row="${i}"][data-col="${j}"]`);
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -865,8 +865,8 @@ Table&nbsp;1: Influence of per capita GDP on Democracy
               console.warn(`Cell at (${i}, ${j}) not found.`);
           }
       }
-      function spanCell_n8hpz1cmzn60gpactmgq(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_n8hpz1cmzn60gpactmgq");
+      function spanCell_8ovaxh7fhrtl9i5n8aq4(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_8ovaxh7fhrtl9i5n8aq4");
         const targetCell = table.querySelector(`[data-row="${i}"][data-col="${j}"]`);
         if (!targetCell) {
           console.warn(`Cell at (${i}, ${j}) not found.`);
@@ -897,20 +897,20 @@ Table&nbsp;1: Influence of per capita GDP on Democracy
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '4', j: 1 },  ], css_id: 'tinytable_css_uyvvllm4pjoy7u37qpsq',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 },  ], css_id: 'tinytable_css_f917uvc5wakgpvl8i5yn',}, 
-          { positions: [ { i: '-1', j: 1 },  ], css_id: 'tinytable_css_31vl8z9o5b6h64yf9wuv',}, 
-          { positions: [ { i: '0', j: 1 },  ], css_id: 'tinytable_css_b46jsp05os1v1dqtrcsz',}, 
-          { positions: [ { i: '4', j: 0 },  ], css_id: 'tinytable_css_vdau3knwz460zzx2nii5',}, 
-          { positions: [ { i: '1', j: 0 }, { i: '2', j: 0 }, { i: '3', j: 0 },  ], css_id: 'tinytable_css_tisf5t9cw6c4fr18d60x',}, 
-          { positions: [ { i: '-1', j: 0 },  ], css_id: 'tinytable_css_r8o0wt74o0xez1j3sl9o',}, 
-          { positions: [ { i: '0', j: 0 },  ], css_id: 'tinytable_css_vvgmclh127sn4xkiumo9',}, 
+          { positions: [ { i: '4', j: 1 },  ], css_id: 'tinytable_css_2tyv4pusdfrib0db4lhh',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 },  ], css_id: 'tinytable_css_m3zozx0rpxvoy4z4jgp4',}, 
+          { positions: [ { i: '-1', j: 1 },  ], css_id: 'tinytable_css_193gufq222kk16yhbku7',}, 
+          { positions: [ { i: '0', j: 1 },  ], css_id: 'tinytable_css_l2m8xwwqc42qapa5a6a3',}, 
+          { positions: [ { i: '4', j: 0 },  ], css_id: 'tinytable_css_sgz0tqo09jy2zjzrlxf1',}, 
+          { positions: [ { i: '1', j: 0 }, { i: '2', j: 0 }, { i: '3', j: 0 },  ], css_id: 'tinytable_css_lu79th4wp7okqpz7jcqv',}, 
+          { positions: [ { i: '-1', j: 0 },  ], css_id: 'tinytable_css_nmccs0wiun4hrce0fqrp',}, 
+          { positions: [ { i: '0', j: 0 },  ], css_id: 'tinytable_css_b9x8p29vwne59d5m8mho',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_n8hpz1cmzn60gpactmgq(cell.i, cell.j, group.css_id);
+                  styleCell_8ovaxh7fhrtl9i5n8aq4(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -918,17 +918,17 @@ Table&nbsp;1: Influence of per capita GDP on Democracy
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_uyvvllm4pjoy7u37qpsq, .table th.tinytable_css_uyvvllm4pjoy7u37qpsq { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_f917uvc5wakgpvl8i5yn, .table th.tinytable_css_f917uvc5wakgpvl8i5yn { text-align: center; }
-      .table td.tinytable_css_31vl8z9o5b6h64yf9wuv, .table th.tinytable_css_31vl8z9o5b6h64yf9wuv { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_b46jsp05os1v1dqtrcsz, .table th.tinytable_css_b46jsp05os1v1dqtrcsz { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_vdau3knwz460zzx2nii5, .table th.tinytable_css_vdau3knwz460zzx2nii5 { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_tisf5t9cw6c4fr18d60x, .table th.tinytable_css_tisf5t9cw6c4fr18d60x { text-align: left; }
-      .table td.tinytable_css_r8o0wt74o0xez1j3sl9o, .table th.tinytable_css_r8o0wt74o0xez1j3sl9o { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_vvgmclh127sn4xkiumo9, .table th.tinytable_css_vvgmclh127sn4xkiumo9 { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_2tyv4pusdfrib0db4lhh, .table th.tinytable_css_2tyv4pusdfrib0db4lhh { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_m3zozx0rpxvoy4z4jgp4, .table th.tinytable_css_m3zozx0rpxvoy4z4jgp4 { text-align: center; }
+      .table td.tinytable_css_193gufq222kk16yhbku7, .table th.tinytable_css_193gufq222kk16yhbku7 { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_l2m8xwwqc42qapa5a6a3, .table th.tinytable_css_l2m8xwwqc42qapa5a6a3 { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_sgz0tqo09jy2zjzrlxf1, .table th.tinytable_css_sgz0tqo09jy2zjzrlxf1 { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_lu79th4wp7okqpz7jcqv, .table th.tinytable_css_lu79th4wp7okqpz7jcqv { text-align: left; }
+      .table td.tinytable_css_nmccs0wiun4hrce0fqrp, .table th.tinytable_css_nmccs0wiun4hrce0fqrp { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_b9x8p29vwne59d5m8mho, .table th.tinytable_css_b9x8p29vwne59d5m8mho { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_n8hpz1cmzn60gpactmgq" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_8ovaxh7fhrtl9i5n8aq4" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
 <tr>
 <th scope="col" align="center" colspan="1" data-row="-1" data-col="0"> </th>
