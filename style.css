@@ -601,7 +601,6 @@ header.navbar,
 
 
 
-
 /* Compact top navbar */
 #quarto-header {
   --nav-bg: #44496f;
@@ -632,7 +631,7 @@ header.navbar,
 #quarto-header .navbar-brand {
   display: flex;
   align-items: center;
-  gap: .5rem;
+  gap: .5rem; /* keep if you like extra spacing in addition to img margins */
 }
 #quarto-header .navbar-brand img {
   height: 24px;
@@ -643,8 +642,42 @@ header.navbar,
 #quarto-header .navbar-brand .navbar-title {
   margin: 0;
   font-weight: 600;
+  white-space: nowrap;
 }
 
+/* long/short title toggle */
+#quarto-header .navbar-title .title-short { display: none; }
+@media (max-width: 575.98px) { /* Bootstrap “sm” breakpoint */
+  #quarto-header .navbar-title .title-long { display: none; }
+  #quarto-header .navbar-title .title-short { display: inline; }
+}
+
+/* keep your logo margins as-is */
 #quarto-header .navbar-brand img { margin-right: .6rem; margin-left: .2rem; }
 
 
+
+
+
+
+
+/* Mobile: recolor the small bar under the navbar */
+@media (max-width: 991.98px) { /* Bootstrap lg breakpoint */
+  /* The mobile sidebar toggle/header (class names vary by Quarto version) */
+  .quarto-sidebar-toggle,
+  .quarto-secondary-nav,
+  .sidebar-header {
+    background: var(--nav-bg) !important;    /* reuse your navbar colors */
+    color: var(--nav-fg) !important;
+    border-color: transparent !important;
+    box-shadow: 0 1px 0 rgba(0,0,0,.08);
+  }
+
+  /* Ensure text/icons inside that bar also adopt the color */
+  .quarto-sidebar-toggle *,
+  .quarto-secondary-nav a,
+  .quarto-secondary-nav .nav-link,
+  .quarto-secondary-nav .bi {
+    color: var(--nav-fg) !important;
+  }
+}
