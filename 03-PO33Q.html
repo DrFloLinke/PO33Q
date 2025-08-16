@@ -678,8 +678,8 @@ Number of Fisher Scoring iterations: 5</code></pre>
 
     <script>
 
-      function styleCell_l1xi4vcjf261eoz6no7h(i, j, css_id) {
-          var table = document.getElementById("tinytable_l1xi4vcjf261eoz6no7h");
+      function styleCell_u6vh9ud8tj3qs09molyd(i, j, css_id) {
+          var table = document.getElementById("tinytable_u6vh9ud8tj3qs09molyd");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -689,7 +689,7 @@ Number of Fisher Scoring iterations: 5</code></pre>
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_l1xi4vcjf261eoz6no7h');
+        var table = document.getElementById('tinytable_u6vh9ud8tj3qs09molyd');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -697,8 +697,8 @@ Number of Fisher Scoring iterations: 5</code></pre>
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_l1xi4vcjf261eoz6no7h(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_l1xi4vcjf261eoz6no7h");
+      function spanCell_u6vh9ud8tj3qs09molyd(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_u6vh9ud8tj3qs09molyd");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -728,20 +728,20 @@ Number of Fisher Scoring iterations: 5</code></pre>
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 5, j: 1 },  ], css_id: 'tinytable_css_4hqkrtyc7prj6c0t8q2v',}, 
-          { positions: [ { i: 2, j: 1 }, { i: 3, j: 1 }, { i: 4, j: 1 },  ], css_id: 'tinytable_css_xwaknx0r5xyaet9fur88',}, 
-          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_y4afjv4iz8lt19a0fo03',}, 
-          { positions: [ { i: 1, j: 1 },  ], css_id: 'tinytable_css_pk4ggcs9aqveroo1obm1',}, 
-          { positions: [ { i: 5, j: 0 },  ], css_id: 'tinytable_css_yu3aagmtdxikfc8hmlvq',}, 
-          { positions: [ { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 },  ], css_id: 'tinytable_css_c8k1puu83ckz7cw0w0na',}, 
-          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_ye7g1mk8ruxv129zxx04',}, 
-          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_3mru1oq5g0ii9ys7l3rf',}, 
+          { positions: [ { i: 5, j: 1 },  ], css_id: 'tinytable_css_haen3nik8717d5uilxj6',}, 
+          { positions: [ { i: 2, j: 1 }, { i: 3, j: 1 }, { i: 4, j: 1 },  ], css_id: 'tinytable_css_56tboxljvcon2mhcvatf',}, 
+          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_z7kxchxu8oojcr7y0vcs',}, 
+          { positions: [ { i: 1, j: 1 },  ], css_id: 'tinytable_css_3okwx10asv9ezpjovq01',}, 
+          { positions: [ { i: 5, j: 0 },  ], css_id: 'tinytable_css_pqxhhq4m5tw7kzbnwuui',}, 
+          { positions: [ { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 },  ], css_id: 'tinytable_css_zaody95grg51urcvsmcx',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_rgg0s2kqktcln7m2dtd1',}, 
+          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_h63o78krbrwb8g9mzfed',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_l1xi4vcjf261eoz6no7h(cell.i, cell.j, group.css_id);
+                  styleCell_u6vh9ud8tj3qs09molyd(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -749,17 +749,17 @@ Number of Fisher Scoring iterations: 5</code></pre>
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_4hqkrtyc7prj6c0t8q2v, .table th.tinytable_css_4hqkrtyc7prj6c0t8q2v { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_xwaknx0r5xyaet9fur88, .table th.tinytable_css_xwaknx0r5xyaet9fur88 { text-align: center; }
-      .table td.tinytable_css_y4afjv4iz8lt19a0fo03, .table th.tinytable_css_y4afjv4iz8lt19a0fo03 { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_pk4ggcs9aqveroo1obm1, .table th.tinytable_css_pk4ggcs9aqveroo1obm1 { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_yu3aagmtdxikfc8hmlvq, .table th.tinytable_css_yu3aagmtdxikfc8hmlvq { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_c8k1puu83ckz7cw0w0na, .table th.tinytable_css_c8k1puu83ckz7cw0w0na { text-align: left; }
-      .table td.tinytable_css_ye7g1mk8ruxv129zxx04, .table th.tinytable_css_ye7g1mk8ruxv129zxx04 { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_3mru1oq5g0ii9ys7l3rf, .table th.tinytable_css_3mru1oq5g0ii9ys7l3rf { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_haen3nik8717d5uilxj6, .table th.tinytable_css_haen3nik8717d5uilxj6 { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_56tboxljvcon2mhcvatf, .table th.tinytable_css_56tboxljvcon2mhcvatf { text-align: center; }
+      .table td.tinytable_css_z7kxchxu8oojcr7y0vcs, .table th.tinytable_css_z7kxchxu8oojcr7y0vcs { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_3okwx10asv9ezpjovq01, .table th.tinytable_css_3okwx10asv9ezpjovq01 { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_pqxhhq4m5tw7kzbnwuui, .table th.tinytable_css_pqxhhq4m5tw7kzbnwuui { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_zaody95grg51urcvsmcx, .table th.tinytable_css_zaody95grg51urcvsmcx { text-align: left; }
+      .table td.tinytable_css_rgg0s2kqktcln7m2dtd1, .table th.tinytable_css_rgg0s2kqktcln7m2dtd1 { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_h63o78krbrwb8g9mzfed, .table th.tinytable_css_h63o78krbrwb8g9mzfed { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_l1xi4vcjf261eoz6no7h" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_u6vh9ud8tj3qs09molyd" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
 <tr>
 <th scope="col" align="center" colspan="1"> </th>
@@ -863,8 +863,8 @@ Table&nbsp;1: Influence of per capita GDP on Democracy
 
     <script>
 
-      function styleCell_ak5fw38xlnaktuvrtd9c(i, j, css_id) {
-          var table = document.getElementById("tinytable_ak5fw38xlnaktuvrtd9c");
+      function styleCell_9pzh7iham746ekqg1d4u(i, j, css_id) {
+          var table = document.getElementById("tinytable_9pzh7iham746ekqg1d4u");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -874,7 +874,7 @@ Table&nbsp;1: Influence of per capita GDP on Democracy
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_ak5fw38xlnaktuvrtd9c');
+        var table = document.getElementById('tinytable_9pzh7iham746ekqg1d4u');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -882,8 +882,8 @@ Table&nbsp;1: Influence of per capita GDP on Democracy
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_ak5fw38xlnaktuvrtd9c(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_ak5fw38xlnaktuvrtd9c");
+      function spanCell_9pzh7iham746ekqg1d4u(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_9pzh7iham746ekqg1d4u");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -913,20 +913,20 @@ Table&nbsp;1: Influence of per capita GDP on Democracy
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 5, j: 1 },  ], css_id: 'tinytable_css_ytbgt01y790mcrn4ju9m',}, 
-          { positions: [ { i: 2, j: 1 }, { i: 3, j: 1 }, { i: 4, j: 1 },  ], css_id: 'tinytable_css_x6pm0oi7b642oqvpvxk9',}, 
-          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_e25er5ghwut439xtzp49',}, 
-          { positions: [ { i: 1, j: 1 },  ], css_id: 'tinytable_css_2p83xjwvhv4cuood7iie',}, 
-          { positions: [ { i: 5, j: 0 },  ], css_id: 'tinytable_css_9p9scy1xstnvdfesf2oj',}, 
-          { positions: [ { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 },  ], css_id: 'tinytable_css_bvhiexrrkkefazpwt90x',}, 
-          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_bwbs3bw9il1euvd3z5rv',}, 
-          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_s1r46yy7hoc6ae8plmlo',}, 
+          { positions: [ { i: 5, j: 1 },  ], css_id: 'tinytable_css_uma5qjm6zrhz6djyfmou',}, 
+          { positions: [ { i: 2, j: 1 }, { i: 3, j: 1 }, { i: 4, j: 1 },  ], css_id: 'tinytable_css_x8lpbrq912ovj1bg91my',}, 
+          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_rtec9c14pxax821hyio2',}, 
+          { positions: [ { i: 1, j: 1 },  ], css_id: 'tinytable_css_te9ibdw693w1ys9l98ol',}, 
+          { positions: [ { i: 5, j: 0 },  ], css_id: 'tinytable_css_5b9oty77edfgus6us88e',}, 
+          { positions: [ { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 },  ], css_id: 'tinytable_css_42xxn7us29a35ktwdifh',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_l3uefgwx2db6yqgvh057',}, 
+          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_w29zfzkzs19odh1hmyqb',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_ak5fw38xlnaktuvrtd9c(cell.i, cell.j, group.css_id);
+                  styleCell_9pzh7iham746ekqg1d4u(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -934,17 +934,17 @@ Table&nbsp;1: Influence of per capita GDP on Democracy
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_ytbgt01y790mcrn4ju9m, .table th.tinytable_css_ytbgt01y790mcrn4ju9m { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_x6pm0oi7b642oqvpvxk9, .table th.tinytable_css_x6pm0oi7b642oqvpvxk9 { text-align: center; }
-      .table td.tinytable_css_e25er5ghwut439xtzp49, .table th.tinytable_css_e25er5ghwut439xtzp49 { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_2p83xjwvhv4cuood7iie, .table th.tinytable_css_2p83xjwvhv4cuood7iie { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_9p9scy1xstnvdfesf2oj, .table th.tinytable_css_9p9scy1xstnvdfesf2oj { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_bvhiexrrkkefazpwt90x, .table th.tinytable_css_bvhiexrrkkefazpwt90x { text-align: left; }
-      .table td.tinytable_css_bwbs3bw9il1euvd3z5rv, .table th.tinytable_css_bwbs3bw9il1euvd3z5rv { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_s1r46yy7hoc6ae8plmlo, .table th.tinytable_css_s1r46yy7hoc6ae8plmlo { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_uma5qjm6zrhz6djyfmou, .table th.tinytable_css_uma5qjm6zrhz6djyfmou { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_x8lpbrq912ovj1bg91my, .table th.tinytable_css_x8lpbrq912ovj1bg91my { text-align: center; }
+      .table td.tinytable_css_rtec9c14pxax821hyio2, .table th.tinytable_css_rtec9c14pxax821hyio2 { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_te9ibdw693w1ys9l98ol, .table th.tinytable_css_te9ibdw693w1ys9l98ol { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_5b9oty77edfgus6us88e, .table th.tinytable_css_5b9oty77edfgus6us88e { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_42xxn7us29a35ktwdifh, .table th.tinytable_css_42xxn7us29a35ktwdifh { text-align: left; }
+      .table td.tinytable_css_l3uefgwx2db6yqgvh057, .table th.tinytable_css_l3uefgwx2db6yqgvh057 { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_w29zfzkzs19odh1hmyqb, .table th.tinytable_css_w29zfzkzs19odh1hmyqb { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_ak5fw38xlnaktuvrtd9c" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_9pzh7iham746ekqg1d4u" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
 <tr>
 <th scope="col" align="center" colspan="1"> </th>
