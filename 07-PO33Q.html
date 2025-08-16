@@ -848,8 +848,11 @@ Figure&nbsp;5: Towards the ROC Curve
 </figure>
 </div>
 <p>&nbsp; &nbsp;</p>
-<p>The following table displays the confusion matrix for each of the panels in <a href="#fig-towardsroc" class="quarto-xref">Figure&nbsp;<span>5</span></a>, as well as the respective TPR and FPR (you are welcome).</p>
+<p><a href="#tbl-confuse" class="quarto-xref">Table&nbsp;<span>1</span></a> displays the confusion matrix for each of the panels in <a href="#fig-towardsroc" class="quarto-xref">Figure&nbsp;<span>5</span></a>, as well as the respective TPR and FPR (you are welcome).</p>
 <p>&nbsp;</p>
+<div id="tbl-confuse" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<div aria-describedby="tbl-confuse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="top-bottom-rule-only">
 <table style="font-size:12px; margin-left:auto; margin-right:auto; border-collapse: collapse;">
 <thead>
@@ -1359,9 +1362,18 @@ FPR=0
 </tbody>
 </table>
 </div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-confuse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Confusion Matrices for ROC CUrve
+</figcaption>
+</figure>
+</div>
 <p>&nbsp;</p>
 <p>As we only need the TPRs and FPRs going forward, it makes sense to collect these in their own little table:</p>
 <p>&nbsp;</p>
+<div id="tbl-FPR" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<div aria-describedby="tbl-FPR-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="custom-html-table">
 <table style="font-size:13px; margin-left:auto; margin-right:auto; border-collapse: collapse; width: 6.5cm;">
 <thead>
@@ -1479,6 +1491,12 @@ i
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-FPR-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: TPR and FPR Rates
+</figcaption>
+</figure>
 </div>
 <p>&nbsp;</p>
 <p>We are nearly there! The last step is to display all these values in the form of a curve with the TPR on the y-axis, and the FPR on the x-axis. You can see the result – the ROC curve – in <a href="#fig-rocman" class="quarto-xref">Figure&nbsp;<span>6</span></a> a).</p>
@@ -1629,8 +1647,8 @@ Figure&nbsp;6: ROC Curve
 
     <script>
 
-      function styleCell_y74clstbswz1hzd6r4hx(i, j, css_id) {
-          var table = document.getElementById("tinytable_y74clstbswz1hzd6r4hx");
+      function styleCell_l60iw0j8z3j7pv8rnzvq(i, j, css_id) {
+          var table = document.getElementById("tinytable_l60iw0j8z3j7pv8rnzvq");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -1640,7 +1658,7 @@ Figure&nbsp;6: ROC Curve
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_y74clstbswz1hzd6r4hx');
+        var table = document.getElementById('tinytable_l60iw0j8z3j7pv8rnzvq');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -1648,8 +1666,8 @@ Figure&nbsp;6: ROC Curve
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_y74clstbswz1hzd6r4hx(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_y74clstbswz1hzd6r4hx");
+      function spanCell_l60iw0j8z3j7pv8rnzvq(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_l60iw0j8z3j7pv8rnzvq");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -1679,26 +1697,26 @@ Figure&nbsp;6: ROC Curve
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 1, j: 4 }, { i: 1, j: 3 },  ], css_id: 'tinytable_css_od151bfai7vsix1dntl1',}, 
-          { positions: [ { i: 0, j: 3 }, { i: 0, j: 2 }, { i: 0, j: 4 },  ], css_id: 'tinytable_css_p6h69ubl2c5us5wj516c',}, 
-          { positions: [ { i: 12, j: 1 }, { i: 12, j: 4 }, { i: 12, j: 2 }, { i: 12, j: 3 },  ], css_id: 'tinytable_css_anc27h1cyz8iq8gpxme8',}, 
-          { positions: [ { i: 10, j: 3 }, { i: 10, j: 2 }, { i: 10, j: 4 }, { i: 10, j: 1 },  ], css_id: 'tinytable_css_0g31g18815qgr0xhao6c',}, 
-          { positions: [ { i: 4, j: 1 }, { i: 3, j: 1 }, { i: 8, j: 1 }, { i: 5, j: 1 }, { i: 7, j: 1 }, { i: 3, j: 2 }, { i: 9, j: 1 }, { i: 6, j: 1 }, { i: 11, j: 1 }, { i: 7, j: 2 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 11, j: 2 }, { i: 8, j: 2 }, { i: 9, j: 2 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 9, j: 3 }, { i: 5, j: 4 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 4, j: 4 }, { i: 9, j: 4 }, { i: 11, j: 3 }, { i: 3, j: 4 }, { i: 8, j: 4 }, { i: 6, j: 4 }, { i: 7, j: 4 }, { i: 11, j: 4 },  ], css_id: 'tinytable_css_hlehvloo2sogu60kbcqo',}, 
-          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_vcj5qdxc4t2a42wu5p98',}, 
-          { positions: [ { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_sy3u7oxv4luhtw70wkra',}, 
-          { positions: [ { i: 2, j: 1 }, { i: 2, j: 2 }, { i: 2, j: 3 }, { i: 2, j: 4 },  ], css_id: 'tinytable_css_wm9glck258csxtnl298k',}, 
-          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_1csm0g1shpu1jfuqo7pm',}, 
-          { positions: [ { i: 10, j: 0 },  ], css_id: 'tinytable_css_33lkfllim69lb69whqc2',}, 
-          { positions: [ { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 11, j: 0 },  ], css_id: 'tinytable_css_qwynldwi71uw1iqnrp06',}, 
-          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_a5sgbw6agovd5x645heh',}, 
-          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_1616iwxyg409ez1hmw4y',}, 
-          { positions: [ { i: 2, j: 0 },  ], css_id: 'tinytable_css_j6ipwhrof70ptbqo3gtr',}, 
+          { positions: [ { i: 1, j: 4 }, { i: 1, j: 3 },  ], css_id: 'tinytable_css_460ja61o5parrcrz14bl',}, 
+          { positions: [ { i: 0, j: 3 }, { i: 0, j: 2 }, { i: 0, j: 4 },  ], css_id: 'tinytable_css_b4k2su0bornmrz7zynyu',}, 
+          { positions: [ { i: 12, j: 1 }, { i: 12, j: 4 }, { i: 12, j: 2 }, { i: 12, j: 3 },  ], css_id: 'tinytable_css_9ewc5fsot1rt6lpe603n',}, 
+          { positions: [ { i: 10, j: 3 }, { i: 10, j: 2 }, { i: 10, j: 4 }, { i: 10, j: 1 },  ], css_id: 'tinytable_css_y0bdmgd31u939ljxmflb',}, 
+          { positions: [ { i: 4, j: 1 }, { i: 3, j: 1 }, { i: 8, j: 1 }, { i: 5, j: 1 }, { i: 7, j: 1 }, { i: 3, j: 2 }, { i: 9, j: 1 }, { i: 6, j: 1 }, { i: 11, j: 1 }, { i: 7, j: 2 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 11, j: 2 }, { i: 8, j: 2 }, { i: 9, j: 2 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 9, j: 3 }, { i: 5, j: 4 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 4, j: 4 }, { i: 9, j: 4 }, { i: 11, j: 3 }, { i: 3, j: 4 }, { i: 8, j: 4 }, { i: 6, j: 4 }, { i: 7, j: 4 }, { i: 11, j: 4 },  ], css_id: 'tinytable_css_p4czm06ee8z89gzdsd2b',}, 
+          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_0dmygnz1sv4b6nchhqzy',}, 
+          { positions: [ { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_95552zrcpae9y3m8bptv',}, 
+          { positions: [ { i: 2, j: 1 }, { i: 2, j: 2 }, { i: 2, j: 3 }, { i: 2, j: 4 },  ], css_id: 'tinytable_css_rqggct9vw5ll1gpdbvfj',}, 
+          { positions: [ { i: 12, j: 0 },  ], css_id: 'tinytable_css_6gzw3vpj3aa0fv34zf2j',}, 
+          { positions: [ { i: 10, j: 0 },  ], css_id: 'tinytable_css_okzm41frqnq0uaqnuj1y',}, 
+          { positions: [ { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 11, j: 0 },  ], css_id: 'tinytable_css_o25snozibqxynp21kb5q',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_vdjd12iw5z3gimz2qjxv',}, 
+          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_l9p13qmzixxqju7c0onn',}, 
+          { positions: [ { i: 2, j: 0 },  ], css_id: 'tinytable_css_rlesnftei04lw256jvfi',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_y74clstbswz1hzd6r4hx(cell.i, cell.j, group.css_id);
+                  styleCell_l60iw0j8z3j7pv8rnzvq(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1706,23 +1724,23 @@ Figure&nbsp;6: ROC Curve
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_od151bfai7vsix1dntl1, .table th.tinytable_css_od151bfai7vsix1dntl1 { text-align: center; text-align: center; }
-      .table td.tinytable_css_p6h69ubl2c5us5wj516c, .table th.tinytable_css_p6h69ubl2c5us5wj516c { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_anc27h1cyz8iq8gpxme8, .table th.tinytable_css_anc27h1cyz8iq8gpxme8 { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_0g31g18815qgr0xhao6c, .table th.tinytable_css_0g31g18815qgr0xhao6c { text-align: center; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_hlehvloo2sogu60kbcqo, .table th.tinytable_css_hlehvloo2sogu60kbcqo { text-align: center; }
-      .table td.tinytable_css_vcj5qdxc4t2a42wu5p98, .table th.tinytable_css_vcj5qdxc4t2a42wu5p98 { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_sy3u7oxv4luhtw70wkra, .table th.tinytable_css_sy3u7oxv4luhtw70wkra { text-align: center; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_wm9glck258csxtnl298k, .table th.tinytable_css_wm9glck258csxtnl298k { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_1csm0g1shpu1jfuqo7pm, .table th.tinytable_css_1csm0g1shpu1jfuqo7pm { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_33lkfllim69lb69whqc2, .table th.tinytable_css_33lkfllim69lb69whqc2 { text-align: left; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_qwynldwi71uw1iqnrp06, .table th.tinytable_css_qwynldwi71uw1iqnrp06 { text-align: left; }
-      .table td.tinytable_css_a5sgbw6agovd5x645heh, .table th.tinytable_css_a5sgbw6agovd5x645heh { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_1616iwxyg409ez1hmw4y, .table th.tinytable_css_1616iwxyg409ez1hmw4y { text-align: left; text-align: center; }
-      .table td.tinytable_css_j6ipwhrof70ptbqo3gtr, .table th.tinytable_css_j6ipwhrof70ptbqo3gtr { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_460ja61o5parrcrz14bl, .table th.tinytable_css_460ja61o5parrcrz14bl { text-align: center; text-align: center; }
+      .table td.tinytable_css_b4k2su0bornmrz7zynyu, .table th.tinytable_css_b4k2su0bornmrz7zynyu { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_9ewc5fsot1rt6lpe603n, .table th.tinytable_css_9ewc5fsot1rt6lpe603n { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_y0bdmgd31u939ljxmflb, .table th.tinytable_css_y0bdmgd31u939ljxmflb { text-align: center; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_p4czm06ee8z89gzdsd2b, .table th.tinytable_css_p4czm06ee8z89gzdsd2b { text-align: center; }
+      .table td.tinytable_css_0dmygnz1sv4b6nchhqzy, .table th.tinytable_css_0dmygnz1sv4b6nchhqzy { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_95552zrcpae9y3m8bptv, .table th.tinytable_css_95552zrcpae9y3m8bptv { text-align: center; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_rqggct9vw5ll1gpdbvfj, .table th.tinytable_css_rqggct9vw5ll1gpdbvfj { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_6gzw3vpj3aa0fv34zf2j, .table th.tinytable_css_6gzw3vpj3aa0fv34zf2j { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_okzm41frqnq0uaqnuj1y, .table th.tinytable_css_okzm41frqnq0uaqnuj1y { text-align: left; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_o25snozibqxynp21kb5q, .table th.tinytable_css_o25snozibqxynp21kb5q { text-align: left; }
+      .table td.tinytable_css_vdjd12iw5z3gimz2qjxv, .table th.tinytable_css_vdjd12iw5z3gimz2qjxv { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_l9p13qmzixxqju7c0onn, .table th.tinytable_css_l9p13qmzixxqju7c0onn { text-align: left; text-align: center; }
+      .table td.tinytable_css_rlesnftei04lw256jvfi, .table th.tinytable_css_rlesnftei04lw256jvfi { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_y74clstbswz1hzd6r4hx" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_l60iw0j8z3j7pv8rnzvq" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
 <tr>
 <th scope="col" align="center" colspan="1"> </th>
@@ -1821,7 +1839,7 @@ Figure&nbsp;6: ROC Curve
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-emsur-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Democratic Emergence and Survival
+Table&nbsp;3: Democratic Emergence and Survival
 </figcaption>
 </figure>
 </div>
@@ -2021,7 +2039,7 @@ F =  16.30128  on  2  and  9274  df: p= 8.5676e-08 </code></pre>
 <p>In these exercises, I am taking you step-by-step to the final Markov Transition Model. Only the code for Exercises 3 and 4 correspond to what you will be doing in the final assessment.</p>
 </div>
 <ol type="1">
-<li><p>Run a probit model where <code>democ</code> is the dependent variable and <code>g</code>, <code>gdpw</code> and <code>oil</code> are the independent variables. Put the results in column 1 of <a href="#tbl-interactionmodels" class="quarto-xref">Table&nbsp;<span>2</span></a>. What is (possibly) wrong with this approach? Interpret the coefficients on one or two of the variables.</p></li>
+<li><p>Run a probit model where <code>democ</code> is the dependent variable and <code>g</code>, <code>gdpw</code> and <code>oil</code> are the independent variables. Put the results in column 1 of <a href="#tbl-interactionmodels" class="quarto-xref">Table&nbsp;<span>4</span></a>. What is (possibly) wrong with this approach? Interpret the coefficients on one or two of the variables.</p></li>
 <li><p>Run the same probit model as before but now include a lagged dependent variable. To create the lagged dependent variable, call:</p></li>
 </ol>
 <div class="cell">
@@ -2030,17 +2048,17 @@ F =  16.30128  on  2  and  9274  df: p= 8.5676e-08 </code></pre>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">l.democ =</span> <span class="fu">lag</span>(democ)) <span class="sc">%&gt;%</span></span>
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Put the results in column two of <a href="#tbl-interactionmodels" class="quarto-xref">Table&nbsp;<span>2</span></a>. What are we assuming by including a lagged dependent variable? Do you think that this is appropriate here?</p>
+<p>Put the results in column two of <a href="#tbl-interactionmodels" class="quarto-xref">Table&nbsp;<span>4</span></a>. What are we assuming by including a lagged dependent variable? Do you think that this is appropriate here?</p>
 <ol start="3" type="1">
-<li><p>Now estimate a probit “transition to democracy” model i.e.&nbsp;how do growth, wealth and oil affect the probability that a country is a democracy this year given that it was a dictatorship last year. We are also lagging the independent variables by one year. Put the results in column 3 of <a href="#tbl-interactionmodels" class="quarto-xref">Table&nbsp;<span>2</span></a>. Interpret the sign of the coefficients on each independent variable.</p></li>
-<li><p>Now estimate a probit “survival of democracy” model i.e.&nbsp;how do (lagged) growth, wealth and oil affect the probability that a country is a democracy this year given that it was a democracy last year. Put the results in column 4 of <a href="#tbl-interactionmodels" class="quarto-xref">Table&nbsp;<span>2</span></a>. Interpret the sign of the coefficients on each independent variable.</p></li>
+<li><p>Now estimate a probit “transition to democracy” model i.e.&nbsp;how do growth, wealth and oil affect the probability that a country is a democracy this year given that it was a dictatorship last year. We are also lagging the independent variables by one year. Put the results in column 3 of <a href="#tbl-interactionmodels" class="quarto-xref">Table&nbsp;<span>4</span></a>. Interpret the sign of the coefficients on each independent variable.</p></li>
+<li><p>Now estimate a probit “survival of democracy” model i.e.&nbsp;how do (lagged) growth, wealth and oil affect the probability that a country is a democracy this year given that it was a democracy last year. Put the results in column 4 of <a href="#tbl-interactionmodels" class="quarto-xref">Table&nbsp;<span>4</span></a>. Interpret the sign of the coefficients on each independent variable.</p></li>
 </ol>
 </section>
 <section id="advanced" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="advanced">Advanced</h2>
 <p> This section draws on the instructions for joint estimation.</p>
 <ol start="5" type="1">
-<li>Now interact all the lagged independent variables with the lagged dependent variable. Estimate a fully interactive model and include all the constitutive terms. Put the results in column 5 of <a href="#tbl-interactionmodels" class="quarto-xref">Table&nbsp;<span>2</span></a>. What is the relationship between these coefficients and those in the previous two columns? Is there any extra information provided by this full interaction model that was not available from the previous two models?</li>
+<li>Now interact all the lagged independent variables with the lagged dependent variable. Estimate a fully interactive model and include all the constitutive terms. Put the results in column 5 of <a href="#tbl-interactionmodels" class="quarto-xref">Table&nbsp;<span>4</span></a>. What is the relationship between these coefficients and those in the previous two columns? Is there any extra information provided by this full interaction model that was not available from the previous two models?</li>
 <li>Now consider the straight probit model, the probit model with the lagged dependent variable, and the full interaction model. Produce the ROC curve for each of these models. Interpret a point on one of these curves. What do the ROC curves tell you about the fit of these three models?</li>
 </ol>
 <p>You can find the solutions to these exercises in the respective RScript in the <a href="https://drfloreiche.github.io/PO33Q/12-Downloads.html">Downloads Section</a>.</p>
@@ -2204,7 +2222,7 @@ ROC
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-interactionmodels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;2: Regression Results for Lagged, Emergence, Survival, and Interaction Models
+Table&nbsp;4: Regression Results for Lagged, Emergence, Survival, and Interaction Models
 </figcaption>
 </figure>
 </div>
@@ -2454,7 +2472,7 @@ Table&nbsp;2: Regression Results for Lagged, Emergence, Survival, and Interactio
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-glossary7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;3: Glossary Week 7
+Table&nbsp;5: Glossary Week 7
 </figcaption>
 </figure>
 </div>
