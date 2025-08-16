@@ -88,8 +88,6 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <meta name="theme-color" content="#1d1f2b" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#1d1f2b" media="(prefers-color-scheme: light)">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -768,8 +766,8 @@ Table&nbsp;3: What is left…
 
     <script>
 
-      function styleCell_u2yim7p4y3c8xsbxha5m(i, j, css_id) {
-          var table = document.getElementById("tinytable_u2yim7p4y3c8xsbxha5m");
+      function styleCell_zfku9dyjb2mx7k90na9p(i, j, css_id) {
+          var table = document.getElementById("tinytable_zfku9dyjb2mx7k90na9p");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -779,7 +777,7 @@ Table&nbsp;3: What is left…
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_u2yim7p4y3c8xsbxha5m');
+        var table = document.getElementById('tinytable_zfku9dyjb2mx7k90na9p');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -787,8 +785,8 @@ Table&nbsp;3: What is left…
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_u2yim7p4y3c8xsbxha5m(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_u2yim7p4y3c8xsbxha5m");
+      function spanCell_zfku9dyjb2mx7k90na9p(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_zfku9dyjb2mx7k90na9p");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -818,21 +816,21 @@ Table&nbsp;3: What is left…
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 0, j: 2 }, { i: 0, j: 3 },  ], css_id: 'tinytable_css_kmpxyrx75ss8zqome9du',}, 
-          { positions: [ { i: 7, j: 1 }, { i: 7, j: 2 }, { i: 7, j: 3 },  ], css_id: 'tinytable_css_jzdjr1a21aaq73p913p5',}, 
-          { positions: [ { i: 2, j: 1 }, { i: 3, j: 1 }, { i: 5, j: 1 }, { i: 6, j: 1 }, { i: 3, j: 2 }, { i: 5, j: 2 }, { i: 2, j: 2 }, { i: 3, j: 3 }, { i: 4, j: 1 }, { i: 5, j: 3 }, { i: 6, j: 2 }, { i: 4, j: 2 }, { i: 2, j: 3 }, { i: 4, j: 3 }, { i: 6, j: 3 },  ], css_id: 'tinytable_css_t0nx6c0c920cl2jgbhoz',}, 
-          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_ze5iyuh6g1mpcve1vswg',}, 
-          { positions: [ { i: 1, j: 1 }, { i: 1, j: 2 }, { i: 1, j: 3 },  ], css_id: 'tinytable_css_ehpc894zzvffzfz281d4',}, 
-          { positions: [ { i: 7, j: 0 },  ], css_id: 'tinytable_css_5rsypv7ab6hyxuwqosou',}, 
-          { positions: [ { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 },  ], css_id: 'tinytable_css_38nl0fn3axqcwynjxypm',}, 
-          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_fymc4klm9uddkie06jg1',}, 
-          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_f1vvtsrdxeqenpskzpq1',}, 
+          { positions: [ { i: 0, j: 2 }, { i: 0, j: 3 },  ], css_id: 'tinytable_css_kyl0exz6y323g1inz9gd',}, 
+          { positions: [ { i: 7, j: 1 }, { i: 7, j: 2 }, { i: 7, j: 3 },  ], css_id: 'tinytable_css_ier6lu0lbswwoq9xlzcp',}, 
+          { positions: [ { i: 2, j: 1 }, { i: 3, j: 1 }, { i: 5, j: 1 }, { i: 6, j: 1 }, { i: 3, j: 2 }, { i: 5, j: 2 }, { i: 2, j: 2 }, { i: 3, j: 3 }, { i: 4, j: 1 }, { i: 5, j: 3 }, { i: 6, j: 2 }, { i: 4, j: 2 }, { i: 2, j: 3 }, { i: 4, j: 3 }, { i: 6, j: 3 },  ], css_id: 'tinytable_css_lli6059ijee61tdi0rgd',}, 
+          { positions: [ { i: 0, j: 1 },  ], css_id: 'tinytable_css_97ajlli00lir8pjtpxgm',}, 
+          { positions: [ { i: 1, j: 1 }, { i: 1, j: 2 }, { i: 1, j: 3 },  ], css_id: 'tinytable_css_gj6wb3a3l8r1m9yp1eza',}, 
+          { positions: [ { i: 7, j: 0 },  ], css_id: 'tinytable_css_xnzoq9lkq7nyppvmsce4',}, 
+          { positions: [ { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 },  ], css_id: 'tinytable_css_to5okae26v6d8hk71evp',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_aabrpffjafou4wt9dfgf',}, 
+          { positions: [ { i: 1, j: 0 },  ], css_id: 'tinytable_css_j6biwfgowfdfjuqp090f',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_u2yim7p4y3c8xsbxha5m(cell.i, cell.j, group.css_id);
+                  styleCell_zfku9dyjb2mx7k90na9p(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -840,18 +838,18 @@ Table&nbsp;3: What is left…
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_kmpxyrx75ss8zqome9du, .table th.tinytable_css_kmpxyrx75ss8zqome9du { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_jzdjr1a21aaq73p913p5, .table th.tinytable_css_jzdjr1a21aaq73p913p5 { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_t0nx6c0c920cl2jgbhoz, .table th.tinytable_css_t0nx6c0c920cl2jgbhoz { text-align: center; }
-      .table td.tinytable_css_ze5iyuh6g1mpcve1vswg, .table th.tinytable_css_ze5iyuh6g1mpcve1vswg { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_ehpc894zzvffzfz281d4, .table th.tinytable_css_ehpc894zzvffzfz281d4 { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_5rsypv7ab6hyxuwqosou, .table th.tinytable_css_5rsypv7ab6hyxuwqosou { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_38nl0fn3axqcwynjxypm, .table th.tinytable_css_38nl0fn3axqcwynjxypm { text-align: left; }
-      .table td.tinytable_css_fymc4klm9uddkie06jg1, .table th.tinytable_css_fymc4klm9uddkie06jg1 { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_f1vvtsrdxeqenpskzpq1, .table th.tinytable_css_f1vvtsrdxeqenpskzpq1 { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_kyl0exz6y323g1inz9gd, .table th.tinytable_css_kyl0exz6y323g1inz9gd { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_ier6lu0lbswwoq9xlzcp, .table th.tinytable_css_ier6lu0lbswwoq9xlzcp { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_lli6059ijee61tdi0rgd, .table th.tinytable_css_lli6059ijee61tdi0rgd { text-align: center; }
+      .table td.tinytable_css_97ajlli00lir8pjtpxgm, .table th.tinytable_css_97ajlli00lir8pjtpxgm { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_gj6wb3a3l8r1m9yp1eza, .table th.tinytable_css_gj6wb3a3l8r1m9yp1eza { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_xnzoq9lkq7nyppvmsce4, .table th.tinytable_css_xnzoq9lkq7nyppvmsce4 { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_to5okae26v6d8hk71evp, .table th.tinytable_css_to5okae26v6d8hk71evp { text-align: left; }
+      .table td.tinytable_css_aabrpffjafou4wt9dfgf, .table th.tinytable_css_aabrpffjafou4wt9dfgf { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_j6biwfgowfdfjuqp090f, .table th.tinytable_css_j6biwfgowfdfjuqp090f { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_u2yim7p4y3c8xsbxha5m" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_zfku9dyjb2mx7k90na9p" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
 <tr>
 <th scope="col" align="center" colspan="1"> </th>
@@ -952,37 +950,47 @@ Table&nbsp;4: Test of Classical and New Modernisation
 <h1 class="unnumbered">Glossary</h1>
 <p>&nbsp;</p>
 <div class="glossary-table">
-<div class="cell">
+<div class="cell" data-tbl-colwidths="[25,75]">
+<div id="tbl-glossary4" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[25,75]">
+<figure class="quarto-float quarto-float-tbl figure">
+<div aria-describedby="tbl-glossary4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Glossary Week 4</caption>
+<table class="cell table table-sm table-striped small">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Term</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Description</th>
+<th style="text-align: left;">Term</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left; min-width: 1.25in;">control variables</td>
+<td style="text-align: left;">control variables</td>
 <td style="text-align: left;">A variable that is held constant or included in a statistical model to account for its potential influence, allowing clearer estimation of the relationship between the main independent and dependent variables</td>
 </tr>
 <tr class="even">
-<td style="text-align: left; min-width: 1.25in;">listwise deletion</td>
+<td style="text-align: left;">listwise deletion</td>
 <td style="text-align: left;">When a value within an observation is missing, the entire observation is dropped</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left; min-width: 1.25in;">model building</td>
+<td style="text-align: left;">model building</td>
 <td style="text-align: left;">Running a number of regression models, each testing a different combination of variables.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left; min-width: 1.25in;">parsimony</td>
-<td style="text-align: left;">Refers to the principle "as many as necessary, as few as possible"</td>
+<td style="text-align: left;">parsimony</td>
+<td style="text-align: left;">Refers to the principle “as many as necessary, as few as possible”</td>
 </tr>
 </tbody>
 </table>
-
-
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-glossary4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5: Glossary Week 4
+</figcaption>
+</figure>
 </div>
 </div>
 </div>
