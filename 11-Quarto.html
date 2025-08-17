@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Markdown – PO33Q: Determinants of Democracy</title>
+<title>Quarto – PO33Q: Determinants of Democracy</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -119,7 +119,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-Markdown.html"><span class="chapter-title">Markdown</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-Quarto.html"><span class="chapter-title">Quarto</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -183,7 +183,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11-Markdown.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Markdown</span></a>
+  <a href="./11-Quarto.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Quarto</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -212,13 +212,13 @@ div.csl-indent {
    
   <ul>
   <li><a href="#professional-writing-in-political-science" id="toc-professional-writing-in-political-science" class="nav-link active" data-scroll-target="#professional-writing-in-political-science">Professional Writing in Political Science</a></li>
-  <li><a href="#introduction-to-markdown" id="toc-introduction-to-markdown" class="nav-link" data-scroll-target="#introduction-to-markdown">Introduction to Markdown</a>
+  <li><a href="#introduction-to-quarto" id="toc-introduction-to-quarto" class="nav-link" data-scroll-target="#introduction-to-quarto">Introduction to Quarto</a>
   <ul class="collapse">
   <li><a href="#yaml" id="toc-yaml" class="nav-link" data-scroll-target="#yaml">YAML</a></li>
   <li><a href="#text" id="toc-text" class="nav-link" data-scroll-target="#text">Text</a></li>
   <li><a href="#code-chunks" id="toc-code-chunks" class="nav-link" data-scroll-target="#code-chunks">Code Chunks</a></li>
   <li><a href="#list-of-references" id="toc-list-of-references" class="nav-link" data-scroll-target="#list-of-references">List of References</a></li>
-  <li><a href="#knitting" id="toc-knitting" class="nav-link" data-scroll-target="#knitting">Knitting</a></li>
+  <li><a href="#rendering" id="toc-rendering" class="nav-link" data-scroll-target="#rendering">Rendering</a></li>
   </ul></li>
   <li><a href="#assessment-template" id="toc-assessment-template" class="nav-link" data-scroll-target="#assessment-template">Assessment Template</a>
   <ul class="collapse">
@@ -233,7 +233,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Markdown</span></h1>
+<h1 class="title"><span class="chapter-title">Quarto</span></h1>
 </div>
 
 
@@ -254,36 +254,32 @@ div.csl-indent {
 <h1 class="unnumbered">Professional Writing in Political Science</h1>
 <p>Before I even start this section, please read <a href="https://stimson.web.unc.edu/wp-content/uploads/sites/9919/2018/02/Writing.pdf">Professional Writing in Political Science: A Highly opinionated Essay</a> by James A. Stimson. It captures a lot of the things I talk about in the seminars in a much better and more eloquent way. Admittedly, the article is aimed at postgraduates and faculty members, but the principles outlined do apply generally to writing a good research project. And this is, after all, what I am asking you to do on this module.</p>
 </section>
-<section id="introduction-to-markdown" class="level1 unnumbered">
-<h1 class="unnumbered">Introduction to Markdown</h1>
+<section id="introduction-to-quarto" class="level1 unnumbered">
+<h1 class="unnumbered">Introduction to Quarto</h1>
 <p>Stimson rejects Word and other similarly inclined word processing programs, as they are unable to achieve the standard required in professional academic writing. In the context of tables, for example, Stimson writes</p>
 <blockquote class="blockquote">
 <p>You are a professional author. Learn to use the tools of authorship or choose a profession for which you are better suited.</p>
 </blockquote>
-<p>I agree. And I wish more people, students and faculty members alike, would take note of this. The good news for you is that we will be using R on this module, and amongst the many other millions of things that this program enables us to do, it provides an interface to write with Markdown.</p>
-<p>Writing your assessment in R Markdown has some very notable benefits, such as great formatting, the seamless integration of graphs and results tables you will produce for your assessment, and a semi-automatic list of references.</p>
+<p>I agree. And I wish more people, students and faculty members alike, would take note of this. The good news for you is that we will be using R on this module, and amongst the many other millions of things that this program enables us to do, it provides an interface to write with <a href="https://quarto.org/">Quarto</a>.</p>
+<p>Writing your assessment in Quarto has some very notable benefits, such as great formatting, the seamless integration of graphs and results tables you will produce for your assessment, and a semi-automatic list of references.</p>
 <div style="height:1em;">
 
 </div>
 <div class="warning">
-<p>If you are already rather overwhelmed by the quantitative component of the module, then please leave this page now. I am NOT expecting you to write this assessment in R Markdown, and you will not be marked any differently for presentation if you decide to write this in MS Word.</p>
-<p>Please do have a look at the <a href="files/Markdown/PO33Q-Assessment-Template.pdf">Essay Template</a>, however, as it is a good benchmark for formatting your assessment wherever you write it. It also contains pointers as to what each section of the assessment should cover.</p>
+<p>If you are already rather overwhelmed by the quantitative component of the module, then please leave this page now. I am NOT expecting you to write this assessment in Quarto, and you will not be marked any differently for presentation if you decide to write this in MS Word.</p>
+<p>Please do have a look at the <a href="files/Quarto/PO33Q-Assessment-Template.pdf">Essay Template</a>, however, as it is a good benchmark for formatting your assessment wherever you write it. It also contains pointers as to what each section of the assessment should cover.</p>
 </div>
 <div style="height:1em;">
 
 </div>
-<p>So, what is R Markdown?</p>
-<blockquote class="blockquote">
-<p>R Markdown provides an unified authoring framework for data science, combining your code, its results, and your prose commentary. R Markdown documents are fully reproducible and support dozens of output formats, like PDFs, Word files, slideshows, and more.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-</blockquote>
-<p>When we use Markdown in R, the document will have essentially three parts:</p>
+<p>So, what is Quarto? Quarto is “an open-source scientific and technical publishing system”<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. When we use it in R, the document will have essentially three parts:</p>
 <ul>
 <li>YAML</li>
 <li>Text</li>
 <li>Code Chunks</li>
 </ul>
-<p>I will go through these in turn now. To follow along, I recommend you download the <a href="files/Markdown/PO33Q Assessment Template.Rmd">Assessment Template</a> in which all of the below is already implemented. Once you open it, delete the first line (empty space), so that the three dashes are on line one. Otherwise, don’t do anything with it, yet. But whilst you are reading what I am discussing here, try to match it to what you see in the Rmd file. If you want to jump ahead and render it into a pdf, please follow the instructions in the <a href="https://drfloreiche.github.io/PO33Q/11-Markdown.html#assessment-template">template section</a>.</p>
-<p>Once you open the essay template in R Studio, you will obtain a few more options in the task bar at the top which will allow you to turn this raw file into a pdf. More on this below, under “Knitting”.</p>
+<p>I will go through these in turn now. To follow along, I recommend you download the <a href="files/Quarto/PO33Q Assessment Template.qmd">Assessment Template</a> in which all of the below is already implemented. Once you open it, delete the first line (empty space), so that the three dashes are on line one. Otherwise, don’t do anything with it, yet. But whilst you are reading what I am discussing here, try to match it to what you see in the qmd file. If you want to jump ahead and render it into a pdf, please follow the instructions in the <a href="https://drfloreiche.github.io/PO33Q/11-Quarto.html#assessment-template">template section</a>.</p>
+<p>Once you open the essay template in R Studio, you will obtain a few more options in the task bar at the top which will allow you to turn this raw file into a pdf. More on this below, under “Rendering”.</p>
 <div style="height:1em;">
 
 </div>
@@ -291,7 +287,7 @@ div.csl-indent {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="files/Markdown/visual.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<p><img src="files/Quarto/visual.png" class="img-fluid figure-img" style="width:60.0%"></p>
 </figure>
 </div>
 </div>
@@ -299,14 +295,14 @@ div.csl-indent {
 <div style="height:1em;">
 
 </div>
-<p>It is possible that R will ask you to install the <code>markdown</code> package. Please do so, and also allow the installation of any dependencies if prompted.</p>
+<p>It is possible that R will ask you to install the <code>quarto</code> package. Please do so, and also allow the installation of any dependencies if prompted.</p>
 <section id="yaml" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="yaml">YAML</h3>
-<p>YAML is an acronym for “Yet Another Markup Language”. This section of the document contains the settings for the entire document, such as the title, information about the bibliography (see below), and additional packages we might need to load. The YAML is gated by three horizontal dashes at the top and at the bottom. In the template, there is some more formatting going on outside of the YAML and finishes at line 109.</p>
+<p>YAML is an acronym for “Yet Another Markup Language”. This section of the document usually contains the settings for the entire document, such as the title, information about the bibliography (see below), and additional packages we might need to load. The YAML is gated by three horizontal dashes at the top and at the bottom. In the template, there is some more formatting going on outside of the YAML and finishes at line 119.</p>
 </section>
 <section id="text" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="text">Text</h3>
-<p>Then, in line 112, follows the text which you can basically type as you always would. In order to use the familiar text formatting icons that turn text into headings, or into bold, change the font size, etc. you can switch the R Markdown editor to “Visual” at the top. By default, this is set to “Source” where markdown would expect code to achieve all of these formatting operations.</p>
+<p>Then, in line 122, follows the text which you can basically type as you always would. In order to use the familiar text formatting icons that turn text into headings, or into bold, change the font size, etc. you can switch the Quarto editor to “Visual” at the top. In the template, this is set to “Source” where Quarto would expect code to achieve all of these formatting operations.</p>
 <div style="height:1em;">
 
 </div>
@@ -314,7 +310,7 @@ div.csl-indent {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="files/Markdown/visual1.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<p><img src="files/Quarto/visual1.png" class="img-fluid figure-img" style="width:60.0%"></p>
 </figure>
 </div>
 </div>
@@ -322,7 +318,7 @@ div.csl-indent {
 <div style="height:1em;">
 
 </div>
-<p>Once you activate it, this task bar will appear at the top of the Rmd file:</p>
+<p>Once you activate it, this task bar will appear at the top of the qmd file:</p>
 <div style="height:1em;">
 
 </div>
@@ -330,7 +326,7 @@ div.csl-indent {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="files/Markdown/wysiwyg.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<p><img src="files/Quarto/wysiwyg.png" class="img-fluid figure-img" style="width:90.0%"></p>
 </figure>
 </div>
 </div>
@@ -340,14 +336,14 @@ div.csl-indent {
 </div>
 <div class="warning">
 <p>When you structure your document, it is essential that you format headings as such in the document and don’t just make the font larger. Otherwise, the automated table of contents will not work.</p>
-<p><img src="files/Markdown/headings.png" alt="Warwick logo" style="width:40%; height:auto;"></p>
+<p><img src="files/Quarto/headings.png" alt="Warwick logo" style="width:40%; height:auto;"></p>
 </div>
 <p>The visual editing bar will also allow you to include external pictures (external in the sense that you are not creating them in R whilst creating the document). For this purpose, click on the image icon in the visual editing bar, and a new window will pop up. Under the tab “Image” you can select the image from a file in your computer. Be sure to add a caption in this tab, as well. This will be printed underneath the image in your pdf. Then click the tab “Attributes”, and in the box “ID” enter a unique identifier for the image you are inserting. I usually use “fig” for figure, a colon, and then the name of the figure:</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="files/Markdown/labelpic.png" class="img-fluid figure-img" style="width:40.0%"></p>
+<p><img src="files/Quarto/labelpic.png" class="img-fluid figure-img" style="width:40.0%"></p>
 </figure>
 </div>
 </div>
@@ -355,12 +351,12 @@ div.csl-indent {
 <p>Once you have done that, click OK, and the image will appear where you have placed it. Because you created a caption and a label, you can now refer to this picture in the text, using the <code>\ref{}</code> function. When you write</p>
 <p><code>As we can see in Figure \ref{fig:distribution} ...</code>,</p>
 <p>R will insert a cross reference which will get updated automatically when you render the document. This has the advantage that you will never have to say “the figure below” or the “figure above”. This is both imprecise and dangerous, as the position of the figure might change as you write your assessment.</p>
-<p>You can also set beautiful equations in markdown. Unless you really want to explain what conditional probabilities are in the the methods section of your assessment, I don’t think you will have to use this feature, however.</p>
+<p>You can also set beautiful equations in quarto Unless you really want to explain what conditional probabilities are in the the methods section of your assessment, I don’t think you will have to use this feature, however.</p>
 </section>
 <section id="code-chunks" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="code-chunks">Code Chunks</h3>
-<p>Without writing your assessment in markdown, you will have to copy and paste the <code>modelsummary</code> table into your assessment document. This is not only extra work, but also invites human error. Because every time you change your models you also have to do that copy and paste job again.</p>
-<p>When you are writing your assessment in Markdown directly, you can seamlessly include your analysis into the document you are writing. You can hide all of the ugly code, and just show the beautiful <code>modelsummary</code> table at the end. How do you do that? To get started, please switch from the “Visual” mode back to “Source”. You can return to “Visual” editing mode once you are done with this.</p>
+<p>Without writing your assessment in quarto, you will have to copy and paste the <code>modelsummary</code> table into your assessment document. This is not only extra work, but also invites human error. Because every time you change your models you also have to do that copy and paste job again.</p>
+<p>When you are writing your assessment in quarto directly, you can seamlessly include your analysis into the document you are writing. You can hide all of the ugly code, and just show the beautiful <code>modelsummary</code> table at the end. How do you do that? To get started, please switch from the “Visual” mode back to “Source”. You can return to “Visual” editing mode once you are done with this.</p>
 <p>Now, all you need to do is to insert a code chunk like this where you want the results table to appear in your document:</p>
 <pre><code>```{r, echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
 # set your wd
@@ -379,15 +375,15 @@ modelsummary()
 
 ```
 </code></pre>
-<p>It is important that none of the code in this mini-script produces any visible output (everything needs to be carried out quietly and would not produce output in the console if executed from an R Script), as these results will otherwise appear in the final document. It almost goes without saying that the data set you are analysing will also have to be present in the folder that contains the Rmd file<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
+<p>It is important that none of the code in this mini-script produces any visible output (everything needs to be carried out quietly and would not produce output in the console if executed from an R Script), as these results will otherwise appear in the final document. It almost goes without saying that the data set you are analysing will also have to be present in the folder that contains the qmd file<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
 <div class="bulb">
 <p>As a first step, use a regular RScript to carry out the analysis, as you can execute commands, and play around with this more easily (rather than knitting the entire thing every time).</p>
-<p>Once you are happy with the output, create the chunk in the .Rmd file and copy/paste your code.</p>
+<p>Once you are happy with the output, create the chunk in the .qmd file and copy/paste your code.</p>
 </div>
 </section>
 <section id="list-of-references" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="list-of-references">List of References</h3>
-<p>OK, the biggest selling point of this is probably that Markdown will auto-generate a complete list of references by pressing a button. By the way, do you know what the difference is between a bibliography and a list of references?</p>
+<p>OK, the biggest selling point of this is probably that Quarto will auto-generate a complete list of references by pressing a button. By the way, do you know what the difference is between a bibliography and a list of references?</p>
 <div class="def">
 <p>A <strong>bibliography</strong> lists all sources you have consulted for a project regardless of whether they are cited in the text, whereas a <strong>list of references</strong> only lists what has been cited in the text.</p>
 <p><strong>Warning:</strong></p>
@@ -409,7 +405,7 @@ preferably APA styled, but I’m not too precious as long as it’s consistent
 </ul>
 </div>
 <p>I wrote earlier that generating the list of references is <strong>semi</strong>-automatic, because – as you will have come to realise by now – there is no such thing as a free lunch. The process requires a little preparation, and I am afraid some in-text code.</p>
-<p>First, you need to create a separate file in which all of the sources you wish to cite are hosted – a so called .bib file. You can download the <a href="files/Markdown/referencesPO33Q.bib">full .bib file for PO33Q</a>, in the hope that it already covers some sources you may wish to cite in your assessment. You can open this file in R Studio. As you will see, the structure of each entry depends on the type of document you are citing: a book, an article in a journal, or a website, for example. Here is an entry for a book:</p>
+<p>First, you need to create a separate file in which all of the sources you wish to cite are hosted – a so called .bib file. You can download the <a href="files/Quarto/referencesPO33Q.bib">full .bib file for PO33Q</a>, in the hope that it already covers some sources you may wish to cite in your assessment. You can open this file in R Studio. As you will see, the structure of each entry depends on the type of document you are citing: a book, an article in a journal, or a website, for example. Here is an entry for a book:</p>
 <div style="height:1em;">
 
 </div>
@@ -422,7 +418,7 @@ preferably APA styled, but I’m not too precious as long as it’s consistent
   doi       = {10.1017/CBO9780511804946},
 }
 </code></pre>
-<p>In this entry, <code>prz:2000</code> is called the citation key. This is what you will use in the Rmd file. For example when you type <code>\citep{prz:2000}</code> this will be shown as <span class="citation" data-cites="prz:2000">(Przeworski et al., 2000)</span> in the final document. In the template, I have enabled the following styles for including a reference in the text:</p>
+<p>In this entry, <code>prz:2000</code> is called the citation key. This is what you will use in the qmd file. For example when you type <code>\citep{prz:2000}</code> this will be shown as <span class="citation" data-cites="prz:2000">(Przeworski et al., 2000)</span> in the final document. In the template, I have enabled the following styles for including a reference in the text:</p>
 <div style="height:1em;">
 
 </div>
@@ -471,28 +467,28 @@ preferably APA styled, but I’m not too precious as long as it’s consistent
 <div style="height:1em;">
 
 </div>
-<p>When you render the essay template, markdown will automatically put a list of references together and place it where it belongs<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. But how do you render the document?</p>
+<p>When you render the essay template, Quarto will automatically put a list of references together and place it where it belongs<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. But how do you render the document?</p>
 </section>
-<section id="knitting" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="knitting">Knitting</h2>
-<p>To convert the Rmd file to a pdf, you will have to “knit” the Rmd file. An icon with a ball of wool is located in the task bar at the top whenever you have an Rmd file open. Click it to start the conversion.</p>
+<section id="rendering" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="rendering">Rendering</h2>
+<p>To convert the qmd file to a pdf, you will have to “render” the qmd file. An icon with an arrow is located in the task bar at the top whenever you have an qmd file open. Click it to start the conversion.</p>
 <div class="warning">
-<p>When there is a mistake in your Rmd file, such as an unbalanced bracket in a code chunk, for example, R will not render the pdf. Therefore, knit your document regularly, so that you can trace the error more easily.</p>
+<p>When there is a mistake in your qmd file, such as an unbalanced bracket in a code chunk, for example, R will not render the pdf. Therefore, knit your document regularly, so that you can trace the error more easily.</p>
 </div>
 </section>
 </section>
 <section id="assessment-template" class="level1 unnumbered">
 <h1 class="unnumbered">Assessment Template</h1>
-<p>In order to make your life as easy as possible, I have put together an Assessment Template in the form of an Rmd file that you can knit in R. You can download this <a href="files/Markdown/PO33Q Assessment Template.Rmd">here</a>. In order to knit this document, you need to remove the first empty line from the Rmd file (so that the three dashes are in line 1), and place the following files in the same folder as the Rmd file:</p>
+<p>In order to make your life as easy as possible, I have put together an Assessment Template in the form of an qmd file that you can knit in R. You can download this <a href="files/Quarto/PO33Q Assessment Template.qmd">here</a>. In order to knit this document, you need to remove the first empty line from the qmd file (so that the three dashes are in line 1), and place the following files in the same folder as the qmd file:</p>
 <ul>
-<li><a href="files/Markdown/Crest.png">Warwick Crest</a> for the title page.</li>
-<li><a href="files/Markdown/Warwick.png">Warwick Text</a> for the title page.</li>
-<li><a href="files/Markdown/referencesPO33Q.bib">referencesPO33Q.bib</a> which contains all entries for the complete <a href="files/Downloads/PO33Q_Bibliography.pdf">bibliography</a> of the module.</li>
+<li><a href="files/Quarto/Crest.png">Warwick Crest</a> for the title page.</li>
+<li><a href="files/Quarto/Warwick.png">Warwick Text</a> for the title page.</li>
+<li><a href="files/Quarto/referencesPO33Q.bib">referencesPO33Q.bib</a> which contains all entries for the complete <a href="files/Downloads/PO33Q_Bibliography.pdf">bibliography</a> of the module.</li>
 </ul>
-<p>Render / knit this document without making any changes to ensure this works. It should look like <a href="files/Markdown/PO33Q-Assessment-Template.pdf">this</a>. Then you can start writing your assessment. Again, let me encourage you to render/knit the document often, so that you can locate a potential mistake more easily should you receive an error message.</p>
+<p>Render / knit this document without making any changes to ensure this works. It should look like <a href="files/Quarto/PO33Q-Assessment-Template.pdf">this</a>. Then you can start writing your assessment. Again, let me encourage you to render/knit the document often, so that you can locate a potential mistake more easily should you receive an error message.</p>
 <section id="the-template-explained" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="the-template-explained">The Template Explained</h2>
-<p>There is quite a bit of formatting going on in the Rmd file, and this is what all of this code achieves:</p>
+<p>There is quite a bit of formatting going on in the qmd file, and this is what all of this code achieves:</p>
 <ul>
 <li>Light grey background to improve readability (a little present to myself for marking)</li>
 <li>Font size 12, one-half spacing</li>
@@ -511,7 +507,7 @@ preferably APA styled, but I’m not too precious as long as it’s consistent
 </section>
 <section id="assessment-submission" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="assessment-submission">Assessment Submission</h2>
-<p>When it comes to submitting your assessment, please only submit the rendered pdf, and NOT the Rmd file. This will not be accepted by Tabula. If you wish to use Markdown on modules other than those taught by me, then please consult the module director whether they are happy to accept submissions in pdf format.</p>
+<p>When it comes to submitting your assessment, please only submit the rendered pdf, and NOT the qmd file. This will not be accepted by Tabula. If you wish to use Quarto on modules other than those taught by me, then please consult the module director whether they are happy to accept submissions in pdf format.</p>
 <p>Please ensure that you have copied and pasted your complete RScript into the Appendix section of the template. By complete I mean a script that takes you (or anybody else) from loading the original data sets I provide to the output you include in the report you submit on Tabula. The script should be properly annotated to make your work reproducible and easy to follow.</p>
 
 
@@ -525,7 +521,7 @@ Przeworski, A., Alvarez, M. E., Cheibub, J. A., &amp; Limongi, F. (2000). <em><s
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p><a href="https://r4ds.had.co.nz/r-markdown.html" class="uri">https://r4ds.had.co.nz/r-markdown.html</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>https://quarto.org/<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>You can create absolute and relative file paths to other locations, but let’s not over-complicate things here.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>Otherwise, this will be placed into the document as the very last thing, but because you have an appendix, I needed to overrule this behaviour in the template.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
