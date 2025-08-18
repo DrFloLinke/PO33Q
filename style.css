@@ -59,6 +59,7 @@ h3, h4 {
   background-color: var(--bg) !important;
   color: var(--fg) !important;
   font-family: 'Lexend', sans-serif;
+  font-weight: 350;
 }
 
 /* Generic sidebar links */
@@ -91,6 +92,7 @@ h3, h4 {
 .quarto-sidebar .sidebar-section .sidebar-title,
 .quarto-sidebar .sidebar-title {
   font-family: 'Lexend', sans-serif;
+  font-weight: 350;
   margin-top: 2em;
   color: var(--accent) !important;
   text-transform: uppercase !important;
@@ -414,12 +416,37 @@ table { caption-side: bottom; }
 .custom-html-table thead th { border-bottom: 1.5px solid var(--fg) !important; }
 .custom-html-table th, .custom-html-table td { text-align: left; padding: 0.2em 0.4em; }
 
-.top-bottom-rule-only table,
-.top-bottom-rule-only th,
-.top-bottom-rule-only td { border: none !important; border-collapse: collapse; }
-.top-bottom-rule-only table { border-top: 4px double var(--fg) !important; border-bottom: 4px double var(--fg) !important; }
 
 
+/* Scope */
+.top-bottom-rule-only table {
+  border-collapse: collapse !important;
+  border-top: 4px double var(--fg) !important;
+  border-bottom: 4px double var(--fg) !important;
+}
+
+/* Treat <thead> like a normal row group (i.e., like <tbody>) */
+.top-bottom-rule-only thead {
+  display: table-row-group !important;
+  background: transparent !important;
+}
+
+/* Make header cells render "as is" and remove inner borders */
+.top-bottom-rule-only thead th,
+.top-bottom-rule-only thead td,
+.top-bottom-rule-only tbody th,
+.top-bottom-rule-only tbody td {
+  border: 0 !important;
+  font-weight: inherit !important;
+  text-transform: none !important;
+  background: transparent !important;
+  position: static !important; /* undo sticky header behaviors */
+}
+
+/* Neutralize <strong> in that first row (and anywhere in thead) */
+.top-bottom-rule-only thead strong {
+  font-weight: inherit !important;
+}
 
 
 
@@ -479,7 +506,7 @@ a.btn-primary.disabled, a.btn-primary[aria-disabled="true"], .btn.btn-primary.di
   display: block;          /* ensure padding applies to whole clickable area */
   padding-top: 0.4rem;      /* adjust to taste */
   padding-bottom: 0.4rem;
-  font-weight: 300;         /* lighter for inactive */
+  font-weight: 350;         /* lighter for inactive */
 }
 
 /* Active chapter link overrides font weight and color */
