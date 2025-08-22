@@ -51,13 +51,11 @@ include-in-header:
       \node[anchor=south east, xshift=-24mm, yshift=24mm] at (current page.south east)
       {\includegraphics[width=0.25\textwidth]{Warwick.png}};
     \end{tikzpicture}
-    }%
-    }%
+    }}
     \endgroup
     }
     \usepackage[style=apa,backend=biber,natbib=true]{biblatex} % sets the bib style
     \addbibresource{referencesPO33Q.bib} % this is the .bib resource file
-    \renewcommand{\familydefault}{\sfdefault} % makes the font sans serif
     \usepackage{booktabs} % for tables
     \usepackage{placeins} % set barriers within which figures are placed
     \usepackage{tocloft}                            % For dotted leaders control
@@ -75,6 +73,16 @@ include-in-header:
     \preto{\section}{\par\Needspace*{7\baselineskip}}
     \preto{\subsection}{\par\Needspace*{6\baselineskip}}
     \preto{\subsubsection}{\par\Needspace*{5\baselineskip}}
+
+    % Set font for document
+    \usepackage{lmodern}
+    \renewcommand{\familydefault}{\sfdefault} % make sans the document default
+    \usepackage{tabularray}
+    \UseTblrLibrary{booktabs}
+    \SetTblrInner{font=\sffamily}
+    \usepackage{siunitx}
+    \sisetup{detect-family=true, detect-weight=true}
+    \setmathfont{Latin Modern Math}
 ---
 
 ```{r setup, include=FALSE}
@@ -189,13 +197,13 @@ Social Development    &     Health    & life expectancy at birth \\
 Emergence:
 
 \begin{equation}\label{eq:emergence}
-P(y_{i,t} = 1 | y_{i, t-1} = 0)
+P(y_{i,t} = 1 \mid y_{i, t-1} = 0)
 \end{equation}
 	
 Survival:
 
 \begin{equation}\label{eq:survival}
-P(y_{i,t} = 1 | y_{i, t-1} = 1)
+P(y_{i,t} = 1 \mid y_{i, t-1} = 1)
 \end{equation}
 
 
@@ -260,7 +268,11 @@ modelsummary(models,
              title = "Regression Models",
              gof_omit = 'DF|Deviance|Log.Lik|F|AIC|BIC|RMSE', 
              stars=TRUE,
-             coef_map = cm)|> 
+             coef_map = cm,
+             escape = FALSE,
+             notes = "\\vspace{0.2\\baselineskip}",  # <- add space before caption
+             notes_append = TRUE)|>                                 # this is the custom row
+  group_tt(j = list("Dependent Variable: Prestige Score" = 2:4))|>
   theme_latex(outer = "label={tblr:test}")|> 
   theme_latex(placement= "H")
 ```
