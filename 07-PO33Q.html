@@ -1559,6 +1559,9 @@ Figure&nbsp;6: ROC Curve
 </ul>
 <p>But we can also plot the ROC curve:</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(roc1, <span class="at">print.auc =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1575,18 +1578,18 @@ Figure&nbsp;6: ROC Curve
 <section id="emergence-full-model" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="emergence-full-model">Emergence: Full Model</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>prob_em_full <span class="ot">&lt;-</span> <span class="fu">predict</span>(emergence_full, <span class="at">type =</span> <span class="st">"response"</span>)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>world_democ0<span class="sc">$</span>prob_em_full <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_em_full)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>roc2 <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ0<span class="sc">$</span>democracy, world_democ0<span class="sc">$</span>prob_em_full)</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">auc</span>(roc2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>prob_em_full <span class="ot">&lt;-</span> <span class="fu">predict</span>(emergence_full, <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>world_democ0<span class="sc">$</span>prob_em_full <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_em_full)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>roc2 <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ0<span class="sc">$</span>democracy, world_democ0<span class="sc">$</span>prob_em_full)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">auc</span>(roc2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Area under the curve: 0.5982</code></pre>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(roc2, <span class="at">print.auc =</span> <span class="cn">TRUE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(roc2, <span class="at">print.auc =</span> <span class="cn">TRUE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>&nbsp; &nbsp;</p>
 <div class="cell" data-layout-align="center">
@@ -1603,12 +1606,12 @@ Figure&nbsp;6: ROC Curve
 <section id="survival" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="survival">Survival</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>prob_sur <span class="ot">&lt;-</span> <span class="fu">predict</span>(survival, <span class="at">type =</span> <span class="st">"response"</span>)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>world_democ1<span class="sc">$</span>prob_sur <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_sur)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>roc3 <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ1<span class="sc">$</span>democracy, world_democ1<span class="sc">$</span>prob_sur)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="fu">auc</span>(roc3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>prob_sur <span class="ot">&lt;-</span> <span class="fu">predict</span>(survival, <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>world_democ1<span class="sc">$</span>prob_sur <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_sur)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>roc3 <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ1<span class="sc">$</span>democracy, world_democ1<span class="sc">$</span>prob_sur)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="fu">auc</span>(roc3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Area under the curve: 0.8341</code></pre>
 </div>
@@ -1628,12 +1631,12 @@ Figure&nbsp;6: ROC Curve
 <section id="survival-full-model" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="survival-full-model">Survival: Full Model</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>prob_sur_full <span class="ot">&lt;-</span> <span class="fu">predict</span>(survival_full, <span class="at">type =</span> <span class="st">"response"</span>)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>world_democ1<span class="sc">$</span>prob_sur_full <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_sur_full)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>roc4 <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ1<span class="sc">$</span>democracy, world_democ1<span class="sc">$</span>prob_sur_full)</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">auc</span>(roc4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>prob_sur_full <span class="ot">&lt;-</span> <span class="fu">predict</span>(survival_full, <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>world_democ1<span class="sc">$</span>prob_sur_full <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_sur_full)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>roc4 <span class="ot">&lt;-</span> <span class="fu">roc</span>(world_democ1<span class="sc">$</span>democracy, world_democ1<span class="sc">$</span>prob_sur_full)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="fu">auc</span>(roc4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Area under the curve: 0.8215</code></pre>
 </div>
@@ -1664,8 +1667,8 @@ Figure&nbsp;6: ROC Curve
 
     <script>
 
-      function styleCell_sxlsr7facy82xx3k90bi(i, j, css_id) {
-          var table = document.getElementById("tinytable_sxlsr7facy82xx3k90bi");
+      function styleCell_6o1gcithx0gppm6vljd5(i, j, css_id) {
+          var table = document.getElementById("tinytable_6o1gcithx0gppm6vljd5");
           var cell = table.querySelector(`[data-row="${i}"][data-col="${j}"]`);
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -1674,8 +1677,8 @@ Figure&nbsp;6: ROC Curve
               console.warn(`Cell at (${i}, ${j}) not found.`);
           }
       }
-      function spanCell_sxlsr7facy82xx3k90bi(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_sxlsr7facy82xx3k90bi");
+      function spanCell_6o1gcithx0gppm6vljd5(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_6o1gcithx0gppm6vljd5");
         const targetCell = table.querySelector(`[data-row="${i}"][data-col="${j}"]`);
         if (!targetCell) {
           console.warn(`Cell at (${i}, ${j}) not found.`);
@@ -1706,26 +1709,26 @@ Figure&nbsp;6: ROC Curve
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '-1', j: 4 }, { i: '-1', j: 3 },  ], css_id: 'tinytable_css_s828zkchxtzj4u950j3o',}, 
-          { positions: [ { i: '-2', j: 3 }, { i: '-2', j: 2 }, { i: '-2', j: 4 },  ], css_id: 'tinytable_css_2dx64aysmcyykgzl6kg0',}, 
-          { positions: [ { i: '10', j: 1 }, { i: '10', j: 4 }, { i: '10', j: 2 }, { i: '10', j: 3 },  ], css_id: 'tinytable_css_cx6jumhqboo1z3mdf7bo',}, 
-          { positions: [ { i: '8', j: 3 }, { i: '8', j: 2 }, { i: '8', j: 4 }, { i: '8', j: 1 },  ], css_id: 'tinytable_css_evouwfffgrk5hfch56bs',}, 
-          { positions: [ { i: '2', j: 1 }, { i: '1', j: 1 }, { i: '6', j: 1 }, { i: '3', j: 1 }, { i: '5', j: 1 }, { i: '1', j: 2 }, { i: '7', j: 1 }, { i: '4', j: 1 }, { i: '9', j: 1 }, { i: '5', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '9', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '3', j: 3 }, { i: '4', j: 3 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '7', j: 3 }, { i: '3', j: 4 }, { i: '5', j: 3 }, { i: '6', j: 3 }, { i: '2', j: 4 }, { i: '7', j: 4 }, { i: '9', j: 3 }, { i: '1', j: 4 }, { i: '6', j: 4 }, { i: '4', j: 4 }, { i: '5', j: 4 }, { i: '9', j: 4 },  ], css_id: 'tinytable_css_qntsauo3sym43wbcof5j',}, 
-          { positions: [ { i: '-2', j: 1 },  ], css_id: 'tinytable_css_j19xmuy5tibkqlmbf3xr',}, 
-          { positions: [ { i: '-1', j: 1 }, { i: '-1', j: 2 },  ], css_id: 'tinytable_css_yrs535ovzhlh6p1ring5',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 },  ], css_id: 'tinytable_css_x5eshjuyj3qd8f3o87uz',}, 
-          { positions: [ { i: '10', j: 0 },  ], css_id: 'tinytable_css_8vyzjkcysx5jpxb7l98r',}, 
-          { positions: [ { i: '8', j: 0 },  ], css_id: 'tinytable_css_6r4473j4oqby603iys22',}, 
-          { positions: [ { i: '1', j: 0 }, { i: '2', j: 0 }, { i: '3', j: 0 }, { i: '4', j: 0 }, { i: '5', j: 0 }, { i: '6', j: 0 }, { i: '7', j: 0 }, { i: '9', j: 0 },  ], css_id: 'tinytable_css_tpamsikbxmf7fyaekknx',}, 
-          { positions: [ { i: '-2', j: 0 },  ], css_id: 'tinytable_css_rezh7wgpssp0c4lg3isi',}, 
-          { positions: [ { i: '-1', j: 0 },  ], css_id: 'tinytable_css_wmm4saz00a5mbmx7u3ju',}, 
-          { positions: [ { i: '0', j: 0 },  ], css_id: 'tinytable_css_0rs2yyeci5b2gd287cu9',}, 
+          { positions: [ { i: '-1', j: 4 }, { i: '-1', j: 3 },  ], css_id: 'tinytable_css_fzb4mrdq1evf3cqlckbs',}, 
+          { positions: [ { i: '-2', j: 3 }, { i: '-2', j: 2 }, { i: '-2', j: 4 },  ], css_id: 'tinytable_css_5ioneknwemabuajmmydc',}, 
+          { positions: [ { i: '10', j: 1 }, { i: '10', j: 4 }, { i: '10', j: 2 }, { i: '10', j: 3 },  ], css_id: 'tinytable_css_zuhjytxk8pm981m0813c',}, 
+          { positions: [ { i: '8', j: 3 }, { i: '8', j: 2 }, { i: '8', j: 4 }, { i: '8', j: 1 },  ], css_id: 'tinytable_css_wkvxwia0uihiazf598hi',}, 
+          { positions: [ { i: '2', j: 1 }, { i: '1', j: 1 }, { i: '6', j: 1 }, { i: '3', j: 1 }, { i: '5', j: 1 }, { i: '1', j: 2 }, { i: '7', j: 1 }, { i: '4', j: 1 }, { i: '9', j: 1 }, { i: '5', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '9', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '3', j: 3 }, { i: '4', j: 3 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '7', j: 3 }, { i: '3', j: 4 }, { i: '5', j: 3 }, { i: '6', j: 3 }, { i: '2', j: 4 }, { i: '7', j: 4 }, { i: '9', j: 3 }, { i: '1', j: 4 }, { i: '6', j: 4 }, { i: '4', j: 4 }, { i: '5', j: 4 }, { i: '9', j: 4 },  ], css_id: 'tinytable_css_urjdesb0db81w1sndsp4',}, 
+          { positions: [ { i: '-2', j: 1 },  ], css_id: 'tinytable_css_mf5i7h0j6dnnva7o5u9d',}, 
+          { positions: [ { i: '-1', j: 1 }, { i: '-1', j: 2 },  ], css_id: 'tinytable_css_4u8us1kvb9aupwzo6fc4',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 },  ], css_id: 'tinytable_css_fb4i9z7ylpn615npsaq7',}, 
+          { positions: [ { i: '10', j: 0 },  ], css_id: 'tinytable_css_h82ghad7avpsft49y0f2',}, 
+          { positions: [ { i: '8', j: 0 },  ], css_id: 'tinytable_css_nvnxxxi07enbtimtcftu',}, 
+          { positions: [ { i: '1', j: 0 }, { i: '2', j: 0 }, { i: '3', j: 0 }, { i: '4', j: 0 }, { i: '5', j: 0 }, { i: '6', j: 0 }, { i: '7', j: 0 }, { i: '9', j: 0 },  ], css_id: 'tinytable_css_nfw9cxhimtonr3t8p2to',}, 
+          { positions: [ { i: '-2', j: 0 },  ], css_id: 'tinytable_css_spfpr959qrkn0kdpx02y',}, 
+          { positions: [ { i: '-1', j: 0 },  ], css_id: 'tinytable_css_n425l5jfrwhpi45tph6m',}, 
+          { positions: [ { i: '0', j: 0 },  ], css_id: 'tinytable_css_el9a2lwuvxsh809xg22j',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_sxlsr7facy82xx3k90bi(cell.i, cell.j, group.css_id);
+                  styleCell_6o1gcithx0gppm6vljd5(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1733,23 +1736,23 @@ Figure&nbsp;6: ROC Curve
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_s828zkchxtzj4u950j3o, .table th.tinytable_css_s828zkchxtzj4u950j3o { text-align: center; text-align: center; }
-      .table td.tinytable_css_2dx64aysmcyykgzl6kg0, .table th.tinytable_css_2dx64aysmcyykgzl6kg0 { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_cx6jumhqboo1z3mdf7bo, .table th.tinytable_css_cx6jumhqboo1z3mdf7bo { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_evouwfffgrk5hfch56bs, .table th.tinytable_css_evouwfffgrk5hfch56bs { text-align: center; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_qntsauo3sym43wbcof5j, .table th.tinytable_css_qntsauo3sym43wbcof5j { text-align: center; }
-      .table td.tinytable_css_j19xmuy5tibkqlmbf3xr, .table th.tinytable_css_j19xmuy5tibkqlmbf3xr { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_yrs535ovzhlh6p1ring5, .table th.tinytable_css_yrs535ovzhlh6p1ring5 { text-align: center; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_x5eshjuyj3qd8f3o87uz, .table th.tinytable_css_x5eshjuyj3qd8f3o87uz { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_8vyzjkcysx5jpxb7l98r, .table th.tinytable_css_8vyzjkcysx5jpxb7l98r { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_6r4473j4oqby603iys22, .table th.tinytable_css_6r4473j4oqby603iys22 { text-align: left; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_tpamsikbxmf7fyaekknx, .table th.tinytable_css_tpamsikbxmf7fyaekknx { text-align: left; }
-      .table td.tinytable_css_rezh7wgpssp0c4lg3isi, .table th.tinytable_css_rezh7wgpssp0c4lg3isi { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_wmm4saz00a5mbmx7u3ju, .table th.tinytable_css_wmm4saz00a5mbmx7u3ju { text-align: left; text-align: center; }
-      .table td.tinytable_css_0rs2yyeci5b2gd287cu9, .table th.tinytable_css_0rs2yyeci5b2gd287cu9 { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_fzb4mrdq1evf3cqlckbs, .table th.tinytable_css_fzb4mrdq1evf3cqlckbs { text-align: center; text-align: center; }
+      .table td.tinytable_css_5ioneknwemabuajmmydc, .table th.tinytable_css_5ioneknwemabuajmmydc { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_zuhjytxk8pm981m0813c, .table th.tinytable_css_zuhjytxk8pm981m0813c { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_wkvxwia0uihiazf598hi, .table th.tinytable_css_wkvxwia0uihiazf598hi { text-align: center; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_urjdesb0db81w1sndsp4, .table th.tinytable_css_urjdesb0db81w1sndsp4 { text-align: center; }
+      .table td.tinytable_css_mf5i7h0j6dnnva7o5u9d, .table th.tinytable_css_mf5i7h0j6dnnva7o5u9d { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_4u8us1kvb9aupwzo6fc4, .table th.tinytable_css_4u8us1kvb9aupwzo6fc4 { text-align: center; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_fb4i9z7ylpn615npsaq7, .table th.tinytable_css_fb4i9z7ylpn615npsaq7 { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_h82ghad7avpsft49y0f2, .table th.tinytable_css_h82ghad7avpsft49y0f2 { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_nvnxxxi07enbtimtcftu, .table th.tinytable_css_nvnxxxi07enbtimtcftu { text-align: left; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_nfw9cxhimtonr3t8p2to, .table th.tinytable_css_nfw9cxhimtonr3t8p2to { text-align: left; }
+      .table td.tinytable_css_spfpr959qrkn0kdpx02y, .table th.tinytable_css_spfpr959qrkn0kdpx02y { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_n425l5jfrwhpi45tph6m, .table th.tinytable_css_n425l5jfrwhpi45tph6m { text-align: left; text-align: center; }
+      .table td.tinytable_css_el9a2lwuvxsh809xg22j, .table th.tinytable_css_el9a2lwuvxsh809xg22j { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_sxlsr7facy82xx3k90bi" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_6o1gcithx0gppm6vljd5" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
 <tr>
 <th scope="col" align="center" colspan="1" data-row="-2" data-col="0"> </th>
@@ -1855,62 +1858,101 @@ Table&nbsp;3: Democratic Emergence and Survival
 </div>
 <p>&nbsp;</p>
 <p>How did I get this table? We start again by loading the packages <code>modelsummary</code> and <code>tinytable</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tinytable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Then we store our models in a list</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Classical"</span>    <span class="ot">=</span> emergence,</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"New"</span>          <span class="ot">=</span> emergence_full,</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Classical"</span>    <span class="ot">=</span> survival,</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"New"</span>          <span class="ot">=</span> survival_full</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>and create the coefficient map.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>cm <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'l.gdppc'</span>       <span class="ot">=</span> <span class="st">'per capita GDP (lagged)'</span>,</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>        <span class="st">'l.life'</span>        <span class="ot">=</span> <span class="st">'Life Expectancy (lagged)'</span>,</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">'l.enrol_gross'</span> <span class="ot">=</span> <span class="st">'Gross Primary Enrollment (lagged)'</span>,</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">'(Intercept)'</span>   <span class="ot">=</span> <span class="st">'Intercept'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div class="warning">
 <p>Note that the variable names need to match exactly those in the model.</p>
 </div>
 <p>To get the ROC information into the table, we need to create a custom line. For this, we create a mini data frame whose structure corresponds to that of the table. Our table has five columns, and so we need to specify information for all five columns of our custom line:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>rows <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">'~term'</span> <span class="ot">=</span> <span class="st">'ROC Curve'</span>,</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(1)</span><span class="st">`</span>  <span class="ot">=</span> <span class="fu">auc</span>(roc1),</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(2)</span><span class="st">`</span>  <span class="ot">=</span> <span class="fu">auc</span>(roc2),</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(3)</span><span class="st">`</span>  <span class="ot">=</span> <span class="fu">auc</span>(roc3),</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(4)</span><span class="st">`</span>  <span class="ot">=</span> <span class="fu">auc</span>(roc4)</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p><code>modelsummary</code> is very flexible when it comes to designing the layout of the final table, and we can place the custom row into the exact location we want. Here, it is the ninth row:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attr</span>(rows, <span class="st">'position'</span>) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div class="bulb">
 <p>If you get a row on <code>NA</code>s at the bottom of the finished table, then you have counted too many rows.</p>
 </div>
 <p>In a last step, we include the custom row in the actual <code>modelsummary</code> code. Note that I have added a header at the top which groups the emergence and survival models.</p>
+<div class="cell" data-tbl-cap="Democratic Emergence and Survival" data-tbl-label="tbl-emsur">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(models,</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">coef_map =</span> cm,</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">gof_omit =</span> <span class="st">'AIC|BIC|Log.Lik|F|RMSE'</span>,</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">add_rows =</span> rows) <span class="sc">|&gt;</span>                                 <span class="co"># this is the custom row</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_tt</span>(<span class="at">j =</span> <span class="fu">list</span>(<span class="st">"Emergence"</span> <span class="ot">=</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>, <span class="st">"Survival"</span> <span class="ot">=</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>)) <span class="sc">|&gt;</span>     <span class="co"># this creates the header</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_tt</span>(<span class="at">j =</span> <span class="fu">list</span>(<span class="st">"Dependent Variable: Democracy"</span> <span class="ot">=</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>))      <span class="co"># this creates the top line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div class="baser">
 <details>
 <summary>
 Full code you can adapt for the assessment
 </summary>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tinytable)</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co"># store models in a list</span></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Classical"</span>    <span class="ot">=</span> emergence,</span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"New"</span>    <span class="ot">=</span> emergence_full,</span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Classical"</span>    <span class="ot">=</span> survival,</span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"New"</span>    <span class="ot">=</span> survival_full</span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="co"># write the coefficient map</span></span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>cm <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'l.gdppc'</span>    <span class="ot">=</span> <span class="st">'per capita GDP (lagged)'</span>,</span>
-<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">'l.life'</span>    <span class="ot">=</span> <span class="st">'Life Expectancy (lagged)'</span>,</span>
-<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">'l.enrol_gross'</span>    <span class="ot">=</span> <span class="st">'Gross Primary Enrollment (lagged)'</span>,</span>
-<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">'(Intercept)'</span> <span class="ot">=</span> <span class="st">'Intercept'</span>)</span>
-<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a><span class="co"># create a mini dataset with the information on the ROC curves</span></span>
-<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>rows <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>  <span class="st">'~term'</span> <span class="ot">=</span> <span class="st">'ROC Curve'</span>,</span>
-<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(1)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">auc</span>(roc1),</span>
-<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(2)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">auc</span>(roc2),</span>
-<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(3)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">auc</span>(roc3),</span>
-<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(4)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">auc</span>(roc4)</span>
-<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a><span class="co"># place the custom row into position in the final table</span></span>
-<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a><span class="fu">attr</span>(rows, <span class="st">'position'</span>) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">9</span>)</span>
-<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a><span class="co"># modelsummary code</span></span>
-<span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(models,</span>
-<span id="cb26-34"><a href="#cb26-34" aria-hidden="true" tabindex="-1"></a>             <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb26-35"><a href="#cb26-35" aria-hidden="true" tabindex="-1"></a>             <span class="at">coef_map =</span> cm,</span>
-<span id="cb26-36"><a href="#cb26-36" aria-hidden="true" tabindex="-1"></a>             <span class="at">gof_omit =</span> <span class="st">'AIC|BIC|Log.Lik|F|RMSE'</span>,</span>
-<span id="cb26-37"><a href="#cb26-37" aria-hidden="true" tabindex="-1"></a>             <span class="at">add_rows =</span> rows)<span class="sc">|&gt;</span>                                 <span class="co"># this is the custom row</span></span>
-<span id="cb26-38"><a href="#cb26-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_tt</span>(<span class="at">j =</span> <span class="fu">list</span>(<span class="st">"Emergence"</span> <span class="ot">=</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>, <span class="st">"Survival"</span> <span class="ot">=</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>))<span class="sc">|&gt;</span>     <span class="co"># this creates the header</span></span>
-<span id="cb26-39"><a href="#cb26-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_tt</span>(<span class="at">j =</span> <span class="fu">list</span>(<span class="st">"Dependent Variable: Democracy"</span> <span class="ot">=</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>))  <span class="co"># this creates the top line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tinytable)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co"># store models in a list</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Classical"</span>    <span class="ot">=</span> emergence,</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"New"</span>    <span class="ot">=</span> emergence_full,</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Classical"</span>    <span class="ot">=</span> survival,</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"New"</span>    <span class="ot">=</span> survival_full</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="co"># write the coefficient map</span></span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>cm <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'l.gdppc'</span>    <span class="ot">=</span> <span class="st">'per capita GDP (lagged)'</span>,</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">'l.life'</span>    <span class="ot">=</span> <span class="st">'Life Expectancy (lagged)'</span>,</span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">'l.enrol_gross'</span>    <span class="ot">=</span> <span class="st">'Gross Primary Enrollment (lagged)'</span>,</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">'(Intercept)'</span> <span class="ot">=</span> <span class="st">'Intercept'</span>)</span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a><span class="co"># create a mini dataset with the information on the ROC curves</span></span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>rows <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>  <span class="st">'~term'</span> <span class="ot">=</span> <span class="st">'ROC Curve'</span>,</span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(1)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">auc</span>(roc1),</span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(2)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">auc</span>(roc2),</span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(3)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">auc</span>(roc3),</span>
+<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(4)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">auc</span>(roc4)</span>
+<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a><span class="co"># place the custom row into position in the final table</span></span>
+<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a><span class="fu">attr</span>(rows, <span class="st">'position'</span>) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">9</span>)</span>
+<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a><span class="co"># modelsummary code</span></span>
+<span id="cb33-33"><a href="#cb33-33" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(models,</span>
+<span id="cb33-34"><a href="#cb33-34" aria-hidden="true" tabindex="-1"></a>             <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb33-35"><a href="#cb33-35" aria-hidden="true" tabindex="-1"></a>             <span class="at">coef_map =</span> cm,</span>
+<span id="cb33-36"><a href="#cb33-36" aria-hidden="true" tabindex="-1"></a>             <span class="at">gof_omit =</span> <span class="st">'AIC|BIC|Log.Lik|F|RMSE'</span>,</span>
+<span id="cb33-37"><a href="#cb33-37" aria-hidden="true" tabindex="-1"></a>             <span class="at">add_rows =</span> rows)<span class="sc">|&gt;</span>                                 <span class="co"># this is the custom row</span></span>
+<span id="cb33-38"><a href="#cb33-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_tt</span>(<span class="at">j =</span> <span class="fu">list</span>(<span class="st">"Emergence"</span> <span class="ot">=</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>, <span class="st">"Survival"</span> <span class="ot">=</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>))<span class="sc">|&gt;</span>     <span class="co"># this creates the header</span></span>
+<span id="cb33-39"><a href="#cb33-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_tt</span>(<span class="at">j =</span> <span class="fu">list</span>(<span class="st">"Dependent Variable: Democracy"</span> <span class="ot">=</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>))  <span class="co"># this creates the top line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 </div>
@@ -1968,16 +2010,16 @@ P(D_{it})=\Phi((\beta_{0} +\beta_{2}) + (\beta_{1} + \beta_{3}) \text{per capita
 <h2 class="unnumbered anchored" data-anchor-id="application-in-r">Application in R</h2>
 <p>How does all of this look in R, and how do you apply this to a real-world scenario? Let’s do this using the above example of per capita GDP in the global data set. You have already created the indicator variable <span class="math inline">\(I_{D}\)</span> in the form of the variable <code>l.democracy</code>. What we need next is a variable that captures <em><span class="math inline">\(I_{D} \text{per capita GDP}_{i,t}\)</span></em>, so that we can calculate <span class="math inline">\(\beta_{3}\)</span>. To create this variable, type</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>world<span class="sc">$</span>gdppc_l.democracy <span class="ot">&lt;-</span> world<span class="sc">$</span>l.democracy <span class="sc">*</span> world<span class="sc">$</span>gdppc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>world<span class="sc">$</span>gdppc_l.democracy <span class="ot">&lt;-</span> world<span class="sc">$</span>l.democracy <span class="sc">*</span> world<span class="sc">$</span>gdppc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now, we are ready to estimate the model. Remember, formally, this is written as:</p>
 <p>[ P(D_{it})=(<em>{0}+</em>{1} <em>{i,t} +</em>{2} I_{D} + <em>{3} I</em>{D} _{i,t}) ]</p>
 <p>We replace this in the R command with the equivalent variables:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>joint <span class="ot">&lt;-</span> <span class="fu">glm</span>(democracy <span class="sc">~</span> gdppc <span class="sc">+</span> l.democracy <span class="sc">+</span> gdppc_l.democracy, </span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> world,</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">na.action =</span> na.exclude,</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"probit"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>joint <span class="ot">&lt;-</span> <span class="fu">glm</span>(democracy <span class="sc">~</span> gdppc <span class="sc">+</span> l.democracy <span class="sc">+</span> gdppc_l.democracy, </span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> world,</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">na.action =</span> na.exclude,</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"probit"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="bulb">
 <p>If you have done regression analysis before, and you worry about (multi-)collinearity in such a model, then please note that:</p>
@@ -1987,7 +2029,7 @@ P(D_{it})=\Phi((\beta_{0} +\beta_{2}) + (\beta_{1} + \beta_{3}) \text{per capita
 </div>
 <p>You obtain the following output:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(joint)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(joint)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -2017,8 +2059,8 @@ Number of Fisher Scoring iterations: 11</code></pre>
 <p>The last step is the assessment of statistical significance. For the emergence model, we can once again interpret the output straight away. For the survival scenario, however, we need to test the hypothesis that for example <span class="math inline">\(\beta_{0}\)</span> and <span class="math inline">\(\beta_{3}\)</span> are <em>jointly</em> different from zero. As the survival effect is a joint-venture between these two coefficients, we also need to assess their significance jointly, and not just concentrate on <span class="math inline">\(\beta_{3}\)</span>. This is the mistake <span class="citation" data-cites="prz:2000">Przeworski et al. (2000)</span> have made in their seminal book, and this is what is discussed on the first few pages of the article by <span class="citation" data-cites="epstein:2006">Epstein et al. (2006)</span>. To do this, we are using a post-estimation command which is testing the aforementioned hypothesis that <span class="math inline">\(\beta_{0}\)</span> and <span class="math inline">\(\beta_{3}\)</span> are <em>jointly</em> different from zero, called a Wald-Test.</p>
 <p>For this we need to install and load a new package, called <code>survey</code>. This is a regression term test, where you first need to state the object within which the results are stored (here: <code>joint</code>), and the two terms you want to test, preceded by a tilde and connected by a plus. Lastly we specify that we want the Wald Test.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survey)</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">regTermTest</span>(joint, <span class="sc">~</span>gdppc <span class="sc">+</span> gdppc_l.democracy, <span class="at">method =</span> <span class="st">"Wald"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survey)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">regTermTest</span>(joint, <span class="sc">~</span>gdppc <span class="sc">+</span> gdppc_l.democracy, <span class="at">method =</span> <span class="st">"Wald"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Wald test for gdppc gdppc_l.democracy
  in glm(formula = democracy ~ gdppc + l.democracy + gdppc_l.democracy, 
@@ -2111,10 +2153,10 @@ Table&nbsp;4: Codebook for Przeworski et al.&nbsp;(2000) Data Set
 <li><p>Run the same probit model as before but now include a lagged dependent variable. To create the lagged dependent variable, call:</p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>prz <span class="ot">&lt;-</span> prz <span class="sc">%&gt;%</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">l.democ =</span> <span class="fu">lag</span>(democ)) <span class="sc">%&gt;%</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>prz <span class="ot">&lt;-</span> prz <span class="sc">%&gt;%</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">l.democ =</span> <span class="fu">lag</span>(democ)) <span class="sc">%&gt;%</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Put the results in column two of <a href="#tbl-interactionmodels" class="quarto-xref">Table&nbsp;<span>5</span></a>. What are we assuming by including a lagged dependent variable? Do you think that this is appropriate here?</p>
 <ol start="3" type="1">
@@ -2124,7 +2166,7 @@ Table&nbsp;4: Codebook for Przeworski et al.&nbsp;(2000) Data Set
 </section>
 <section id="advanced" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="advanced">Advanced</h2>
-<p> This section draws on the instructions for joint estimation.</p>
+<p> This section draws on the <a href="https://drfloreiche.github.io/PO33Q/07-PO33Q.html#joint-estimation-of-emergence-and-survival">instructions for joint estimation</a>.</p>
 <ol start="5" type="1">
 <li>Now interact all the lagged independent variables with the lagged dependent variable. Estimate a fully interactive model and include all the constitutive terms. Put the results in column 5 of <a href="#tbl-interactionmodels" class="quarto-xref">Table&nbsp;<span>5</span></a>. What is the relationship between these coefficients and those in the previous two columns? Is there any extra information provided by this full interaction model that was not available from the previous two models?</li>
 <li>Now consider the straight probit model, the probit model with the lagged dependent variable, and the full interaction model. Produce the ROC curve for each of these models. Interpret a point on one of these curves. What do the ROC curves tell you about the fit of these three models?</li>
@@ -2324,187 +2366,187 @@ Table&nbsp;5: Regression Results for Lagged, Emergence, Survival, and Interactio
 <code>modelsummary</code> code for the Results Table
 </summary>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set Working Directory</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="do">########################</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>()</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="co"># PACKAGES</span></span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="do">############</span></span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
-<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Import Data</span></span>
-<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a><span class="do">#############</span></span>
-<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>prz <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">"prz.dta"</span>)</span>
-<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercise 1</span></span>
-<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a><span class="do">#####################</span></span>
-<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a>democracy <span class="ot">&lt;-</span> <span class="fu">glm</span>(democ <span class="sc">~</span> g <span class="sc">+</span> gdpw <span class="sc">+</span> oil, </span>
-<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> prz,</span>
-<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a>                 <span class="at">na.action =</span> na.exclude,</span>
-<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a>                 <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"probit"</span>))</span>
-<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercise 2</span></span>
-<span id="cb34-33"><a href="#cb34-33" aria-hidden="true" tabindex="-1"></a><span class="do">#####################</span></span>
-<span id="cb34-34"><a href="#cb34-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-35"><a href="#cb34-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-36"><a href="#cb34-36" aria-hidden="true" tabindex="-1"></a>prz <span class="ot">&lt;-</span> prz <span class="sc">%&gt;%</span></span>
-<span id="cb34-37"><a href="#cb34-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
-<span id="cb34-38"><a href="#cb34-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.democ =</span> <span class="fu">lag</span>(democ)) <span class="sc">%&gt;%</span></span>
-<span id="cb34-39"><a href="#cb34-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb34-40"><a href="#cb34-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-41"><a href="#cb34-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-42"><a href="#cb34-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-43"><a href="#cb34-43" aria-hidden="true" tabindex="-1"></a>dynamic <span class="ot">&lt;-</span> <span class="fu">glm</span>(democ <span class="sc">~</span> g <span class="sc">+</span> gdpw <span class="sc">+</span> oil <span class="sc">+</span> l.democ, </span>
-<span id="cb34-44"><a href="#cb34-44" aria-hidden="true" tabindex="-1"></a>               <span class="at">data =</span> prz,</span>
-<span id="cb34-45"><a href="#cb34-45" aria-hidden="true" tabindex="-1"></a>               <span class="at">na.action =</span> na.exclude,</span>
-<span id="cb34-46"><a href="#cb34-46" aria-hidden="true" tabindex="-1"></a>               <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"probit"</span>)) </span>
-<span id="cb34-47"><a href="#cb34-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-48"><a href="#cb34-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-49"><a href="#cb34-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercise 3</span></span>
-<span id="cb34-50"><a href="#cb34-50" aria-hidden="true" tabindex="-1"></a><span class="do">#####################</span></span>
-<span id="cb34-51"><a href="#cb34-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-52"><a href="#cb34-52" aria-hidden="true" tabindex="-1"></a>prz <span class="ot">&lt;-</span> prz <span class="sc">%&gt;%</span></span>
-<span id="cb34-53"><a href="#cb34-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
-<span id="cb34-54"><a href="#cb34-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.g =</span> <span class="fu">lag</span>(g)) <span class="sc">%&gt;%</span></span>
-<span id="cb34-55"><a href="#cb34-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb34-56"><a href="#cb34-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-57"><a href="#cb34-57" aria-hidden="true" tabindex="-1"></a>prz <span class="ot">&lt;-</span> prz <span class="sc">%&gt;%</span></span>
-<span id="cb34-58"><a href="#cb34-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
-<span id="cb34-59"><a href="#cb34-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.gdpw =</span> <span class="fu">lag</span>(gdpw)) <span class="sc">%&gt;%</span></span>
-<span id="cb34-60"><a href="#cb34-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb34-61"><a href="#cb34-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-62"><a href="#cb34-62" aria-hidden="true" tabindex="-1"></a>prz <span class="ot">&lt;-</span> prz <span class="sc">%&gt;%</span></span>
-<span id="cb34-63"><a href="#cb34-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
-<span id="cb34-64"><a href="#cb34-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.oil =</span> <span class="fu">lag</span>(oil)) <span class="sc">%&gt;%</span></span>
-<span id="cb34-65"><a href="#cb34-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb34-66"><a href="#cb34-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-67"><a href="#cb34-67" aria-hidden="true" tabindex="-1"></a>prz_democ0 <span class="ot">&lt;-</span> <span class="fu">filter</span>(prz, l.democ<span class="sc">==</span><span class="dv">0</span>) </span>
-<span id="cb34-68"><a href="#cb34-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-69"><a href="#cb34-69" aria-hidden="true" tabindex="-1"></a>emergence <span class="ot">&lt;-</span> <span class="fu">glm</span>(democ <span class="sc">~</span> l.g <span class="sc">+</span> l.gdpw <span class="sc">+</span> l.oil, </span>
-<span id="cb34-70"><a href="#cb34-70" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> prz_democ0,</span>
-<span id="cb34-71"><a href="#cb34-71" aria-hidden="true" tabindex="-1"></a>                 <span class="at">na.action =</span> na.exclude,</span>
-<span id="cb34-72"><a href="#cb34-72" aria-hidden="true" tabindex="-1"></a>                 <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"probit"</span>))</span>
-<span id="cb34-73"><a href="#cb34-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-74"><a href="#cb34-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-75"><a href="#cb34-75" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercise 4</span></span>
-<span id="cb34-76"><a href="#cb34-76" aria-hidden="true" tabindex="-1"></a><span class="do">#####################</span></span>
-<span id="cb34-77"><a href="#cb34-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-78"><a href="#cb34-78" aria-hidden="true" tabindex="-1"></a>prz_democ1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(prz, l.democ<span class="sc">==</span><span class="dv">1</span>)</span>
-<span id="cb34-79"><a href="#cb34-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-80"><a href="#cb34-80" aria-hidden="true" tabindex="-1"></a>survive <span class="ot">&lt;-</span> <span class="fu">glm</span>(democ <span class="sc">~</span> l.g <span class="sc">+</span> l.gdpw <span class="sc">+</span> l.oil, </span>
-<span id="cb34-81"><a href="#cb34-81" aria-hidden="true" tabindex="-1"></a>               <span class="at">data =</span> prz_democ1,</span>
-<span id="cb34-82"><a href="#cb34-82" aria-hidden="true" tabindex="-1"></a>               <span class="at">na.action =</span> na.exclude,</span>
-<span id="cb34-83"><a href="#cb34-83" aria-hidden="true" tabindex="-1"></a>               <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"probit"</span>))</span>
-<span id="cb34-84"><a href="#cb34-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-85"><a href="#cb34-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-86"><a href="#cb34-86" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercise 5</span></span>
-<span id="cb34-87"><a href="#cb34-87" aria-hidden="true" tabindex="-1"></a><span class="do">#####################</span></span>
-<span id="cb34-88"><a href="#cb34-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-89"><a href="#cb34-89" aria-hidden="true" tabindex="-1"></a>prz<span class="sc">$</span>l.democgdpw <span class="ot">&lt;-</span> prz<span class="sc">$</span>l.democ <span class="sc">*</span> prz<span class="sc">$</span>l.gdpw</span>
-<span id="cb34-90"><a href="#cb34-90" aria-hidden="true" tabindex="-1"></a>prz<span class="sc">$</span>l.democg <span class="ot">&lt;-</span> prz<span class="sc">$</span>l.democ <span class="sc">*</span> prz<span class="sc">$</span>l.g</span>
-<span id="cb34-91"><a href="#cb34-91" aria-hidden="true" tabindex="-1"></a>prz<span class="sc">$</span>l.democoil <span class="ot">&lt;-</span> prz<span class="sc">$</span>l.democ <span class="sc">*</span> prz<span class="sc">$</span>l.oil</span>
-<span id="cb34-92"><a href="#cb34-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-93"><a href="#cb34-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-94"><a href="#cb34-94" aria-hidden="true" tabindex="-1"></a>joint <span class="ot">&lt;-</span> <span class="fu">glm</span>(democ <span class="sc">~</span> l.g <span class="sc">+</span> l.gdpw <span class="sc">+</span> l.oil <span class="sc">+</span> l.democ <span class="sc">+</span> l.democg <span class="sc">+</span> l.democgdpw <span class="sc">+</span> l.democoil, </span>
-<span id="cb34-95"><a href="#cb34-95" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> prz,</span>
-<span id="cb34-96"><a href="#cb34-96" aria-hidden="true" tabindex="-1"></a>             <span class="at">na.action =</span> na.exclude,</span>
-<span id="cb34-97"><a href="#cb34-97" aria-hidden="true" tabindex="-1"></a>             <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"probit"</span>))</span>
-<span id="cb34-98"><a href="#cb34-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-99"><a href="#cb34-99" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercise 6</span></span>
-<span id="cb34-100"><a href="#cb34-100" aria-hidden="true" tabindex="-1"></a><span class="do">#####################</span></span>
-<span id="cb34-101"><a href="#cb34-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-102"><a href="#cb34-102" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pROC)</span>
-<span id="cb34-103"><a href="#cb34-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-104"><a href="#cb34-104" aria-hidden="true" tabindex="-1"></a><span class="co"># Democracy model: </span></span>
-<span id="cb34-105"><a href="#cb34-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-106"><a href="#cb34-106" aria-hidden="true" tabindex="-1"></a>prob_democracy <span class="ot">&lt;-</span> <span class="fu">predict</span>(democracy, <span class="at">type=</span><span class="st">"response"</span>)</span>
-<span id="cb34-107"><a href="#cb34-107" aria-hidden="true" tabindex="-1"></a>prz<span class="sc">$</span>prob_democracy <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_democracy)</span>
-<span id="cb34-108"><a href="#cb34-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-109"><a href="#cb34-109" aria-hidden="true" tabindex="-1"></a>roc_democracy <span class="ot">&lt;-</span> <span class="fu">roc</span>(prz<span class="sc">$</span>democ, prz<span class="sc">$</span>prob_democracy)</span>
-<span id="cb34-110"><a href="#cb34-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-111"><a href="#cb34-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-112"><a href="#cb34-112" aria-hidden="true" tabindex="-1"></a><span class="co"># Dynamic Model</span></span>
-<span id="cb34-113"><a href="#cb34-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-114"><a href="#cb34-114" aria-hidden="true" tabindex="-1"></a>prob_dynamic <span class="ot">&lt;-</span> <span class="fu">predict</span>(dynamic, <span class="at">type=</span><span class="st">"response"</span>)</span>
-<span id="cb34-115"><a href="#cb34-115" aria-hidden="true" tabindex="-1"></a>prz<span class="sc">$</span>prob_dynamic <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_dynamic)</span>
-<span id="cb34-116"><a href="#cb34-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-117"><a href="#cb34-117" aria-hidden="true" tabindex="-1"></a>roc_dynamic <span class="ot">&lt;-</span> <span class="fu">roc</span>(prz<span class="sc">$</span>democ, prz<span class="sc">$</span>prob_dynamic)</span>
-<span id="cb34-118"><a href="#cb34-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-119"><a href="#cb34-119" aria-hidden="true" tabindex="-1"></a><span class="co"># emergence model</span></span>
-<span id="cb34-120"><a href="#cb34-120" aria-hidden="true" tabindex="-1"></a>prob_emergence <span class="ot">&lt;-</span> <span class="fu">predict</span>(emergence, <span class="at">type=</span><span class="st">"response"</span>)</span>
-<span id="cb34-121"><a href="#cb34-121" aria-hidden="true" tabindex="-1"></a>prz_democ0<span class="sc">$</span>prob_emergence <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_emergence)</span>
-<span id="cb34-122"><a href="#cb34-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-123"><a href="#cb34-123" aria-hidden="true" tabindex="-1"></a>roc_emergence <span class="ot">&lt;-</span> <span class="fu">roc</span>(prz_democ0<span class="sc">$</span>democ, prz_democ0<span class="sc">$</span>prob_emergence)</span>
-<span id="cb34-124"><a href="#cb34-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-125"><a href="#cb34-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-126"><a href="#cb34-126" aria-hidden="true" tabindex="-1"></a><span class="co"># survive model</span></span>
-<span id="cb34-127"><a href="#cb34-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-128"><a href="#cb34-128" aria-hidden="true" tabindex="-1"></a>prob_survive <span class="ot">&lt;-</span> <span class="fu">predict</span>(survive, <span class="at">type=</span><span class="st">"response"</span>)</span>
-<span id="cb34-129"><a href="#cb34-129" aria-hidden="true" tabindex="-1"></a>prz_democ1<span class="sc">$</span>prob_survive <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_survive)</span>
-<span id="cb34-130"><a href="#cb34-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-131"><a href="#cb34-131" aria-hidden="true" tabindex="-1"></a>roc_survive <span class="ot">&lt;-</span> <span class="fu">roc</span>(prz_democ1<span class="sc">$</span>democ, prz_democ1<span class="sc">$</span>prob_survive)</span>
-<span id="cb34-132"><a href="#cb34-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-133"><a href="#cb34-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-134"><a href="#cb34-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-135"><a href="#cb34-135" aria-hidden="true" tabindex="-1"></a><span class="co"># Joint Model</span></span>
-<span id="cb34-136"><a href="#cb34-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-137"><a href="#cb34-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-138"><a href="#cb34-138" aria-hidden="true" tabindex="-1"></a>prob_joint <span class="ot">&lt;-</span> <span class="fu">predict</span>(joint, <span class="at">type=</span><span class="st">"response"</span>)</span>
-<span id="cb34-139"><a href="#cb34-139" aria-hidden="true" tabindex="-1"></a>prz<span class="sc">$</span>prob_joint <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_joint)</span>
-<span id="cb34-140"><a href="#cb34-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-141"><a href="#cb34-141" aria-hidden="true" tabindex="-1"></a>roc_joint <span class="ot">&lt;-</span> <span class="fu">roc</span>(prz<span class="sc">$</span>democ, prz<span class="sc">$</span>prob_joint)</span>
-<span id="cb34-142"><a href="#cb34-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-143"><a href="#cb34-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-144"><a href="#cb34-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-145"><a href="#cb34-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-146"><a href="#cb34-146" aria-hidden="true" tabindex="-1"></a><span class="do">## `modelsummary`</span></span>
-<span id="cb34-147"><a href="#cb34-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-148"><a href="#cb34-148" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb34-149"><a href="#cb34-149" aria-hidden="true" tabindex="-1"></a>  democracy, dynamic, emergence, survive, joint</span>
-<span id="cb34-150"><a href="#cb34-150" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb34-151"><a href="#cb34-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-152"><a href="#cb34-152" aria-hidden="true" tabindex="-1"></a>cm <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb34-153"><a href="#cb34-153" aria-hidden="true" tabindex="-1"></a><span class="st">'g'</span><span class="ot">=</span><span class="st">"Growth rate"</span>,</span>
-<span id="cb34-154"><a href="#cb34-154" aria-hidden="true" tabindex="-1"></a><span class="st">'gdpw'</span><span class="ot">=</span><span class="st">"GDP per Worker"</span>,</span>
-<span id="cb34-155"><a href="#cb34-155" aria-hidden="true" tabindex="-1"></a><span class="st">'oil'</span><span class="ot">=</span><span class="st">"Oil Producer"</span>,</span>
-<span id="cb34-156"><a href="#cb34-156" aria-hidden="true" tabindex="-1"></a><span class="st">'l.g'</span><span class="ot">=</span><span class="st">"Lagged Growth rate"</span>,</span>
-<span id="cb34-157"><a href="#cb34-157" aria-hidden="true" tabindex="-1"></a><span class="st">'l.gdpw'</span><span class="ot">=</span><span class="st">"Lagged GDP per Worker"</span>,</span>
-<span id="cb34-158"><a href="#cb34-158" aria-hidden="true" tabindex="-1"></a><span class="st">'l.oil'</span><span class="ot">=</span><span class="st">"Lagged Oil Producer"</span>,</span>
-<span id="cb34-159"><a href="#cb34-159" aria-hidden="true" tabindex="-1"></a><span class="st">'(Intercept)'</span> <span class="ot">=</span> <span class="st">'Constant'</span>)</span>
-<span id="cb34-160"><a href="#cb34-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-161"><a href="#cb34-161" aria-hidden="true" tabindex="-1"></a>rows <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb34-162"><a href="#cb34-162" aria-hidden="true" tabindex="-1"></a>  <span class="st">'~term'</span> <span class="ot">=</span> <span class="st">'ROC Curve'</span>,</span>
-<span id="cb34-163"><a href="#cb34-163" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(1)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">auc</span>(roc_democracy),<span class="dv">2</span>),</span>
-<span id="cb34-164"><a href="#cb34-164" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(2)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">auc</span>(roc_dynamic),<span class="dv">2</span>),</span>
-<span id="cb34-165"><a href="#cb34-165" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(3)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">auc</span>(roc_emergence),<span class="dv">2</span>),</span>
-<span id="cb34-166"><a href="#cb34-166" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(4)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">auc</span>(roc_survive),<span class="dv">2</span>),</span>
-<span id="cb34-167"><a href="#cb34-167" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(5)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">auc</span>(roc_joint),<span class="dv">2</span>)</span>
-<span id="cb34-168"><a href="#cb34-168" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb34-169"><a href="#cb34-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-170"><a href="#cb34-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-171"><a href="#cb34-171" aria-hidden="true" tabindex="-1"></a><span class="fu">attr</span>(rows, <span class="st">'position'</span>) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>)</span>
-<span id="cb34-172"><a href="#cb34-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-173"><a href="#cb34-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-174"><a href="#cb34-174" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(models, </span>
-<span id="cb34-175"><a href="#cb34-175" aria-hidden="true" tabindex="-1"></a>             <span class="at">gof_omit =</span> <span class="st">'DF|Deviance|Log.Lik|F|AIC|BIC|RMSE'</span>, </span>
-<span id="cb34-176"><a href="#cb34-176" aria-hidden="true" tabindex="-1"></a>             <span class="at">add_rows =</span> rows,</span>
-<span id="cb34-177"><a href="#cb34-177" aria-hidden="true" tabindex="-1"></a><span class="co">#            output = "table.docx",</span></span>
-<span id="cb34-178"><a href="#cb34-178" aria-hidden="true" tabindex="-1"></a>             <span class="at">stars=</span><span class="cn">TRUE</span>,</span>
-<span id="cb34-179"><a href="#cb34-179" aria-hidden="true" tabindex="-1"></a>             <span class="at">coef_map =</span> cm)<span class="sc">|&gt;</span></span>
-<span id="cb34-180"><a href="#cb34-180" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_tt</span>(<span class="at">j =</span> <span class="fu">list</span>(<span class="st">" "</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">"Dependent Variable:&lt;br&gt;Democracy"</span> <span class="ot">=</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb34-181"><a href="#cb34-181" aria-hidden="true" tabindex="-1"></a>  <span class="fu">style_tt</span>(<span class="at">tabularray_inner =</span> <span class="st">"columnsep=10pt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set Working Directory</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="do">########################</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>()</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="co"># PACKAGES</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="do">############</span></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Import Data</span></span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a><span class="do">#############</span></span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a>prz <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">"prz.dta"</span>)</span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercise 1</span></span>
+<span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a><span class="do">#####################</span></span>
+<span id="cb41-24"><a href="#cb41-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-25"><a href="#cb41-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-26"><a href="#cb41-26" aria-hidden="true" tabindex="-1"></a>democracy <span class="ot">&lt;-</span> <span class="fu">glm</span>(democ <span class="sc">~</span> g <span class="sc">+</span> gdpw <span class="sc">+</span> oil, </span>
+<span id="cb41-27"><a href="#cb41-27" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> prz,</span>
+<span id="cb41-28"><a href="#cb41-28" aria-hidden="true" tabindex="-1"></a>                 <span class="at">na.action =</span> na.exclude,</span>
+<span id="cb41-29"><a href="#cb41-29" aria-hidden="true" tabindex="-1"></a>                 <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"probit"</span>))</span>
+<span id="cb41-30"><a href="#cb41-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-31"><a href="#cb41-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-32"><a href="#cb41-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercise 2</span></span>
+<span id="cb41-33"><a href="#cb41-33" aria-hidden="true" tabindex="-1"></a><span class="do">#####################</span></span>
+<span id="cb41-34"><a href="#cb41-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-35"><a href="#cb41-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-36"><a href="#cb41-36" aria-hidden="true" tabindex="-1"></a>prz <span class="ot">&lt;-</span> prz <span class="sc">%&gt;%</span></span>
+<span id="cb41-37"><a href="#cb41-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
+<span id="cb41-38"><a href="#cb41-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.democ =</span> <span class="fu">lag</span>(democ)) <span class="sc">%&gt;%</span></span>
+<span id="cb41-39"><a href="#cb41-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb41-40"><a href="#cb41-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-41"><a href="#cb41-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-42"><a href="#cb41-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-43"><a href="#cb41-43" aria-hidden="true" tabindex="-1"></a>dynamic <span class="ot">&lt;-</span> <span class="fu">glm</span>(democ <span class="sc">~</span> g <span class="sc">+</span> gdpw <span class="sc">+</span> oil <span class="sc">+</span> l.democ, </span>
+<span id="cb41-44"><a href="#cb41-44" aria-hidden="true" tabindex="-1"></a>               <span class="at">data =</span> prz,</span>
+<span id="cb41-45"><a href="#cb41-45" aria-hidden="true" tabindex="-1"></a>               <span class="at">na.action =</span> na.exclude,</span>
+<span id="cb41-46"><a href="#cb41-46" aria-hidden="true" tabindex="-1"></a>               <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"probit"</span>)) </span>
+<span id="cb41-47"><a href="#cb41-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-48"><a href="#cb41-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-49"><a href="#cb41-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercise 3</span></span>
+<span id="cb41-50"><a href="#cb41-50" aria-hidden="true" tabindex="-1"></a><span class="do">#####################</span></span>
+<span id="cb41-51"><a href="#cb41-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-52"><a href="#cb41-52" aria-hidden="true" tabindex="-1"></a>prz <span class="ot">&lt;-</span> prz <span class="sc">%&gt;%</span></span>
+<span id="cb41-53"><a href="#cb41-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
+<span id="cb41-54"><a href="#cb41-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.g =</span> <span class="fu">lag</span>(g)) <span class="sc">%&gt;%</span></span>
+<span id="cb41-55"><a href="#cb41-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb41-56"><a href="#cb41-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-57"><a href="#cb41-57" aria-hidden="true" tabindex="-1"></a>prz <span class="ot">&lt;-</span> prz <span class="sc">%&gt;%</span></span>
+<span id="cb41-58"><a href="#cb41-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
+<span id="cb41-59"><a href="#cb41-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.gdpw =</span> <span class="fu">lag</span>(gdpw)) <span class="sc">%&gt;%</span></span>
+<span id="cb41-60"><a href="#cb41-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb41-61"><a href="#cb41-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-62"><a href="#cb41-62" aria-hidden="true" tabindex="-1"></a>prz <span class="ot">&lt;-</span> prz <span class="sc">%&gt;%</span></span>
+<span id="cb41-63"><a href="#cb41-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
+<span id="cb41-64"><a href="#cb41-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">l.oil =</span> <span class="fu">lag</span>(oil)) <span class="sc">%&gt;%</span></span>
+<span id="cb41-65"><a href="#cb41-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb41-66"><a href="#cb41-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-67"><a href="#cb41-67" aria-hidden="true" tabindex="-1"></a>prz_democ0 <span class="ot">&lt;-</span> <span class="fu">filter</span>(prz, l.democ<span class="sc">==</span><span class="dv">0</span>) </span>
+<span id="cb41-68"><a href="#cb41-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-69"><a href="#cb41-69" aria-hidden="true" tabindex="-1"></a>emergence <span class="ot">&lt;-</span> <span class="fu">glm</span>(democ <span class="sc">~</span> l.g <span class="sc">+</span> l.gdpw <span class="sc">+</span> l.oil, </span>
+<span id="cb41-70"><a href="#cb41-70" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> prz_democ0,</span>
+<span id="cb41-71"><a href="#cb41-71" aria-hidden="true" tabindex="-1"></a>                 <span class="at">na.action =</span> na.exclude,</span>
+<span id="cb41-72"><a href="#cb41-72" aria-hidden="true" tabindex="-1"></a>                 <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"probit"</span>))</span>
+<span id="cb41-73"><a href="#cb41-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-74"><a href="#cb41-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-75"><a href="#cb41-75" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercise 4</span></span>
+<span id="cb41-76"><a href="#cb41-76" aria-hidden="true" tabindex="-1"></a><span class="do">#####################</span></span>
+<span id="cb41-77"><a href="#cb41-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-78"><a href="#cb41-78" aria-hidden="true" tabindex="-1"></a>prz_democ1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(prz, l.democ<span class="sc">==</span><span class="dv">1</span>)</span>
+<span id="cb41-79"><a href="#cb41-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-80"><a href="#cb41-80" aria-hidden="true" tabindex="-1"></a>survive <span class="ot">&lt;-</span> <span class="fu">glm</span>(democ <span class="sc">~</span> l.g <span class="sc">+</span> l.gdpw <span class="sc">+</span> l.oil, </span>
+<span id="cb41-81"><a href="#cb41-81" aria-hidden="true" tabindex="-1"></a>               <span class="at">data =</span> prz_democ1,</span>
+<span id="cb41-82"><a href="#cb41-82" aria-hidden="true" tabindex="-1"></a>               <span class="at">na.action =</span> na.exclude,</span>
+<span id="cb41-83"><a href="#cb41-83" aria-hidden="true" tabindex="-1"></a>               <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"probit"</span>))</span>
+<span id="cb41-84"><a href="#cb41-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-85"><a href="#cb41-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-86"><a href="#cb41-86" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercise 5</span></span>
+<span id="cb41-87"><a href="#cb41-87" aria-hidden="true" tabindex="-1"></a><span class="do">#####################</span></span>
+<span id="cb41-88"><a href="#cb41-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-89"><a href="#cb41-89" aria-hidden="true" tabindex="-1"></a>prz<span class="sc">$</span>l.democgdpw <span class="ot">&lt;-</span> prz<span class="sc">$</span>l.democ <span class="sc">*</span> prz<span class="sc">$</span>l.gdpw</span>
+<span id="cb41-90"><a href="#cb41-90" aria-hidden="true" tabindex="-1"></a>prz<span class="sc">$</span>l.democg <span class="ot">&lt;-</span> prz<span class="sc">$</span>l.democ <span class="sc">*</span> prz<span class="sc">$</span>l.g</span>
+<span id="cb41-91"><a href="#cb41-91" aria-hidden="true" tabindex="-1"></a>prz<span class="sc">$</span>l.democoil <span class="ot">&lt;-</span> prz<span class="sc">$</span>l.democ <span class="sc">*</span> prz<span class="sc">$</span>l.oil</span>
+<span id="cb41-92"><a href="#cb41-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-93"><a href="#cb41-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-94"><a href="#cb41-94" aria-hidden="true" tabindex="-1"></a>joint <span class="ot">&lt;-</span> <span class="fu">glm</span>(democ <span class="sc">~</span> l.g <span class="sc">+</span> l.gdpw <span class="sc">+</span> l.oil <span class="sc">+</span> l.democ <span class="sc">+</span> l.democg <span class="sc">+</span> l.democgdpw <span class="sc">+</span> l.democoil, </span>
+<span id="cb41-95"><a href="#cb41-95" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> prz,</span>
+<span id="cb41-96"><a href="#cb41-96" aria-hidden="true" tabindex="-1"></a>             <span class="at">na.action =</span> na.exclude,</span>
+<span id="cb41-97"><a href="#cb41-97" aria-hidden="true" tabindex="-1"></a>             <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"probit"</span>))</span>
+<span id="cb41-98"><a href="#cb41-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-99"><a href="#cb41-99" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercise 6</span></span>
+<span id="cb41-100"><a href="#cb41-100" aria-hidden="true" tabindex="-1"></a><span class="do">#####################</span></span>
+<span id="cb41-101"><a href="#cb41-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-102"><a href="#cb41-102" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pROC)</span>
+<span id="cb41-103"><a href="#cb41-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-104"><a href="#cb41-104" aria-hidden="true" tabindex="-1"></a><span class="co"># Democracy model: </span></span>
+<span id="cb41-105"><a href="#cb41-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-106"><a href="#cb41-106" aria-hidden="true" tabindex="-1"></a>prob_democracy <span class="ot">&lt;-</span> <span class="fu">predict</span>(democracy, <span class="at">type=</span><span class="st">"response"</span>)</span>
+<span id="cb41-107"><a href="#cb41-107" aria-hidden="true" tabindex="-1"></a>prz<span class="sc">$</span>prob_democracy <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_democracy)</span>
+<span id="cb41-108"><a href="#cb41-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-109"><a href="#cb41-109" aria-hidden="true" tabindex="-1"></a>roc_democracy <span class="ot">&lt;-</span> <span class="fu">roc</span>(prz<span class="sc">$</span>democ, prz<span class="sc">$</span>prob_democracy)</span>
+<span id="cb41-110"><a href="#cb41-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-111"><a href="#cb41-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-112"><a href="#cb41-112" aria-hidden="true" tabindex="-1"></a><span class="co"># Dynamic Model</span></span>
+<span id="cb41-113"><a href="#cb41-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-114"><a href="#cb41-114" aria-hidden="true" tabindex="-1"></a>prob_dynamic <span class="ot">&lt;-</span> <span class="fu">predict</span>(dynamic, <span class="at">type=</span><span class="st">"response"</span>)</span>
+<span id="cb41-115"><a href="#cb41-115" aria-hidden="true" tabindex="-1"></a>prz<span class="sc">$</span>prob_dynamic <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_dynamic)</span>
+<span id="cb41-116"><a href="#cb41-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-117"><a href="#cb41-117" aria-hidden="true" tabindex="-1"></a>roc_dynamic <span class="ot">&lt;-</span> <span class="fu">roc</span>(prz<span class="sc">$</span>democ, prz<span class="sc">$</span>prob_dynamic)</span>
+<span id="cb41-118"><a href="#cb41-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-119"><a href="#cb41-119" aria-hidden="true" tabindex="-1"></a><span class="co"># emergence model</span></span>
+<span id="cb41-120"><a href="#cb41-120" aria-hidden="true" tabindex="-1"></a>prob_emergence <span class="ot">&lt;-</span> <span class="fu">predict</span>(emergence, <span class="at">type=</span><span class="st">"response"</span>)</span>
+<span id="cb41-121"><a href="#cb41-121" aria-hidden="true" tabindex="-1"></a>prz_democ0<span class="sc">$</span>prob_emergence <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_emergence)</span>
+<span id="cb41-122"><a href="#cb41-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-123"><a href="#cb41-123" aria-hidden="true" tabindex="-1"></a>roc_emergence <span class="ot">&lt;-</span> <span class="fu">roc</span>(prz_democ0<span class="sc">$</span>democ, prz_democ0<span class="sc">$</span>prob_emergence)</span>
+<span id="cb41-124"><a href="#cb41-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-125"><a href="#cb41-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-126"><a href="#cb41-126" aria-hidden="true" tabindex="-1"></a><span class="co"># survive model</span></span>
+<span id="cb41-127"><a href="#cb41-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-128"><a href="#cb41-128" aria-hidden="true" tabindex="-1"></a>prob_survive <span class="ot">&lt;-</span> <span class="fu">predict</span>(survive, <span class="at">type=</span><span class="st">"response"</span>)</span>
+<span id="cb41-129"><a href="#cb41-129" aria-hidden="true" tabindex="-1"></a>prz_democ1<span class="sc">$</span>prob_survive <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_survive)</span>
+<span id="cb41-130"><a href="#cb41-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-131"><a href="#cb41-131" aria-hidden="true" tabindex="-1"></a>roc_survive <span class="ot">&lt;-</span> <span class="fu">roc</span>(prz_democ1<span class="sc">$</span>democ, prz_democ1<span class="sc">$</span>prob_survive)</span>
+<span id="cb41-132"><a href="#cb41-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-133"><a href="#cb41-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-134"><a href="#cb41-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-135"><a href="#cb41-135" aria-hidden="true" tabindex="-1"></a><span class="co"># Joint Model</span></span>
+<span id="cb41-136"><a href="#cb41-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-137"><a href="#cb41-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-138"><a href="#cb41-138" aria-hidden="true" tabindex="-1"></a>prob_joint <span class="ot">&lt;-</span> <span class="fu">predict</span>(joint, <span class="at">type=</span><span class="st">"response"</span>)</span>
+<span id="cb41-139"><a href="#cb41-139" aria-hidden="true" tabindex="-1"></a>prz<span class="sc">$</span>prob_joint <span class="ot">&lt;-</span> <span class="fu">unlist</span>(prob_joint)</span>
+<span id="cb41-140"><a href="#cb41-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-141"><a href="#cb41-141" aria-hidden="true" tabindex="-1"></a>roc_joint <span class="ot">&lt;-</span> <span class="fu">roc</span>(prz<span class="sc">$</span>democ, prz<span class="sc">$</span>prob_joint)</span>
+<span id="cb41-142"><a href="#cb41-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-143"><a href="#cb41-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-144"><a href="#cb41-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-145"><a href="#cb41-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-146"><a href="#cb41-146" aria-hidden="true" tabindex="-1"></a><span class="do">## `modelsummary`</span></span>
+<span id="cb41-147"><a href="#cb41-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-148"><a href="#cb41-148" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb41-149"><a href="#cb41-149" aria-hidden="true" tabindex="-1"></a>  democracy, dynamic, emergence, survive, joint</span>
+<span id="cb41-150"><a href="#cb41-150" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb41-151"><a href="#cb41-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-152"><a href="#cb41-152" aria-hidden="true" tabindex="-1"></a>cm <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb41-153"><a href="#cb41-153" aria-hidden="true" tabindex="-1"></a><span class="st">'g'</span><span class="ot">=</span><span class="st">"Growth rate"</span>,</span>
+<span id="cb41-154"><a href="#cb41-154" aria-hidden="true" tabindex="-1"></a><span class="st">'gdpw'</span><span class="ot">=</span><span class="st">"GDP per Worker"</span>,</span>
+<span id="cb41-155"><a href="#cb41-155" aria-hidden="true" tabindex="-1"></a><span class="st">'oil'</span><span class="ot">=</span><span class="st">"Oil Producer"</span>,</span>
+<span id="cb41-156"><a href="#cb41-156" aria-hidden="true" tabindex="-1"></a><span class="st">'l.g'</span><span class="ot">=</span><span class="st">"Lagged Growth rate"</span>,</span>
+<span id="cb41-157"><a href="#cb41-157" aria-hidden="true" tabindex="-1"></a><span class="st">'l.gdpw'</span><span class="ot">=</span><span class="st">"Lagged GDP per Worker"</span>,</span>
+<span id="cb41-158"><a href="#cb41-158" aria-hidden="true" tabindex="-1"></a><span class="st">'l.oil'</span><span class="ot">=</span><span class="st">"Lagged Oil Producer"</span>,</span>
+<span id="cb41-159"><a href="#cb41-159" aria-hidden="true" tabindex="-1"></a><span class="st">'(Intercept)'</span> <span class="ot">=</span> <span class="st">'Constant'</span>)</span>
+<span id="cb41-160"><a href="#cb41-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-161"><a href="#cb41-161" aria-hidden="true" tabindex="-1"></a>rows <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb41-162"><a href="#cb41-162" aria-hidden="true" tabindex="-1"></a>  <span class="st">'~term'</span> <span class="ot">=</span> <span class="st">'ROC Curve'</span>,</span>
+<span id="cb41-163"><a href="#cb41-163" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(1)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">auc</span>(roc_democracy),<span class="dv">2</span>),</span>
+<span id="cb41-164"><a href="#cb41-164" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(2)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">auc</span>(roc_dynamic),<span class="dv">2</span>),</span>
+<span id="cb41-165"><a href="#cb41-165" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(3)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">auc</span>(roc_emergence),<span class="dv">2</span>),</span>
+<span id="cb41-166"><a href="#cb41-166" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(4)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">auc</span>(roc_survive),<span class="dv">2</span>),</span>
+<span id="cb41-167"><a href="#cb41-167" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">~(5)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">auc</span>(roc_joint),<span class="dv">2</span>)</span>
+<span id="cb41-168"><a href="#cb41-168" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb41-169"><a href="#cb41-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-170"><a href="#cb41-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-171"><a href="#cb41-171" aria-hidden="true" tabindex="-1"></a><span class="fu">attr</span>(rows, <span class="st">'position'</span>) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>)</span>
+<span id="cb41-172"><a href="#cb41-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-173"><a href="#cb41-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-174"><a href="#cb41-174" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(models, </span>
+<span id="cb41-175"><a href="#cb41-175" aria-hidden="true" tabindex="-1"></a>             <span class="at">gof_omit =</span> <span class="st">'DF|Deviance|Log.Lik|F|AIC|BIC|RMSE'</span>, </span>
+<span id="cb41-176"><a href="#cb41-176" aria-hidden="true" tabindex="-1"></a>             <span class="at">add_rows =</span> rows,</span>
+<span id="cb41-177"><a href="#cb41-177" aria-hidden="true" tabindex="-1"></a><span class="co">#            output = "table.docx",</span></span>
+<span id="cb41-178"><a href="#cb41-178" aria-hidden="true" tabindex="-1"></a>             <span class="at">stars=</span><span class="cn">TRUE</span>,</span>
+<span id="cb41-179"><a href="#cb41-179" aria-hidden="true" tabindex="-1"></a>             <span class="at">coef_map =</span> cm)<span class="sc">|&gt;</span></span>
+<span id="cb41-180"><a href="#cb41-180" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_tt</span>(<span class="at">j =</span> <span class="fu">list</span>(<span class="st">" "</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">"Dependent Variable:&lt;br&gt;Democracy"</span> <span class="ot">=</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb41-181"><a href="#cb41-181" aria-hidden="true" tabindex="-1"></a>  <span class="fu">style_tt</span>(<span class="at">tabularray_inner =</span> <span class="st">"columnsep=10pt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 </div>
