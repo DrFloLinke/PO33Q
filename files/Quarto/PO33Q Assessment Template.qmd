@@ -73,7 +73,6 @@ include-in-header:
     \preto{\section}{\par\Needspace*{7\baselineskip}}
     \preto{\subsection}{\par\Needspace*{6\baselineskip}}
     \preto{\subsubsection}{\par\Needspace*{5\baselineskip}}
-
     % Set font for document
     \usepackage{lmodern}
     \renewcommand{\familydefault}{\sfdefault} % make sans the document default
@@ -82,7 +81,8 @@ include-in-header:
     \SetTblrInner{font=\sffamily}
     \usepackage{siunitx}
     \sisetup{detect-family=true, detect-weight=true}
-    \setmathfont{Latin Modern Math}
+    \usepackage{unicode-math}
+    \setmathfont{Fira Math}
 ---
 
 ```{r setup, include=FALSE}
