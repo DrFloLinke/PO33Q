@@ -89,6 +89,15 @@ include-in-header:
 # global options for code chunks
 knitr::opts_chunk$set(
   echo = FALSE, warning = FALSE, message = FALSE, error = FALSE, collapse = TRUE)
+
+library(tidyverse)
+theme_po33q <- theme_classic()+
+    theme(panel.background = element_rect(fill='transparent'), #transparent panel bg
+          plot.background = element_rect(fill='transparent', color=NA), #transparent plot bg
+          panel.grid.major = element_blank(), #remove major gridlines
+          panel.grid.minor = element_blank(), #remove minor gridlines
+          legend.background = element_rect(fill='transparent'), #transparent legend bg
+          legend.box.background = element_rect(fill='transparent')) #transparent legend panel)
 ```
 
 ```{=latex}
@@ -222,8 +231,8 @@ To model democratic emergence we apply the conditional probability shown in Equa
 #| label: fig-normal # label for cross-ref, see below
 #| fig-cap: "Standard Normal Distribution" # caption
 #| fig-align: center
-#| out-width: "30%"
-#| echo: false # suppresses code from being shown in the pdf
+#| out-width: "30%" # scale graph as % of text width
+#| echo: false # prevents code from being shown in the pdf
 #| warning: false # suppress warnings
 #| message: false # suppress messages from packages
 
@@ -235,21 +244,25 @@ normaldata <- data.frame(x, y)
 
 ggplot(normaldata, aes(x = x, y = y)) +
   geom_density(stat = "identity") +
-  theme_classic()
+  theme_po33q +                             # make graph transparent & remove chart junk  
+  theme(axis.text=element_text(size=15),    # set axis label size
+        axis.title=element_text(size=18))   # set axis title size
+
 ```
 \FloatBarrier
 
-As we can see in Figure \ref{fig-normal}...
+Here we can use the label we set in the code chunk to refer to Figure \ref{fig-normal}.
 
-Here is a \texttt{modesummary} example:
+
+Including a \texttt{modesummary} table is straightforward:
 
 
 ```{r}
 library(modelsummary)
 library(tinytable)
-library(carData)
+library(carData) # only needed for data to illustrate this here
 
-data("Prestige", package = "carData")
+data("Prestige", package = "carData") # only needed for data to illustrate this here
 
 m1 <- lm(prestige ~ education, data = Prestige)
 m2 <- lm(prestige ~ income + type, data = Prestige)
@@ -269,17 +282,19 @@ modelsummary(models,
              gof_omit = 'DF|Deviance|Log.Lik|F|AIC|BIC|RMSE', 
              stars=TRUE,
              coef_map = cm,
-             escape = FALSE,
-             notes = "\\vspace{0.2\\baselineskip}",  # <- add space before caption
-             notes_append = TRUE)|>                                 # this is the custom row
-  group_tt(j = list("Dependent Variable: Prestige Score" = 2:4))|>
-  theme_latex(outer = "label={tblr:test}")|> 
-  theme_latex(placement= "H")
+             escape = FALSE,                                # needed for spacer below
+             notes = "\\vspace{0.1\\baselineskip}",         # add space before caption
+             notes_append = TRUE)|>                         # this is the custom row
+  group_tt(j = list("Bivariate" = 2:3, "Multivariate" = 4)) |> # emergence/survival in assignment
+  group_tt(j = list("Dependent Variable: Prestige Score" = 2:4))|> # add header
+  theme_latex(outer = "label={tblr:regmodels}")|>           # label for crossref
+  theme_latex(placement= "H")|>                             # place table [H]ere
+  theme_latex(resize_width= 0.5, resize_direction="both")   # adjust table size (% of textwidth)
 ```
 
 
 
-In Table \ref{tblr:test}, the coefficient for...
+In Table \ref{tblr:regmodels}, the coefficient for...
 
 
 
