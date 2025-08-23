@@ -789,8 +789,8 @@ Table&nbsp;3: What is left…
 
     <script>
 
-      function styleCell_nujitolrqb0dxvz7igho(i, j, css_id) {
-          var table = document.getElementById("tinytable_nujitolrqb0dxvz7igho");
+      function styleCell_dnp5pk0essy1oasmerd6(i, j, css_id) {
+          var table = document.getElementById("tinytable_dnp5pk0essy1oasmerd6");
           var cell = table.querySelector(`[data-row="${i}"][data-col="${j}"]`);
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -799,8 +799,8 @@ Table&nbsp;3: What is left…
               console.warn(`Cell at (${i}, ${j}) not found.`);
           }
       }
-      function spanCell_nujitolrqb0dxvz7igho(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_nujitolrqb0dxvz7igho");
+      function spanCell_dnp5pk0essy1oasmerd6(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_dnp5pk0essy1oasmerd6");
         const targetCell = table.querySelector(`[data-row="${i}"][data-col="${j}"]`);
         if (!targetCell) {
           console.warn(`Cell at (${i}, ${j}) not found.`);
@@ -831,21 +831,21 @@ Table&nbsp;3: What is left…
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '-1', j: 2 }, { i: '-1', j: 3 },  ], css_id: 'tinytable_css_voe6pfm32hrwubl15goc',}, 
-          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 }, { i: '6', j: 3 },  ], css_id: 'tinytable_css_jekp6ptb31ovg5edpf5b',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '2', j: 2 }, { i: '4', j: 2 }, { i: '1', j: 2 }, { i: '2', j: 3 }, { i: '3', j: 1 }, { i: '4', j: 3 }, { i: '5', j: 2 }, { i: '3', j: 2 }, { i: '1', j: 3 }, { i: '3', j: 3 }, { i: '5', j: 3 },  ], css_id: 'tinytable_css_puths042w1n3c5i0fa2d',}, 
-          { positions: [ { i: '-1', j: 1 },  ], css_id: 'tinytable_css_pz0n210ea3lpo87jpmis',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 },  ], css_id: 'tinytable_css_6pwyrr0jkphr26x8y13b',}, 
-          { positions: [ { i: '6', j: 0 },  ], css_id: 'tinytable_css_qzs82lphjopj8oj6nztg',}, 
-          { positions: [ { i: '1', j: 0 }, { i: '2', j: 0 }, { i: '3', j: 0 }, { i: '4', j: 0 }, { i: '5', j: 0 },  ], css_id: 'tinytable_css_g7jezkqexi728jz4n29t',}, 
-          { positions: [ { i: '-1', j: 0 },  ], css_id: 'tinytable_css_y37r56acg358ngkoxx6r',}, 
-          { positions: [ { i: '0', j: 0 },  ], css_id: 'tinytable_css_4n42yuvgdo12d1nrxuy5',}, 
+          { positions: [ { i: '-1', j: 2 }, { i: '-1', j: 3 },  ], css_id: 'tinytable_css_crxpdlrjgh1j2iglei84',}, 
+          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 }, { i: '6', j: 3 },  ], css_id: 'tinytable_css_ivg18uxgljnbaytcnc4c',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '2', j: 2 }, { i: '4', j: 2 }, { i: '1', j: 2 }, { i: '2', j: 3 }, { i: '3', j: 1 }, { i: '4', j: 3 }, { i: '5', j: 2 }, { i: '3', j: 2 }, { i: '1', j: 3 }, { i: '3', j: 3 }, { i: '5', j: 3 },  ], css_id: 'tinytable_css_8cr6e1m4pcpyzk034y29',}, 
+          { positions: [ { i: '-1', j: 1 },  ], css_id: 'tinytable_css_6ij53y6bjbtrtgof9d9p',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 },  ], css_id: 'tinytable_css_btnn4s8lf3h8pzufx3sy',}, 
+          { positions: [ { i: '6', j: 0 },  ], css_id: 'tinytable_css_ci9157bfjlvjsrd0mp8w',}, 
+          { positions: [ { i: '1', j: 0 }, { i: '2', j: 0 }, { i: '3', j: 0 }, { i: '4', j: 0 }, { i: '5', j: 0 },  ], css_id: 'tinytable_css_77p5zkqbkpjf248o0mp7',}, 
+          { positions: [ { i: '-1', j: 0 },  ], css_id: 'tinytable_css_36rju775filuo1z88dn7',}, 
+          { positions: [ { i: '0', j: 0 },  ], css_id: 'tinytable_css_5hk78t1mbl2muf98yj4n',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_nujitolrqb0dxvz7igho(cell.i, cell.j, group.css_id);
+                  styleCell_dnp5pk0essy1oasmerd6(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -853,18 +853,18 @@ Table&nbsp;3: What is left…
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_voe6pfm32hrwubl15goc, .table th.tinytable_css_voe6pfm32hrwubl15goc { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_jekp6ptb31ovg5edpf5b, .table th.tinytable_css_jekp6ptb31ovg5edpf5b { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_puths042w1n3c5i0fa2d, .table th.tinytable_css_puths042w1n3c5i0fa2d { text-align: center; }
-      .table td.tinytable_css_pz0n210ea3lpo87jpmis, .table th.tinytable_css_pz0n210ea3lpo87jpmis { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_6pwyrr0jkphr26x8y13b, .table th.tinytable_css_6pwyrr0jkphr26x8y13b { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_qzs82lphjopj8oj6nztg, .table th.tinytable_css_qzs82lphjopj8oj6nztg { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_g7jezkqexi728jz4n29t, .table th.tinytable_css_g7jezkqexi728jz4n29t { text-align: left; }
-      .table td.tinytable_css_y37r56acg358ngkoxx6r, .table th.tinytable_css_y37r56acg358ngkoxx6r { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_4n42yuvgdo12d1nrxuy5, .table th.tinytable_css_4n42yuvgdo12d1nrxuy5 { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_crxpdlrjgh1j2iglei84, .table th.tinytable_css_crxpdlrjgh1j2iglei84 { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_ivg18uxgljnbaytcnc4c, .table th.tinytable_css_ivg18uxgljnbaytcnc4c { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_8cr6e1m4pcpyzk034y29, .table th.tinytable_css_8cr6e1m4pcpyzk034y29 { text-align: center; }
+      .table td.tinytable_css_6ij53y6bjbtrtgof9d9p, .table th.tinytable_css_6ij53y6bjbtrtgof9d9p { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_btnn4s8lf3h8pzufx3sy, .table th.tinytable_css_btnn4s8lf3h8pzufx3sy { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_ci9157bfjlvjsrd0mp8w, .table th.tinytable_css_ci9157bfjlvjsrd0mp8w { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_77p5zkqbkpjf248o0mp7, .table th.tinytable_css_77p5zkqbkpjf248o0mp7 { text-align: left; }
+      .table td.tinytable_css_36rju775filuo1z88dn7, .table th.tinytable_css_36rju775filuo1z88dn7 { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_5hk78t1mbl2muf98yj4n, .table th.tinytable_css_5hk78t1mbl2muf98yj4n { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_nujitolrqb0dxvz7igho" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_dnp5pk0essy1oasmerd6" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
 <tr>
 <th scope="col" align="center" colspan="1" data-row="-1" data-col="0"> </th>
@@ -1082,84 +1082,82 @@ Stinerock, R. (2022). <em><span class="nocase">Statistics with R – A Beginner�
   });
 </script>
 <script>
-
-
-const sidebar = document.querySelector('#quarto-sidebar, .quarto-sidebar');
-const where = document.querySelector('.quarto-secondary-nav') || document.querySelector('#quarto-header');
-if (!sidebar || !where) return;
-
-
-// Collect top-level chapter links. Fallback to all links if needed.
-let links = Array.from(sidebar.querySelectorAll('.sidebar-menu > .sidebar-item > .sidebar-item-container > a.sidebar-link'));
-if (!links.length) links = Array.from(sidebar.querySelectorAll('.sidebar-link'));
-if (!links.length) return;
-
-
-const bar = document.createElement('div');
-bar.id = 'quarto-tertiary-nav';
-
-
-links.forEach(a => {
-const clone = a.cloneNode(true);
-clone.removeAttribute('data-bs-toggle');
-clone.classList.remove('sidebar-link-toggle');
-bar.appendChild(clone);
-});
-
-
-where.after(bar);
-
-
-// Ensure current page link is visible
-const current = bar.querySelector('a[aria-current="page"], a.active');
-if (current && 'scrollIntoView' in current) {
-current.scrollIntoView({behavior: 'auto', inline: 'center', block: 'nearest'});
+return links;
 }
+
+
+function ensureBar(){
+let bar = qs('#quarto-tertiary-nav');
+if (!bar){
+const anchor = findAnchor();
+if (!anchor) return null;
+bar = document.createElement('div');
+bar.id = 'quarto-tertiary-nav';
+anchor.after(bar);
+}
+return bar;
+}
+
+
+function hydrateBar(){
+const sidebar = findSidebar();
+const bar = ensureBar();
+if (!sidebar || !bar) return false;
+if (!bar.childElementCount){
+const links = collectLinks(sidebar);
+links.forEach(a => {
+const c = a.cloneNode(true);
+c.removeAttribute('data-bs-toggle');
+c.classList.remove('sidebar-link-toggle');
+bar.appendChild(c);
+});
+}
+// Mark current page
+qsa('a', bar).forEach(a => {
+if (a.pathname === location.pathname && (!a.hash || a.hash === location.hash)){
+a.setAttribute('aria-current','page');
+a.classList.add('active');
+}
+});
+const current = qs('a[aria-current="page"], a.active', bar);
+if (current && current.scrollIntoView) current.scrollIntoView({behavior:'auto', inline:'center', block:'nearest'});
+return true;
 }
 
 
 function setHeights(){
-const primary = document.getElementById('quarto-header');
-const secondary = document.querySelector('.quarto-secondary-nav');
-const rootStyle = document.documentElement.style;
-rootStyle.setProperty('--primary-height', (primary ? primary.offsetHeight : 44) + 'px');
-rootStyle.setProperty('--secondary-height', (secondary ? secondary.offsetHeight : 44) + 'px');
+const header = qs('#quarto-header');
+const secondary = qs('.quarto-secondary-nav');
+const root = document.documentElement.style;
+root.setProperty('--primary-height', (header ? header.offsetHeight : 44) + 'px');
+root.setProperty('--secondary-height', (secondary ? secondary.offsetHeight : 0) + 'px');
 }
 
 
-// Hide/Show on scroll (Headroom-style, tiny + dependency-free)
-let lastY = window.scrollY;
-let acc = 0;
-const threshold = 24; // px accumulated before toggling, to avoid jitter
-
-
+// Hide/show on scroll (mobile only)
+let lastY = 0, acc = 0; const threshold = 24;
 function onScroll(){
-if (!isMobile()) return;
-const y = window.scrollY;
-const dy = y - lastY;
-acc = (dy > 0) ? Math.min(96, acc + dy) : Math.max(-96, acc + dy);
-if (acc > threshold) {
-document.documentElement.classList.add('nav-hidden');
-} else if (acc < -threshold || y < 2) {
-document.documentElement.classList.remove('nav-hidden');
-}
-lastY = y;
+if (!window.matchMedia('(max-width: 991.98px)').matches) return;
+const y = window.scrollY, dy = y - lastY; lastY = y;
+acc = Math.max(-96, Math.min(96, acc + dy));
+if (acc > threshold) document.documentElement.classList.add('nav-hidden');
+else if (acc < -threshold || y < 2) document.documentElement.classList.remove('nav-hidden');
 }
 
 
 function init(){
-if (!isMobile()) return; // desktop unchanged
-buildTertiary();
+hydrateBar();
 setHeights();
-window.addEventListener('resize', setHeights, {passive: true});
-window.addEventListener('scroll', onScroll, {passive: true});
-// Recalc after fonts/images settle
-window.setTimeout(setHeights, 300);
-window.addEventListener('load', setHeights);
+window.addEventListener('resize', setHeights, {passive:true});
+window.addEventListener('scroll', onScroll, {passive:true});
 }
 
 
+// Run now, on DOM ready, and when DOM mutates (e.g., sidebar injected)
+if (document.readyState !== 'loading') init();
 document.addEventListener('DOMContentLoaded', init);
+const mo = new MutationObserver(() => { if (hydrateBar()) setHeights(); });
+mo.observe(document.documentElement, {childList:true, subtree:true});
 })();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
