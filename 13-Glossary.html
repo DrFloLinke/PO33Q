@@ -659,6 +659,87 @@ Reiche, F. (forthcoming). <em><span class="nocase">Introduction to Quantitative 
     });
   });
 </script>
+<script>
+
+
+const sidebar = document.querySelector('#quarto-sidebar, .quarto-sidebar');
+const where = document.querySelector('.quarto-secondary-nav') || document.querySelector('#quarto-header');
+if (!sidebar || !where) return;
+
+
+// Collect top-level chapter links. Fallback to all links if needed.
+let links = Array.from(sidebar.querySelectorAll('.sidebar-menu > .sidebar-item > .sidebar-item-container > a.sidebar-link'));
+if (!links.length) links = Array.from(sidebar.querySelectorAll('.sidebar-link'));
+if (!links.length) return;
+
+
+const bar = document.createElement('div');
+bar.id = 'quarto-tertiary-nav';
+
+
+links.forEach(a => {
+const clone = a.cloneNode(true);
+clone.removeAttribute('data-bs-toggle');
+clone.classList.remove('sidebar-link-toggle');
+bar.appendChild(clone);
+});
+
+
+where.after(bar);
+
+
+// Ensure current page link is visible
+const current = bar.querySelector('a[aria-current="page"], a.active');
+if (current && 'scrollIntoView' in current) {
+current.scrollIntoView({behavior: 'auto', inline: 'center', block: 'nearest'});
+}
+}
+
+
+function setHeights(){
+const primary = document.getElementById('quarto-header');
+const secondary = document.querySelector('.quarto-secondary-nav');
+const rootStyle = document.documentElement.style;
+rootStyle.setProperty('--primary-height', (primary ? primary.offsetHeight : 44) + 'px');
+rootStyle.setProperty('--secondary-height', (secondary ? secondary.offsetHeight : 44) + 'px');
+}
+
+
+// Hide/Show on scroll (Headroom-style, tiny + dependency-free)
+let lastY = window.scrollY;
+let acc = 0;
+const threshold = 24; // px accumulated before toggling, to avoid jitter
+
+
+function onScroll(){
+if (!isMobile()) return;
+const y = window.scrollY;
+const dy = y - lastY;
+acc = (dy > 0) ? Math.min(96, acc + dy) : Math.max(-96, acc + dy);
+if (acc > threshold) {
+document.documentElement.classList.add('nav-hidden');
+} else if (acc < -threshold || y < 2) {
+document.documentElement.classList.remove('nav-hidden');
+}
+lastY = y;
+}
+
+
+function init(){
+if (!isMobile()) return; // desktop unchanged
+buildTertiary();
+setHeights();
+window.addEventListener('resize', setHeights, {passive: true});
+window.addEventListener('scroll', onScroll, {passive: true});
+// Recalc after fonts/images settle
+window.setTimeout(setHeights, 300);
+window.addEventListener('load', setHeights);
+}
+
+
+document.addEventListener('DOMContentLoaded', init);
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
