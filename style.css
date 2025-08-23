@@ -424,6 +424,8 @@ table, th, td {
   border-color: #adbdd1 !important;
   font-size: 0.9em;
 }
+
+
 thead, caption { color: var(--fg) !important; }
 table { caption-side: bottom; }
 
@@ -720,4 +722,31 @@ header.navbar,
   .quarto-secondary-nav .bi {
     color: #dfe1ec !important;
   }
+}
+
+
+
+
+/* Keep the top navbar solid + kill inner bg-* utilities Quarto drops in */
+#quarto-header .navbar { background: var(--nav-bg) !important; }
+
+#quarto-header .navbar .bg-body,
+#quarto-header .navbar .bg-light,
+#quarto-header .navbar .bg-white,
+#quarto-header .navbar .navbar-nav-scroll,
+#quarto-header .navbar .container.bg-body,
+#quarto-header .navbar .container-fluid.bg-body,
+#quarto-header .navbar .navbar-collapse,
+#quarto-header .navbar .quarto-navbar-tools {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+/* Right-side link + search colors */
+#quarto-header .navbar .nav-link,
+#quarto-header .navbar-brand { color: var(--nav-fg) !important; }
+
+#quarto-header .quarto-search .aa-DetachedSearchButton {
+  background: transparent !important;
 }
