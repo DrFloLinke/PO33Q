@@ -117,6 +117,36 @@ nav#TOC .nav-link.active {
 }
 
 
+
+/* TOC: use your orange instead of blue */
+  #quarto-margin-sidebar nav#TOC {
+  --bs-primary: var(--accent);
+  --bs-primary-rgb: 205,97,24;               /* cd6118 */
+}
+
+/* Keep your pill style */
+  nav#TOC .nav-link.active {
+background-color: var(--panel) !important;
+color: var(--fg) !important;
+font-weight: 600;
+border-radius: 4px;
+}
+
+/* Color ONLY the active left marker (don’t touch the guide line) */
+  #quarto-margin-sidebar nav#TOC .toc-active > .nav-link,
+  #quarto-margin-sidebar nav#TOC .nav-link.active {
+  border-left: 3px solid var(--accent) !important;
+}
+
+/* Make the focus ring orange instead of blue */
+  #quarto-margin-sidebar nav#TOC .nav-link:focus-visible {
+  outline: 0 !important;
+box-shadow: 0 0 0 .25rem var(--bs-focus-ring-color) !important;
+}
+
+
+
+
 /* ----------------------------------------
    Links in main content
 ---------------------------------------- */
@@ -750,4 +780,3 @@ header.navbar,
 #quarto-header .quarto-search .aa-DetachedSearchButton {
   background: transparent !important;
 }
-
