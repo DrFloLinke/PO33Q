@@ -780,3 +780,55 @@ header.navbar,
 #quarto-header .quarto-search .aa-DetachedSearchButton {
   background: transparent !important;
 }
+
+
+/* ----------------------------------------
+   Reader Mode Tabs
+---------------------------------------- */
+
+/* ==== Collapsed toggle bars ONLY (left + right) ==== */
+
+/* Title pill: orange bg, black text + arrow */
+#quarto-sidebarnav-toggle .quarto-sidebar-toggle-title,
+#quarto-toc-toggle       .quarto-sidebar-toggle-title{
+  background: #cb7334 !important;   /* orange pill */
+  color: #000 !important;            /* black text */
+  border: 0 !important;
+  box-shadow: none !important;
+  margin-bottom: 0.75rem !important; /* space before the menu so it doesn't touch */
+}
+
+/* Arrow colour */
+#quarto-sidebarnav-toggle .quarto-sidebar-toggle-title .quarto-sidebar-toggle-icon,
+#quarto-toc-toggle       .quarto-sidebar-toggle-title .quarto-sidebar-toggle-icon{
+  color: #000 !important;            /* black arrow */
+  opacity: 1 !important;
+}
+
+/* Nuke the grey shelf/underline + any panel bg/shadow behind the pill */
+#quarto-sidebarnav-toggle,
+#quarto-toc-toggle{
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+#quarto-sidebarnav-toggle::after,
+#quarto-toc-toggle::after,
+#quarto-sidebarnav-toggle .quarto-sidebar-toggle-title::after,
+#quarto-toc-toggle       .quarto-sidebar-toggle-title::after,
+#quarto-sidebarnav-toggle .quarto-sidebar-toggle-title + .quarto-sidebar-toggle-contents::before,
+#quarto-toc-toggle       .quarto-sidebar-toggle-title + .quarto-sidebar-toggle-contents::before{
+  content: none !important;
+}
+#quarto-sidebarnav-toggle .quarto-sidebar-toggle-contents,
+#quarto-toc-toggle       .quarto-sidebar-toggle-contents{
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* optional: slightly rounder corners */
+#quarto-sidebarnav-toggle .quarto-sidebar-toggle-title,
+#quarto-toc-toggle       .quarto-sidebar-toggle-title{
+  border-radius: 0.2rem;
+}
