@@ -225,6 +225,9 @@ window.MathJax = {
 </div>
 <script>
 (function () {
+  /* CHANGE THIS ONE LINE for other sites */
+  const BASE = '/PO33Q';
+
   const root = document.getElementById('q404-root');
   root.innerHTML = `
     <div class="q404">
@@ -250,9 +253,9 @@ window.MathJax = {
             </div>
 
             <div class="cta">
-              <!-- Use site-rooted links for GitHub Pages under /PO33Q/ -->
-              <a class="btn"  href="/PO33Q/">Go home</a>
-              <a class="link" href="/PO33Q/search/">Search the site</a>
+              <a class="btn"  href="${BASE}/">Go home</a>
+              <!-- This button OPENS the Quarto search overlay -->
+              <a class="link js-search-open" href="${BASE}/search/">Search the site</a>
               <a class="link" href="mailto:F.Reiche@warwick.ac.uk?subject=Broken%20link%20report">Email about a broken link</a>
               <a class="link" href="https://github.com/DrFloReiche/DrFloReiche.github.io/issues/new" rel="noopener">Report an issue on GitHub</a>
             </div>
@@ -261,6 +264,30 @@ window.MathJax = {
       </div>
     </div>
   `;
+
+  /* Make the "Search the site" button open Quarto's overlay search */
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('a.js-search-open');
+    if (!trigger) return;
+
+    e.preventDefault();
+
+    // Try to click Quarto's detached search button (overlay)
+    const btn =
+      document.querySelector('#quarto-search .aa-DetachedSearchButton') ||
+      document.querySelector('.aa-DetachedSearchButton');
+
+    if (btn) {
+      btn.click();
+      setTimeout(() => {
+        const input = document.querySelector('.aa-Input') || document.querySelector('#quarto-search input');
+        if (input) input.focus();
+      }, 50);
+    } else {
+      // Fallback: go home where the search control definitely exists
+      window.location.href = BASE + '/';
+    }
+  });
 
   /* Canvas wallpaper + chart drawn inside the card area */
   const c = document.getElementById('bg');
