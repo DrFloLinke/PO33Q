@@ -516,24 +516,6 @@ Figure&nbsp;5: Comparison of t-Distributions
 </figcaption>
 </figure>
 </div>
-<p>If you prefer a more interactive approach to seeing how the shape of the t-distribution changes, please use the app below (it might take a little time to load, as it is a web-based application). You will see in the app the critical t-values for various levels of significance. Please ignore these, as they are only relevant for conducting a <a href="https://drfloreiche.github.io/PO33Q/02-PO33Q.html#tests-of-statistical-significance">test of statistical significance</a> by hand. Only use the slider for <span class="math inline">\(n\)</span>, and see how the distribution in the plot changes shape.</p>
-<iframe id="tdist-iframe" src="https://drfloreiche.github.io/shinylive/tdis/" title="t distribution explorer" style="width:100%; border:0; display:block; min-height:600px;">
-</iframe>
-
-<script src="https://cdn.jsdelivr.net/npm/iframe-resizer/js/iframeResizer.min.js"></script>
-<script>
-  iFrameResize({
-    checkOrigin: false,              // relax for testing; restrict later
-    heightCalculationMethod: 'max',  // robust for ShinyLive dynamic height
-    sizeHeight: true,
-    onInit: function(iframe){
-      setTimeout(function(){
-        if (iframe.iFrameResizer) iframe.iFrameResizer.resize();
-      }, 300);
-    },
-    log: false
-  }, '#tdist-iframe');
-</script>
 <p>Using the sampling distribution, we can create a range of values that we think the true population value (like the average) falls into. This range is called a <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/13-Glossary.html">confidence interval</a></span>. For example, a 95% confidence interval means that if we took many random samples and made a new interval each time, about 95% of those intervals would contain the true value.</p>
 </section>
 </section>

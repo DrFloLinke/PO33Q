@@ -710,6 +710,24 @@ Figure&nbsp;5: Folder Structure
 <div class="puzzle">
 <p>If any of the other terms don’t mean anything to you beyond having heard the term before, please look these up.</p>
 </div>
+<p>If you want to see, how these two descriptive statistics affect the shape of a variable’s distribution, please use the app below (it is a web-based application and might take a moment to load).</p>
+<!-- Shiny app iframe -->
+<iframe id="mmm-iframe" src="https://drfloreiche.github.io/shinylive/sd/" title="Mean • Median • Mode" style="width:100%; border:0; display:block; min-height:520px;">
+</iframe>
+
+<!-- iFrame Resizer (parent side) -->
+<script src="https://cdn.jsdelivr.net/npm/iframe-resizer/js/iframeResizer.min.js"></script>
+<script>
+  iFrameResize({
+    // use false while debugging; lock it down after:
+    // checkOrigin: false,
+    checkOrigin: ['https://drfloreiche.github.io/shinylive/sd/'],
+    heightCalculationMethod: 'max',
+    sizeHeight: true,
+    minHeight: 520,
+    log: false
+  }, '#mmm-iframe');
+</script>
 <p>They are a lot of effort to calculate by hand, especially for larger data sets, but R can do these with a few intuitive commands. If we want to refer to a particular column in R (which is equivalent to a variable), then we need to specify the data frame within which the variable is located, followed by a $ sign and then the variable name. Schematically, this would look be written as <code>dataframe$variable</code>.</p>
 <p>With this information to hand, we can calculate the mean of the variable <code>gdp</code>:</p>
 <div class="cell">
