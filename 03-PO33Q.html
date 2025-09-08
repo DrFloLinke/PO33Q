@@ -433,7 +433,17 @@ Figure&nbsp;1: Latent Variable
 <p>&nbsp; &nbsp;</p>
 <p>Your inclination to go out, is likely to be influenced by the amount of money you have in your wallet / bank. If you are broke, you will be less inclined (if you are sensible), and if you are swimming in it, you will be more inclined. So, if the “propensity to go out” (which remember is running from minus to plus infinity) is influenced by your budget, then let’s construct a graph, in which we pop the propensity to go out on the y-axis, and the budget on the x-axis. If we assume that this relationship is linear, we can fit a regression line into this coordinate system, just as we have in the previous week:</p>
 <p>&nbsp; &nbsp;</p>
-<p><img src="images/Week 3/prop.png" id="fig-out" class="img-fluid quarto-figure quarto-figure-center anchored" style="width:70.0%" alt="Effect of Budget on Propensity to Go Out"> Whilst this visualises the influence of the budget on the latent variable, what we are aiming for is to make a prediction about the probability of you going out, or not.</p>
+<div id="fig-out" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-out-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/Week 3/prop.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-out-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Effect of Budget on Propensity to Go Out
+</figcaption>
+</figure>
+</div>
+<p>Whilst this visualises the influence of the budget on the latent variable, what we are aiming for is to make a prediction about the probability of you going out, or not.</p>
 <p>Now imagine, your budget is <span class="math inline">\(x_{1}\)</span>. The regression line depicts the propensity that we would expect to see, on average, for somebody with a budget of <span class="math inline">\(x_{1}\)</span>. But the crucial point is that not everybody is average. Some might have an essay deadline approaching which makes them even less likely to go out. Others might just have received their essay mark, and want to celebrate that they scored a first. In other words, there is variability around the regression line. And we assume that whilst this variability is random, it still follows a particular distribution. In the case of a probit, this is the normal distribution<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. I have added these distributions to <span class="quarto-unresolved-ref">?fig-towcdf</span>.</p>
 <p>&nbsp; &nbsp;</p>
 <div id="fig-out" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -442,7 +452,7 @@ Figure&nbsp;1: Latent Variable
 <img src="images/Week 3/prop1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-out-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Towards the Cumulative Density Function, adapted from <span class="citation" data-cites="scott:1997">Long (1997, p. 46)</span>
+Figure&nbsp;3: Towards the Cumulative Density Function, adapted from <span class="citation" data-cites="scott:1997">Long (1997, p. 46)</span>
 </figcaption>
 </figure>
 </div>
@@ -591,7 +601,7 @@ In case you are curious: reproduce the graph
 <img src="images/Week 3/cdf.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cdf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: The Cumulative Distribution Function, adapted from <span class="citation" data-cites="scott:1997">Long (1997, p. 46)</span>
+Figure&nbsp;4: The Cumulative Distribution Function, adapted from <span class="citation" data-cites="scott:1997">Long (1997, p. 46)</span>
 </figcaption>
 </figure>
 </div>
@@ -604,7 +614,7 @@ Figure&nbsp;3: The Cumulative Distribution Function, adapted from <span class="c
 <img src="images/Week 3/marginal.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-marginal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: Marginal Effect under the Cumulative Density Function
+Figure&nbsp;5: Marginal Effect under the Cumulative Density Function
 </figcaption>
 </figure>
 </div>
@@ -686,7 +696,7 @@ Number of Fisher Scoring iterations: 4</code></pre>
 <img src="images/Week 3/lifepred.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lifepred-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5: Marginal Effects for Life Expectancy on the Probability of Democracy
+Figure&nbsp;6: Marginal Effects for Life Expectancy on the Probability of Democracy
 </figcaption>
 </figure>
 </div>
@@ -695,7 +705,7 @@ Figure&nbsp;5: Marginal Effects for Life Expectancy on the Probability of Democr
 </section>
 <section id="predicted-probabilities" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="predicted-probabilities">Predicted Probabilities</h2>
-<p>Once we have estimated the model, we have determined the shape of the s-shaped curve in <a href="#fig-cdf" class="quarto-xref">Figure&nbsp;<span>3</span></a>. What we now need to do, is to evaluate the probability on the y-axis for different values on the x-axis. In our case this is the variable <code>life</code>.</p>
+<p>Once we have estimated the model, we have determined the shape of the s-shaped curve in <a href="#fig-cdf" class="quarto-xref">Figure&nbsp;<span>4</span></a>. What we now need to do, is to evaluate the probability on the y-axis for different values on the x-axis. In our case this is the variable <code>life</code>.</p>
 <section id="setting-the-x-values" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="setting-the-x-values">Setting the x-values</h3>
 <p>Let us first get a basic overview of the variable <code>life</code>. We can do this by calling</p>
@@ -761,7 +771,7 @@ Figure&nbsp;5: Marginal Effects for Life Expectancy on the Probability of Democr
 <img src="images/Week 3/predprob.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-predprob-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6: Predicted Probabilities
+Figure&nbsp;7: Predicted Probabilities
 </figcaption>
 </figure>
 </div>
@@ -836,8 +846,8 @@ Number of Fisher Scoring iterations: 5</code></pre>
 
     <script>
 
-      function styleCell_b20nnedjp9t8f81ktgvv(i, j, css_id) {
-          var table = document.getElementById("tinytable_b20nnedjp9t8f81ktgvv");
+      function styleCell_mu0aqyzp7unt9349ywie(i, j, css_id) {
+          var table = document.getElementById("tinytable_mu0aqyzp7unt9349ywie");
           var cell = table.querySelector(`[data-row="${i}"][data-col="${j}"]`);
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -846,8 +856,8 @@ Number of Fisher Scoring iterations: 5</code></pre>
               console.warn(`Cell at (${i}, ${j}) not found.`);
           }
       }
-      function spanCell_b20nnedjp9t8f81ktgvv(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_b20nnedjp9t8f81ktgvv");
+      function spanCell_mu0aqyzp7unt9349ywie(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_mu0aqyzp7unt9349ywie");
         const targetCell = table.querySelector(`[data-row="${i}"][data-col="${j}"]`);
         if (!targetCell) {
           console.warn(`Cell at (${i}, ${j}) not found.`);
@@ -878,20 +888,20 @@ Number of Fisher Scoring iterations: 5</code></pre>
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '4', j: 1 },  ], css_id: 'tinytable_css_ww2i1q5a8ksm7s86b4kt',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 },  ], css_id: 'tinytable_css_g7x77j3tkvzbeomowrpo',}, 
-          { positions: [ { i: '-1', j: 1 },  ], css_id: 'tinytable_css_024igyrhlr5wkon1rdg4',}, 
-          { positions: [ { i: '0', j: 1 },  ], css_id: 'tinytable_css_9ku5vdouzb7arr2h5jx8',}, 
-          { positions: [ { i: '4', j: 0 },  ], css_id: 'tinytable_css_8bmhnsfqhanh37yl2mpt',}, 
-          { positions: [ { i: '1', j: 0 }, { i: '2', j: 0 }, { i: '3', j: 0 },  ], css_id: 'tinytable_css_ld66rnquk2o0jlgv0n9z',}, 
-          { positions: [ { i: '-1', j: 0 },  ], css_id: 'tinytable_css_4wkxfinuiiwbwe862buy',}, 
-          { positions: [ { i: '0', j: 0 },  ], css_id: 'tinytable_css_48bsoxlx263c949mahbu',}, 
+          { positions: [ { i: '4', j: 1 },  ], css_id: 'tinytable_css_gjs1wy6shuu37cu5ci2i',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 },  ], css_id: 'tinytable_css_sqdyhmgdusv3po86t1fg',}, 
+          { positions: [ { i: '-1', j: 1 },  ], css_id: 'tinytable_css_1t0cylkycrfkleyhjmuy',}, 
+          { positions: [ { i: '0', j: 1 },  ], css_id: 'tinytable_css_4z2otnb285o092fercrg',}, 
+          { positions: [ { i: '4', j: 0 },  ], css_id: 'tinytable_css_6rjare4p5mpw01qctb1m',}, 
+          { positions: [ { i: '1', j: 0 }, { i: '2', j: 0 }, { i: '3', j: 0 },  ], css_id: 'tinytable_css_3a95h4d6t8frsz5xhrlh',}, 
+          { positions: [ { i: '-1', j: 0 },  ], css_id: 'tinytable_css_rhw0p347km4tlofnik2b',}, 
+          { positions: [ { i: '0', j: 0 },  ], css_id: 'tinytable_css_wxrtcx01omaatcglq49f',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_b20nnedjp9t8f81ktgvv(cell.i, cell.j, group.css_id);
+                  styleCell_mu0aqyzp7unt9349ywie(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -899,17 +909,17 @@ Number of Fisher Scoring iterations: 5</code></pre>
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_ww2i1q5a8ksm7s86b4kt, .table th.tinytable_css_ww2i1q5a8ksm7s86b4kt { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_g7x77j3tkvzbeomowrpo, .table th.tinytable_css_g7x77j3tkvzbeomowrpo { text-align: center; }
-      .table td.tinytable_css_024igyrhlr5wkon1rdg4, .table th.tinytable_css_024igyrhlr5wkon1rdg4 { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_9ku5vdouzb7arr2h5jx8, .table th.tinytable_css_9ku5vdouzb7arr2h5jx8 { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_8bmhnsfqhanh37yl2mpt, .table th.tinytable_css_8bmhnsfqhanh37yl2mpt { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_ld66rnquk2o0jlgv0n9z, .table th.tinytable_css_ld66rnquk2o0jlgv0n9z { text-align: left; }
-      .table td.tinytable_css_4wkxfinuiiwbwe862buy, .table th.tinytable_css_4wkxfinuiiwbwe862buy { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_48bsoxlx263c949mahbu, .table th.tinytable_css_48bsoxlx263c949mahbu { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_gjs1wy6shuu37cu5ci2i, .table th.tinytable_css_gjs1wy6shuu37cu5ci2i { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_sqdyhmgdusv3po86t1fg, .table th.tinytable_css_sqdyhmgdusv3po86t1fg { text-align: center; }
+      .table td.tinytable_css_1t0cylkycrfkleyhjmuy, .table th.tinytable_css_1t0cylkycrfkleyhjmuy { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_4z2otnb285o092fercrg, .table th.tinytable_css_4z2otnb285o092fercrg { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_6rjare4p5mpw01qctb1m, .table th.tinytable_css_6rjare4p5mpw01qctb1m { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_3a95h4d6t8frsz5xhrlh, .table th.tinytable_css_3a95h4d6t8frsz5xhrlh { text-align: left; }
+      .table td.tinytable_css_rhw0p347km4tlofnik2b, .table th.tinytable_css_rhw0p347km4tlofnik2b { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_wxrtcx01omaatcglq49f, .table th.tinytable_css_wxrtcx01omaatcglq49f { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_b20nnedjp9t8f81ktgvv" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_mu0aqyzp7unt9349ywie" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
 <tr>
 <th scope="col" align="center" colspan="1" data-row="-1" data-col="0"> </th>
@@ -1013,8 +1023,8 @@ Table&nbsp;1: Influence of per capita GDP on Democracy
 
     <script>
 
-      function styleCell_cu7853zij619fg8a92v0(i, j, css_id) {
-          var table = document.getElementById("tinytable_cu7853zij619fg8a92v0");
+      function styleCell_hw7kbwjw6r265xaocxi3(i, j, css_id) {
+          var table = document.getElementById("tinytable_hw7kbwjw6r265xaocxi3");
           var cell = table.querySelector(`[data-row="${i}"][data-col="${j}"]`);
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -1023,8 +1033,8 @@ Table&nbsp;1: Influence of per capita GDP on Democracy
               console.warn(`Cell at (${i}, ${j}) not found.`);
           }
       }
-      function spanCell_cu7853zij619fg8a92v0(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_cu7853zij619fg8a92v0");
+      function spanCell_hw7kbwjw6r265xaocxi3(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_hw7kbwjw6r265xaocxi3");
         const targetCell = table.querySelector(`[data-row="${i}"][data-col="${j}"]`);
         if (!targetCell) {
           console.warn(`Cell at (${i}, ${j}) not found.`);
@@ -1055,20 +1065,20 @@ Table&nbsp;1: Influence of per capita GDP on Democracy
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '4', j: 1 },  ], css_id: 'tinytable_css_6bfpo15f3ugnlcujzxj5',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 },  ], css_id: 'tinytable_css_fus9xjefy6v4c5zhmvnp',}, 
-          { positions: [ { i: '-1', j: 1 },  ], css_id: 'tinytable_css_iv3o65kv01j3isnj8w1n',}, 
-          { positions: [ { i: '0', j: 1 },  ], css_id: 'tinytable_css_882kbbfq971m73xz1fkb',}, 
-          { positions: [ { i: '4', j: 0 },  ], css_id: 'tinytable_css_kxur3j4ub8w52vbgiqrr',}, 
-          { positions: [ { i: '1', j: 0 }, { i: '2', j: 0 }, { i: '3', j: 0 },  ], css_id: 'tinytable_css_6g04lfiz15nfkgeamuuh',}, 
-          { positions: [ { i: '-1', j: 0 },  ], css_id: 'tinytable_css_johvpmd45eik2zjgxfv4',}, 
-          { positions: [ { i: '0', j: 0 },  ], css_id: 'tinytable_css_npugnmz3sc80imjbd2kv',}, 
+          { positions: [ { i: '4', j: 1 },  ], css_id: 'tinytable_css_re5856aamhafj0wwhns5',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 },  ], css_id: 'tinytable_css_9qmadplcx8y6gp4s94pp',}, 
+          { positions: [ { i: '-1', j: 1 },  ], css_id: 'tinytable_css_ue50k4j1nevo66meg0o9',}, 
+          { positions: [ { i: '0', j: 1 },  ], css_id: 'tinytable_css_hsf7bdomr8gzqszlprdc',}, 
+          { positions: [ { i: '4', j: 0 },  ], css_id: 'tinytable_css_jcpituhik5tudab2h34b',}, 
+          { positions: [ { i: '1', j: 0 }, { i: '2', j: 0 }, { i: '3', j: 0 },  ], css_id: 'tinytable_css_qmo4xgwzghdz09futozd',}, 
+          { positions: [ { i: '-1', j: 0 },  ], css_id: 'tinytable_css_eljpfvmlrzlar0hk67ke',}, 
+          { positions: [ { i: '0', j: 0 },  ], css_id: 'tinytable_css_ojlr2pv3otjq730xaomt',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_cu7853zij619fg8a92v0(cell.i, cell.j, group.css_id);
+                  styleCell_hw7kbwjw6r265xaocxi3(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1076,17 +1086,17 @@ Table&nbsp;1: Influence of per capita GDP on Democracy
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_6bfpo15f3ugnlcujzxj5, .table th.tinytable_css_6bfpo15f3ugnlcujzxj5 { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_fus9xjefy6v4c5zhmvnp, .table th.tinytable_css_fus9xjefy6v4c5zhmvnp { text-align: center; }
-      .table td.tinytable_css_iv3o65kv01j3isnj8w1n, .table th.tinytable_css_iv3o65kv01j3isnj8w1n { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_882kbbfq971m73xz1fkb, .table th.tinytable_css_882kbbfq971m73xz1fkb { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_kxur3j4ub8w52vbgiqrr, .table th.tinytable_css_kxur3j4ub8w52vbgiqrr { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_6g04lfiz15nfkgeamuuh, .table th.tinytable_css_6g04lfiz15nfkgeamuuh { text-align: left; }
-      .table td.tinytable_css_johvpmd45eik2zjgxfv4, .table th.tinytable_css_johvpmd45eik2zjgxfv4 { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_npugnmz3sc80imjbd2kv, .table th.tinytable_css_npugnmz3sc80imjbd2kv { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_re5856aamhafj0wwhns5, .table th.tinytable_css_re5856aamhafj0wwhns5 { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_9qmadplcx8y6gp4s94pp, .table th.tinytable_css_9qmadplcx8y6gp4s94pp { text-align: center; }
+      .table td.tinytable_css_ue50k4j1nevo66meg0o9, .table th.tinytable_css_ue50k4j1nevo66meg0o9 { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_hsf7bdomr8gzqszlprdc, .table th.tinytable_css_hsf7bdomr8gzqszlprdc { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_jcpituhik5tudab2h34b, .table th.tinytable_css_jcpituhik5tudab2h34b { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_qmo4xgwzghdz09futozd, .table th.tinytable_css_qmo4xgwzghdz09futozd { text-align: left; }
+      .table td.tinytable_css_eljpfvmlrzlar0hk67ke, .table th.tinytable_css_eljpfvmlrzlar0hk67ke { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_ojlr2pv3otjq730xaomt, .table th.tinytable_css_ojlr2pv3otjq730xaomt { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_cu7853zij619fg8a92v0" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_hw7kbwjw6r265xaocxi3" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
 <tr>
 <th scope="col" align="center" colspan="1" data-row="-1" data-col="0"> </th>
