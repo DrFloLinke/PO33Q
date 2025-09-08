@@ -516,6 +516,24 @@ Figure&nbsp;5: Comparison of t-Distributions
 </figcaption>
 </figure>
 </div>
+<p>If you prefer a more interactive approach to seeing how the shape of the t-distribution changes, please use the app below (it might take a little time to load, as it is a web-based application). You will see in the app the critical t-values for various levels of significance. Please ignore these, as they are only relevant for conducting a <a href="https://drfloreiche.github.io/PO33Q/02-PO33Q.html#tests-of-statistical-significance">test of statistical significance</a> by hand. Only use the slider for <span class="math inline">\(n\)</span>, and see how the distribution in the plot changes shape.</p>
+<iframe id="tdist-iframe" src="https://drfloreiche.github.io/shinylive/tdis/" title="t distribution explorer" style="width:100%; border:0; display:block; min-height:600px;">
+</iframe>
+
+<script src="https://cdn.jsdelivr.net/npm/iframe-resizer/js/iframeResizer.min.js"></script>
+<script>
+  iFrameResize({
+    checkOrigin: false,              // relax for testing; restrict later
+    heightCalculationMethod: 'max',  // robust for ShinyLive dynamic height
+    sizeHeight: true,
+    onInit: function(iframe){
+      setTimeout(function(){
+        if (iframe.iFrameResizer) iframe.iFrameResizer.resize();
+      }, 300);
+    },
+    log: false
+  }, '#tdist-iframe');
+</script>
 <p>Using the sampling distribution, we can create a range of values that we think the true population value (like the average) falls into. This range is called a <span class="gls"><a href="https://drfloreiche.github.io/PO33Q/13-Glossary.html">confidence interval</a></span>. For example, a 95% confidence interval means that if we took many random samples and made a new interval each time, about 95% of those intervals would contain the true value.</p>
 </section>
 </section>
@@ -536,6 +554,21 @@ se=\frac{s}{\sqrt{n}}= \frac{9}{\sqrt{15}} = 2.32379
 58.01547 \le \;\; &amp;\mu \; \le 67.98453
 \end{align}\]</span></p>
 <p>where <span class="math inline">\(\bar{y}\)</span> is the average in the sample<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>If you want to explore the dynamics of a confidence interval interactively, feel free to use the app below.</p>
+<iframe id="mmm-iframe" src="https://drfloreiche.github.io/shinylive/confint/" title="Mean • Median • Mode" style="width:100%; border:0; display:block; min-height:560px;">
+</iframe>
+
+<script src="https://cdn.jsdelivr.net/npm/iframe-resizer/js/iframeResizer.min.js"></script>
+<script>
+  iFrameResize({
+    checkOrigin: ['https://drfloreiche.github.io/shinylive/confint/'],
+    heightCalculationMethod: 'taggedElement',  // measure #ifr-root
+    sizeHeight: true,
+    minHeight: 560,
+    tolerance: 12,  // a few extra pixels for rounding
+    log: false
+  }, '#mmm-iframe');
+</script>
 <p>We will come back to confidence intervals in the context of regression analysis. Let us now look at significance tests.</p>
 </section>
 <section id="tests-of-statistical-significance" class="level2 unnumbered">
@@ -619,7 +652,7 @@ Figure&nbsp;6: The p-Value
 <p>I have displayed this here as a two-sided test. We did not specify whether we expect the level of democracy in the Middle East to be higher or lower than in Europe, just different. As both directions are therefore possible, the p-value is made up of the sum of the areas in the left and the right tails of the distribution. One-sided tests are possible, but generally in regression analysis the test is two-sided which is why I will leave it at that here.</p>
 <div class="bulb">
 <p><strong>Interpreting Significance Tests</strong></p>
-<p>In these assessment, and when reporting statistical results more generally, you’ll be required to interpret the outcome of a significance test. To do this well, it’s important to use language that reflects what null hypothesis significance testing (NHST) actually tells us, without overstating what the test can conclude.</p>
+<p>In the assessment, and when reporting statistical results more generally, you’ll be required to interpret the outcome of a significance test. To do this well, it’s important to use language that reflects what null hypothesis significance testing (NHST) actually tells us, without overstating what the test can conclude.</p>
 <p>NHST works by starting with the null hypothesis - usually a claim like “there is no effect” or “there is no difference”. We use the data to test whether that assumption is plausible. If the p-value is small, it means that results as extreme as the one we observed — or more extreme — would be rare if the null hypothesis were true. So, we take that as evidence against the null. But if the p-value is large, then the data are consistent with the null. And that’s where your interpretation should stop (at least at the introductory level, to avoid stretching and overstating).</p>
 <p>There are two possible outcomes of a significance test: (1) your p-value is <strong>below</strong> the required significance level, and (2) your p-value is <strong>above</strong> the required significance level. Let’s look at these in turn:</p>
 <ol type="1">
