@@ -277,6 +277,17 @@ div.video {
   background-image: url("files/reel_white.png") !important;
 }
 
+/* Make any iframe inside your legacy div.video block responsive */
+div.video iframe {
+  display: block;
+  width: 100% !important;     /* fill the box width */
+  max-width: 100% !important;
+  aspect-ratio: 16 / 9;        /* adjust if you prefer 4/3, 21/9, … */
+  height: auto !important;     /* let browser compute height from aspect-ratio */
+  border: 0;
+}
+
+
 .baser {
   padding-top: 0.75em;
   padding-left: 1em;
