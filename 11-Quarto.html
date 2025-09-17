@@ -402,7 +402,7 @@ modelsummary()
 </code></pre>
 <p>It is important that none of the code in this mini-script produces any visible output (everything needs to be carried out quietly and would not produce output in the console if executed from an R Script), as these results will otherwise appear in the final document. It almost goes without saying that the data set you are analysing will also have to be present in the folder that contains the qmd file<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
 <div class="bulb">
-<p>As a first step, use a regular RScript to carry out the analysis, as you can execute commands, and play around with this more easily (rather than knitting the entire thing every time).</p>
+<p>As a first step, use a regular RScript to carry out the analysis, as you can execute commands, and play around with this more easily (rather than rendering the entire thing every time).</p>
 <p>Once you are happy with the output, create the chunk in the .qmd file and copy/paste your code.</p>
 </div>
 </section>
@@ -498,19 +498,19 @@ preferably APA styled, but I’m not too precious as long as it’s consistent
 <h2 class="unnumbered anchored" data-anchor-id="rendering">Rendering</h2>
 <p>To convert the qmd file to a pdf, you will have to “render” the qmd file. An icon with an arrow is located in the task bar at the top whenever you have an qmd file open. Click it to start the conversion.</p>
 <div class="warning">
-<p>When there is a mistake in your qmd file, such as an unbalanced bracket in a code chunk, for example, R will not render the pdf. Therefore, knit your document regularly, so that you can trace the error more easily.</p>
+<p>When there is a mistake in your qmd file, such as an unbalanced bracket in a code chunk, for example, R will not render the pdf. Therefore, render your document regularly, so that you can trace the error more easily.</p>
 </div>
 </section>
 </section>
 <section id="assessment-template" class="level1 unnumbered">
 <h1 class="unnumbered">Assessment Template</h1>
-<p>In order to make your life as easy as possible, I have put together an Assessment Template in the form of an qmd file that you can knit in R. You can download this <a href="files/Quarto/PO33Q Assessment Template.qmd">here</a>. In order to knit this document, you need to remove the hashtag in the first line, so that line 1 only contains three dashes <code>---</code>, and place the following files in the same folder as the qmd file:</p>
+<p>In order to make your life as easy as possible, I have put together an Assessment Template in the form of an qmd file that you can render in R. You can download this <a href="files/Quarto/PO33Q Assessment Template.qmd">here</a>. In order to render this document, you need to remove the hashtag in the first line, so that line 1 only contains three dashes <code>---</code>, and place the following files in the same folder as the qmd file:</p>
 <ul>
 <li><a href="files/Quarto/Crest.png">Warwick Crest</a> for the title page.</li>
 <li><a href="files/Quarto/Warwick.png">Warwick Text</a> for the title page.</li>
 <li><a href="files/Quarto/referencesPO33Q.bib">referencesPO33Q.bib</a> which contains all entries for the complete <a href="files/Downloads/PO33Q_Bibliography.pdf">bibliography</a> of the module.</li>
 </ul>
-<p>Render / knit this document without making any changes to ensure this works. It should look like <a href="files/Quarto/PO33Q-Assessment-Template.pdf">this</a>. Then you can start writing your assessment. Again, let me encourage you to render/knit the document often, so that you can locate a potential mistake more easily should you receive an error message.</p>
+<p>Render this document without making any changes to ensure this works. It should look like <a href="files/Quarto/PO33Q-Assessment-Template.pdf">this</a>. Then you can start writing your assessment. Again, let me encourage you to render the document often, so that you can locate a potential mistake more easily should you receive an error message.</p>
 <section id="the-template-explained" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="the-template-explained">The Template Explained</h2>
 <p>There is quite a bit of formatting going on in the qmd file, and this is what all of this code achieves:</p>
