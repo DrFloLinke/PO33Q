@@ -58,6 +58,8 @@ include-in-header:
     \addbibresource{referencesPO33Q.bib} % this is the .bib resource file
     \usepackage{booktabs} % for tables
     \usepackage{placeins} % set barriers within which figures are placed
+    \floatplacement{table}{H}
+    \floatplacement{figure}{H}
     \usepackage{tocloft}                            % For dotted leaders control
     \renewcommand{\cftdotsep}{1}                    % Space between dots
     \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % force dots for sections
@@ -128,8 +130,14 @@ theme_po33q <- theme_classic()+
 
 \newpage
 
+\phantomsection
+\addcontentsline{toc}{section}{List of Figures}
 \listoffigures
+
+\phantomsection
+\addcontentsline{toc}{section}{List of Tables}
 \listoftables
+
 \newpage
 \pagenumbering{arabic}
 \setcounter{page}{1}

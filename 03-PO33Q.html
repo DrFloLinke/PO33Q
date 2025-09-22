@@ -840,8 +840,8 @@ Number of Fisher Scoring iterations: 5</code></pre>
 
     <script>
 
-      function styleCell_85vlh57ygge6x7q4diui(i, j, css_id) {
-          var table = document.getElementById("tinytable_85vlh57ygge6x7q4diui");
+      function styleCell_bo1627b068b500r4bqu4(i, j, css_id) {
+          var table = document.getElementById("tinytable_bo1627b068b500r4bqu4");
           var cell = table.querySelector(`[data-row="${i}"][data-col="${j}"]`);
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -850,8 +850,8 @@ Number of Fisher Scoring iterations: 5</code></pre>
               console.warn(`Cell at (${i}, ${j}) not found.`);
           }
       }
-      function spanCell_85vlh57ygge6x7q4diui(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_85vlh57ygge6x7q4diui");
+      function spanCell_bo1627b068b500r4bqu4(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_bo1627b068b500r4bqu4");
         const targetCell = table.querySelector(`[data-row="${i}"][data-col="${j}"]`);
         if (!targetCell) {
           console.warn(`Cell at (${i}, ${j}) not found.`);
@@ -882,20 +882,20 @@ Number of Fisher Scoring iterations: 5</code></pre>
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '4', j: 1 },  ], css_id: 'tinytable_css_mqh8to1ar5bg9bb35iu9',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 },  ], css_id: 'tinytable_css_8mtcyz0j3rbnxirqgfvt',}, 
-          { positions: [ { i: '-1', j: 1 },  ], css_id: 'tinytable_css_7126wfdji3yr8zb6wm2t',}, 
-          { positions: [ { i: '0', j: 1 },  ], css_id: 'tinytable_css_99mbomtn7gzlo74zvriw',}, 
-          { positions: [ { i: '4', j: 0 },  ], css_id: 'tinytable_css_7vpm2awjyp8fpu3iol2s',}, 
-          { positions: [ { i: '1', j: 0 }, { i: '2', j: 0 }, { i: '3', j: 0 },  ], css_id: 'tinytable_css_mllpsfcryzoxpmtcap4p',}, 
-          { positions: [ { i: '-1', j: 0 },  ], css_id: 'tinytable_css_zdvtkpr7i2iabyn5nvmm',}, 
-          { positions: [ { i: '0', j: 0 },  ], css_id: 'tinytable_css_9hoghdv4gyt3m595cu7m',}, 
+          { positions: [ { i: '4', j: 1 },  ], css_id: 'tinytable_css_s4j8ke30df2wemy0dz0n',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 },  ], css_id: 'tinytable_css_m1zvty56yrj0ywyo5nif',}, 
+          { positions: [ { i: '-1', j: 1 },  ], css_id: 'tinytable_css_i7s7dhkxppv1ze5hcsnm',}, 
+          { positions: [ { i: '0', j: 1 },  ], css_id: 'tinytable_css_71seuvftdx5riiaz9ph8',}, 
+          { positions: [ { i: '4', j: 0 },  ], css_id: 'tinytable_css_zr0vqtur5o05rdi512fm',}, 
+          { positions: [ { i: '1', j: 0 }, { i: '2', j: 0 }, { i: '3', j: 0 },  ], css_id: 'tinytable_css_zfut60odcn60xukbalre',}, 
+          { positions: [ { i: '-1', j: 0 },  ], css_id: 'tinytable_css_benu857raw3vgiau773h',}, 
+          { positions: [ { i: '0', j: 0 },  ], css_id: 'tinytable_css_9leeq7xa4qujcvl401e7',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_85vlh57ygge6x7q4diui(cell.i, cell.j, group.css_id);
+                  styleCell_bo1627b068b500r4bqu4(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -903,17 +903,17 @@ Number of Fisher Scoring iterations: 5</code></pre>
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_mqh8to1ar5bg9bb35iu9, .table th.tinytable_css_mqh8to1ar5bg9bb35iu9 { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_8mtcyz0j3rbnxirqgfvt, .table th.tinytable_css_8mtcyz0j3rbnxirqgfvt { text-align: center; }
-      .table td.tinytable_css_7126wfdji3yr8zb6wm2t, .table th.tinytable_css_7126wfdji3yr8zb6wm2t { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_99mbomtn7gzlo74zvriw, .table th.tinytable_css_99mbomtn7gzlo74zvriw { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_7vpm2awjyp8fpu3iol2s, .table th.tinytable_css_7vpm2awjyp8fpu3iol2s { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_mllpsfcryzoxpmtcap4p, .table th.tinytable_css_mllpsfcryzoxpmtcap4p { text-align: left; }
-      .table td.tinytable_css_zdvtkpr7i2iabyn5nvmm, .table th.tinytable_css_zdvtkpr7i2iabyn5nvmm { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_9hoghdv4gyt3m595cu7m, .table th.tinytable_css_9hoghdv4gyt3m595cu7m { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_s4j8ke30df2wemy0dz0n, .table th.tinytable_css_s4j8ke30df2wemy0dz0n { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_m1zvty56yrj0ywyo5nif, .table th.tinytable_css_m1zvty56yrj0ywyo5nif { text-align: center; }
+      .table td.tinytable_css_i7s7dhkxppv1ze5hcsnm, .table th.tinytable_css_i7s7dhkxppv1ze5hcsnm { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_71seuvftdx5riiaz9ph8, .table th.tinytable_css_71seuvftdx5riiaz9ph8 { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_zr0vqtur5o05rdi512fm, .table th.tinytable_css_zr0vqtur5o05rdi512fm { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_zfut60odcn60xukbalre, .table th.tinytable_css_zfut60odcn60xukbalre { text-align: left; }
+      .table td.tinytable_css_benu857raw3vgiau773h, .table th.tinytable_css_benu857raw3vgiau773h { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_9leeq7xa4qujcvl401e7, .table th.tinytable_css_9leeq7xa4qujcvl401e7 { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_85vlh57ygge6x7q4diui" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_bo1627b068b500r4bqu4" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
 <tr>
 <th scope="col" align="center" colspan="1" data-row="-1" data-col="0"> </th>
@@ -1017,8 +1017,8 @@ Table&nbsp;1: Influence of per capita GDP on Democracy
 
     <script>
 
-      function styleCell_8aoya5v9bggig2dq3ycn(i, j, css_id) {
-          var table = document.getElementById("tinytable_8aoya5v9bggig2dq3ycn");
+      function styleCell_0kdykrxyd7s9h96q8xo2(i, j, css_id) {
+          var table = document.getElementById("tinytable_0kdykrxyd7s9h96q8xo2");
           var cell = table.querySelector(`[data-row="${i}"][data-col="${j}"]`);
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -1027,8 +1027,8 @@ Table&nbsp;1: Influence of per capita GDP on Democracy
               console.warn(`Cell at (${i}, ${j}) not found.`);
           }
       }
-      function spanCell_8aoya5v9bggig2dq3ycn(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_8aoya5v9bggig2dq3ycn");
+      function spanCell_0kdykrxyd7s9h96q8xo2(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_0kdykrxyd7s9h96q8xo2");
         const targetCell = table.querySelector(`[data-row="${i}"][data-col="${j}"]`);
         if (!targetCell) {
           console.warn(`Cell at (${i}, ${j}) not found.`);
@@ -1059,20 +1059,20 @@ Table&nbsp;1: Influence of per capita GDP on Democracy
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '4', j: 1 },  ], css_id: 'tinytable_css_4cqwbk1vpfp1zloaffh1',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 },  ], css_id: 'tinytable_css_tjbqbunqyhp588fj2hds',}, 
-          { positions: [ { i: '-1', j: 1 },  ], css_id: 'tinytable_css_uczsdfjo2iv00tesw6mg',}, 
-          { positions: [ { i: '0', j: 1 },  ], css_id: 'tinytable_css_k5uvar8hv9t96utq3s5c',}, 
-          { positions: [ { i: '4', j: 0 },  ], css_id: 'tinytable_css_lzcmvdl8v6rg7p77g3bs',}, 
-          { positions: [ { i: '1', j: 0 }, { i: '2', j: 0 }, { i: '3', j: 0 },  ], css_id: 'tinytable_css_iovlce2eu3pqbomsgo4k',}, 
-          { positions: [ { i: '-1', j: 0 },  ], css_id: 'tinytable_css_xncf0nzpl7bx91bnhbnn',}, 
-          { positions: [ { i: '0', j: 0 },  ], css_id: 'tinytable_css_xib8crpeupw3blj7bqg7',}, 
+          { positions: [ { i: '4', j: 1 },  ], css_id: 'tinytable_css_gwra972ur7kga2ulm39i',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 },  ], css_id: 'tinytable_css_oq8axq9nz2o2xnc39j1i',}, 
+          { positions: [ { i: '-1', j: 1 },  ], css_id: 'tinytable_css_3aav5kv5ftyoxsha97lr',}, 
+          { positions: [ { i: '0', j: 1 },  ], css_id: 'tinytable_css_tz95959xdeat7npght3o',}, 
+          { positions: [ { i: '4', j: 0 },  ], css_id: 'tinytable_css_yp9jf9y822ak9fx4z5np',}, 
+          { positions: [ { i: '1', j: 0 }, { i: '2', j: 0 }, { i: '3', j: 0 },  ], css_id: 'tinytable_css_6ll6k5owpxq3xbjig4dp',}, 
+          { positions: [ { i: '-1', j: 0 },  ], css_id: 'tinytable_css_74znr2ngb5iyb61npodv',}, 
+          { positions: [ { i: '0', j: 0 },  ], css_id: 'tinytable_css_wcxt78bkgyhlh7giifia',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_8aoya5v9bggig2dq3ycn(cell.i, cell.j, group.css_id);
+                  styleCell_0kdykrxyd7s9h96q8xo2(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -1080,17 +1080,17 @@ Table&nbsp;1: Influence of per capita GDP on Democracy
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_4cqwbk1vpfp1zloaffh1, .table th.tinytable_css_4cqwbk1vpfp1zloaffh1 { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_tjbqbunqyhp588fj2hds, .table th.tinytable_css_tjbqbunqyhp588fj2hds { text-align: center; }
-      .table td.tinytable_css_uczsdfjo2iv00tesw6mg, .table th.tinytable_css_uczsdfjo2iv00tesw6mg { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_k5uvar8hv9t96utq3s5c, .table th.tinytable_css_k5uvar8hv9t96utq3s5c { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_lzcmvdl8v6rg7p77g3bs, .table th.tinytable_css_lzcmvdl8v6rg7p77g3bs { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_iovlce2eu3pqbomsgo4k, .table th.tinytable_css_iovlce2eu3pqbomsgo4k { text-align: left; }
-      .table td.tinytable_css_xncf0nzpl7bx91bnhbnn, .table th.tinytable_css_xncf0nzpl7bx91bnhbnn { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
-      .table td.tinytable_css_xib8crpeupw3blj7bqg7, .table th.tinytable_css_xib8crpeupw3blj7bqg7 { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_gwra972ur7kga2ulm39i, .table th.tinytable_css_gwra972ur7kga2ulm39i { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_oq8axq9nz2o2xnc39j1i, .table th.tinytable_css_oq8axq9nz2o2xnc39j1i { text-align: center; }
+      .table td.tinytable_css_3aav5kv5ftyoxsha97lr, .table th.tinytable_css_3aav5kv5ftyoxsha97lr { text-align: center; border-top: solid #d3d8dc 0.1em; text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_tz95959xdeat7npght3o, .table th.tinytable_css_tz95959xdeat7npght3o { text-align: center; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_yp9jf9y822ak9fx4z5np, .table th.tinytable_css_yp9jf9y822ak9fx4z5np { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_6ll6k5owpxq3xbjig4dp, .table th.tinytable_css_6ll6k5owpxq3xbjig4dp { text-align: left; }
+      .table td.tinytable_css_74znr2ngb5iyb61npodv, .table th.tinytable_css_74znr2ngb5iyb61npodv { text-align: left; border-top: solid #d3d8dc 0.1em; text-align: center; }
+      .table td.tinytable_css_wcxt78bkgyhlh7giifia, .table th.tinytable_css_wcxt78bkgyhlh7giifia { text-align: left; border-bottom: solid #d3d8dc 0.05em; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_8aoya5v9bggig2dq3ycn" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_0kdykrxyd7s9h96q8xo2" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
 <tr>
 <th scope="col" align="center" colspan="1" data-row="-1" data-col="0"> </th>
