@@ -422,6 +422,65 @@ div.sourceCode > button.code-copy-button:focus {
 }
 
 
+/* ----------------------------------------
+   Open App Button
+---------------------------------------- */
+
+/* Center the button on the page */
+.btn-open-app-row{
+  display:flex;
+  justify-content:center;
+  margin:1rem 0;
+}
+
+/* Button: orange bg + dark text; center the "label+icon" group */
+.btn-open-app{
+  background-color:#e57726 !important;
+  border-color:#e57726 !important;
+  color:#111 !important;            /* darker text */
+  text-decoration:none !important;
+  border-radius:.6rem;
+
+  /* grid trick to center the core group regardless of side padding */
+  display:grid;
+  grid-template-columns: 1fr auto 1fr; /* auto column is centered */
+  align-items:center;
+
+  padding:.7em 1.2em;                /* side padding still clickable */
+  min-width:12rem;                   /* optional: nice width */
+  font-family:'Lexend', sans-serif;
+  font-weight:600;
+  line-height:1;
+}
+
+.btn-open-app:hover,
+.btn-open-app:focus{
+  background-color:#e57726 !important;
+  border-color:#e57726 !important;
+  color:#111 !important;
+}
+
+/* The centered group (label + icon) */
+.btn-core{
+  grid-column:2;                     /* sits in the centered auto column */
+  display:inline-flex;
+  align-items:center;
+  gap:.6em;                          /* space between text and icon */
+}
+
+/* Icon on the right, inherits dark text color */
+.btn-open-app-icon{
+  width:1.1em;
+  height:1.1em;
+  fill:currentColor;
+  display:inline-block;
+  transform: translateY(1px);        /* tiny optical nudge */
+}
+
+
+
+
+
 
 /* ----------------------------------------
    Outputs
