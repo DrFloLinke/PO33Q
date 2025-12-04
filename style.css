@@ -1009,3 +1009,21 @@ header.navbar,
 #quarto-draft-alert.alert.alert-warning .btn-close {
   display: none !important;
 }
+
+
+
+/* -------------------------------------------------
+   tinytable alignment: stub left, everything else centered
+   ------------------------------------------------- */
+
+/* default: center all tinytable cells */
+table.tinytable th,
+table.tinytable td {
+  text-align: center !important;
+}
+
+/* stub column (first column) left-aligned */
+table.tinytable thead tr th:first-child,
+table.tinytable tbody tr td:first-child {
+  text-align: left !important;
+}
