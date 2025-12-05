@@ -1027,3 +1027,69 @@ table.tinytable thead tr th:first-child,
 table.tinytable tbody tr td:first-child {
   text-align: left !important;
 }
+
+
+
+/* -------------------------------------------------
+   tinytable borders: custom horizontal rules
+   ------------------------------------------------- */
+
+/* Base: ensure Chrome renders cell borders */
+table.tinytable {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+}
+
+
+/* Left-align tinytable footnotes (significance notes) */
+table.tinytable tfoot td {
+  text-align: left !important;
+}
+
+
+/* ===== Shared header rules (all IV counts) ===== */
+
+/* Line inside header: between group row and model row */
+.tt-oneiv  table.tinytable thead tr:nth-child(1) th,
+.tt-oneiv-nogof  table.tinytable thead tr:nth-child(1) th,
+.tt-twoiv  table.tinytable thead tr:nth-child(1) th,
+.tt-threeiv table.tinytable thead tr:nth-child(1) th,
+.tt-threeiv-grouping table.tinytable thead tr:nth-child(1) th{
+  border-bottom: 2px solid #ffffff !important;
+}
+
+/* Line below the model-header row */
+.tt-oneiv  table.tinytable thead tr:last-child th,
+.tt-oneiv-nogof  table.tinytable thead tr:last-child th,
+.tt-twoiv  table.tinytable thead tr:last-child th,
+.tt-threeiv table.tinytable thead tr:last-child th,
+.tt-threeiv-grouping table.tinytable thead tr:last-child th{
+  border-bottom: 2px solid #ffffff !important;
+}
+
+
+/* ===== Body rules per-IV layout ===== */
+
+/* 1-IV layout */
+.tt-oneiv table.tinytable tbody tr:nth-child(4) td,
+.tt-oneiv table.tinytable tbody tr:nth-child(6) td {
+  border-bottom: 2px solid #ffffff !important;
+}
+
+/* 1-IV without GOF layout */
+.tt-oneiv-nogof table.tinytable tbody tr:nth-child(4) td,
+.tt-oneiv-nogof table.tinytable tbody tr:nth-child(5) td {
+  border-bottom: 2px solid #ffffff !important;
+}
+
+/* 2-IV layout */
+.tt-twoiv table.tinytable tbody tr:nth-child(6) td,
+.tt-twoiv table.tinytable tbody tr:nth-child(9) td {
+  border-bottom: 2px solid #ffffff !important;
+}
+
+/* 3-IV with grouping layout */
+.tt-threeiv-grouping table.tinytable tbody tr:nth-child(8) td,
+.tt-threeiv-grouping table.tinytable tbody tr:nth-child(10) td {
+  border-bottom: 2px solid #ffffff !important;
+}
