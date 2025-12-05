@@ -1049,47 +1049,87 @@ table.tinytable tfoot td {
 
 /* ===== Shared header rules (all IV counts) ===== */
 
-/* Line inside header: between group row and model row */
-.tt-oneiv  table.tinytable thead tr:nth-child(1) th,
-.tt-oneiv-nogof  table.tinytable thead tr:nth-child(1) th,
-.tt-twoiv  table.tinytable thead tr:nth-child(1) th,
-.tt-threeiv table.tinytable thead tr:nth-child(1) th,
-.tt-threeiv-grouping table.tinytable thead tr:nth-child(1) th{
-  border-bottom: 2px solid #ffffff !important;
+/* ==== Full-width top rule across every tinytable ==== */
+table.tinytable thead tr:first-child th {
+  border-top: 2px solid #e1e2ea !important;
 }
+
+/* Line inside header: between group row and model row (results columns only) */
+.tt-oneiv  table.tinytable thead tr:nth-child(1) th:not(:first-child),
+.tt-oneiv-nogof  table.tinytable thead tr:nth-child(1) th:not(:first-child),
+.tt-twoiv  table.tinytable thead tr:nth-child(1) th:not(:first-child),
+.tt-twoiv-nogof  table.tinytable thead tr:nth-child(1) th:not(:first-child),
+.tt-threeiv table.tinytable thead tr:nth-child(1) th:not(:first-child),
+.tt-threeiv-grouping table.tinytable thead tr:nth-child(1) th:not(:first-child) {
+  border-bottom: 0.5px solid #e1e2ea !important;
+}
+
+/* Short group lines under "Emergence" (cols 2–3) and "Survival" (cols 4–5)
+   for the 3-IV grouping table, with a gap in the middle. */
+.tt-threeiv-grouping table.tinytable thead tr:nth-child(2) th:nth-child(2)::after,
+.tt-threeiv-grouping table.tinytable thead tr:nth-child(2) th:nth-child(3)::after {
+  content: "";
+  display: block;
+  border-bottom: 0.5px solid #e1e2ea;
+}
+
+/* fine-tune the gap: trim right edge of the left segment, left edge of the right segment */
+.tt-threeiv-grouping table.tinytable thead tr:nth-child(2) th:nth-child(2)::after {
+  margin: 0.5em 0.8em 0 0.2em;   /* more margin on the right → gap near centre */
+}
+
+.tt-threeiv-grouping table.tinytable thead tr:nth-child(2) th:nth-child(3)::after {
+  margin: 0.5em 0.2em 0 0.8em;   /* more margin on the left → same gap from other side */
+}
+
+
 
 /* Line below the model-header row */
 .tt-oneiv  table.tinytable thead tr:last-child th,
 .tt-oneiv-nogof  table.tinytable thead tr:last-child th,
 .tt-twoiv  table.tinytable thead tr:last-child th,
+.tt-twoiv-nogof  table.tinytable thead tr:last-child th,
 .tt-threeiv table.tinytable thead tr:last-child th,
 .tt-threeiv-grouping table.tinytable thead tr:last-child th{
-  border-bottom: 2px solid #ffffff !important;
+  border-bottom: 0.5px solid #e1e2ea !important;
 }
 
 
 /* ===== Body rules per-IV layout ===== */
 
 /* 1-IV layout */
-.tt-oneiv table.tinytable tbody tr:nth-child(4) td,
+.tt-oneiv table.tinytable tbody tr:nth-child(4) td {
+  border-bottom: 0.5px solid #e1e2ea !important;
+}
 .tt-oneiv table.tinytable tbody tr:nth-child(6) td {
-  border-bottom: 2px solid #ffffff !important;
+  border-bottom: 2px solid #e1e2ea !important;
 }
 
 /* 1-IV without GOF layout */
-.tt-oneiv-nogof table.tinytable tbody tr:nth-child(4) td,
+.tt-oneiv-nogof table.tinytable tbody tr:nth-child(4) td {
+  border-bottom: 0.5px solid #e1e2ea !important;
+}
 .tt-oneiv-nogof table.tinytable tbody tr:nth-child(5) td {
-  border-bottom: 2px solid #ffffff !important;
+  border-bottom: 2px solid #e1e2ea !important;
 }
 
 /* 2-IV layout */
-.tt-twoiv table.tinytable tbody tr:nth-child(6) td,
+.tt-twoiv table.tinytable tbody tr:nth-child(6) td {
+  border-bottom: 0.5px solid #e1e2ea !important;
+}
 .tt-twoiv table.tinytable tbody tr:nth-child(9) td {
-  border-bottom: 2px solid #ffffff !important;
+  border-bottom: 2px solid #e1e2ea !important;
+}
+
+/* 2-IV without GOF layout */
+.tt-twoiv-nogof table.tinytable tbody tr:nth-child(6) td {
+  border-bottom: 2px solid #e1e2ea !important;
 }
 
 /* 3-IV with grouping layout */
-.tt-threeiv-grouping table.tinytable tbody tr:nth-child(8) td,
+.tt-threeiv-grouping table.tinytable tbody tr:nth-child(8) td {
+  border-bottom: 0.5px solid #e1e2ea !important;
+}
 .tt-threeiv-grouping table.tinytable tbody tr:nth-child(10) td {
-  border-bottom: 2px solid #ffffff !important;
+  border-bottom: 2px solid #e1e2ea !important;
 }
