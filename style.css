@@ -1142,3 +1142,26 @@ table.tinytable thead tr:first-child th {
 .tt-threeiv-grouping table.tinytable tbody tr:nth-child(10) td {
   border-bottom: 2px solid #e1e2ea !important;
 }
+
+
+/* ----------------------------------------
+   Delayed (date-restricted) inline links
+---------------------------------------- */
+
+a.delayed-link {
+  color: var(--accent) !important;
+  text-decoration: none;
+  cursor: default;
+}
+
+/* Before release */
+a.delayed-link.is-disabled {
+  color: var(--muted) !important;
+  pointer-events: none;
+}
+
+
+/* After release (normal link behaviour) */
+a.delayed-link.is-enabled {
+  cursor: pointer;
+}
