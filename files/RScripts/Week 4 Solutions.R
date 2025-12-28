@@ -2,6 +2,8 @@
 # PO33Q - Week 4, Solutions
 ###################################################################
 
+rm(list = ls())
+
 setwd()
 
 ## Load data
@@ -284,7 +286,7 @@ plot_wdi <- expand.grid(
   log_gdppc = seq(min(world$log_gdppc, na.rm = TRUE),
                   max(world$log_gdppc, na.rm = TRUE),
                   length.out = 100),
-  enrol_net = c(enrl_low, enrl_high)  # use low and high levels
+  enrol_net = c(enrl_low, enrl_high)
 )
 
 # predict probabilities
