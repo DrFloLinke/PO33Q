@@ -1,11 +1,13 @@
 ###################################################################
-# PO33Q - Weeek 4, Solutions
+# PO33Q - Week 4, Solutions
 ###################################################################
 
 setwd()
 
 ## Load data
-world <- read.csv("world.csv")
+wdi <- read.csv("world.csv")
+
+world <- wdi[wdi$year == 2010, ]
 
 ## ----------------------------
 ## Exercise 1
@@ -35,7 +37,7 @@ biv_lit <- glm(democracy ~ literacy,
           family = binomial(link = "probit"))
 summary(biv_lit)
 
-# -> Positive and significant coefficient for literacy, so we reject H0
+# -> Literacy is insignificant, so we fail to reject H0
 
 biv_urban <- glm(democracy ~ urban,
           data = world,
@@ -49,36 +51,38 @@ biv_life <- glm(democracy ~ life,
           family = binomial(link = "probit"))
 summary(biv_life)
 
-# -> Positive and significant coefficient for urbanisation, so we reject H0
+# -> Positive and significant coefficient for life expectancy, so we reject H0
 
 ## (c)
 #########
 
 
 ## Add education
-m2 <- glm(democracy ~ gdppc + literacy,
+m2 <- glm(democracy ~ gdppc + enrol_net,
           data = world,
           family = binomial(link = "probit"))
 summary(m2)
 
-# -> Positive and significant coefficients for gdppc and literacy
+# -> Positive and significant coefficients for gdppc and enrol_net
 
-## Add urbanisation
-m3 <- glm(democracy ~ gdppc + literacy + urban,
+
+## Add life expectancy
+m3 <- glm(democracy ~ gdppc + enrol_net + life,
           data = world,
           family = binomial(link = "probit"))
 summary(m3)
 
-# -> Only gdppc remains significant, literacy and urban lose significance
+# -> Nothing is significant here, only enrol_net at a 90% confidence level
+# which is a weaker, and generally inacceptable level
 
 
-## Add health (example: life expectancy)
-m4 <- glm(democracy ~ gdppc + literacy + urban + life,
+## Add urbanisation
+m4 <- glm(democracy ~ gdppc + enrol_net + life + urban,
           data = world,
           family = binomial(link = "probit"))
 summary(m4)
 
-# -> Only gdppc remains significant, all other variables lose significance
+# -> Everything loses significance here
 
 
 ## (d)
@@ -92,25 +96,26 @@ nobs(m4)
 # -> Sample size decreases with each additional variable due to missing data
 
 ## Re-estimate simpler models on common sample
-common_vars <- c("democracy", "gdppc", "literacy", "urban", "life")
+common_vars <- c("democracy", "gdppc", "enrol_net", "life", "urban")
 dat_common <- world[complete.cases(world[, common_vars]), ]
 
 m1_c <- glm(democracy ~ gdppc,
             data = dat_common,
             family = binomial(link = "probit"))
-m2_c <- glm(democracy ~ gdppc + literacy,
+m2_c <- glm(democracy ~ gdppc + enrol_net,
             data = dat_common,
             family = binomial(link = "probit"))
 summary(m1_c)
 summary(m2_c)
 
-# -> On a common sample, both gdppc and literacy remain significant
+# gdppc remains significant on its own, but loses significance when enrol_net is added,
+# unless we accept a 90% confidence level. This suggests that the loss of significance in the full model is not solely due to the inclusion of additional variables, but also due to sample size reduction.
 
 
 ## (e)
 #########
 
-# Individually, all variables can explain democracy. However, when combined, only income remains significant.
+# Individually, all variables (gdppc, enrol_net, urban, and life) can explain democracy. However, when combined, gdppc is the most robust bivariate predictor
 # This suggests that income may be the primary driver of democratisation. 
 # It is worthwhile to play around with other operationalisations of education, for example, to see if the issue persists (whether significance is sensitive to the measure). We will do this further below. 
 
@@ -122,7 +127,7 @@ summary(m2_c)
 ## (a) & (b)
 #############
 
-## Inspect missing data for education measures - there are many different ways, but thiws is the most elegant, I think:
+## Inspect missing data for education measures - there are many different ways, but this is the most elegant, I think:
 
 colMeans(is.na(world[, c("literacy",
                        "enrol_gross",
@@ -161,11 +166,11 @@ nobs(m_lit)
 nobs(m_gross)
 nobs(m_net)
 
-# -> In all models the education measure is significant and positive, so as far as education is concerned, the results are robust to the choice of measure.
+# Both enrolment measures of education yield similar results, with positive and significant coefficients.
+# Literacy is insignificant
 # However, the sample size differs substantially between models, with literacy having the smallest sample size and enrol_gross the largest. 
 # In the context of developing countries, gross enrolment is preferable to net enrolment, as it captures over-age and under-age enrolment, which is common in these countries.
-# Also, literacy turns the influence of gdppc negative, which is counter-intuitive.
-# But might literacy have greater measurement validity?
+# But literacy might have greater measurement validity, depending on the causal chain you construct.
 
 
 ## (e)
@@ -193,7 +198,7 @@ m_log <- glm(democracy ~ log_gdppc,
              family = binomial(link = "probit"))
 summary(m_log)
 
-# -> Coefficient for log_gdppc is positive and significant.
+# Coefficient for log_gdppc is positive and significant.
 # We would have to make a judgement call based on model fit whether 
 # this is preferable to the linear specification. We will cover this in Week 7. 
 
@@ -210,55 +215,29 @@ m_poly <- glm(democracy ~ log_gdppc + log_gdppc_sq,
               family = binomial(link = "probit"))
 summary(m_poly)
 
-# -> Coefficient for log_gdppc is positive and significant, 
-# coefficient for log_gdppc_sq is negative and significant, indicating a 
-# concave relationship. Again, we would have to make a judgement call based 
-# on model fit whether this is preferable to the linear specification. 
-# We will cover this in Week 7.
+# A second order polynomial is insignificant
+# This model specification is inappropriate based on statistical criteria.
 
 
 ## (c)
 #############
 
-## The positive and highly significant coefficient on log GDP per capita, together
-## with the negative and highly significant squared term, provides strong evidence
-## of diminishing returns. Income substantially increases the probability of
-## democracy at low and middle levels of development, but the marginal effect
-## declines as countries become richer. There is no indication of a sharp threshold;
-## instead, the results are consistent with a concave, flattening relationship
-## between income and democracy.
-
-## If you wanted to visualise this, here is the code:
-
-library(tidyverse)
-
-# Sequence of log GDP per capita values
-log_gdppc_seq <- seq(5, 12, length.out = 100)
-
-# Predicted value on the probit scale
-probit_pred <- -4.416584 + 0.787203 * log_gdppc_seq - 0.025921 * log_gdppc_seq^2
-
-# Convert to probability using the standard normal CDF
-prob_pred <- pnorm(probit_pred)
-
-# Put into a data frame for plotting
-dat_plot <- data.frame(log_gdppc = log_gdppc_seq, prob_democracy = prob_pred)
-
-# Plot
-ggplot(dat_plot, aes(x = log_gdppc, y = prob_democracy)) +
-  geom_line(linewidth = 1.2, color = "#e57726") +
-  labs(x = "log(GDP per capita)", y = "Pr(Democracy)") +
-  theme_classic()
+## The quadratic term in log income is statistically insignificant, providing no
+## evidence of curvature in the income–democracy relationship. As a result, the 
+## data do not support diminishing returns or threshold effects; instead, they are 
+## consistent with no meaningful non-linearity (or an approximately linear effect) 
+## in this specification.
 
 
 ## (d)
 #############
 
 ## Cross-national data span very large income differences. A linear model assumes
-## identical effects of income at all development levels, which is implausible.
+## identical effects of income at all development levels, which is theoretically implausible.
 ## Logarithms and polynomials allow for diminishing returns, thresholds, and reduce
-## the influence of extreme values, making models more theoretically and empirically
-## appropriate.
+## the influence of extreme values, making models more theoretically appropriate.
+## But we still might end up rejecting some of these theoretical transformations 
+## based on statistical criteria, as we did here.
 
 
 
@@ -278,19 +257,23 @@ summary(m_int)
 ## (b)
 #############
 
-# The interaction term log_gdppc:enrol_net is positive and highly significant (0.010565, p < 0.001).
+# The interaction term log_gdppc:enrol_net is insignificant.
 # This means the effect of income (log_gdppc) on the probability of democracy 
-# increases as education (enrol_net) rises.
-# We could also say that income matters more for democracy in countries with higher education levels.
+# does not depend on levels of education.
+# 
+# HAD IT BEEN SIGNIFICANT
+# We could say that income matters more for democracy in countries with higher education levels.
 # For low-education societies, the marginal effect of income on democracy is smaller; 
 # for high-education societies, each additional increase in income has a stronger 
 # positive effect on the probability of democracy.
-# Substantively, this suggests that wealth alone is less likely to foster democracy
+# Substantively, this would suggest that wealth alone is less likely to foster democracy
 # unless citizens are relatively well-educated. Education amplifies the democratic 
 # impact of rising income.
 
 ## (c)
 #############
+
+library(tidyverse)
 
 # Predicted probabilities at 25th and 75th percentile of enrol_net
 enrl_low <- quantile(world$enrol_net, 0.25, na.rm = TRUE)
@@ -331,14 +314,18 @@ ggplot(plot_wdi,
   ) +
   theme_classic()
 
+## Substantively, this curve has very limited use.
+## If all coefficients are statistically insignificant, a predicted probability 
+## curve does not represent an estimated relationship supported by the data.
+
+
+
 ## (d)
 #############
 
-# Yes, we have strong evidence that education moderates the effect of income on democracy.
-# The positive and significant interaction term indicates that the impact of income
-# on the probability of democracy increases with higher education levels.
-# This suggests that education enhances the democratic benefits of rising income,
-# making it a crucial factor in the income-democracy relationship.
+# No, we have no evidence that education moderates the effect of income on democracy.
+# As such there are bno conditional effects. 
+
 
 
 
@@ -347,27 +334,34 @@ ggplot(plot_wdi,
 ## ----------------------------
 
 
-# We clearly need logarithmised income and an interaction between income and education based on previous exercises.
-# We also need to include life expectancy (significant in Exercise 1) and urbanisation (theoretically important).
-# This leads to the folloing model:
+# We clearly need logarithmised income based on previous exercises.
+# We also need to include education, as this is the only other of our theoretical
+# variables that consistently shows significance.
+# But to test the full theoretical chain, let us include life and urban in a first attempt:
 
-m_final <- glm(democracy ~ log_gdppc + enrol_net + log_gdppc:enrol_net + life + urban,
+m_final <- glm(democracy ~ log_gdppc + enrol_net + life + urban,
                data = world,
                family = binomial(link = "probit"))
 summary(m_final)
 
-# Here, we show that urbanisation is not important statistically - we have now tested the entire theoretical chain, but we can reduce the final model by removing urbanisation.
+# Nothing is significant here, so let us drop urbanisation
 
 
-m_final <- glm(democracy ~ log_gdppc + enrol_net + log_gdppc:enrol_net + life,
+m_final <- glm(democracy ~ log_gdppc + enrol_net + life,
                data = world,
                family = binomial(link = "probit"))
 summary(m_final)
 
-# Income matters more in highly educated societies
-# Life expectancy boosts democracy
-# Wealth alone isn't enough; education amplifies impact
+# Now let's also drop life 
 
+m_final <- glm(democracy ~ log_gdppc + enrol_net,
+               data = world,
+               family = binomial(link = "probit"))
+summary(m_final)
+
+
+# Out of our theoretical chain, we find evidence consistent with wealth 
+# and education being relevant predictors. 
 
 # Factors other than those included here might also be important, such as external factors, culture, etc. Therefore, some control variables might be worth including based on your theoretical framework to bring the model closer to reality. 
 
