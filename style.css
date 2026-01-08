@@ -28,6 +28,10 @@ html, body, main, .quarto-container {
   font-weight: 350;
 }
 
+.indent {
+  margin-left: 2em;
+}
+
 /* ----------------------------------------
    Headings
 ---------------------------------------- */
@@ -191,17 +195,10 @@ img { display: block; margin: auto; text-align: center; }
 }
 
 /* ----------------------------------------
-   Callouts (Quarto) + Legacy custom blocks
+   Custom blocks
 ---------------------------------------- */
-.callout { border-radius: 9px; }
-.callout .callout-body { background-color: var(--bg) !important; color: var(--fg) !important; }
-.callout-note { border: 3px solid #3e618e; border-left-width: 20px; border-top-width: 20px; }
-.callout-warning, .callout-caution, .callout-important { border: 3px solid #993333; border-left-width: 20px; border-top-width: 20px; }
-.callout-tip { border: 3px solid #695887; border-left-width: 20px; border-top-width: 20px; }
-.callout-definition { border: 3px solid #c78c1f; border-left-width: 20px; border-top-width: 20px; }
-.callout .callout-body code:not(pre code) { background-color: var(--bg) !important; color: var(--fg) !important; }
 
-/* Legacy blocks */
+/* custom blocks */
 div.bulb,
 div.warning,
 div.stop,
@@ -233,6 +230,7 @@ div.bulb {
 div.bulb code:not(pre code) {
   background-color: var(--bg) !important;
   color: var(--fg) !important;
+  font-size: 105%;
 }
 
 div.warning,
@@ -306,6 +304,7 @@ div.video iframe {
 .baser code:not(pre code) {
   background-color: #767da2 !important;
   color: var(--bg) !important;
+  font-size: 105%;
 }
 
 
@@ -519,7 +518,7 @@ pre:not(.sourceCode) {
 table, th, td {
   color: var(--fg) !important;
   background-color: var(--bg) !important;
-  border-color: #adbdd1 !important;
+  /* border-color: 1px solid #adbdd1 !important; */
   font-size: 0.9em;
 }
 
@@ -567,13 +566,6 @@ table { caption-side: bottom; }
 .top-bottom-rule-only thead strong {
   font-weight: inherit !important;
 }
-
-
-
-
-
-
-
 
 
 
@@ -1010,6 +1002,105 @@ header.navbar,
 
 
 
+/* make the title text dark (applies to all callout titles) */
+div.callout .callout-title-container.flex-fill,
+div.callout .callout-title {
+  color: #993333 !important;        /* dark text — change to any hex you prefer */
+  font-weight: 600 !important;   /* optional: stronger weight for visibility */
+  background: transparent !important; /* keep background unaffected */
+}
+
+
+
+/* only for "important" callouts */
+div.callout.callout-important,
+div.callout.callout-important.callout-titled {
+  border-left: 8px solid #993333 !important; /* thicker orange bar */
+}
+
+
+
+
+
+div.compact {
+  background-color: #1d1f2b;
+  border: 1px solid #993333;          
+  border-top: none;                 
+  border-left: 6px solid #993333;
+  border-radius: 6px;               
+  margin: 1rem 0;
+  padding: 2em 1em 0.2em 1em;       
+  position: relative;
+  color: #e1e2ea;                  
+  font-size: 0.85em;                /* slightly smaller main text */
+  box-sizing: border-box;
+  overflow: hidden;                 
+}
+
+div.compact > .title {
+  position: absolute;
+  top: 0;
+  left: -6px; 
+  right: 0;
+  height: 2em;
+  line-height: 2em;
+  background-color: #993333;
+  color: #e1e2ea;                      
+  font-weight: bold;
+  padding: 0 1em 0 2.5em; 
+  border-top-left-radius: 6px;      
+  border-top-right-radius: 6px;
+  font-size: 0.95em;                   /* keep title readable */
+  box-sizing: border-box;
+}
+
+/* Add circular exclamation mark */
+div.compact > .title::before {
+  content: "!";
+  position: absolute;
+  left: 0.7em;                      /* horizontal offset inside title */
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4em;                      /* circle size */
+  height: 1.4em;
+  border-radius: 50%;
+  width: 1.4em;                     /* circle size */
+  height: 1.4em;
+  border-radius: 50%;
+  background-color: #993333;        /* red fill */
+  border: 1.5px solid #e1e2ea;           /* thin white rim */
+  color: #e1e2ea  ;                      /* white exclamation */
+  font-weight: bold;
+  font-size: 1em;
+  line-height: 1;
+  box-sizing: border-box;
+}
+
+
+div.compact p:last-child {
+  margin-bottom: 0.25em;
+}
+
+
+/* Tiny vertical spacing for main text */
+div.compact p {
+  margin: 0.5em 0.5em;
+}
+
+/* ----------------------------------------
+   In-Line Maths
+---------------------------------------- */
+
+mjx-container[jax="CHTML"][display="inline"] { white-space: nowrap; }
+.math.inline { white-space: nowrap; }
+.katex { white-space: nowrap; }
+
+
+
+
 /* -------------------------------------------------
    tinytable alignment: stub left, everything else centered
    ------------------------------------------------- */
@@ -1124,7 +1215,6 @@ table.tinytable thead tr:first-child th {
   border-bottom: 2px solid #e1e2ea !important;
 }
 
-
 /* 3-IV layout */
 .tt-threeiv table.tinytable tbody tr:nth-child(8) td {
   border-bottom: 0.5px solid #e1e2ea !important;
@@ -1140,6 +1230,7 @@ table.tinytable thead tr:first-child th {
 .tt-threeiv-grouping table.tinytable tbody tr:nth-child(10) td {
   border-bottom: 2px solid #e1e2ea !important;
 }
+
 
 
 /* ----------------------------------------
