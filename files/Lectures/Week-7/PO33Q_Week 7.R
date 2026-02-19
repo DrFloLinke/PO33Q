@@ -278,7 +278,7 @@ ggroc(roc4) +
 
 
 ###########################################
-# modelsummary Table, Slide 57
+# modelsummary Table, Table 1, Slide 57
 ###########################################
 
 
