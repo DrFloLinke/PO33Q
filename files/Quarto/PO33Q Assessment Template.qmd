@@ -6,18 +6,24 @@ format:
     pdf-engine: lualatex
     toc: false
     number-sections: false
+    mainfont: "Arial"
+    mathfont: "Fira Math"
+    
     cite-method: biblatex
     biblio-config: false
+    
     colorlinks: true
     linkcolor: black
     urlcolor: black
     citecolor: black
+    
 execute:
   echo: false
   warning: false
   message: false
   error: false
   collapse: true
+  
 include-in-header:
   text: |
     \usepackage{graphicx}
@@ -75,16 +81,6 @@ include-in-header:
     \preto{\section}{\par\Needspace*{7\baselineskip}}
     \preto{\subsection}{\par\Needspace*{6\baselineskip}}
     \preto{\subsubsection}{\par\Needspace*{5\baselineskip}}
-    % Set font for document
-    \usepackage{lmodern}
-    \renewcommand{\familydefault}{\sfdefault} % make sans the document default
-    \usepackage{tabularray}
-    \UseTblrLibrary{booktabs}
-    \SetTblrInner{font=\sffamily}
-    \usepackage{siunitx}
-    \sisetup{detect-family=true, detect-weight=true}
-    \usepackage{unicode-math}
-    \setmathfont{Fira Math}
 ---
 
 ```{r setup, include=FALSE}
@@ -213,18 +209,18 @@ Social Development    &     Health    & life expectancy at birth \\
 
 Emergence:
 
-\begin{equation}\label{eq:emergence}
+$$
 P(y_{i,t} = 1 \mid y_{i, t-1} = 0)
-\end{equation}
+$$ {#eq-emergence}
 	
 Survival:
 
-\begin{equation}\label{eq:survival}
+$$
 P(y_{i,t} = 1 \mid y_{i, t-1} = 1)
-\end{equation}
+$$ {#eq-survival}
 
 
-To model democratic emergence we apply the conditional probability shown in Equation \ref{eq:emergence}...
+To model democratic emergence we apply the conditional probability shown in @eq-emergence ...
 
 
 # Analysis
@@ -240,9 +236,6 @@ To model democratic emergence we apply the conditional probability shown in Equa
 #| fig-cap: "Standard Normal Distribution" # caption
 #| fig-align: center
 #| out-width: "30%" # scale graph as % of text width
-#| echo: false # prevents code from being shown in the pdf
-#| warning: false # suppress warnings
-#| message: false # suppress messages from packages
 
 library(ggplot2)
 
@@ -259,7 +252,7 @@ ggplot(normaldata, aes(x = x, y = y)) +
 ```
 \FloatBarrier
 
-Here we can use the label we set in the code chunk to refer to Figure \ref{fig-normal}.
+Here we can use the label we set in the code chunk to refer to @fig-normal.
 
 
 Including a \texttt{modesummary} table is straightforward:
