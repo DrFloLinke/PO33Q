@@ -1,25 +1,25 @@
-#############################################
-# PO33Q - WORKSHEET WEEK 3
-#############################################
+########################################
+# PO33Q - Determinants of Democracy
+# Dr Flo Linke
+# Seminar, Week 3
+########################################
 
 
 # PACKAGES
 ##########
 
-library(haven)
-library(stargazer)
 library(tidyverse)
 
 # WORKING DIRECTORY
 ###################
 
-setwd("~/OneDrive - University of Warwick/Warwick/Modules/PO33Q/R/Worksheets/WEEK 3")
+setwd("")
 
 # LOAD DATA SET
 ###############
 
-europe <- read_dta("Europe.dta")
-world <- read_dta("world.dta")
+europe <- read.csv("Europe.csv")
+world <- read.csv("world.csv")
 
 
 
@@ -30,12 +30,12 @@ world <- read_dta("world.dta")
 
 europe2000 <- filter(europe, year==2000)
 
-europe2000$lifeexp <- as.numeric(as.character(europe2000$lifeexp))
+europe2000$life <- as.numeric(as.character(europe2000$life))
 
 
 # run the probit model
 
-probit <- glm(democracy ~ lifeexp, 
+probit <- glm(democracy ~ life, 
               data = europe2000, 
               family = binomial(link = "probit"))
 
@@ -44,9 +44,9 @@ summary(probit)
 
 # Life expectancy at mean
 
-summary(europe2000$lifeexp)
+summary(europe2000$life)
 
-setx = data.frame(lifeexp=75.11)
+setx = data.frame(life=75.43)
 
 # predicting the probability
 
@@ -54,14 +54,14 @@ predict(probit, setx, type="response")
 
 # Life expectancy at minimum
 
-setx = data.frame(lifeexp=min(europe2000$lifeexp, na.rm = T))
+setx = data.frame(life=min(europe2000$life, na.rm = T))
 
 predict(probit, setx, type="response")
 
 
 # Life expectancy at maximum
 
-setx = data.frame(lifeexp=max(europe2000$lifeexp, na.rm = T))
+setx = data.frame(life=max(europe2000$life, na.rm = T))
 
 predict(probit, setx, type="response")
 
@@ -73,13 +73,9 @@ predict(probit, setx, type="response")
 
 world2000 <- filter(world, year==2000)
 
-# turn 'gdp_pc' into a numerical variable
-
-world2000$gdp_pc <- as.numeric(as.character(world2000$gdp_pc))
-
 
 # run the probit model
-probit <- glm(democracy ~ gdp_pc,
+probit <- glm(democracy ~ gdppc,
               data = world2000, 
               family = binomial(link = "probit"))
 
@@ -87,12 +83,23 @@ probit <- glm(democracy ~ gdp_pc,
 
 summary(probit)
 
-# if working with LaTeX, this is Table 1 from the worksheet
+# if working with Quarto or LaTeX, this is Table 1 from the worksheet
 
-stargazer(probit, 
-          header=F, 
-          font.size = "scriptsize", 
-          omit.stat = c("f", "ser", "ll", "aic"),
-          dep.var.labels   = "Democracy",
-          covariate.labels = c("per capita GDP"),
-          report=('vc*p'))
+library(modelsummary)
+library(tinytable)
+
+
+models <- list(probit)
+
+
+cm <- c(
+  'gdppc'="GDP per capita",
+  '(Intercept)' = 'Constant')
+
+
+modelsummary(models, 
+             gof_omit = 'DF|Deviance|Log.Lik|F|AIC|BIC|RMSE', 
+             stars=TRUE,
+             coef_map = cm)|>
+  group_tt(j = list(" " = 1, "Dependent Variable:<br>Democracy" = 2))
+

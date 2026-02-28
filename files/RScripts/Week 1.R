@@ -1,4 +1,11 @@
-setwd("~/OneDrive - University of Warwick/Warwick/Modules/PO33Q/R/Worksheets/WEEK 1")
+########################################
+# PO33Q - Determinants of Democracy
+# Dr Flo Linke
+# Seminar, Week 1
+########################################
+
+
+setwd("")
 
 5+3
 result <- 5+3
@@ -11,7 +18,7 @@ example <- read_excel("example.xlsx", sheet="Sheet1")
 str(example)
 
 
-library(dplyr)
+library(tidyverse)
 
 
 example <- example %>% 
@@ -21,6 +28,5 @@ mutate(incomecat=
                  labels=c("low","high"))))
 
 
-library(haven)
 
-world <- read_dta("world.dta")
+world <- read.csv("world.csv")

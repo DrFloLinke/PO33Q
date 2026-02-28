@@ -1,12 +1,14 @@
-#####################
-# WORKSHEET WEEK 7
-#####################
+########################################
+# PO33Q - Determinants of Democracy
+# Dr Flo Linke
+# Seminar, Week 7
+########################################
 
 
 # WORKING DIRECTORY
 #####################
 
-setwd()
+setwd("")
 
 
 # PACKAGES

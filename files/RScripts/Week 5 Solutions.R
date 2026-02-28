@@ -1,6 +1,8 @@
-###########################
-# PO33Q - Exercises WEEK 5
-###########################
+########################################
+# PO33Q - Determinants of Democracy
+# Dr Flo Linke
+# Seminar, Week 5
+########################################
 
 
 # WORKING DIRECTORY
