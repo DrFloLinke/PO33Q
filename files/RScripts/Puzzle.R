@@ -110,8 +110,8 @@ combined_long <- combined %>%
 ###############################################
 
 ggplot(combined_long, aes(x = year, y = value, color = region)) +
-  geom_line() +
-  facet_wrap(~ variable, ncol = 1, scales = "free_y") +
+  geom_line(linewidth=1.2) +
+  facet_wrap(~ variable, ncol = 2, scales = "free_y") +
   facetted_pos_scales(
     y = list(
       scale_y_continuous(name = "",
@@ -130,4 +130,211 @@ ggplot(combined_long, aes(x = year, y = value, color = region)) +
 # Save
 # ------------------------------------------
 
-ggsave("Comparison.png", width=6, height=8, units = "in", dpi = 300)
+ggsave("Comparison_la.png", width=9, height=4, units = "in", dpi = 300)
+
+
+
+
+####################################################################
+# Sub-Saharan Africa
+####################################################################
+
+# the world data set is already loaded here from the start of the document
+
+ssa <- read.csv("Sub-Saharan Africa.csv", header = T)
+
+# ------------------------------------------
+# Calculate average GDP and Polity5 per year
+# ------------------------------------------
+
+ssa_avg <- ssa %>%
+  group_by(year) %>%
+  summarise(gdpavg = mean(gdppc, na.rm = TRUE),
+            polityavg = mean(polity5, na.rm = TRUE)) %>%
+  ungroup() %>%
+  mutate(region = "Sub-Saharan Africa")
+
+
+# ------------------------------------------
+# Combine and reshape for faceting
+# ------------------------------------------
+
+combined <- bind_rows(ssa_avg, world_avg)
+
+combined_long <- combined %>%
+  pivot_longer(cols = c(gdpavg, polityavg),
+               names_to = "variable",
+               values_to = "value") %>%
+  mutate(variable = recode(variable,
+                           "gdpavg" = "Average per capita GDP",
+                           "polityavg" = "Average PolityV Score"))
+
+
+###############################################
+# Plot
+###############################################
+
+ggplot(combined_long, aes(x = year, y = value, color = region)) +
+  geom_line(linewidth=1.2) +
+  facet_wrap(~ variable, ncol = 2, scales = "free_y") +
+  facetted_pos_scales(
+    y = list(
+      scale_y_continuous(name = "",
+                         limits = c(0, 20000)),
+      scale_y_continuous(name = "",
+                         limits = c(-10, 10), 
+                         breaks = seq(-10, 10, 5)))) +
+  scale_color_manual(name = "", values = c("Sub-Saharan Africa" = "black", "World" = "#e57726")) +
+  scale_x_continuous(name = "Year",
+                     limits = c(1960, 2015),
+                     breaks = c(1960, 1980, 2000, 2015)) +
+  theme_iqmss() +
+  theme(legend.position = "bottom")
+
+# ------------------------------------------
+# Save
+# ------------------------------------------
+
+ggsave("Comparison_ssa.png", width=9, height=4, units = "in", dpi = 300)
+
+
+
+
+
+####################################################################
+# South-East Asia
+####################################################################
+
+# the world data set is already loaded here from the start of the document
+
+
+sea <- read.csv("South East Asia.csv", header = T)
+
+# ------------------------------------------
+# Calculate average GDP and Polity5 per year
+# ------------------------------------------
+
+sea_avg <- sea %>%
+  group_by(year) %>%
+  summarise(gdpavg = mean(gdppc, na.rm = TRUE),
+            polityavg = mean(polity5, na.rm = TRUE)) %>%
+  ungroup() %>%
+  mutate(region = "South-East Asia")
+
+
+# ------------------------------------------
+# Combine and reshape for faceting
+# ------------------------------------------
+
+combined <- bind_rows(sea_avg, world_avg)
+
+combined_long <- combined %>%
+  pivot_longer(cols = c(gdpavg, polityavg),
+               names_to = "variable",
+               values_to = "value") %>%
+  mutate(variable = recode(variable,
+                           "gdpavg" = "Average per capita GDP",
+                           "polityavg" = "Average PolityV Score"))
+
+
+###############################################
+# Plot
+###############################################
+
+ggplot(combined_long, aes(x = year, y = value, color = region)) +
+  geom_line(linewidth=1.2) +
+  facet_wrap(~ variable, ncol = 2, scales = "free_y") +
+  facetted_pos_scales(
+    y = list(
+      scale_y_continuous(name = "",
+                         limits = c(0, 20000)),
+      scale_y_continuous(name = "",
+                         limits = c(-10, 10), 
+                         breaks = seq(-10, 10, 5)))) +
+  scale_color_manual(name = "", values = c("South-East Asia" = "black", "World" = "#e57726")) +
+  scale_x_continuous(name = "Year",
+                     limits = c(1960, 2015),
+                     breaks = c(1960, 1980, 2000, 2015)) +
+  theme_iqmss() +
+  theme(legend.position = "bottom")
+
+# ------------------------------------------
+# Save
+# ------------------------------------------
+
+ggsave("Comparison_sea.png", width=9, height=4, units = "in", dpi = 300)
+
+
+
+
+
+
+####################################################################
+# Middle East
+####################################################################
+
+# the world data set is already loaded here from the start of the document
+
+me <- read.csv("Middle East.csv", header = T)
+
+# ------------------------------------------
+# Calculate average GDP and Polity5 per year
+# ------------------------------------------
+
+me_avg <- me %>%
+  group_by(year) %>%
+  summarise(gdpavg = mean(gdppc, na.rm = TRUE),
+            polityavg = mean(polity5, na.rm = TRUE)) %>%
+  ungroup() %>%
+  mutate(region = "Middle East")
+
+
+# ------------------------------------------
+# Combine and reshape for faceting
+# ------------------------------------------
+
+combined <- bind_rows(me_avg, world_avg)
+
+combined_long <- combined %>%
+  pivot_longer(cols = c(gdpavg, polityavg),
+               names_to = "variable",
+               values_to = "value") %>%
+  mutate(variable = recode(variable,
+                           "gdpavg" = "Average per capita GDP",
+                           "polityavg" = "Average PolityV Score"))
+
+
+###############################################
+# Plot
+###############################################
+
+ggplot(combined_long, aes(x = year, y = value, color = region)) +
+  geom_line(linewidth=1.2) +
+  facet_wrap(~ variable, ncol = 2, scales = "free_y") +
+  facetted_pos_scales(
+    y = list(
+      scale_y_continuous(name = "",
+                         limits = c(0, 30000)),
+      scale_y_continuous(name = "",
+                         limits = c(-10, 10), 
+                         breaks = seq(-10, 10, 5)))) +
+  scale_color_manual(name = "", values = c("Middle East" = "black", "World" = "#e57726")) +
+  scale_x_continuous(name = "Year",
+                     limits = c(1960, 2015),
+                     breaks = c(1960, 1980, 2000, 2015)) +
+  theme_iqmss() +
+  theme(legend.position = "bottom")
+
+# ------------------------------------------
+# Save
+# ------------------------------------------
+
+ggsave("Comparison_me.png", width=9, height=4, units = "in", dpi = 300)
+
+
+#
+# EOF
+#
+
+
+
