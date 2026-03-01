@@ -236,3 +236,14 @@ prz$prob_joint <- unlist(prob_joint)
 roc_joint <- roc(prz$democ, prz$prob_joint)
 
 plot(roc_joint, print.auc=TRUE)
+
+# ------------------------------------------
+# Interpretation
+# ------------------------------------------
+
+#  A single point, say (0.1, 0.8), tells you: 
+#  "At this particular threshold, the classifier 
+#  correctly identifies 80% of actual democracies 
+#  as democracies, while incorrectly classifying 
+#  10% of actual autocracies as democracies."
+
