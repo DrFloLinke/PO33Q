@@ -2,7 +2,7 @@
    Fonts
 ---------------------------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@350;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Recursive:wght,MONO@375,1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap');
 
 /* ----------------------------------------
    Design tokens
@@ -16,6 +16,17 @@
   --panel: #44496f;
   --panel-2: #5a5f80;
   --hover: #393A3B;
+  
+  /* The core Mermaid formatting */
+  --mermaid-edge-color: var(--muted) !important; 
+  --mermaid-node-bg-color: transparent !important; 
+  --mermaid-node-fg-color: var(--fg) !important; 
+  --mermaid-fg-color: var(--fg) !important;
+  /* Force labels and lighter shades to your foreground color */
+  --mermaid-label-fg-color: var(--fg) !important;
+  --mermaid-label-bg-color: transparent !important;
+  --mermaid-fg-color--lighter: var(--fg) !important;
+  --mermaid-fg-color--lightest: var(--fg) !important;
 }
 
 /* ----------------------------------------
@@ -194,6 +205,17 @@ img { display: block; margin: auto; text-align: center; }
   font-size: 0.9em;
 }
 
+/* Centre figure and table captions */
+figcaption,
+.figure-caption,
+.quarto-float-caption,
+.quarto-float-caption-top,
+.quarto-float-caption-bottom,
+caption {
+  text-align: center !important;
+  padding-top: 1em !important;
+}
+
 /* ----------------------------------------
    Custom blocks
 ---------------------------------------- */
@@ -230,7 +252,7 @@ div.bulb {
 div.bulb code:not(pre code) {
   background-color: var(--bg) !important;
   color: var(--fg) !important;
-  font-size: 105%;
+  font-size: 95%;
 }
 
 div.warning,
@@ -304,7 +326,7 @@ div.video iframe {
 .baser code:not(pre code) {
   background-color: #767da2 !important;
   color: var(--bg) !important;
-  font-size: 105%;
+  font-size: 95%;
 }
 
 
@@ -352,10 +374,37 @@ code, kbd, samp {
   background-color: var(--bg) !important;
   color: var(--fg) !important;
   font-family: "Recursive", sans-serif !important;
+  font-variation-settings: "MONO" 1 !important;
   padding: 0.15em 0.15em;
   font-size: 0.85em;
   box-shadow: none !important;
   border: none !important;
+}
+
+/* Inline code that is also a link → render in link orange, nothing else */
+main a code:not(pre code),
+main a:visited code:not(pre code),
+main a:hover code:not(pre code),
+main a:active code:not(pre code) {
+  color: var(--accent) !important;   /* hyperlink orange */
+  font-weight: 350;                  /* body weight, no bold */
+  text-decoration: none;             /* no underline */
+  /* keeps Recursive mono + the code background you already set */
+}
+
+/* Inline code that is also a link, inside custom blocks → keep link orange */
+div.bulb   a code:not(pre code),
+div.warning a code:not(pre code),
+div.stop    a code:not(pre code),
+div.puzzle  a code:not(pre code),
+div.def     a code:not(pre code),
+div.video   a code:not(pre code),
+.baser      a code:not(pre code),
+.bluebox    a code:not(pre code),
+div.compact a code:not(pre code) {
+  color: var(--accent) !important;
+  font-weight: 350;
+  text-decoration: none;
 }
 
 /* ----------------------------------------
@@ -369,6 +418,7 @@ pre.sourceCode {
   padding: 1em;
   font-size: 0.9rem !important;
   font-family: "Recursive", sans-serif !important;
+  font-variation-settings: "MONO" 1 !important;
   line-height: 1.4 !important;
   white-space: pre-wrap !important;
   overflow-x: auto !important;
@@ -501,6 +551,7 @@ pre:not(.sourceCode) {
   border-radius: 6px;
   font-size: 0.9rem !important;
   font-family: "Recursive", sans-serif !important;
+  font-variation-settings: "MONO" 1 !important;
   line-height: 1.4 !important;
   white-space: pre-wrap !important;
   width: 100% !important;
@@ -515,16 +566,30 @@ pre:not(.sourceCode) {
 /* ----------------------------------------
    Tables
 ---------------------------------------- */
+
+table {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+
+figcaption.quarto-float-caption-top {
+  margin-top: 0;
+  padding-top: 3em;       /* space above the caption — padding can't collapse away */
+  margin-bottom: 0.5em;   /* this part already worked */
+}
+
 table, th, td {
   color: var(--fg) !important;
   background-color: var(--bg) !important;
   /* border-color: 1px solid #adbdd1 !important; */
   font-size: 0.9em;
+  vertical-align: top !important;
 }
 
 
 thead, caption { color: var(--fg) !important; }
-table { caption-side: bottom; }
+
+
 
 /* Optional wrappers */
 .custom-html-table table,
@@ -533,8 +598,7 @@ table { caption-side: bottom; }
 .custom-html-table table { border-top: 4px double var(--fg) !important; border-bottom: 4px double var(--fg) !important; }
 .custom-html-table thead tr,
 .custom-html-table thead th { border-bottom: 1.5px solid var(--fg) !important; }
-.custom-html-table th, .custom-html-table td { text-align: left; padding: 0.2em 0.4em; }
-
+.custom-html-table th, .custom-html-table td { text-align: left; vertical-align: top !important; padding: 0.2em 0.4em; }
 
 
 /* Scope */
@@ -711,6 +775,7 @@ header.navbar,
   background-color: var(--bg) !important;
 }
 
+
 /* Dropdown */
 #quarto-header .dropdown-menu,
 .navbar .dropdown-menu {
@@ -718,6 +783,29 @@ header.navbar,
   color: var(--fg) !important;
   border-color: var(--panel-2) !important;
 }
+
+/* Dropdown */
+
+/* Archives dropdown menu */
+#quarto-header .dropdown-menu {
+  background-color: #44496f !important;
+  border: 1px solid #C87339 !important;
+  border-radius: 5px !important;
+}
+
+#quarto-header .dropdown-menu .dropdown-item {
+  color: #e1e2ea !important;
+  background-color: transparent !important;
+  font-family: 'Lexend', sans-serif;
+  font-weight: 350;
+}
+
+#quarto-header .dropdown-menu .dropdown-item:hover,
+#quarto-header .dropdown-menu .dropdown-item:focus {
+  background-color: #30344f !important;
+  color: #e1e2ea !important;
+}
+
 
 /* Toggler icon visible on dark bg */
 .navbar-toggler { border-color: var(--panel-2) !important; }
@@ -1119,16 +1207,19 @@ table.tinytable tbody tr td:first-child {
 
 
 
-/* -------------------------------------------------
-   tinytable borders: custom horizontal rules
-   ------------------------------------------------- */
+/* ============================================================
+   tinytable borders — custom horizontal rules
+   ============================================================ */
 
-/* Base: ensure Chrome renders cell borders */
+/* ---------------------------------------------------------------
+   1. Base
+   --------------------------------------------------------------- */
+
+/* Ensure Chrome renders cell borders */
 table.tinytable {
   border-collapse: separate !important;
   border-spacing: 0 !important;
 }
-
 
 /* Left-align tinytable footnotes (significance notes) */
 table.tinytable tfoot td {
@@ -1136,101 +1227,164 @@ table.tinytable tfoot td {
 }
 
 
-/* ===== Shared header rules (all IV counts) ===== */
+/* ---------------------------------------------------------------
+   2. Shared header rules
+   --------------------------------------------------------------- */
 
-/* ==== Full-width top rule across every tinytable ==== */
+/* Full-width top rule across every tinytable */
 table.tinytable thead tr:first-child th {
   border-top: 2px solid #e1e2ea !important;
 }
 
-/* Line inside header: between group row and model row (results columns only) */
-.tt-oneiv  table.tinytable thead tr:nth-child(1) th:not(:first-child),
-.tt-oneiv-nogof  table.tinytable thead tr:nth-child(1) th:not(:first-child),
-.tt-twoiv  table.tinytable thead tr:nth-child(1) th:not(:first-child),
-.tt-twoiv-nogof  table.tinytable thead tr:nth-child(1) th:not(:first-child),
-.tt-threeiv table.tinytable thead tr:nth-child(1) th:not(:first-child),
-.tt-threeiv-grouping table.tinytable thead tr:nth-child(1) th:not(:first-child) {
+/* Rule between the group row and the model row (results columns only) */
+.tt-oneiv               table.tinytable thead tr:nth-child(1) th:not(:first-child),
+.tt-oneiv-nogof         table.tinytable thead tr:nth-child(1) th:not(:first-child),
+.tt-twoiv               table.tinytable thead tr:nth-child(1) th:not(:first-child),
+.tt-twoiv-nogof         table.tinytable thead tr:nth-child(1) th:not(:first-child),
+.tt-threeiv             table.tinytable thead tr:nth-child(1) th:not(:first-child),
+.tt-threeiv-nogof       table.tinytable thead tr:nth-child(1) th:not(:first-child),
+.tt-threeiv-grouping    table.tinytable thead tr:nth-child(1) th:not(:first-child),
+.tt-threeiv-grouping-se table.tinytable thead tr:nth-child(1) th:not(:first-child),
+.tt-fouriv              table.tinytable thead tr:nth-child(1) th:not(:first-child),
+.tt-fouriv-grouping     table.tinytable thead tr:nth-child(1) th:not(:first-child),
+.tt-fouriv-grouping-se  table.tinytable thead tr:nth-child(1) th:not(:first-child),
+.tt-fiveiv              table.tinytable thead tr:nth-child(1) th:not(:first-child),
+.tt-sixiv               table.tinytable thead tr:nth-child(1) th:not(:first-child),
+.tt-sixiv-nogof         table.tinytable thead tr:nth-child(1) th:not(:first-child){
   border-bottom: 0.5px solid #e1e2ea !important;
 }
 
-/* Short group lines under "Emergence" (cols 2–3) and "Survival" (cols 4–5)
-   for the 3-IV grouping table, with a gap in the middle. */
-.tt-threeiv-grouping table.tinytable thead tr:nth-child(2) th:nth-child(2)::after,
-.tt-threeiv-grouping table.tinytable thead tr:nth-child(2) th:nth-child(3)::after {
+/* Rule below the model-header (last header) row */
+.tt-oneiv               table.tinytable thead tr:last-child th,
+.tt-oneiv-nogof         table.tinytable thead tr:last-child th,
+.tt-oneiv-se            table.tinytable thead tr:last-child th,
+.tt-twoiv               table.tinytable thead tr:last-child th,
+.tt-twoiv-nogof         table.tinytable thead tr:last-child th,
+.tt-threeiv             table.tinytable thead tr:last-child th,
+.tt-threeiv-nogof       table.tinytable thead tr:last-child th,
+.tt-threeiv-grouping    table.tinytable thead tr:last-child th,
+.tt-threeiv-grouping-se table.tinytable thead tr:last-child th,
+.tt-fouriv              table.tinytable thead tr:last-child th,
+.tt-fouriv-grouping     table.tinytable thead tr:last-child th,
+.tt-fouriv-grouping-se  table.tinytable thead tr:last-child th,
+.tt-fiveiv              table.tinytable thead tr:last-child th,
+.tt-sixiv               table.tinytable thead tr:last-child th,
+.tt-sixiv-nogof         table.tinytable thead tr:last-child th{
+  border-bottom: 0.5px solid #e1e2ea !important;
+}
+
+
+/* ---------------------------------------------------------------
+   3. Group-span underlines (grouping layouts only)
+   Short rules under the two DV groups (e.g. "Emergence" / "Survival"),
+   with a gap in the middle. The group-row cells are
+   [stub][group A][group B], i.e. the 2nd and 3rd <th> of that row.
+   --------------------------------------------------------------- */
+
+.tt-threeiv-grouping    table.tinytable thead tr:nth-child(2) th:nth-child(2)::after,
+.tt-threeiv-grouping    table.tinytable thead tr:nth-child(2) th:nth-child(3)::after,
+.tt-threeiv-grouping-se table.tinytable thead tr:nth-child(2) th:nth-child(2)::after,
+.tt-threeiv-grouping-se table.tinytable thead tr:nth-child(2) th:nth-child(3)::after,
+.tt-fouriv-grouping     table.tinytable thead tr:nth-child(2) th:nth-child(2)::after,
+.tt-fouriv-grouping     table.tinytable thead tr:nth-child(2) th:nth-child(3)::after,
+.tt-fouriv-grouping-se  table.tinytable thead tr:nth-child(2) th:nth-child(2)::after,
+.tt-fouriv-grouping-se  table.tinytable thead tr:nth-child(2) th:nth-child(3)::after {
   content: "";
   display: block;
   border-bottom: 0.5px solid #e1e2ea;
 }
 
-/* fine-tune the gap: trim right edge of the left segment, left edge of the right segment */
-.tt-threeiv-grouping table.tinytable thead tr:nth-child(2) th:nth-child(2)::after {
+/* Fine-tune the centre gap: trim the right edge of the left segment ... */
+.tt-threeiv-grouping    table.tinytable thead tr:nth-child(2) th:nth-child(2)::after,
+.tt-threeiv-grouping-se table.tinytable thead tr:nth-child(2) th:nth-child(2)::after,
+.tt-fouriv-grouping     table.tinytable thead tr:nth-child(2) th:nth-child(2)::after,
+.tt-fouriv-grouping-se  table.tinytable thead tr:nth-child(2) th:nth-child(2)::after {
   margin: 0.5em 0.8em 0 0.2em;   /* more margin on the right → gap near centre */
 }
 
-.tt-threeiv-grouping table.tinytable thead tr:nth-child(2) th:nth-child(3)::after {
-  margin: 0.5em 0.2em 0 0.8em;   /* more margin on the left → same gap from other side */
+/* ... and the left edge of the right segment */
+.tt-threeiv-grouping    table.tinytable thead tr:nth-child(2) th:nth-child(3)::after,
+.tt-threeiv-grouping-se table.tinytable thead tr:nth-child(2) th:nth-child(3)::after,
+.tt-fouriv-grouping     table.tinytable thead tr:nth-child(2) th:nth-child(3)::after,
+.tt-fouriv-grouping-se  table.tinytable thead tr:nth-child(2) th:nth-child(3)::after {
+  margin: 0.5em 0.2em 0 0.8em;   /* more margin on the left → same gap from the other side */
 }
 
 
+/* ---------------------------------------------------------------
+   4. Body rules (per layout)
+   Thin (0.5px) rule separates coefficients from the GOF block;
+   thick (2px) rule closes the table after the last GOF row.
+   --------------------------------------------------------------- */
 
-/* Line below the model-header row */
-.tt-oneiv  table.tinytable thead tr:last-child th,
-.tt-oneiv-nogof  table.tinytable thead tr:last-child th,
-.tt-twoiv  table.tinytable thead tr:last-child th,
-.tt-twoiv-nogof  table.tinytable thead tr:last-child th,
-.tt-threeiv table.tinytable thead tr:last-child th,
-.tt-threeiv-grouping table.tinytable thead tr:last-child th{
-  border-bottom: 0.5px solid #e1e2ea !important;
-}
+/* ----- 1 IV ----- */
+.tt-oneiv table.tinytable tbody tr:nth-child(4) td { border-bottom: 0.5px solid #e1e2ea !important; }
+.tt-oneiv table.tinytable tbody tr:nth-child(6) td { border-bottom: 2px   solid #e1e2ea !important; }
+
+/* 1 IV, no GOF */
+.tt-oneiv-nogof table.tinytable tbody tr:nth-child(4) td { border-bottom: 0.5px solid #e1e2ea !important; }
+.tt-oneiv-nogof table.tinytable tbody tr:nth-child(5) td { border-bottom: 2px   solid #e1e2ea !important; }
+
+/* 1 IV, with Std.Errors row (rows shift down by one) */
+.tt-oneiv-se table.tinytable tbody tr:nth-child(4) td { border-bottom: 0.5px solid #e1e2ea !important; }
+.tt-oneiv-se table.tinytable tbody tr:nth-child(7) td { border-bottom: 2px   solid #e1e2ea !important; }
+
+/* ----- 2 IV ----- */
+.tt-twoiv table.tinytable tbody tr:nth-child(6) td { border-bottom: 0.5px solid #e1e2ea !important; }
+.tt-twoiv table.tinytable tbody tr:nth-child(9) td { border-bottom: 2px   solid #e1e2ea !important; }
+
+/* 2 IV, no GOF */
+.tt-twoiv-nogof table.tinytable tbody tr:nth-child(6) td { border-bottom: 2px solid #e1e2ea !important; }
+
+/* ----- 3 IV ----- */
+.tt-threeiv table.tinytable tbody tr:nth-child(8)  td { border-bottom: 0.5px solid #e1e2ea !important; }
+.tt-threeiv table.tinytable tbody tr:nth-child(11) td { border-bottom: 2px   solid #e1e2ea !important; }
+
+/* 3 IV, no GOF */
+.tt-threeiv-nogof table.tinytable tbody tr:nth-child(8) td { border-bottom: 0.5px solid #e1e2ea !important; }
+.tt-threeiv-nogof table.tinytable tbody tr:nth-child(9) td { border-bottom: 2px solid #e1e2ea !important; }
+
+/* 3 IV, with grouping */
+.tt-threeiv-grouping table.tinytable tbody tr:nth-child(8)  td { border-bottom: 0.5px solid #e1e2ea !important; }
+.tt-threeiv-grouping table.tinytable tbody tr:nth-child(10) td { border-bottom: 2px   solid #e1e2ea !important; }
+
+/* 3 IV, with grouping + Std.Errors row */
+.tt-threeiv-grouping-se table.tinytable tbody tr:nth-child(8)  td { border-bottom: 0.5px solid #e1e2ea !important; }
+.tt-threeiv-grouping-se table.tinytable tbody tr:nth-child(11) td { border-bottom: 2px   solid #e1e2ea !important; }
+
+/* ----- 4 IV ----- */
+/* 4 IV (no grouping), room for two model-fit measures
+   5 coefficients (4 IVs + intercept) = 10 rows → thin rule after row 10;
+   GOF block on rows 11–13 → thick rule after row 13. */
+.tt-fouriv table.tinytable tbody tr:nth-child(10) td { border-bottom: 0.5px solid #e1e2ea !important; }
+.tt-fouriv table.tinytable tbody tr:nth-child(13) td { border-bottom: 2px   solid #e1e2ea !important; }
+
+/* 4 IV, with grouping + two model-fit rows */
+.tt-fouriv-grouping table.tinytable tbody tr:nth-child(10) td { border-bottom: 0.5px solid #e1e2ea !important; }
+.tt-fouriv-grouping table.tinytable tbody tr:nth-child(12) td { border-bottom: 2px   solid #e1e2ea !important; }
+
+/* 4 IV, with grouping + Std.Errors row (three GOF rows) */
+.tt-fouriv-grouping-se table.tinytable tbody tr:nth-child(10) td { border-bottom: 0.5px solid #e1e2ea !important; }
+.tt-fouriv-grouping-se table.tinytable tbody tr:nth-child(13) td { border-bottom: 2px   solid #e1e2ea !important; }
+
+/* ----- 5 IV ----- */
+/* 5 IV (no grouping), room for two model-fit measures
+   6 coefficients (5 IVs + intercept) = 12 rows → thin rule after row 12;
+   GOF block on rows 13–15 → thick rule after row 15. */
+.tt-fiveiv table.tinytable tbody tr:nth-child(12) td { border-bottom: 0.5px solid #e1e2ea !important; }
+.tt-fiveiv table.tinytable tbody tr:nth-child(15) td { border-bottom: 2px   solid #e1e2ea !important; }
+
+/* ----- 6 IV ----- */
+/* 6 IV (no grouping), room for two model-fit measures
+   7 coefficients (6 IVs + intercept) = 14 rows → thin rule after row 14;
+   GOF block on rows 15–18 → thick rule after row 18. */
+.tt-sixiv table.tinytable tbody tr:nth-child(14) td { border-bottom: 0.5px solid #e1e2ea !important; }
+.tt-sixiv table.tinytable tbody tr:nth-child(17) td { border-bottom: 2px   solid #e1e2ea !important; }
 
 
-/* ===== Body rules per-IV layout ===== */
-
-/* 1-IV layout */
-.tt-oneiv table.tinytable tbody tr:nth-child(4) td {
-  border-bottom: 0.5px solid #e1e2ea !important;
-}
-.tt-oneiv table.tinytable tbody tr:nth-child(6) td {
-  border-bottom: 2px solid #e1e2ea !important;
-}
-
-/* 1-IV without GOF layout */
-.tt-oneiv-nogof table.tinytable tbody tr:nth-child(4) td {
-  border-bottom: 0.5px solid #e1e2ea !important;
-}
-.tt-oneiv-nogof table.tinytable tbody tr:nth-child(5) td {
-  border-bottom: 2px solid #e1e2ea !important;
-}
-
-/* 2-IV layout */
-.tt-twoiv table.tinytable tbody tr:nth-child(6) td {
-  border-bottom: 0.5px solid #e1e2ea !important;
-}
-.tt-twoiv table.tinytable tbody tr:nth-child(9) td {
-  border-bottom: 2px solid #e1e2ea !important;
-}
-
-/* 2-IV without GOF layout */
-.tt-twoiv-nogof table.tinytable tbody tr:nth-child(6) td {
-  border-bottom: 2px solid #e1e2ea !important;
-}
-
-/* 3-IV layout */
-.tt-threeiv table.tinytable tbody tr:nth-child(8) td {
-  border-bottom: 0.5px solid #e1e2ea !important;
-}
-.tt-threeiv table.tinytable tbody tr:nth-child(11) td {
-  border-bottom: 2px solid #e1e2ea !important;
-}
-
-/* 3-IV with grouping layout */
-.tt-threeiv-grouping table.tinytable tbody tr:nth-child(8) td {
-  border-bottom: 0.5px solid #e1e2ea !important;
-}
-.tt-threeiv-grouping table.tinytable tbody tr:nth-child(10) td {
-  border-bottom: 2px solid #e1e2ea !important;
-}
-
+/* 6 IV, no GOF */
+.tt-sixiv-nogof table.tinytable tbody tr:nth-child(14) td { border-bottom: 0.5px solid #e1e2ea !important; }
+.tt-sixiv-nogof table.tinytable tbody tr:nth-child(15) td { border-bottom: 2px   solid #e1e2ea !important; }
 
 
 /* ----------------------------------------
@@ -1253,4 +1407,45 @@ a.delayed-link.is-disabled {
 /* After release (normal link behaviour) */
 a.delayed-link.is-enabled {
   cursor: pointer;
+}
+
+
+/* ----------------------------------------
+   Justify main body paragraphs only
+---------------------------------------- */
+
+/* Justify paragraphs in the main content area */
+main.content > p,
+main.content > div > p,
+main.content section > p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+/* Exclude paragraphs in callouts, captions, tables, code outputs, sidebars */
+main.content .figure p,
+main.content .quarto-figure p,
+main.content figcaption,
+main.content .figure-caption,
+main.content caption,
+main.content .callout p,
+main.content div.bulb p,
+main.content div.warning p,
+main.content div.stop p,
+main.content div.puzzle p,
+main.content div.def p,
+main.content div.video p,
+main.content div.baser p,
+main.content div.flashcard p,
+main.content div.bluebox p,
+main.content div.compact p,
+main.content .cell-output p,
+main.content .sourceCode p,
+main.content table p,
+main.content blockquote p,
+main.content .footnotes p,
+main.content nav p,
+main.content aside p {
+  text-align: left;
 }

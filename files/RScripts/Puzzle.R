@@ -1,5 +1,5 @@
 ########################################
-# PO33Q - Determinants of Democracy
+# PO33Q - The Life and Death of Democracies and Dictatorships: A Quantitative Perspective
 # Dr Flo Linke
 # Puzzle Graph
 ########################################

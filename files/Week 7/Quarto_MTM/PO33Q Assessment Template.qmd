@@ -1,0 +1,637 @@
+#---
+title: ""
+fontsize: 11pt
+format:
+  pdf:
+    pdf-engine: lualatex
+    toc: false
+    number-sections: false
+    mainfont: "Arial"
+    mathfont: "Fira Math"
+    
+    cite-method: biblatex
+    biblio-config: false
+    
+    colorlinks: true
+    linkcolor: black
+    urlcolor: black
+    citecolor: black
+    
+execute:
+  echo: false
+  warning: false
+  message: false
+  error: false
+  collapse: true
+  
+include-in-header:
+  text: |
+    \usepackage{graphicx}
+    \usepackage{float}
+    \usepackage{tikz}     % for the box on the cover page
+    \usetikzlibrary{calc} % for the box on the cover page
+    \newcommand*{\titleGM}{%
+    \begin{tikzpicture}[remember picture,overlay]
+    \draw[line width=1pt]
+      ($(current page.north west)+(18mm,-18mm)$) rectangle
+      ($(current page.south east)+(-18mm,18mm)$);
+    \end{tikzpicture}
+    \begingroup
+    \thispagestyle{empty}
+    \begin{center}
+    \vspace*{0.5\baselineskip}
+    \includegraphics[width=0.17\linewidth]{Crest.png}\\[2\baselineskip]
+    \end{center}
+    \hbox{%
+    \hspace*{0.105\textwidth}%
+    \parbox[b][0.65\textheight]{0.85\textwidth}{%
+      {\noindent\LARGE\bfseries PO33Q - The Life and Death of Democracies:\\[0.5em]and Dictatorships: A Quantitative Perspective\\}\\[1\baselineskip]
+      {\noindent\Large\bfseries Summative Assessment\\}\\[2\baselineskip]
+      {\large \textit{\textbf{Warwick ID:} u1234567}}\\
+      \vspace*{3cm}\\
+      {\large Number of Words: XXXX}\\
+      {\large Words for Figures and Tables: XXXX}\\
+      {\large Total Number of Words: XXXX}\\[3\baselineskip]
+    % place the Warwick logo exactly at bottom-right, inset 18mm like the frame:
+    \begin{tikzpicture}[remember picture,overlay]
+      \node[anchor=south east, xshift=-24mm, yshift=24mm] at (current page.south east)
+      {\includegraphics[width=0.25\textwidth]{Warwick.png}};
+    \end{tikzpicture}
+    }}
+    \endgroup
+    }
+    \usepackage[style=apa,backend=biber,natbib=true]{biblatex} % sets the bib style
+    \addbibresource{referencesPO33Q.bib} % this is the .bib resource file
+    \usepackage{booktabs} % for tables
+    \usepackage{placeins} % set barriers within which figures are placed
+    \floatplacement{table}{H}
+    \floatplacement{figure}{H}
+    \usepackage{tocloft}                            % For dotted leaders control
+    \renewcommand{\cftdotsep}{1}                    % Space between dots
+    \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % force dots for sections
+    \renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}    % …subsections
+    \renewcommand{\cftsubsubsecleader}{\cftdotfill{\cftdotsep}} % …subsubsections
+    \PassOptionsToPackage{table}{xcolor}  % xcolor for setting grey background
+    \definecolor{lightgray}{HTML}{f0f0f0} % choose grey for background
+    \pagecolor{lightgray}                 % set background color
+    \usepackage{makecell}  % allow line breaks in modelsummary
+    \usepackage{setspace}  % allow onehalfspacing
+    \usepackage{needspace} % the remainder forces page breaks if
+    \usepackage{etoolbox}  % too little space remains after a (sub-)section heading
+    \preto{\section}{\par\Needspace*{7\baselineskip}}
+    \preto{\subsection}{\par\Needspace*{6\baselineskip}}
+    \preto{\subsubsection}{\par\Needspace*{5\baselineskip}}
+---
+
+```{r setup, include=FALSE}
+# global options for code chunks
+knitr::opts_chunk$set(
+  echo = FALSE, warning = FALSE, message = FALSE, error = FALSE, collapse = TRUE)
+
+library(tidyverse)
+theme_po33q <- theme_classic()+
+    theme(panel.background = element_rect(fill='transparent'), #transparent panel bg
+          plot.background = element_rect(fill='transparent', color=NA), #transparent plot bg
+          panel.grid.major = element_blank(), #remove major gridlines
+          panel.grid.minor = element_blank(), #remove minor gridlines
+          legend.background = element_rect(fill='transparent'), #transparent legend bg
+          legend.box.background = element_rect(fill='transparent')) #transparent legend panel)
+```
+
+
+\thispagestyle{empty}
+
+```{=latex}
+\titleGM
+\clearpage
+```
+
+\newpage
+
+```{=latex}
+\pagenumbering{roman}
+\setcounter{tocdepth}{4}
+\renewcommand{\contentsname}{Table of Contents}
+\tableofcontents
+```
+
+\newpage
+
+\phantomsection
+\addcontentsline{toc}{section}{List of Figures}
+\listoffigures
+
+\phantomsection
+\addcontentsline{toc}{section}{List of Tables}
+\listoftables
+
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\onehalfspacing
+
+
+# Introduction
+
+- State the puzzle and the resulting research question
+- RQ: "Does the effect of income on democracy depend on how oil-dependent a country is?"
+- Outline the plan of the study
+- State the main findings
+
+
+# Literature Review & Theory
+
+- Review the relevant literature, here for example:  \citet{lipset:1959,prz:2000,beblawi:1987,ross:2001,ross:2012,brooks:2016,karl:1997}
+- Deduct the gap you are filling
+- Explain the causal chain of your theory
+
+
+# Hypotheses
+
+- State the hypotheses you are testing:
+  - H$_1$: The positive influence of income on democratic emergence is hindered by oil dependence.
+  - H$_2$: The positive influence of income on democratic survival is hindered by oil dependence.
+
+# Conceptualisation & Measurement
+
+- State the concepts
+- Choose appropriate measures
+
+\FloatBarrier
+::: {#tbl-conceptualisation tbl-cap="Conceptualisation and Measurement"}
+\fontsize{8}{10}\selectfont
+\centering
+\begin{tabular}{lll}
+        &  \\[-1.8ex] \specialrule{.08em}{.05em}{.17em}\hline
+        &  \\[-1.8ex]
+Concept                 &  Attribute                        &   Variable                        \\
+\hline
+        &  \\[-1.2ex]
+\multicolumn{2}{l}{\textbf{Dependent Variable}}     &                \\
+\addlinespace
+Democracy       &   Participation             &   \citet{boix:2022}  \\
+                &   Contestation              &                      \\
+\addlinespace
+\addlinespace
+\multicolumn{2}{l}{\textbf{Independent Variables}}  &                \\
+\addlinespace
+Economic Development  &     Wealth            & GDP per capita (current US Dollars) \\
+\addlinespace
+Resource Curse        &     Oil Dependence    & Oil rents (\% of GDP)               \\
+\hline\specialrule{.08em}{.17em}{.05em} 
+& \\[-1.8ex]
+\end{tabular}
+:::
+\FloatBarrier
+
+
+# Data & Methodology
+
+- Outline the data used for analysis
+- Explain the Markov Transition Model and why it is suitable for your analysis
+- Explain how unobserved heterogeneity is resolved, and how autocorrelation is addressed
+- In case you want to include the conditional probabilities:
+
+Emergence:
+
+$$
+P(y_{i,t} = 1 \mid y_{i, t-1} = 0)
+$$ {#eq-emergence}
+	
+Survival:
+
+$$
+P(y_{i,t} = 1 \mid y_{i, t-1} = 1)
+$$ {#eq-survival}
+
+
+To model democratic emergence we apply the conditional probability shown in @eq-emergence ...
+
+
+# Analysis
+
+- Test the hypotheses
+- Explain what the results mean for the hypotheses
+- Answer your research question
+
+The below code is written to answer the question whether the effect of income on democracy is depend on how oil-dependent a country is. This is split into democratic emergence and survival, reporting the results in a "super-honest" table. As the coefficient for the interaction does not show us how large the shift is, nor whether it is big enough to change a country's actual prospects, the average marginal effects are calculated for both emergence and survival. As you will see, this once again involves quite a bit of code, but I needed to define a function in the middle section (`ame_at`) which prepares the results for display in a neat results table in the assessment -- do not even dream of copying and pasting raw output into the assessment. 
+
+::: {.callout-important}
+This is not a complete analysis. In the actual assessment you will have to do more than estimate two (arguably underspecified) models in order to do well. This is just to illustrate how to incorporate all this into a quarto document. 
+
+\vspace{1em}
+
+Also note that @tbl-emsur-oil is pushing the limits of what a single results table can reasonably accommodate. Eight models is a lot for one, single table!
+:::
+
+\bigskip
+
+```{r}
+#| echo: false
+#| eval: true
+#| tbl-cap: "Income, Oil, and their Interaction in Democratic Emergence and Survival, 1960-2018"
+#| label: tbl-emsur-oil
+
+library(modelsummary)
+library(pROC)
+library(tinytable)
+library(sandwich)
+library(car)
+library(tibble)
+library(dplyr)
+library(readr)
+library(tidyr)
+
+# ============================================================
+# 0. BUILD THE OIL VARIABLE & REBUILD SUBSETS
+# ============================================================
+
+# Load data
+world <- read_csv("world.csv")
+
+world <- world %>%
+  arrange(countrycode, year) %>%
+  group_by(countrycode) %>%
+  mutate(
+    l.democracy = lag(democracy),                 # previous regime (0/1)
+    l.log_gdppc = lag(log(gdppc)),                # income
+    l.log_oil   = lag(log(oil + 1))               # oil dependence (+1 to allow zeros)
+  ) %>%
+  mutate(                                         # CRE means of both constituents
+    mean_log_gdppc = mean(l.log_gdppc, na.rm = TRUE),
+    mean_log_oil   = mean(l.log_oil,   na.rm = TRUE)
+  ) %>%
+  ungroup() %>%
+  drop_na(democracy, l.democracy, l.log_gdppc, l.log_oil)
+
+world_democ0 <- filter(world, l.democracy == 0)
+world_democ1 <- filter(world, l.democracy == 1)
+
+# ============================================================
+# 1. EIGHT SEPARATE MODELS (CRE)
+# ============================================================
+
+# --- Emergence Models ---
+emergence_gdp <- glm(democracy ~ l.log_gdppc + mean_log_gdppc,
+                     data = world_democ0, na.action = na.exclude,
+                     family = binomial(link = "probit"))
+
+emergence_oil <- glm(democracy ~ l.log_oil + mean_log_oil,
+                     data = world_democ0, na.action = na.exclude,
+                     family = binomial(link = "probit"))
+
+emergence_add <- glm(democracy ~ l.log_gdppc + l.log_oil +
+                       mean_log_gdppc + mean_log_oil,
+                     data = world_democ0, na.action = na.exclude,
+                     family = binomial(link = "probit"))
+
+emergence_int <- glm(democracy ~ l.log_gdppc * l.log_oil +
+                       mean_log_gdppc + mean_log_oil,
+                     data = world_democ0, na.action = na.exclude,
+                     family = binomial(link = "probit"))
+
+# --- Survival Models ---
+survival_gdp <- glm(democracy ~ l.log_gdppc + mean_log_gdppc,
+                    data = world_democ1, na.action = na.exclude,
+                    family = binomial(link = "probit"))
+
+survival_oil <- glm(democracy ~ l.log_oil + mean_log_oil,
+                    data = world_democ1, na.action = na.exclude,
+                    family = binomial(link = "probit"))
+
+survival_add  <- glm(democracy ~ l.log_gdppc + l.log_oil +
+                       mean_log_gdppc + mean_log_oil,
+                     data = world_democ1, na.action = na.exclude,
+                     family = binomial(link = "probit"))
+
+survival_int  <- glm(democracy ~ l.log_gdppc * l.log_oil +
+                       mean_log_gdppc + mean_log_oil,
+                     data = world_democ1, na.action = na.exclude,
+                     family = binomial(link = "probit"))
+
+
+# ============================================================
+# 2. FOUR JOINT MODELS (full CRE interaction)
+# ============================================================
+
+joint_gdp <- glm(democracy ~ (l.log_gdppc + mean_log_gdppc) * l.democracy,
+                 data = world, na.action = na.exclude,
+                 family = binomial(link = "probit"))
+
+joint_oil <- glm(democracy ~ (l.log_oil + mean_log_oil) * l.democracy,
+                 data = world, na.action = na.exclude,
+                 family = binomial(link = "probit"))
+
+joint_add <- glm(democracy ~ (l.log_gdppc + l.log_oil +
+                              mean_log_gdppc + mean_log_oil) * l.democracy,
+                 data = world, na.action = na.exclude,
+                 family = binomial(link = "probit"))
+
+joint_int <- glm(democracy ~ (l.log_gdppc * l.log_oil +
+                              mean_log_gdppc + mean_log_oil) * l.democracy,
+                 data = world, na.action = na.exclude,
+                 family = binomial(link = "probit"))
+
+vcov_joint_gdp <- vcovCL(joint_gdp, cluster = ~ countrycode, type = "HC3")
+vcov_joint_oil <- vcovCL(joint_oil, cluster = ~ countrycode, type = "HC3")
+vcov_joint_add <- vcovCL(joint_add, cluster = ~ countrycode, type = "HC3")
+vcov_joint_int <- vcovCL(joint_int, cluster = ~ countrycode, type = "HC3")
+
+
+# ============================================================
+# 3. JOINT-MODEL SE HELPERS
+# ============================================================
+
+# UNCHANGED - DO NOT TOUCH
+
+joint_se <- function(joint_model, joint_vcov, var_name) {
+  coefs <- coef(joint_model)
+  interaction_name <- paste0(var_name, ":l.democracy")
+  contrast <- rep(0, length(coefs)); names(contrast) <- names(coefs)
+  contrast[var_name] <- 1; contrast[interaction_name] <- 1
+  sqrt(t(contrast) %*% joint_vcov %*% contrast) |> as.numeric()
+}
+joint_coef <- function(joint_model, var_name) {
+  coefs <- coef(joint_model)
+  as.numeric(coefs[var_name] + coefs[paste0(var_name, ":l.democracy")])
+}
+joint_intercept_se <- function(joint_model, joint_vcov) {
+  coefs <- coef(joint_model)
+  contrast <- rep(0, length(coefs)); names(contrast) <- names(coefs)
+  contrast["(Intercept)"] <- 1; contrast["l.democracy"] <- 1
+  sqrt(t(contrast) %*% joint_vcov %*% contrast) |> as.numeric()
+}
+joint_intercept_coef <- function(joint_model) {
+  coefs <- coef(joint_model)
+  as.numeric(coefs["(Intercept)"] + coefs["l.democracy"])
+}
+
+# ============================================================
+# 4. JOINT-DERIVED VCOVs FOR SURVIVAL MODELS
+# ============================================================
+
+# DO NOT TOUCH THIS FUNCTION
+
+build_survival_vcov <- function(survival_model, joint_model, joint_vcov) {
+  surv_coefs  <- names(coef(survival_model))
+  joint_full  <- coef(joint_model)
+  joint_coefs <- names(joint_full)[!is.na(joint_full)]
+
+  needed <- character(0)
+  for (cf in surv_coefs) {
+    needed <- c(needed,
+                if (cf == "(Intercept)") c("(Intercept)", "l.democracy")
+                else c(cf, paste0(cf, ":l.democracy")))
+  }
+  missing <- setdiff(needed, joint_coefs)
+  if (length(missing) > 0) {
+    stop("joint model dropped coefficient(s): ", paste(missing, collapse = ", "),
+         ". Inspect summary(joint_model).")
+  }
+
+  n <- length(surv_coefs)
+  contrasts <- matrix(0, nrow = n, ncol = length(joint_coefs),
+                      dimnames = list(surv_coefs, joint_coefs))
+  for (cf in surv_coefs) {
+    if (cf == "(Intercept)") {
+      contrasts[cf, "(Intercept)"] <- 1; contrasts[cf, "l.democracy"] <- 1
+    } else {
+      contrasts[cf, cf] <- 1; contrasts[cf, paste0(cf, ":l.democracy")] <- 1
+    }
+  }
+  V <- contrasts %*% joint_vcov %*% t(contrasts)
+
+  if (!all(is.finite(V)) || any(diag(V) < 0)) {
+    stop("Non-finite or negative variance in derived survival vcov — ",
+         "joint model is likely near-singular for this specification.")
+  }
+  V
+}
+
+vcov_survival_gdp_joint <- build_survival_vcov(survival_gdp, joint_gdp, vcov_joint_gdp)
+vcov_survival_oil_joint <- build_survival_vcov(survival_oil, joint_oil, vcov_joint_oil)
+vcov_survival_add_joint <- build_survival_vcov(survival_add, joint_add, vcov_joint_add)
+vcov_survival_int_joint <- build_survival_vcov(survival_int, joint_int, vcov_joint_int)
+
+# ============================================================
+# 5. ASSEMBLE THE VCOV LIST FOR modelsummary
+# ============================================================
+
+# Emergence columns: standard cluster-robust vcov.
+# Survival columns:  joint-derived vcov from Section 4.
+# Order MUST match the model order in modelsummary() below.
+
+vcov_list <- list(
+  "Cluster-Robust" = vcovCL(emergence_gdp, cluster = ~ countrycode, type = "HC3"),
+  "Cluster-Robust" = vcovCL(emergence_oil, cluster = ~ countrycode, type = "HC3"),
+  "Cluster-Robust" = vcovCL(emergence_add, cluster = ~ countrycode, type = "HC3"),
+  "Cluster-Robust" = vcovCL(emergence_int, cluster = ~ countrycode, type = "HC3"),
+  "Cluster-Robust" = vcov_survival_gdp_joint,
+  "Cluster-Robust" = vcov_survival_oil_joint,
+  "Cluster-Robust" = vcov_survival_add_joint,
+  "Cluster-Robust" = vcov_survival_int_joint
+)
+
+
+# ============================================================
+# 6. PREDICTED PROBABILITIES AND ROC CURVES
+# ============================================================
+
+world_democ0$prob_gdp <- unlist(predict(emergence_gdp, type = "response"))
+world_democ0$prob_oil <- unlist(predict(emergence_oil, type = "response"))
+world_democ0$prob_add <- unlist(predict(emergence_add, type = "response"))
+world_democ0$prob_int <- unlist(predict(emergence_int, type = "response"))
+
+world_democ1$prob_gdp <- unlist(predict(survival_gdp,  type = "response"))
+world_democ1$prob_oil <- unlist(predict(survival_oil,  type = "response"))
+world_democ1$prob_add <- unlist(predict(survival_add,  type = "response"))
+world_democ1$prob_int <- unlist(predict(survival_int,  type = "response"))
+
+roc1 <- roc(world_democ0$democracy, world_democ0$prob_gdp)
+roc2 <- roc(world_democ0$democracy, world_democ0$prob_oil)
+roc3 <- roc(world_democ0$democracy, world_democ0$prob_add)
+roc4 <- roc(world_democ0$democracy, world_democ0$prob_int)
+
+roc5 <- roc(world_democ1$democracy, world_democ1$prob_gdp)
+roc6 <- roc(world_democ1$democracy, world_democ1$prob_oil)
+roc7 <- roc(world_democ1$democracy, world_democ1$prob_add)
+roc8 <- roc(world_democ1$democracy, world_democ1$prob_int)
+
+rows <- tibble(
+  `~term` = "AUC (ROC)",
+  `~(1)`  = as.numeric(auc(roc1)),
+  `~(2)`  = as.numeric(auc(roc2)),
+  `~(3)`  = as.numeric(auc(roc3)),
+  `~(4)`  = as.numeric(auc(roc4)),
+  `~(5)`  = as.numeric(auc(roc5)),
+  `~(6)`  = as.numeric(auc(roc6)),
+  `~(7)`  = as.numeric(auc(roc7)),
+  `~(8)`  = as.numeric(auc(roc8))
+)
+
+# Sits just below the coefficient block; nudge if you change cm.
+attr(rows, "position") <- 10
+
+# ============================================================
+# 7. COEFFICIENT LABELS
+# ============================================================
+
+cm <- c(
+  'l.log_gdppc'           = 'per capita GDP (logged, lagged)',
+  'l.log_oil'             = 'Oil dependence (logged, lagged)',
+  'l.log_gdppc:l.log_oil' = 'GDP × Oil',
+  '(Intercept)'           = 'Intercept'
+)
+
+# ============================================================
+# 8. RESULTS TABLE
+# ============================================================
+
+modelsummary(
+  list(
+    "GDP Only"    = emergence_gdp,
+    "Oil Only"    = emergence_oil,
+    "Additive"    = emergence_add,
+    "Interaction" = emergence_int,
+    "GDP Only"    = survival_gdp,
+    "Oil Only"    = survival_oil,
+    "Additive"    = survival_add,
+    "Interaction" = survival_int
+  ),
+  vcov      = vcov_list,
+  estimate  = "{estimate}{stars}",
+  statistic = "({std.error})",
+  gof_omit  = 'DF|Deviance|Log.Lik|F|AIC|BIC|RMSE',
+  coef_map  = cm,
+  escape = FALSE,
+  notes = paste(
+  c(
+    "+ p < 0.1, * p < 0.05, ** p < 0.01, *** p < 0.001",
+    "Standard errors are cluster-robust (HC3), clustered by country.",
+    "Survival columns: standard errors derived from the fully-interacted joint model, accounting for the covariance between the emergence slope ($\\beta_1$) and the regime interaction ($\\beta_3$).",
+    "Models include country-specific averages (Correlated Random Effects) to control for unobserved heterogeneity. These coefficients are omitted from the table for clarity."
+  ),
+  collapse = "\n\\newline "
+),
+  add_rows  = rows
+) |>
+  group_tt(j = list("Emergence" = 2:5, "Survival" = 6:9)) |>
+  group_tt(j = list("Dependent Variable: Democracy" = 2:9)) |>
+  theme_latex(placement= "H") |>
+  theme_latex(resize_width= 1.0, resize_direction="both")
+```
+
+
+
+## Reading the interaction in probabilities
+
+In @tbl-emsur-oil, the interaction between oil and GDP is statistically significant for democratic emergence and insignificant for survival. Taken at face value this invites a resource-curse reading: oil wealth seems to weaken the democratising pull of income when an autocracy might otherwise transition, yet to leave income's role untouched once a democracy is already standing. That is a claim worth making carefully, because a significant interaction tells us only that income's effect *shifts* with oil — not how large the shift is, nor whether it is big enough to change a country's actual prospects. To judge that we need income's effect stated as a change in the probability of democracy, read off where oil is scarce, average, and abundant. @tbl-ame-oil reports exactly that for both processes, using the same cluster-robust standard errors as the main table.
+
+
+```{r}
+#| label: tbl-ame-oil
+#| tbl-cap: "Effect of a one-unit rise in logged GDP per capita on the probability of democracy, by oil dependence."
+#| echo: false
+#| message: false
+#| warning: false
+
+library(marginaleffects)
+
+# A common grid of oil values: low (-1 SD), average, high (+1 SD)
+oil_m    <- mean(world$l.log_oil, na.rm = TRUE)
+oil_s    <- sd(world$l.log_oil,   na.rm = TRUE)
+oil_grid <- c(oil_m - oil_s, oil_m, oil_m + oil_s)
+
+# Effect of logged GDP on Pr(democracy) at each oil level, with clustered SEs
+ame_at <- function(model) {
+  s <- slopes(model, variables = "l.log_gdppc",
+              newdata = datagrid(l.log_oil = oil_grid),
+              vcov = vcovCL(model, cluster = ~ countrycode, type = "HC3"))
+  s <- s[order(s$l.log_oil), ]
+  f    <- function(x) formatC(x, format = "f", digits = 3)
+  star <- ifelse(s$p.value < .001, "***",
+          ifelse(s$p.value < .01,  "**",
+          ifelse(s$p.value < .05,  "*",
+          ifelse(s$p.value < .1,   "+", ""))))
+  paste0(f(s$estimate), star, " (", f(s$conf.low), ", ", f(s$conf.high), ")")
+}
+
+ame_tab <- data.frame(
+  `Oil dependence` = c("Low (-1 SD)", "Average", "High (+1 SD)"),
+  `Emergence`      = ame_at(emergence_int),
+  `Survival`       = ame_at(survival_int),
+  check.names = FALSE
+)
+
+tinytable::tt(ame_tab,
+              notes = paste(
+  c(
+    "+ p < 0.1, * p < 0.05, ** p < 0.01, *** p < 0.001",
+    "95\\% confidence interval in parentheses. other covariates held at their means; cluster-robust (HC3) standard errors clustered by country."
+  )))|>
+  theme_latex(placement= "H")|>
+  theme_latex(resize_width= 0.60, resize_direction="both")
+```
+
+
+
+## Interpretation
+
+The emergence column is the interesting one. In the main results table the interaction effect between oil and GDP is significant, which on its own might tempt you to announce that oil reshapes how income drives democratisation. @tbl-ame-oil shows why that would be premature. Once we put the effect in terms of actual probabilities, income's pull on the chance of a transition is tiny at every level of oil, and not one of the three estimates can be told apart from zero — every confidence interval straddles it. The estimates do drift the way the coefficient implies, from a shade positive where oil is scarce to a shade negative where oil dominates, so the interaction is not imaginary; it is just far too small, in the terms that matter, to carry a substantive claim. The reason is worth saying plainly: democratic transitions are rare, so for almost every country in almost every year the baseline chance of becoming a democracy is already close to zero. When the chance starts that low there is barely any room to move it, so even a real change in income's pull only shaves a sliver off an already-minuscule number — a shift the data cannot tell apart from nothing at all.
+
+The survival column tells the opposite story, and a tidier one. Here the interaction of GDP and oil is not significant, and @tbl-ame-oil bears that out: income's effect on the probability of remaining democratic is a small positive bump — reaching significance around average oil dependence — that holds steady across the oil range rather than fading or growing. Income helps democracies survive, and oil does not visibly change that. The contrast between the two columns is itself the finding: income does little to bring democracy about but appears to help keep it alive — a distinction that only surfaces once you read the marginal effects rather than the coefficients.
+
+Two important points: First, the survival column's standard errors in the main table come from the joint model, so they already absorb the fact that the same countries pass through both processes; treat them as the honest uncertainty for the survival slopes, and treat the three-way `GDP × Oil × regime` term inside that joint model as structural machinery, not a quantity to interpret. 
+
+Secondly, the AUC values provide a useful check on model fit and create an apparent puzzle in @tbl-emsur-oil. The survival models achieve strong discrimination (AUC = 0.839), even though oil and the interaction term are statistically insignificant. Only income scrapes at conventional significance levels.
+
+The puzzle disappears once we distinguish between the role of individual coefficients and the performance of the model as a whole. Statistical significance concerns whether a particular variable contributes information beyond the other terms in the specification. AUC, by contrast, measures how well the full model separates democratic survivors from failures. The observed covariates contribute to that separation, but a high AUC does not imply that any one of them has a large or precisely estimated effect.
+
+To see why, it is important to remember that the models contain more information than is visible in the table. All specifications include country averages through the correlated random-effects approach, although these coefficients are omitted from the results table for clarity. Together with the reported covariates, these terms determine the model's predictions. The country averages capture persistent differences between countries and account for a substantial share of the model's ability to distinguish between democratic survivors and failures.
+
+The table therefore understates the amount of information used by the survival models. Their strong AUC values indicate that the full specification—including both the reported covariates and the unreported country-average terms—separates outcomes effectively. By contrast, the emergence models perform only slightly better than chance. These differences speak to the predictive performance of the competing model specifications rather than to the importance of any individual variable. The substantive role of income, oil, and their interaction is therefore better assessed through the marginal effects than through the AUC statistics.
+
+
+
+
+
+# Discussion
+
+- What is your contribution to the existing literature?
+- Discuss reasons why you have obtained your results
+  - Why might coefficients be insignificant?
+  - What alternative explanations are there?
+- Relate your findings to the existing literature
+ 
+
+# Conclusion
+
+- State what the study has done
+- State the main findings
+- Answer your research question
+
+
+
+
+
+\newpage
+
+```{=latex}
+\clearpage
+\printbibliography[heading=bibintoc,title={List of References}]
+\let\printbibliography\relax
+```
+
+\newpage
+
+```{=latex}
+\appendix
+\section{Appendix}
+```
+
+```{r echo=TRUE, eval=FALSE}
+# here goes all of your Rscript
+
+x <- 1:10
+mean(x)
+```

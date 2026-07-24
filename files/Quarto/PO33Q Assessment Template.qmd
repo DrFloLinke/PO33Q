@@ -1,6 +1,6 @@
 #---
 title: ""
-fontsize: 12pt
+fontsize: 11pt
 format:
   pdf:
     pdf-engine: lualatex
@@ -45,7 +45,7 @@ include-in-header:
     \hbox{%
     \hspace*{0.105\textwidth}%
     \parbox[b][0.65\textheight]{0.85\textwidth}{%
-      {\noindent\LARGE\bfseries PO33Q - Determinants of Democracy:\\Analysing Emergence, Survival, and Fall\\}\\[1\baselineskip]
+      {\noindent\LARGE\bfseries PO33Q - The Life and Death of Democracies:\\[0.5em]and Dictatorships: A Quantitative Perspective\\}\\[1\baselineskip]
       {\noindent\Large\bfseries Summative Assessment\\}\\[2\baselineskip]
       {\large \textit{\textbf{Warwick ID:} u1234567}}\\
       \vspace*{3cm}\\
@@ -98,15 +98,6 @@ theme_po33q <- theme_classic()+
           legend.box.background = element_rect(fill='transparent')) #transparent legend panel)
 ```
 
-```{=latex}
-\DefTblrTemplate{firsthead,middlehead,lasthead}{default}{}
-\DefTblrTemplate{firstfoot,middlefoot}{default}{}
-\DefTblrTemplate{lastfoot}{default}% 
-{
-  \UseTblrTemplate{note}{default}
-  \UseTblrTemplate{caption}{default}
-}
-```
 
 \thispagestyle{empty}
 
@@ -169,9 +160,6 @@ theme_po33q <- theme_classic()+
 
 \FloatBarrier
 ::: {#tbl-conceptualisation tbl-cap="Conceptualisation and Measurement"}
----
-tbl-cap-location: bottom
----
 \fontsize{8}{10}\selectfont
 \centering
 \begin{tabular}{lll}
@@ -261,6 +249,7 @@ Including a \texttt{modesummary} table is straightforward:
 ```{r}
 library(modelsummary)
 library(tinytable)
+library(sandwich)
 library(carData) # only needed for data to illustrate this here
 
 data("Prestige", package = "carData") # only needed for data to illustrate this here
@@ -271,6 +260,13 @@ m3 <- lm(prestige ~ education + income, data = Prestige)
 
 models <- list("(1)" = m1, "(2)" = m2, "(3)" = m3)
 
+# This block needs to be added to the "real table" by uncommenting it
+# vcov_list <- list(
+#   vcovCL(m1, cluster = model.frame(m1)$type, type = "HC3"),
+#   vcovCL(m2, cluster = model.frame(m2)$type, type = "HC3"),
+#   vcovCL(m3, cluster = model.frame(m3)$type, type = "HC3")
+# )
+
 cm <- c(
   "education"   = "Years of Education",
   "income"      = "Average Income",
@@ -278,7 +274,9 @@ cm <- c(
 )
 
 # Create the modelsummary table
-modelsummary(models, 
+modelsummary(models,
+#             vcov      = vcov_list,        # again, uncomment this in the real assessment
+             statistic = "({std.error})",
              title = "Regression Models",
              gof_omit = 'DF|Deviance|Log.Lik|F|AIC|BIC|RMSE', 
              stars=TRUE,
@@ -301,6 +299,7 @@ In Table \ref{tblr:regmodels}, the coefficient for...
 
 # Discussion
 
+- What is your contribution to the existing literature?
 - Discuss reasons why you have obtained your results
   - Why might coefficients be insignificant?
   - What alternative explanations are there?
