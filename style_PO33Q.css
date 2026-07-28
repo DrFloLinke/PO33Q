@@ -16,17 +16,6 @@
   --panel: #44496f;
   --panel-2: #5a5f80;
   --hover: #393A3B;
-  
-  /* The core Mermaid formatting */
-  --mermaid-edge-color: var(--muted) !important; 
-  --mermaid-node-bg-color: transparent !important; 
-  --mermaid-node-fg-color: var(--fg) !important; 
-  --mermaid-fg-color: var(--fg) !important;
-  /* Force labels and lighter shades to your foreground color */
-  --mermaid-label-fg-color: var(--fg) !important;
-  --mermaid-label-bg-color: transparent !important;
-  --mermaid-fg-color--lighter: var(--fg) !important;
-  --mermaid-fg-color--lightest: var(--fg) !important;
 }
 
 /* ----------------------------------------
@@ -174,13 +163,6 @@ main a:active {
 }
 
 
-/* glossary entries */
-main .gls a,
-main .gls a:visited,
-main .gls a:hover,
-main .gls a:active {
-  color: #77a0d4 !important;
-}
 
 /* ----------------------------------------
    Figures & Captions
@@ -252,7 +234,7 @@ div.bulb {
 div.bulb code:not(pre code) {
   background-color: var(--bg) !important;
   color: var(--fg) !important;
-  font-size: 95%;
+  font-size: 105%;
 }
 
 div.warning,
@@ -326,7 +308,7 @@ div.video iframe {
 .baser code:not(pre code) {
   background-color: #767da2 !important;
   color: var(--bg) !important;
-  font-size: 95%;
+  font-size: 105%;
 }
 
 
@@ -390,21 +372,6 @@ main a:active code:not(pre code) {
   font-weight: 350;                  /* body weight, no bold */
   text-decoration: none;             /* no underline */
   /* keeps Recursive mono + the code background you already set */
-}
-
-/* Inline code that is also a link, inside custom blocks → keep link orange */
-div.bulb   a code:not(pre code),
-div.warning a code:not(pre code),
-div.stop    a code:not(pre code),
-div.puzzle  a code:not(pre code),
-div.def     a code:not(pre code),
-div.video   a code:not(pre code),
-.baser      a code:not(pre code),
-.bluebox    a code:not(pre code),
-div.compact a code:not(pre code) {
-  color: var(--accent) !important;
-  font-weight: 350;
-  text-decoration: none;
 }
 
 /* ----------------------------------------
@@ -566,6 +533,16 @@ pre:not(.sourceCode) {
 /* ----------------------------------------
    Tables
 ---------------------------------------- */
+table, th, td {
+  color: var(--fg) !important;
+  background-color: var(--bg) !important;
+  /* border-color: 1px solid #adbdd1 !important; */
+  font-size: 0.9em;
+  vertical-align: top !important;
+}
+
+
+thead, caption { color: var(--fg) !important; }
 
 table {
   margin-top: 0;
@@ -578,19 +555,6 @@ figcaption.quarto-float-caption-top {
   margin-bottom: 0.5em;   /* this part already worked */
 }
 
-table, th, td {
-  color: var(--fg) !important;
-  background-color: var(--bg) !important;
-  /* border-color: 1px solid #adbdd1 !important; */
-  font-size: 0.9em;
-  vertical-align: top !important;
-}
-
-
-thead, caption { color: var(--fg) !important; }
-
-
-
 /* Optional wrappers */
 .custom-html-table table,
 .custom-html-table th,
@@ -598,7 +562,8 @@ thead, caption { color: var(--fg) !important; }
 .custom-html-table table { border-top: 4px double var(--fg) !important; border-bottom: 4px double var(--fg) !important; }
 .custom-html-table thead tr,
 .custom-html-table thead th { border-bottom: 1.5px solid var(--fg) !important; }
-.custom-html-table th, .custom-html-table td { text-align: left; vertical-align: top !important; padding: 0.2em 0.4em; }
+.custom-html-table th, .custom-html-table td { text-align: left; padding: 0.2em 0.4em; }
+
 
 
 /* Scope */
@@ -630,22 +595,6 @@ thead, caption { color: var(--fg) !important; }
 .top-bottom-rule-only thead strong {
   font-weight: inherit !important;
 }
-
-
-
-.glossary-table table,
-.glossary-table th,
-.glossary-table td { border: none !important; border-collapse: collapse; }
-.glossary-table table { border-top: 4px double var(--fg) !important; border-bottom: 4px double var(--fg) !important; }
-.glossary-table thead tr,
-.glossary-table thead th { border-bottom: 1.5px solid var(--fg) !important; }
-.glossary-table th, .glossary-table td { text-align: left; padding: 0.7em 0.4em; }
-
-
-.glossary-table td:first-child,
-.glossary-table th:first-child { min-width: 1.25in; }
-
-
 
 
 /* ----------------------------------------
@@ -774,7 +723,6 @@ header.navbar,
 .navbar.bg-white {
   background-color: var(--bg) !important;
 }
-
 
 /* Dropdown */
 #quarto-header .dropdown-menu,
@@ -1207,19 +1155,16 @@ table.tinytable tbody tr td:first-child {
 
 
 
-/* ============================================================
-   tinytable borders — custom horizontal rules
-   ============================================================ */
+/* -------------------------------------------------
+   tinytable borders: custom horizontal rules
+   ------------------------------------------------- */
 
-/* ---------------------------------------------------------------
-   1. Base
-   --------------------------------------------------------------- */
-
-/* Ensure Chrome renders cell borders */
+/* Base: ensure Chrome renders cell borders */
 table.tinytable {
   border-collapse: separate !important;
   border-spacing: 0 !important;
 }
+
 
 /* Left-align tinytable footnotes (significance notes) */
 table.tinytable tfoot td {
@@ -1227,165 +1172,147 @@ table.tinytable tfoot td {
 }
 
 
-/* ---------------------------------------------------------------
-   2. Shared header rules
-   --------------------------------------------------------------- */
+/* ===== Shared header rules (all IV counts) ===== */
 
-/* Full-width top rule across every tinytable */
+/* ==== Full-width top rule across every tinytable ==== */
 table.tinytable thead tr:first-child th {
   border-top: 2px solid #e1e2ea !important;
 }
 
-/* Rule between the group row and the model row (results columns only) */
-.tt-oneiv               table.tinytable thead tr:nth-child(1) th:not(:first-child),
-.tt-oneiv-nogof         table.tinytable thead tr:nth-child(1) th:not(:first-child),
-.tt-twoiv               table.tinytable thead tr:nth-child(1) th:not(:first-child),
-.tt-twoiv-nogof         table.tinytable thead tr:nth-child(1) th:not(:first-child),
-.tt-threeiv             table.tinytable thead tr:nth-child(1) th:not(:first-child),
-.tt-threeiv-nogof       table.tinytable thead tr:nth-child(1) th:not(:first-child),
-.tt-threeiv-grouping    table.tinytable thead tr:nth-child(1) th:not(:first-child),
-.tt-threeiv-grouping-se table.tinytable thead tr:nth-child(1) th:not(:first-child),
-.tt-fouriv              table.tinytable thead tr:nth-child(1) th:not(:first-child),
-.tt-fouriv-grouping     table.tinytable thead tr:nth-child(1) th:not(:first-child),
-.tt-fouriv-grouping-se  table.tinytable thead tr:nth-child(1) th:not(:first-child),
-.tt-fiveiv              table.tinytable thead tr:nth-child(1) th:not(:first-child),
-.tt-sixiv               table.tinytable thead tr:nth-child(1) th:not(:first-child),
-.tt-sixiv-nogof         table.tinytable thead tr:nth-child(1) th:not(:first-child){
+
+/* Line inside header */
+.tt-oneiv table.tinytable thead tr:nth-child(1) th:not(:first-child),
+.tt-oneiv-nogof table.tinytable thead tr:nth-child(1) th:not(:first-child),
+.tt-twoiv table.tinytable thead tr:nth-child(1) th:not(:first-child),
+.tt-twoiv-nogof table.tinytable thead tr:nth-child(1) th:not(:first-child),
+.tt-threeiv table.tinytable thead tr:nth-child(1) th:not(:first-child),
+.tt-threeiv-nogof table.tinytable thead tr:nth-child(1) th:not(:first-child),
+.tt-sixiv table.tinytable thead tr:nth-child(1) th:not(:first-child),
+.tt-sixiv-nogof table.tinytable thead tr:nth-child(1) th:not(:first-child),
+.tt-threeiv-grouping table.tinytable thead tr:nth-child(1) th:not(:first-child),
+.tt-threeiv-grouping-se table.tinytable thead tr:nth-child(1) th:not(:first-child) {
   border-bottom: 0.5px solid #e1e2ea !important;
 }
 
-/* Rule below the model-header (last header) row */
-.tt-oneiv               table.tinytable thead tr:last-child th,
-.tt-oneiv-nogof         table.tinytable thead tr:last-child th,
-.tt-oneiv-se            table.tinytable thead tr:last-child th,
-.tt-twoiv               table.tinytable thead tr:last-child th,
-.tt-twoiv-nogof         table.tinytable thead tr:last-child th,
-.tt-threeiv             table.tinytable thead tr:last-child th,
-.tt-threeiv-nogof       table.tinytable thead tr:last-child th,
-.tt-threeiv-grouping    table.tinytable thead tr:last-child th,
-.tt-threeiv-grouping-se table.tinytable thead tr:last-child th,
-.tt-fouriv              table.tinytable thead tr:last-child th,
-.tt-fouriv-grouping     table.tinytable thead tr:last-child th,
-.tt-fouriv-grouping-se  table.tinytable thead tr:last-child th,
-.tt-fiveiv              table.tinytable thead tr:last-child th,
-.tt-sixiv               table.tinytable thead tr:last-child th,
-.tt-sixiv-nogof         table.tinytable thead tr:last-child th{
-  border-bottom: 0.5px solid #e1e2ea !important;
-}
-
-
-/* ---------------------------------------------------------------
-   3. Group-span underlines (grouping layouts only)
-   Short rules under the two DV groups (e.g. "Emergence" / "Survival"),
-   with a gap in the middle. The group-row cells are
-   [stub][group A][group B], i.e. the 2nd and 3rd <th> of that row.
-   --------------------------------------------------------------- */
-
-.tt-threeiv-grouping    table.tinytable thead tr:nth-child(2) th:nth-child(2)::after,
-.tt-threeiv-grouping    table.tinytable thead tr:nth-child(2) th:nth-child(3)::after,
+/* Short group lines for grouped 3-IV tables */
+.tt-threeiv-grouping table.tinytable thead tr:nth-child(2) th:nth-child(2)::after,
 .tt-threeiv-grouping-se table.tinytable thead tr:nth-child(2) th:nth-child(2)::after,
-.tt-threeiv-grouping-se table.tinytable thead tr:nth-child(2) th:nth-child(3)::after,
-.tt-fouriv-grouping     table.tinytable thead tr:nth-child(2) th:nth-child(2)::after,
-.tt-fouriv-grouping     table.tinytable thead tr:nth-child(2) th:nth-child(3)::after,
-.tt-fouriv-grouping-se  table.tinytable thead tr:nth-child(2) th:nth-child(2)::after,
-.tt-fouriv-grouping-se  table.tinytable thead tr:nth-child(2) th:nth-child(3)::after {
+.tt-threeiv-grouping table.tinytable thead tr:nth-child(2) th:nth-child(3)::after,
+.tt-threeiv-grouping-se table.tinytable thead tr:nth-child(2) th:nth-child(3)::after {
   content: "";
   display: block;
   border-bottom: 0.5px solid #e1e2ea;
 }
 
-/* Fine-tune the centre gap: trim the right edge of the left segment ... */
-.tt-threeiv-grouping    table.tinytable thead tr:nth-child(2) th:nth-child(2)::after,
-.tt-threeiv-grouping-se table.tinytable thead tr:nth-child(2) th:nth-child(2)::after,
-.tt-fouriv-grouping     table.tinytable thead tr:nth-child(2) th:nth-child(2)::after,
-.tt-fouriv-grouping-se  table.tinytable thead tr:nth-child(2) th:nth-child(2)::after {
-  margin: 0.5em 0.8em 0 0.2em;   /* more margin on the right → gap near centre */
+.tt-threeiv-grouping table.tinytable thead tr:nth-child(2) th:nth-child(2)::after,
+.tt-threeiv-grouping-se table.tinytable thead tr:nth-child(2) th:nth-child(2)::after {
+  margin: 0.5em 0.8em 0 0.2em;
 }
 
-/* ... and the left edge of the right segment */
-.tt-threeiv-grouping    table.tinytable thead tr:nth-child(2) th:nth-child(3)::after,
-.tt-threeiv-grouping-se table.tinytable thead tr:nth-child(2) th:nth-child(3)::after,
-.tt-fouriv-grouping     table.tinytable thead tr:nth-child(2) th:nth-child(3)::after,
-.tt-fouriv-grouping-se  table.tinytable thead tr:nth-child(2) th:nth-child(3)::after {
-  margin: 0.5em 0.2em 0 0.8em;   /* more margin on the left → same gap from the other side */
+.tt-threeiv-grouping table.tinytable thead tr:nth-child(2) th:nth-child(3)::after,
+.tt-threeiv-grouping-se table.tinytable thead tr:nth-child(2) th:nth-child(3)::after {
+  margin: 0.5em 0.2em 0 0.8em;
+}
+
+/* Line below model header */
+.tt-oneiv table.tinytable thead tr:last-child th,
+.tt-oneiv-nogof table.tinytable thead tr:last-child th,
+.tt-twoiv table.tinytable thead tr:last-child th,
+.tt-twoiv-nogof table.tinytable thead tr:last-child th,
+.tt-threeiv table.tinytable thead tr:last-child th,
+.tt-threeiv-nogof table.tinytable thead tr:last-child th,
+.tt-sixiv table.tinytable thead tr:last-child th,
+.tt-sixiv-nogof table.tinytable thead tr:last-child th,
+.tt-threeiv-grouping table.tinytable thead tr:last-child th,
+.tt-threeiv-grouping-se table.tinytable thead tr:last-child th {
+  border-bottom: 0.5px solid #e1e2ea !important;
 }
 
 
-/* ---------------------------------------------------------------
-   4. Body rules (per layout)
-   Thin (0.5px) rule separates coefficients from the GOF block;
-   thick (2px) rule closes the table after the last GOF row.
-   --------------------------------------------------------------- */
+/* ===== Body rules per-IV layout ===== */
 
-/* ----- 1 IV ----- */
-.tt-oneiv table.tinytable tbody tr:nth-child(4) td { border-bottom: 0.5px solid #e1e2ea !important; }
-.tt-oneiv table.tinytable tbody tr:nth-child(6) td { border-bottom: 2px   solid #e1e2ea !important; }
+/* 1-IV */
+.tt-oneiv table.tinytable tbody tr:nth-child(4) td {
+  border-bottom: 0.5px solid #e1e2ea !important;
+}
+.tt-oneiv table.tinytable tbody tr:nth-child(6) td {
+  border-bottom: 2px solid #e1e2ea !important;
+}
 
-/* 1 IV, no GOF */
-.tt-oneiv-nogof table.tinytable tbody tr:nth-child(4) td { border-bottom: 0.5px solid #e1e2ea !important; }
-.tt-oneiv-nogof table.tinytable tbody tr:nth-child(5) td { border-bottom: 2px   solid #e1e2ea !important; }
+/* 1-IV without GOF */
+.tt-oneiv-nogof table.tinytable tbody tr:nth-child(4) td {
+  border-bottom: 0.5px solid #e1e2ea !important;
+}
+.tt-oneiv-nogof table.tinytable tbody tr:nth-child(5) td {
+  border-bottom: 2px solid #e1e2ea !important;
+}
 
-/* 1 IV, with Std.Errors row (rows shift down by one) */
-.tt-oneiv-se table.tinytable tbody tr:nth-child(4) td { border-bottom: 0.5px solid #e1e2ea !important; }
-.tt-oneiv-se table.tinytable tbody tr:nth-child(7) td { border-bottom: 2px   solid #e1e2ea !important; }
+/* 2-IV */
+.tt-twoiv table.tinytable tbody tr:nth-child(6) td {
+  border-bottom: 0.5px solid #e1e2ea !important;
+}
+.tt-twoiv table.tinytable tbody tr:nth-child(9) td {
+  border-bottom: 2px solid #e1e2ea !important;
+}
 
-/* ----- 2 IV ----- */
-.tt-twoiv table.tinytable tbody tr:nth-child(6) td { border-bottom: 0.5px solid #e1e2ea !important; }
-.tt-twoiv table.tinytable tbody tr:nth-child(9) td { border-bottom: 2px   solid #e1e2ea !important; }
+/* 2-IV without GOF */
+.tt-twoiv-nogof table.tinytable tbody tr:nth-child(6) td {
+  border-bottom: 0.5px solid #e1e2ea !important;
+}
+.tt-twoiv-nogof table.tinytable tbody tr:nth-child(7) td {
+  border-bottom: 2px solid #e1e2ea !important;
+}
 
-/* 2 IV, no GOF */
-.tt-twoiv-nogof table.tinytable tbody tr:nth-child(6) td { border-bottom: 2px solid #e1e2ea !important; }
+/* 3-IV */
+.tt-threeiv table.tinytable tbody tr:nth-child(8) td {
+  border-bottom: 0.5px solid #e1e2ea !important;
+}
+.tt-threeiv table.tinytable tbody tr:nth-child(11) td {
+  border-bottom: 2px solid #e1e2ea !important;
+}
 
-/* ----- 3 IV ----- */
-.tt-threeiv table.tinytable tbody tr:nth-child(8)  td { border-bottom: 0.5px solid #e1e2ea !important; }
-.tt-threeiv table.tinytable tbody tr:nth-child(11) td { border-bottom: 2px   solid #e1e2ea !important; }
+/* 3-IV without GOF */
+.tt-threeiv-nogof table.tinytable tbody tr:nth-child(8) td {
+  border-bottom: 0.5px solid #e1e2ea !important;
+}
+.tt-threeiv-nogof table.tinytable tbody tr:nth-child(9) td {
+  border-bottom: 2px solid #e1e2ea !important;
+}
 
-/* 3 IV, no GOF */
-.tt-threeiv-nogof table.tinytable tbody tr:nth-child(8) td { border-bottom: 0.5px solid #e1e2ea !important; }
-.tt-threeiv-nogof table.tinytable tbody tr:nth-child(9) td { border-bottom: 2px solid #e1e2ea !important; }
+/* 3-IV with grouping */
+.tt-threeiv-grouping table.tinytable tbody tr:nth-child(8) td {
+  border-bottom: 0.5px solid #e1e2ea !important;
+}
 
-/* 3 IV, with grouping */
-.tt-threeiv-grouping table.tinytable tbody tr:nth-child(8)  td { border-bottom: 0.5px solid #e1e2ea !important; }
-.tt-threeiv-grouping table.tinytable tbody tr:nth-child(10) td { border-bottom: 2px   solid #e1e2ea !important; }
-
-/* 3 IV, with grouping + Std.Errors row */
-.tt-threeiv-grouping-se table.tinytable tbody tr:nth-child(8)  td { border-bottom: 0.5px solid #e1e2ea !important; }
-.tt-threeiv-grouping-se table.tinytable tbody tr:nth-child(11) td { border-bottom: 2px   solid #e1e2ea !important; }
-
-/* ----- 4 IV ----- */
-/* 4 IV (no grouping), room for two model-fit measures
-   5 coefficients (4 IVs + intercept) = 10 rows → thin rule after row 10;
-   GOF block on rows 11–13 → thick rule after row 13. */
-.tt-fouriv table.tinytable tbody tr:nth-child(10) td { border-bottom: 0.5px solid #e1e2ea !important; }
-.tt-fouriv table.tinytable tbody tr:nth-child(13) td { border-bottom: 2px   solid #e1e2ea !important; }
-
-/* 4 IV, with grouping + two model-fit rows */
-.tt-fouriv-grouping table.tinytable tbody tr:nth-child(10) td { border-bottom: 0.5px solid #e1e2ea !important; }
-.tt-fouriv-grouping table.tinytable tbody tr:nth-child(12) td { border-bottom: 2px   solid #e1e2ea !important; }
-
-/* 4 IV, with grouping + Std.Errors row (three GOF rows) */
-.tt-fouriv-grouping-se table.tinytable tbody tr:nth-child(10) td { border-bottom: 0.5px solid #e1e2ea !important; }
-.tt-fouriv-grouping-se table.tinytable tbody tr:nth-child(13) td { border-bottom: 2px   solid #e1e2ea !important; }
-
-/* ----- 5 IV ----- */
-/* 5 IV (no grouping), room for two model-fit measures
-   6 coefficients (5 IVs + intercept) = 12 rows → thin rule after row 12;
-   GOF block on rows 13–15 → thick rule after row 15. */
-.tt-fiveiv table.tinytable tbody tr:nth-child(12) td { border-bottom: 0.5px solid #e1e2ea !important; }
-.tt-fiveiv table.tinytable tbody tr:nth-child(15) td { border-bottom: 2px   solid #e1e2ea !important; }
-
-/* ----- 6 IV ----- */
-/* 6 IV (no grouping), room for two model-fit measures
-   7 coefficients (6 IVs + intercept) = 14 rows → thin rule after row 14;
-   GOF block on rows 15–18 → thick rule after row 18. */
-.tt-sixiv table.tinytable tbody tr:nth-child(14) td { border-bottom: 0.5px solid #e1e2ea !important; }
-.tt-sixiv table.tinytable tbody tr:nth-child(17) td { border-bottom: 2px   solid #e1e2ea !important; }
+.tt-threeiv-grouping table.tinytable tbody tr:nth-child(10) td {
+  border-bottom: 2px solid #e1e2ea !important;
+}
 
 
-/* 6 IV, no GOF */
-.tt-sixiv-nogof table.tinytable tbody tr:nth-child(14) td { border-bottom: 0.5px solid #e1e2ea !important; }
-.tt-sixiv-nogof table.tinytable tbody tr:nth-child(15) td { border-bottom: 2px   solid #e1e2ea !important; }
+/* 3-IV with grouping and custom SE row */
+.tt-threeiv-grouping-se table.tinytable tbody tr:nth-child(8) td {
+  border-bottom: 0.5px solid #e1e2ea !important;
+}
 
+.tt-threeiv-grouping-se table.tinytable tbody tr:nth-child(11) td {
+  border-bottom: 2px solid #e1e2ea !important;
+}
+
+/* 6-IV */
+.tt-sixiv table.tinytable tbody tr:nth-child(14) td {
+  border-bottom: 0.5px solid #e1e2ea !important;
+}
+.tt-sixiv table.tinytable tbody tr:nth-child(17) td {
+  border-bottom: 2px solid #e1e2ea !important;
+}
+
+/* 6-IV without GOF */
+.tt-sixiv-nogof table.tinytable tbody tr:nth-child(14) td {
+  border-bottom: 0.5px solid #e1e2ea !important;
+}
+.tt-sixiv-nogof table.tinytable tbody tr:nth-child(15) td {
+  border-bottom: 2px solid #e1e2ea !important;
+}
 
 /* ----------------------------------------
    Delayed (date-restricted) inline links
@@ -1448,4 +1375,219 @@ main.content .footnotes p,
 main.content nav p,
 main.content aside p {
   text-align: left;
+}
+
+
+
+/* ==========================================================================
+   Inline glossary terms and acronym popovers
+   ========================================================================== */
+
+/* Shared interactive behaviour */
+.gls,
+.acr,
+.acrfull {
+  color: inherit;
+  cursor: help;
+  padding: 0 0.05em;
+  position: relative;
+}
+
+/* Glossary terms */
+.gls {
+  border-bottom: 0.12em dotted currentColor;
+}
+
+/* Question-mark badge only for glossary terms */
+.gls::after {
+  content: "?";
+  display: inline-block;
+  margin-left: 0.12em;
+
+  font-size: 0.65em;
+  font-weight: 700;
+  line-height: 1;
+  vertical-align: super;
+}
+
+/* Short acronym form */
+.acr {
+  border-bottom: 0.12em dotted currentColor;
+}
+
+/* Full acronym form: long form (SHORT) */
+.acrfull {
+  border-bottom: 0.12em dashed currentColor;
+}
+
+/* Keyboard focus */
+.gls:focus-visible,
+.acr:focus-visible,
+.acrfull:focus-visible {
+  outline: 3px solid var(--bs-primary, #0d6efd);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Missing-entry debug indicator */
+body[data-gls-debug="true"] .gls--missing {
+  border-bottom-color: #b00020;
+  outline: 1px dashed #b00020;
+}
+
+/* ==========================================================================
+   Popover
+   ========================================================================== */
+
+.gls-popover {
+  position: fixed !important;
+  z-index: 2147483647 !important;
+
+  width: max-content;
+  max-width: min(22rem, calc(100vw - 2rem));
+
+  box-sizing: border-box;
+  padding: 0.75rem 0.9rem;
+
+  color: var(--bs-body-color, inherit);
+  background: var(--bs-body-bg, Canvas);
+
+  border: 2px solid currentColor;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+
+  font-family:
+    var(--bs-body-font-family),
+    "FS Me",
+    "Lexend Deca",
+    "Gill Sans",
+    "Gill Sans MT",
+    Calibri,
+    "Trebuchet MS",
+    sans-serif;
+
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-align: left;
+
+  pointer-events: auto;
+}
+
+.gls-popover[hidden] {
+  display: none !important;
+}
+
+.gls-popover__title {
+  display: block;
+  margin-bottom: 0.35rem;
+
+  color: inherit;
+  font-weight: 700;
+}
+
+.gls-popover__body {
+  color: inherit;
+}
+
+.gls-popover__body > :first-child {
+  margin-top: 0;
+}
+
+.gls-popover__body > :last-child {
+  margin-bottom: 0;
+}
+
+
+/* ==========================================================================
+   Glossary list (booktabs style)
+   ========================================================================== */
+
+.glossary-rendered {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+
+    font-family:
+    var(--gls-font-family),
+    "Lexend Deca",
+    "Gill Sans",
+    "Gill Sans MT",
+    Calibri,
+    "Trebuchet MS",
+    sans-serif;
+    
+  margin: 1.5rem 0;
+  padding: 0.6rem 0;
+
+  font-size: 0.85rem;
+  line-height: 1.5;
+
+  color: inherit;
+  background: transparent;
+
+  border-top: 4px double currentColor;
+  border-bottom: 4px double currentColor;
+
+  overflow-wrap: anywhere;
+}
+
+.glossary-rendered .glossary-entry {
+  display: grid;
+  grid-template-columns: minmax(0, 28%) minmax(0, 1fr);
+  column-gap: 2rem;
+  align-items: start;
+
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+
+  margin: 0;
+  padding: 0.6rem 0;
+
+  break-inside: avoid;
+}
+
+.glossary-rendered .glossary-term,
+.glossary-rendered .glossary-definition {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+
+  margin: 0;
+  padding: 0;
+
+  color: inherit;
+  background: transparent;
+
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.glossary-rendered .glossary-term {
+  font-weight: 700;
+}
+
+.glossary-rendered .glossary-definition {
+  font-weight: 400;
+}
+
+.glossary-rendered .glossary-term > :first-child,
+.glossary-rendered .glossary-definition > :first-child {
+  margin-top: 0;
+}
+
+.glossary-rendered .glossary-term > :last-child,
+.glossary-rendered .glossary-definition > :last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 700px) {
+  .glossary-rendered .glossary-entry {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0.25rem;
+  }
+
+  .glossary-rendered .glossary-term {
+    margin-bottom: 0.25rem;
+  }
 }
