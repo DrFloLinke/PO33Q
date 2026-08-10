@@ -1,0 +1,474 @@
+---
+title: ""
+fontsize: 11pt
+format:
+  pdf:
+    pdf-engine: lualatex
+    toc: false
+    number-sections: false
+    mainfont: "Arial"
+    mathfont: "Fira Math"
+    
+    cite-method: biblatex
+    biblio-config: false
+    
+    colorlinks: true
+    linkcolor: black
+    urlcolor: black
+    citecolor: black
+    
+execute:
+  echo: false
+  warning: false
+  message: false
+  error: false
+  collapse: true
+  
+include-in-header:
+  text: |
+    \usepackage{graphicx}
+    \usepackage{float}
+    \usepackage{tikz}     % for the box on the cover page
+    \usetikzlibrary{calc} % for the box on the cover page
+    \newcommand*{\titleGM}{%
+    \begin{tikzpicture}[remember picture,overlay]
+    \draw[line width=1pt]
+      ($(current page.north west)+(18mm,-18mm)$) rectangle
+      ($(current page.south east)+(-18mm,18mm)$);
+    \end{tikzpicture}
+    \begingroup
+    \thispagestyle{empty}
+    \begin{center}
+    \vspace*{0.5\baselineskip}
+    \includegraphics[width=0.17\linewidth]{Crest.png}\\[2\baselineskip]
+    \end{center}
+    \hbox{%
+    \hspace*{0.105\textwidth}%
+    \parbox[b][0.65\textheight]{0.85\textwidth}{%
+      {\noindent\LARGE\bfseries PO33Q - The Life and Death of Democracies:\\[0.5em]and Dictatorships: A Quantitative Perspective\\}\\[1\baselineskip]
+      {\noindent\Large\bfseries Summative Assessment\\}\\[2\baselineskip]
+      {\large \textit{\textbf{Warwick ID:} u1234567}}\\
+      \vspace*{3cm}\\
+      {\large Number of Words: XXXX}\\
+      {\large Words for Figures and Tables: XXXX}\\
+      {\large Total Number of Words: XXXX}\\[3\baselineskip]
+    % place the Warwick logo exactly at bottom-right, inset 18mm like the frame:
+    \begin{tikzpicture}[remember picture,overlay]
+      \node[anchor=south east, xshift=-24mm, yshift=24mm] at (current page.south east)
+      {\includegraphics[width=0.25\textwidth]{Warwick.png}};
+    \end{tikzpicture}
+    }}
+    \endgroup
+    }
+    \usepackage[style=apa,backend=biber,natbib=true]{biblatex} % sets the bib style
+    \addbibresource{referencesPO33Q.bib} % this is the .bib resource file
+    \usepackage{booktabs} % for tables
+    \usepackage{placeins} % set barriers within which figures are placed
+    \floatplacement{table}{H}
+    \floatplacement{figure}{H}
+    \usepackage{tocloft}                            % For dotted leaders control
+    \renewcommand{\cftdotsep}{1}                    % Space between dots
+    \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % force dots for sections
+    \renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}    % …subsections
+    \renewcommand{\cftsubsubsecleader}{\cftdotfill{\cftdotsep}} % …subsubsections
+    \PassOptionsToPackage{table}{xcolor}  % xcolor for setting grey background
+    \definecolor{lightgray}{HTML}{f0f0f0} % choose grey for background
+    \pagecolor{lightgray}                 % set background color
+    \usepackage{makecell}  % allow line breaks in modelsummary
+    \usepackage{setspace}  % allow onehalfspacing
+    \usepackage{needspace} % the remainder forces page breaks if
+    \usepackage{etoolbox}  % too little space remains after a (sub-)section heading
+    \preto{\section}{\par\Needspace*{7\baselineskip}}
+    \preto{\subsection}{\par\Needspace*{6\baselineskip}}
+    \preto{\subsubsection}{\par\Needspace*{5\baselineskip}}
+---
+
+```{r setup, include=FALSE}
+# global options for code chunks
+knitr::opts_chunk$set(
+  echo = FALSE, warning = FALSE, message = FALSE, error = FALSE, collapse = TRUE)
+
+library(tidyverse)
+theme_po33q <- theme_classic()+
+    theme(panel.background = element_rect(fill='transparent'), #transparent panel bg
+          plot.background = element_rect(fill='transparent', color=NA), #transparent plot bg
+          panel.grid.major = element_blank(), #remove major gridlines
+          panel.grid.minor = element_blank(), #remove minor gridlines
+          legend.background = element_rect(fill='transparent'), #transparent legend bg
+          legend.box.background = element_rect(fill='transparent')) #transparent legend panel)
+```
+
+
+\thispagestyle{empty}
+
+```{=latex}
+\titleGM
+\clearpage
+```
+
+\newpage
+
+```{=latex}
+\pagenumbering{roman}
+\setcounter{tocdepth}{4}
+\renewcommand{\contentsname}{Table of Contents}
+\tableofcontents
+```
+
+\newpage
+
+\phantomsection
+\addcontentsline{toc}{section}{List of Figures}
+\listoffigures
+
+\phantomsection
+\addcontentsline{toc}{section}{List of Tables}
+\listoftables
+
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\onehalfspacing
+
+
+# Introduction
+
+- State the puzzle and the resulting research question
+- RQ: "Does the effect of income on democracy depend on how oil-dependent a country is?"
+- Outline the plan of the study
+- State the main findings
+
+
+# Literature Review & Theory
+
+- Review the relevant literature, here for example:  \citet{lipset:1959,prz:2000,beblawi:1987,ross:2001,ross:2012,brooks:2016,karl:1997}
+- Deduct the gap you are filling
+- Explain the causal chain of your theory
+
+
+# Hypotheses
+
+- State the hypotheses you are testing:
+  - H$_1$: Within countries, rising income is associated with higher levels of democracy.
+  - H$_2$: This within-country effect of income is weakened by oil dependence.
+
+# Conceptualisation & Measurement
+
+- State the concepts
+- Choose appropriate measures
+
+\FloatBarrier
+::: {#tbl-conceptualisation tbl-cap="Conceptualisation and Measurement"}
+\fontsize{8}{10}\selectfont
+\centering
+\begin{tabular}{lll}
+        &  \\[-1.8ex] \specialrule{.08em}{.05em}{.17em}\hline
+        &  \\[-1.8ex]
+Concept                 &  Attribute                        &   Variable                        \\
+\hline
+        &  \\[-1.2ex]
+\multicolumn{2}{l}{\textbf{Dependent Variable}}     &                \\
+\addlinespace
+Democracy       &   Participation             &   Polity V score ($-10$ to $+10$)  \\
+                &   Contestation              &                      \\
+\addlinespace
+\addlinespace
+\multicolumn{2}{l}{\textbf{Independent Variables}}  &                \\
+\addlinespace
+Economic Development  &     Wealth            & GDP per capita (current US Dollars) \\
+\addlinespace
+Resource Curse        &     Oil Dependence    & Oil rents (\% of GDP)               \\
+\hline\specialrule{.08em}{.17em}{.05em} 
+& \\[-1.8ex]
+\end{tabular}
+:::
+\FloatBarrier
+
+
+# Data & Methodology
+
+- Outline the data used for analysis
+- Explain the fixed-effects (within) estimator and how it addresses unobserved heterogeneity by absorbing all stable, country-specific characteristics into a country-specific baseline
+- Explain how Driscoll-Kraay standard errors are still applied on top of the fixed effects, to address autocorrelation and cross-sectional dependence, and be clear that they correct the standard errors, not the coefficients
+- Explain the lagging of the independent variables, that all data preparation is done on a plain data frame before the panel structure is declared, and that the dependent variable must **not** be lagged under fixed effects (dynamic panel / Nickell bias)
+- Note the trade-off: time-invariant variables cannot be estimated, and slowly-moving variables are estimated imprecisely
+
+We model the level of democracy as a linear function of income, oil dependence, and their interaction, estimated by a country fixed-effects (within) model. The interaction specification is
+
+$$
+\text{Polity}_{i,t} = \alpha_i
++ \beta_1 \ln\!\text{GDP}_{i,t-1}
++ \beta_2 \ln\!\text{Oil}_{i,t-1}
++ \beta_3 \left(\ln\!\text{GDP}_{i,t-1} \times \ln\!\text{Oil}_{i,t-1}\right)
++ \epsilon_{i,t}
+$$ {#eq-fe}
+
+where $\alpha_i$ is a country fixed effect that absorbs every stable, unobserved difference between countries, so the coefficients are identified by within-country change over time. Income's within-country effect on democracy at a given level of oil dependence is $\beta_1 + \beta_3 \times \text{Oil}$, the quantity we evaluate in @tbl-mfx-oil. Inference throughout uses Driscoll-Kraay standard errors, which leave @eq-fe's coefficients untouched but widen their uncertainty to acknowledge that observations on the same country, and across countries in the same year, are not independent.
+
+
+# Analysis
+
+- Test the hypotheses
+- Explain what the results mean for the hypotheses
+- Answer your research question
+
+The code below answers the question whether income's effect on democracy depends on how oil-dependent a country is, using a fixed-effects (within) estimator with Driscoll-Kraay standard errors. Country fixed effects absorb every stable difference between countries, so the estimates rest on within-country change over time. The interaction coefficient is directly interpretable in a linear model, but to put it in concrete units we still need to calculate income's within-country effect at low, average, and high oil dependence; a small helper (`effect_at`) builds those numbers and their Driscoll-Kraay uncertainty for a neat results table -- do not even dream of pasting raw `coeftest()` output into the assessment.
+
+::: {.callout-important}
+This is not a complete analysis. In the actual assessment you will have to do more than estimate four (arguably underspecified) models in order to do well. This is just to illustrate how to incorporate all this into a quarto document.
+:::
+
+\bigskip
+
+```{r}
+#| echo: false
+#| eval: true
+#| tbl-cap: "Income, Oil, and their Interaction as Determinants of Democracy (Country Fixed Effects), 1960-2018"
+#| label: tbl-fe-oil
+
+library(modelsummary)
+library(plm)
+library(lmtest)
+library(tinytable)
+library(tibble)
+library(dplyr)
+library(readr)
+library(tidyr)
+
+# ============================================================
+# 0. LOAD DATA, BUILD VARIABLES, DECLARE THE PANEL
+# ============================================================
+
+# Load data (replace with your region's file)
+world <- read_csv("world.csv")
+
+# Do ALL data preparation on the plain data frame FIRST, then declare the panel.
+# dplyr::lag() is called explicitly to avoid the plm::lag() masking trap.
+# NB: never lag the dependent variable in a fixed-effects model (Nickell bias).
+world <- world %>%
+  arrange(countrycode, year) %>%
+  group_by(countrycode) %>%
+  mutate(
+    l.log_gdppc = dplyr::lag(log(gdppc)),       # income, lagged one year
+    l.log_oil   = dplyr::lag(log(oil + 1))      # oil dependence, lagged (+1 for zeros)
+  ) %>%
+  ungroup() %>%
+  drop_na(polity5, l.log_gdppc, l.log_oil)      # polity5 = continuous democracy score
+
+# Declare the panel structure as the FINAL step of data prep
+pdata <- pdata.frame(world, index = c("countrycode", "year"))
+
+# ============================================================
+# 1. FOUR FIXED-EFFECTS SPECIFICATIONS
+# ============================================================
+
+# model = "within" is R's term for fixed effects;
+# effect = "individual" places them at the country level.
+
+m_gdp <- plm(polity5 ~ l.log_gdppc,             data = pdata,
+             model = "within", effect = "individual")
+m_oil <- plm(polity5 ~ l.log_oil,               data = pdata,
+             model = "within", effect = "individual")
+m_add <- plm(polity5 ~ l.log_gdppc + l.log_oil, data = pdata,
+             model = "within", effect = "individual")
+m_int <- plm(polity5 ~ l.log_gdppc * l.log_oil, data = pdata,
+             model = "within", effect = "individual")
+
+# ============================================================
+# 2. DRISCOLL-KRAAY VCOVs (the honest standard errors)
+# ============================================================
+
+# vcovSCC = Spatial-and-Serial-Correlation-Consistent (Driscoll-Kraay),
+# clustered by time. Coefficients are unchanged; only the uncertainty differs.
+
+dk_gdp <- vcovSCC(m_gdp, type = "HC3", cluster = "time")
+dk_oil <- vcovSCC(m_oil, type = "HC3", cluster = "time")
+dk_add <- vcovSCC(m_add, type = "HC3", cluster = "time")
+dk_int <- vcovSCC(m_int, type = "HC3", cluster = "time")
+
+# Order MUST match the model order in modelsummary() below.
+vcov_list <- list(
+  "Driscoll-Kraay" = dk_gdp, 
+  "Driscoll-Kraay" = dk_oil, 
+  "Driscoll-Kraay" = dk_add, 
+  "Driscoll-Kraay" = dk_int)
+
+# ============================================================
+# 3. COEFFICIENT LABELS  (no intercept: it is absorbed by the FE)
+# ============================================================
+
+cm <- c(
+  'l.log_gdppc'           = 'per capita GDP (logged, lagged)',
+  'l.log_oil'             = 'Oil dependence (logged, lagged)',
+  'l.log_gdppc:l.log_oil' = 'GDP × Oil'
+)
+
+# ============================================================
+# 4. "COUNTRY FE = YES" INDICATOR ROW
+# ============================================================
+
+# Sits just below the coefficient block (3 labels = 6 rows); nudge if you change cm.
+rows <- tibble(
+  `~term` = "Country fixed effects",
+  `~(1)`  = "Yes",
+  `~(2)`  = "Yes",
+  `~(3)`  = "Yes",
+  `~(4)`  = "Yes"
+)
+attr(rows, "position") <- 7
+
+# ============================================================
+# 5. RESULTS TABLE
+# ============================================================
+
+modelsummary(
+  list(
+    "GDP Only"    = m_gdp,
+    "Oil Only"    = m_oil,
+    "Additive"    = m_add,
+    "Interaction" = m_int
+  ),
+  vcov      = vcov_list,
+  estimate  = "{estimate}{stars}",
+  statistic = "({std.error})",
+  gof_omit  = 'AIC|BIC|Log.Lik|F|RMSE',
+  coef_map  = cm,
+  escape    = FALSE,
+  notes = paste(
+  c(
+    "+ p < 0.1, * p < 0.05, ** p < 0.01, *** p < 0.001",
+    "Country fixed effects (within estimator) absorb all stable, time-invariant country characteristics.",
+    "Driscoll-Kraay standard errors (HC3) in parentheses, robust to autocorrelation and cross-sectional dependence."
+  ),
+  collapse = "\n\\newline "
+),
+  add_rows  = rows
+) |>
+  group_tt(j = list("Dependent Variable: Democracy (Polity V)" = 2:5)) |>
+  theme_latex(placement= "H") |>
+  theme_latex(resize_width= 0.85, resize_direction="both")
+```
+
+
+
+## Reading the interaction
+
+Two things shape how to read the interaction between GDP and oil dependence in @tbl-fe-oil:
+
+1. These are within-country estimates: the country fixed effects have swept out everything stable about each country, so the model is no longer asking whether richer countries are more democratic, but whether a country becomes more democratic as it grows richer. 
+2. Because the model is linear, the interaction coefficient is directly interpretable -- it is the amount by which that within-country income effect changes for each additional unit of logged oil dependence. Here it is negative and highly significant, so income's democratising effect, is weaker the more that country leans on oil. @tbl-mfx-oil puts that into concrete units: the within-country effect of income on the Polity score where oil is scarce, average, and abundant, each carrying the Driscoll-Kraay uncertainty from the main table.
+
+
+```{r}
+#| label: tbl-mfx-oil
+#| tbl-cap: "Within-country effect of a one-unit rise in logged GDP per capita on the Polity V democracy score, by oil dependence."
+#| echo: false
+#| message: false
+#| warning: false
+
+library(tinytable)
+
+# A common grid of oil values: low (-1 SD), average, high (+1 SD)
+oil_m    <- mean(world$l.log_oil, na.rm = TRUE)
+oil_s    <- sd(world$l.log_oil,   na.rm = TRUE)
+oil_grid <- c(oil_m - oil_s, oil_m, oil_m + oil_s)
+
+# Income's within-country effect at oil = o is  b_gdp + b_int * o.
+# Its SE draws on Var(b_gdp), Var(b_int) AND the covariance between them,
+# all read from the Driscoll-Kraay matrix dk_int (the off-diagonal earns its keep).
+b   <- coef(m_int)
+V   <- dk_int
+gG  <- "l.log_gdppc"
+gI  <- "l.log_gdppc:l.log_oil"
+
+effect_at <- function(o) {
+  est <- b[gG] + b[gI] * o
+  se  <- sqrt(V[gG, gG] + o^2 * V[gI, gI] + 2 * o * V[gG, gI])
+  z   <- est / se
+  c(est = as.numeric(est),
+    p   = 2 * pnorm(-abs(as.numeric(z))),
+    lo  = as.numeric(est - 1.96 * se),
+    hi  = as.numeric(est + 1.96 * se))
+}
+
+res  <- t(sapply(oil_grid, effect_at))
+f    <- function(x) formatC(x, format = "f", digits = 3)
+star <- ifelse(res[, "p"] < .001, "***",
+        ifelse(res[, "p"] < .01,  "**",
+        ifelse(res[, "p"] < .05,  "*",
+        ifelse(res[, "p"] < .1,   "+", ""))))
+
+mfx_tab <- data.frame(
+  `Oil dependence` = c("Low (-1 SD)", "Average", "High (+1 SD)"),
+  `Effect of GDP`  = paste0(f(res[, "est"]), star,
+                            " (", f(res[, "lo"]), ", ", f(res[, "hi"]), ")"),
+  check.names = FALSE
+)
+
+tinytable::tt(mfx_tab, 
+              notes = paste(
+  c(
+    "+ p < 0.1, * p < 0.05, ** p < 0.01, *** p < 0.001",
+              "95\\% confidence interval in parentheses. Driscoll-Kraay (HC3) standard errors built from the fixed-effects model’s variance-covariance matrix."
+  )))|>
+  theme_latex(placement = "H") |>
+  theme_latex(resize_width = 0.45, resize_direction = "both")
+```
+
+
+## Interpretation
+
+Read income's within-country effect down the rows of @tbl-mfx-oil, and the resource curse is plainly there. Income raises the Polity score strongly at every level of oil -- by a little over two points where oil is scarce -- but the effect falls steadily as oil dependence rises, from about 2.4 points at low oil to roughly 1.6 at high oil. That is close to a third of income's pull stripped away by a two-standard-deviation move toward oil dependence: still a positive, clearly significant effect everywhere, but a markedly weaker one where oil dominates. Because every interval excludes zero, this is not a pattern teetering on significance; it is a clean attenuation. 
+
+The uncertainty on each conditional effect is the variance-covariance matrix at work: income's effect at a level of oil is $\beta_1 + \beta_3 \times \text{oil}$, so its standard error combines the variance of $\beta_1$, the variance of $\beta_3$, and twice the covariance between them, and the Driscoll-Kraay version of that matrix is what makes the interval honest about autocorrelation and cross-sectional dependence.
+
+So, you might ask, how do we square this attenuation with the large, significant oil coefficient in the interaction column in @tbl-fe-oil? Remember how to interpret interaction effects: lower-order terms in an interaction are always conditional on the other variable being zero. So the coefficient represents oil's estimated effect when logged income is zero. So substantively it would show us the effect in a country with essentially no income -- well outside anything in the data. This is exactly why the interaction is read through the conditional effects in @tbl-mfx-oil rather than off the raw coefficients. The raw coefficient is NOT evidence that oil promotes democracy. 
+
+In the interpretation more generally, it is important to acknowledge two caveats:
+
+1. Fixed effects neutralise stable confounders but not time-varying ones: a shock that moves both income and democracy together within a country can still bias the estimate, and lagging the regressors mitigates reverse causality without eliminating it. 
+2. If you include independent variables that move only sluggishly within countries tend to be estimated imprecisely. This is not the case here, because oil dependence varies enough within these countries to be pinned down well. But should you find yourself in such a situation, fixed effects can say nothing about time-invariant characteristics: anything that does not change within a country is gone, so this design cannot test claims about stable national traits. 
+
+With those qualifications stated, the answer to the research question is clear in @tbl-mfx-oil: within countries, income consistently raises democracy, and oil dependence consistently weakens that effect -- by roughly a third across a two-standard-deviation swing in oil -- so both hypotheses find support.
+
+
+# Discussion
+
+- What is your contribution to the existing literature?
+- Discuss reasons why you have obtained your results
+  - Why might coefficients be insignificant?
+  - What alternative explanations are there?
+- Relate your findings to the existing literature
+ 
+
+# Conclusion
+
+- State what the study has done
+- State the main findings
+- Answer your research question
+
+
+
+
+
+\newpage
+
+```{=latex}
+\clearpage
+\printbibliography[heading=bibintoc,title={List of References}]
+\let\printbibliography\relax
+```
+
+\newpage
+
+```{=latex}
+\appendix
+\section{Appendix}
+```
+
+```{r echo=TRUE, eval=FALSE}
+# here goes all of your Rscript
+
+x <- 1:10
+mean(x)
+```
