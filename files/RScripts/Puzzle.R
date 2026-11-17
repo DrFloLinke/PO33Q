@@ -85,29 +85,29 @@ rest <- anti_join(world, la, by = c("countrycode", "year"))
 # Calculate averages
 # -----------------------
 
-la_avg <- la %>%
-  group_by(year) %>%
+la_avg <- la |>
+  group_by(year) |>
   summarise(gdpavg = mean(gdppc, na.rm = TRUE),
-            polityavg = mean(polity5, na.rm = TRUE)) %>%
-  ungroup() %>%
+            polityavg = mean(polity5, na.rm = TRUE)) |>
+  ungroup() |>
   mutate(region = "Latin America")
 
-rest_avg <- rest %>%
-  group_by(year) %>%
+rest_avg <- rest |>
+  group_by(year) |>
   summarise(gdpavg = mean(gdppc, na.rm = TRUE),
-            polityavg = mean(polity5, na.rm = TRUE)) %>%
-  ungroup() %>%
+            polityavg = mean(polity5, na.rm = TRUE)) |>
+  ungroup() |>
   mutate(region = "Rest of World")
 
 # -----------------------
 # Combine and reshape
 # -----------------------
 
-combined_long <- bind_rows(la_avg, rest_avg) %>%
-  mutate(region = factor(region, levels = c("Latin America", "Rest of World"))) %>%
+combined_long <- bind_rows(la_avg, rest_avg) |>
+  mutate(region = factor(region, levels = c("Latin America", "Rest of World"))) |>
   pivot_longer(cols = c(gdpavg, polityavg),
                names_to = "variable",
-               values_to = "value") %>%
+               values_to = "value") |>
   mutate(variable = recode(variable,
                            "gdpavg" = "Average per capita GDP",
                            "polityavg" = "Average PolityV Score"))
@@ -156,29 +156,29 @@ rest <- anti_join(world, ssa, by = c("countrycode", "year"))
 # Calculate averages
 # -----------------------
 
-ssa_avg <- ssa %>%
-  group_by(year) %>%
+ssa_avg <- ssa |>
+  group_by(year) |>
   summarise(gdpavg = mean(gdppc, na.rm = TRUE),
-            polityavg = mean(polity5, na.rm = TRUE)) %>%
-  ungroup() %>%
+            polityavg = mean(polity5, na.rm = TRUE)) |>
+  ungroup() |>
   mutate(region = "Sub-Saharan Africa")
 
-rest_avg <- rest %>%
-  group_by(year) %>%
+rest_avg <- rest |>
+  group_by(year) |>
   summarise(gdpavg = mean(gdppc, na.rm = TRUE),
-            polityavg = mean(polity5, na.rm = TRUE)) %>%
-  ungroup() %>%
+            polityavg = mean(polity5, na.rm = TRUE)) |>
+  ungroup() |>
   mutate(region = "Rest of World")
 
 # -----------------------
 # Combine and reshape
 # -----------------------
 
-combined_long <- bind_rows(ssa_avg, rest_avg) %>%
-  mutate(region = factor(region, levels = c("Sub-Saharan Africa", "Rest of World"))) %>%
+combined_long <- bind_rows(ssa_avg, rest_avg) |>
+  mutate(region = factor(region, levels = c("Sub-Saharan Africa", "Rest of World"))) |>
   pivot_longer(cols = c(gdpavg, polityavg),
                names_to = "variable",
-               values_to = "value") %>%
+               values_to = "value") |>
   mutate(variable = recode(variable,
                            "gdpavg" = "Average per capita GDP",
                            "polityavg" = "Average PolityV Score"))
@@ -226,29 +226,29 @@ rest <- anti_join(world, sea, by = c("countrycode", "year"))
 # Calculate averages
 # -----------------------
 
-sea_avg <- sea %>%
-  group_by(year) %>%
+sea_avg <- sea |>
+  group_by(year) |>
   summarise(gdpavg = mean(gdppc, na.rm = TRUE),
-            polityavg = mean(polity5, na.rm = TRUE)) %>%
-  ungroup() %>%
+            polityavg = mean(polity5, na.rm = TRUE)) |>
+  ungroup() |>
   mutate(region = "South-East Asia")
 
-rest_avg <- rest %>%
-  group_by(year) %>%
+rest_avg <- rest |>
+  group_by(year) |>
   summarise(gdpavg = mean(gdppc, na.rm = TRUE),
-            polityavg = mean(polity5, na.rm = TRUE)) %>%
-  ungroup() %>%
+            polityavg = mean(polity5, na.rm = TRUE)) |>
+  ungroup() |>
   mutate(region = "Rest of World")
 
 # -----------------------
 # Combine and reshape
 # -----------------------
 
-combined_long <- bind_rows(sea_avg, rest_avg) %>%
-  mutate(region = factor(region, levels = c("South-East Asia", "Rest of World"))) %>%
+combined_long <- bind_rows(sea_avg, rest_avg) |>
+  mutate(region = factor(region, levels = c("South-East Asia", "Rest of World"))) |>
   pivot_longer(cols = c(gdpavg, polityavg),
                names_to = "variable",
-               values_to = "value") %>%
+               values_to = "value") |>
   mutate(variable = recode(variable,
                            "gdpavg" = "Average per capita GDP",
                            "polityavg" = "Average PolityV Score"))
@@ -298,29 +298,29 @@ rest <- anti_join(world, me, by = c("countrycode", "year"))
 # Calculate averages
 # -----------------------
 
-me_avg <- me %>%
-  group_by(year) %>%
+me_avg <- me |>
+  group_by(year) |>
   summarise(gdpavg = mean(gdppc, na.rm = TRUE),
-            polityavg = mean(polity5, na.rm = TRUE)) %>%
-  ungroup() %>%
+            polityavg = mean(polity5, na.rm = TRUE)) |>
+  ungroup() |>
   mutate(region = "Middle East")
 
-rest_avg <- rest %>%
-  group_by(year) %>%
+rest_avg <- rest |>
+  group_by(year) |>
   summarise(gdpavg = mean(gdppc, na.rm = TRUE),
-            polityavg = mean(polity5, na.rm = TRUE)) %>%
-  ungroup() %>%
+            polityavg = mean(polity5, na.rm = TRUE)) |>
+  ungroup() |>
   mutate(region = "Rest of World")
 
 # -----------------------
 # Combine and reshape
 # -----------------------
 
-combined_long <- bind_rows(me_avg, rest_avg) %>%
-  mutate(region = factor(region, levels = c("Middle East", "Rest of World"))) %>%
+combined_long <- bind_rows(me_avg, rest_avg) |>
+  mutate(region = factor(region, levels = c("Middle East", "Rest of World"))) |>
   pivot_longer(cols = c(gdpavg, polityavg),
                names_to = "variable",
-               values_to = "value") %>%
+               values_to = "value") |>
   mutate(variable = recode(variable,
                            "gdpavg" = "Average per capita GDP",
                            "polityavg" = "Average PolityV Score"))

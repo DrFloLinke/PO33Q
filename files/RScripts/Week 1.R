@@ -38,7 +38,7 @@ str(example)
 # Create income category
 # -----------------------
 
-example <- example %>% 
+example <- example |> 
   mutate(incomecat =
            ordered(
              cut(gdp, breaks=c(0, 20000, Inf), 
